@@ -123,5 +123,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\loop.png" />
+    <Resource Include="Resources\mute.png" />
+    <Resource Include="Resources\unloop.png" />
+    <Resource Include="Resources\unmute.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

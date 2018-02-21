@@ -536,15 +536,21 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("StatusPane");
         }
 
-        public void AddItemToEnglishTab(String p_Item)
+        public void AddItemToEnglishTab(List<String> p_Items)
         {
-            _EnglishTabListBoxItems.Add(p_Item);
+            foreach (var p_Item in p_Items)
+            {
+                _EnglishTabListBoxItems.Add(p_Item);
+            }
             RaisePropertyChanged("EnglishTabListBoxItems");
         }
 
-        public void AddItemToSourceTab(String p_Item)
+        public void AddItemToSourceTab(List<String> p_Items)
         {
-            _SourceTabListBoxItems.Add(p_Item);
+            foreach (var p_Item in p_Items)
+            {
+                _SourceTabListBoxItems.Add(p_Item);
+            }
             RaisePropertyChanged("SourceTabListBoxItems");
         }
         #endregion

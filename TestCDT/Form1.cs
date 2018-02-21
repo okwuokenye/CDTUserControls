@@ -30,7 +30,8 @@ namespace TestCDT
 
             ctrl.Visibility = System.Windows.Visibility.Visible;
             //elementHost1.BackColor = Color.Black;
-            ctrl.AddItemToEnglishTab("Try Me");
+            List<String> l_Items = new List<String>() { "Try Me", "Try Me", "Try Me" };
+            ctrl.AddItemToEnglishTab(l_Items);
 
             //add event listener here
             ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;

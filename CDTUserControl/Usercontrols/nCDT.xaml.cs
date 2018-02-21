@@ -221,14 +221,14 @@ namespace CDTUserControl.Usercontrols
             vm.SetStatusPane(p_StatusPane);
         }
 
-        public void AddItemToEnglishTab(String p_Item)
+        public void AddItemToEnglishTab(List<String> p_Items)
         {
-            vm.AddItemToEnglishTab(p_Item);
+            vm.AddItemToEnglishTab(p_Items);
         }
 
-        public void AddItemToSourceTab(String p_Item)
+        public void AddItemToSourceTab(List<String> p_Items)
         {
-            vm.AddItemToSourceTab(p_Item);
+            vm.AddItemToSourceTab(p_Items);
         }
         #endregion
     }

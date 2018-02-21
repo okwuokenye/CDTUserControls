@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Debug\
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\
 CDTUserControl
 none
 false
@@ -16,5 +16,5 @@ DEBUG;TRACE
 151984215308
 App.xaml;TestControl.xaml;Usercontrols\CDTPlayerUsercontrolView.xaml;Usercontrols\NavigationUsercontrolView.xaml;Usercontrols\nCDT.xaml;
 
-True
+False
 
