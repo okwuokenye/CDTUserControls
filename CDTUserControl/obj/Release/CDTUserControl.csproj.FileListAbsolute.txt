@@ -1,0 +1,16 @@
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\bin\Release\CDTUserControl.pdb
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\Usercontrols\CDTPlayerUsercontrolView.g.cs
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl_MarkupCompile.cache
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl_MarkupCompile.lref
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\Usercontrols\CDTPlayerUsercontrolView.baml
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl.g.resources
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl.Properties.Resources.resources
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl.csproj.GenerateResource.Cache
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl.pdb
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\TestControl.g.cs
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\bin\Release\CDTUserControl.exe.config
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\bin\Release\CDTUserControl.exe
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\TestControl.baml
+C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Release\CDTUserControl.exe

@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="CDTUserControl.Usercontrols.NavigationUsercontrolView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="380">
+    <Grid Background="AliceBlue">
+        <StackPanel>
+            <GroupBox Header="Current Character" Margin="5 20">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox Width="310" ItemsSource="{Binding CurrentCharacters}" SelectedItem="{Binding CurrentCharacter}" IsEditable="True" />
+                        <CheckBox Margin="10 5" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Height="50" Width="100" Margin="0 5" Command="{Binding Next}" Content="Next" />
+                        <Button Height="50" Width="100" Margin="5 5" Command="{Binding Previous}" Content="Previous" />
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Height="20" Width="100" Margin="0 5" Command="{Binding FirstLine}" Content="First Line" />
+                                <CheckBox Margin="10 5" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button Height="20" Width="100" Margin="0 5" Command="{Binding LastLine}" Content="Last Line" />
+                                <CheckBox Margin="10 5" />
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <TabControl>
+                <TabItem Header="Highlight">
+                    <StackPanel Background="AliceBlue">
+                        <GroupBox Header="Character" Margin="5 10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="100" Content="Reading Font" Command="{Binding ReadingFont}" Margin="5 5" />
+                                    <Button Width="70" Content="Highlight" Command="{Binding Highlight}" Margin="0 5" />
+                                    <Border Background="Orange" Width="20" Height="20" Margin="5 5" />
+                                    <CheckBox Margin="5 10" Command="{Binding GoToFirst}" Content="Goto First" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="100" Command="{Binding DeleteFont}" Content="Delete Font" Margin="5 0" />
+                                    <Button Width="100" Command="{Binding ClearColour}" Content="Clear Colour" Margin="0 0" />
+                                    <ComboBox Width="120" IsEditable="True" Margin="10 0" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="30" Content="-" Command="{Binding Minus}" Margin="5 5 30 5" />
+                                    <Button Width="30" Content="+" Command="{Binding Plus}" Margin="10 5" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Selected Range" Margin="5 10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="100" Content="Reading Font" Command="{Binding SelectedRangeReadingFont}" Margin="5 5" />
+                                    <Button Width="30" Content="-" Command="{Binding SelectedRangeMinus}" Margin="5 5" />
+                                    <Button Width="30" Content="+" Command="{Binding SelectedRangePlus}" Margin="10 5 30 5" />
+                                    <Button Width="80" Content="Clear Colour" Command="{Binding SelectedRangeClearColour}" Margin="45 5" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Position" Margin="5 10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="100" Content="Save Row" Command="{Binding SaveRow}" Margin="5 5" />
+                                    <TextBox Width="30" Margin="5 5" />
+                                    <TextBox Width="30" Margin="10 5" />
+                                    <Button Width="40" Content="GoTo" Command="{Binding GoTo}" Margin="10 5" />
+                                    <Button Width="80" Content="GoT Saved" Command="{Binding GoTSaved}" Margin="5 5" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Analysis">
+                    <StackPanel Background="AliceBlue">
+                        <GroupBox Header="Randal">
+                            <StackPanel>
+                                <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="" Width="*"/>
+                                        <DataGridTextColumn Header="Word #" Width="*"/>
+                                        <DataGridTextColumn Header="%" Width="*"/>
+                                        <DataGridTextColumn Header="Line #" Width="*"/>
+                                        <DataGridTextColumn Header="%" Width="*"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <StackPanel Orientation="Horizontal" Margin="5 10">
+                                    <Button Content="Off" Command="{Binding Off}" Width="50"/>
+
+                                    <Button Content="Refresh" Command="{Binding Refresh}" Width="50" Margin="250 0 0 0" HorizontalAlignment="Right" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Session Log">
+                    <StackPanel Background="AliceBlue">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5 10">
+                                <Button Content="Start" Command="{Binding Start}" Width="50"/>
+                                <Button Content="Pause" Command="{Binding Pause}" Width="50" Margin="5 0" HorizontalAlignment="Right" />
+
+                                <TextBlock Text="Actor" Width="50" />
+                                <TextBox Text="{Binding Actor}" Width="100" />
+                            </StackPanel>
+                            
+                            <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="FileName" Width="*"/>
+                                    <DataGridTextColumn Header="Row" Width="*"/>
+                                    <DataGridTextColumn Header="Character" Width="*"/>
+                                    <DataGridTextColumn Header="WordCount" Width="*"/>
+                                    <DataGridTextColumn Header="Time" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel> 
+    </Grid>
+</UserControl>

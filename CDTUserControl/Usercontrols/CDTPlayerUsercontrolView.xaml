@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="CDTUserControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDTUserControl"
+        mc:Ignorable="d"
+        Height="460" Width="800">
+    <StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="5 5 5 0">
+        <StackPanel>
+            <Button Content="Delete" Command="{Binding Delete}" Width="80" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Edit" Command="{Binding Edit}" Width="80" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Rename" Command="{Binding Rename}" Width="80" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Primary" Command="{Binding Primary}" Width="80" Height="30" Margin="0 0 0 5"/>
+
+            <TextBox Text="TextBox" TextAlignment="Center"  Width="80" Height="30" Margin="0 0 0 5"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0 5">
+                <Button Content="" FontWeight="Bold" HorizontalAlignment="Left" Width="30"  Height="30" Margin="5 0 0 0"/>
+
+                <Button Content="" FontWeight="Bold" HorizontalAlignment="Left" Width="30"  Height="30" Margin="10 0 0 0"/>
+            </StackPanel>
+
+                <Button Content="Character" Command="{Binding Character}" Width="80" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Scene" Width="80" Command="{Binding Scene}" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Item" Width="80" Command="{Binding Item}" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Video" Width="80" Command="{Binding Video}" Height="30" Margin="0 0 0 5"/>
+
+                <Button Content="Navigate" Command="{Binding Navigate}" Width="80" Height="30" Margin="0 0 0 5"/>
+            
+        </StackPanel>
+
+        <StackPanel Margin="5 0">
+            <StackPanel>
+                <TabControl Width="auto" >
+                    <TabItem Header="English" HorizontalAlignment="Left">
+                        <StackPanel>
+                            <ListBox ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" Width="auto" Height="100" />
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Source" HorizontalAlignment="Left">
+                        <StackPanel>
+                            <ListBox ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" Width="auto" Height="100" />
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 5">
+                <Button Content="Voice" Width="80" Margin="2 0"/>
+
+                <Button Content="Source" Width="80" Margin="2 0"/>
+
+                <Button Content="Sport" Width="80" Margin="2 0"/>
+
+                <Button Content="Ambient" Width="80" Margin="2 0"/>
+
+                <Button Content="Music" Width="80" Margin="2 0"/>
+                
+                <Button Content="Spk Txt" Width="80" Margin="2 0"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5 10">
+                <StackPanel Margin="20 0 20 0">
+                    <Slider Width="30"  Height="200" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1}" Maximum="100" Orientation="Vertical" />
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                            <TextBlock Text="{Binding Slider1}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+                
+                <StackPanel Margin="20 0 20 0">
+                        <Slider Width="30"  Height="200" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="100" Orientation="Vertical" />
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                            <TextBlock Text="{Binding Slider2}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="30 0 20 0">
+                        <Slider Width="30"  Height="200" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="100" Orientation="Vertical" />
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                            <TextBlock Text="{Binding Slider3}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="40 0 20 0">
+                        <Slider Width="30"  Height="200" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="100" Orientation="Vertical" />
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                            <TextBlock Text="{Binding Slider4}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="40 0 20 0">
+                        <Slider Width="30"  Height="200" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="100" Orientation="Vertical" />
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                            <TextBlock Text="{Binding Slider5}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="30 0 20 0">
+                        <Slider Width="30"  Height="200" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider6}" Maximum="100" Orientation="Vertical" />
+                    <Border BorderThickness="1" BorderBrush="Black" >
+                            <TextBlock Text="{Binding Slider6}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel Margin="5 5">
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="File Size" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Date Mod" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Audio Type" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Bit Depth" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Format" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Sample Rate" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="AAT" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="EAT" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Difference" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="%" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Word Count" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <TextBlock Text="Char Count" Width="80"/>
+                <TextBox Width="100" />
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="0 0">
+        <Button Content="" FontWeight="Bold" HorizontalAlignment="Left" Width="30"  Height="30" Margin="2 0 0 0"/>
+        <Button Content="" FontWeight="Bold" HorizontalAlignment="Left" Width="30"  Height="30" Margin="2 0 0 0"/>
+
+        <Button Content="" FontWeight="Bold" HorizontalAlignment="Left" Width="30"  Height="30" Margin="2 0 0 0"/>
+    </StackPanel>
+    </StackPanel>
+
+</UserControl>
