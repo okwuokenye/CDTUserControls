@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\
+C:\Users\Desktop\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\
 CDTUserControl
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 5-299934682
 
 13487400530
-18628044830
+18279228597
 App.xaml;TestControl.xaml;Usercontrols\CDTPlayerUsercontrolView.xaml;Usercontrols\NavigationUsercontrolView.xaml;Usercontrols\nCDT.xaml;
 
 False
