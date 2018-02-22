@@ -24,7 +24,7 @@ namespace CDTUserControl.Usercontrols
         CDTPlayerUsercontrolViewModel vm;
         NavigationUsercontrolView _Nav = new NavigationUsercontrolView();
         #region events
-        public delegate void DeleteButtonEventHandler(String p_FileName);
+        public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
 
         public delegate void EditButtonEventHandler(String p_FileName);
@@ -146,9 +146,9 @@ namespace CDTUserControl.Usercontrols
             EditButtonEvent(p_FileName);
         }
 
-        private void Vm_DeleteButtonEvent(String p_SelectedFile)
+        private void Vm_DeleteButtonEvent(String p_SelectedFile, Int32 p_Index)
         {
-            DeleteButtonEvent(p_SelectedFile);
+            DeleteButtonEvent(p_SelectedFile, p_Index);
         }
 
         private void Vm_VideoButtonEvent()
@@ -229,6 +229,26 @@ namespace CDTUserControl.Usercontrols
         public void AddItemToSourceTab(List<String> p_Items)
         {
             vm.AddItemToSourceTab(p_Items);
+        }
+
+        public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)
+        {
+            vm.RemoveItemFromEnglishTab(p_ItemIndex);
+        }
+
+        public void RemoveItemFromSourceTab(Int32 p_ItemIndex)
+        {
+            vm.RemoveItemFromSourceTab(p_ItemIndex);
+        }
+
+        public void RemoveAllItemsFromEnglishTab()
+        {
+            vm.RemoveAllItemsFromEnglishTab();
+        }
+
+        public void RemoveAllItemsFromSourceTab()
+        {
+            vm.RemoveAllItemsFromSourceTab();
         }
         #endregion
     }

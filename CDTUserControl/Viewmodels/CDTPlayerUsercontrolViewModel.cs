@@ -17,7 +17,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void DataUpdatedEventHandler();
         public event DataUpdatedEventHandler DataUpdatedEvent;
 
-        public delegate void DeleteButtonEventHandler(String p_FileName);
+        public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
 
         public delegate void EditButtonEventHandler(String p_FileName);
@@ -362,7 +362,7 @@ namespace CDTUserControl.Viewmodels
         #region Commands
         private void DeleteExecute()
         {
-            DeleteButtonEvent(_EnglishTabListBoxItem);
+            DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
         private Boolean TabLisItenSelected()
         {
@@ -537,7 +537,7 @@ namespace CDTUserControl.Viewmodels
         }
 
         public void AddItemToEnglishTab(List<String> p_Items)
-        {//i am making a change
+        {
             foreach (var p_Item in p_Items)
             {
                 _EnglishTabListBoxItems.Add(p_Item);
@@ -551,6 +551,30 @@ namespace CDTUserControl.Viewmodels
             {
                 _SourceTabListBoxItems.Add(p_Item);
             }
+            RaisePropertyChanged("SourceTabListBoxItems");
+        }
+
+        public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)
+        {
+            _EnglishTabListBoxItems.RemoveAt(p_ItemIndex);
+            RaisePropertyChanged("EnglishTabListBoxItems");
+        }
+
+        public void RemoveItemFromSourceTab(Int32 p_ItemIndex)
+        {
+            _SourceTabListBoxItems.RemoveAt(p_ItemIndex);
+            RaisePropertyChanged("SourceTabListBoxItems");
+        }
+
+        public void RemoveAllItemsFromEnglishTab()
+        {
+            _EnglishTabListBoxItems.Clear();
+            RaisePropertyChanged("EnglishTabListBoxItems");
+        }
+
+        public void RemoveAllItemsFromSourceTab()
+        {
+            _SourceTabListBoxItems.Clear();
             RaisePropertyChanged("SourceTabListBoxItems");
         }
         #endregion

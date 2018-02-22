@@ -57,9 +57,10 @@ namespace TestCDT
             MessageBox.Show("Edit clicked for " +p_FileName);
         }
 
-        private void Ctrl_DeleteButtonEvent(string p_FileName)
+        private void Ctrl_DeleteButtonEvent(string p_FileName, Int32 p_Index)
         {
             MessageBox.Show("Delete clicked for " + p_FileName);
+            ctrl.RemoveItemFromEnglishTab(p_Index);
         }
         #endregion
     }

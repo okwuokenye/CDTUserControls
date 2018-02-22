@@ -47,3 +47,4 @@ C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Sys
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
