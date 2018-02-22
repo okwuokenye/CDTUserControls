@@ -41,4 +41,9 @@ C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDT
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.dll
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
