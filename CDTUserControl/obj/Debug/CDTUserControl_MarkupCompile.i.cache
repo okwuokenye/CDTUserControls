@@ -1,10 +1,10 @@
 ﻿CDTUserControl
 
 
-winexe
+library
 C#
 .cs
-C:\Users\Desktop\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\
 CDTUserControl
 none
 false
@@ -13,8 +13,8 @@ DEBUG;TRACE
 5-299934682
 
 171448697274
-18279228597
+18527243046
 App.xaml;TestControl.xaml;Usercontrols\CDTPlayerUsercontrolView.xaml;Usercontrols\NavigationUsercontrolView.xaml;Usercontrols\nCDT.xaml;
 
-True
+False
 

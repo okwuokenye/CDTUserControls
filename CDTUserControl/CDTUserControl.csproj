@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DFB7A2F6-F41A-4D04-A43B-A3529E175AFA}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>CDTUserControl</RootNamespace>
     <AssemblyName>CDTUserControl</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

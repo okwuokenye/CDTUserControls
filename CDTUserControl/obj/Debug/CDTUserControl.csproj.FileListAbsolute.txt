@@ -75,3 +75,29 @@ C:\Users\Desktop\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontr
 C:\Users\Desktop\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
 C:\Users\Desktop\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
 C:\Users\Desktop\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.g.cs
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.dll
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.baml
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
+E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
