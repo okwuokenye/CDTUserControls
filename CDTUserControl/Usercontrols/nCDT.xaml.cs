@@ -99,34 +99,39 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region Properties
-        public Double Slider1
+        public string SliderText1
         {
-            get { return vm.Slider1; }
+            get { return vm.SliderText1; }
         }
 
-        public Double Slider2
+        public string SliderText2
         {
-            get { return vm.Slider2; }
+            get { return vm.SliderText2; }
         }
 
-        public Double Slider3
+        public string SliderText3
         {
-            get { return vm.Slider3; }
+            get { return vm.SliderText3; }
         }
 
-        public Double Slider4
+        public string SliderText4
         {
-            get { return vm.Slider4; }
+            get { return vm.SliderText4; }
         }
 
-        public Double Slider5
+        public string SliderText5
         {
-            get { return vm.Slider5; }
+            get { return vm.SliderText5; }
         }
 
         public Double Slider6
         {
             get { return vm.Slider6; }
+        }
+
+        public Double Slider7
+        {
+            get { return vm.Slider7; }
         }
         #endregion
 
@@ -223,12 +228,12 @@ namespace CDTUserControl.Usercontrols
 
         public void AddItemToEnglishTab(List<String> p_Items)
         {
-            vm.AddItemToEnglishTab(p_Items);
+            vm.AddItemsToEnglishTab(p_Items);
         }
 
         public void AddItemToSourceTab(List<String> p_Items)
         {
-            vm.AddItemToSourceTab(p_Items);
+            vm.AddItemsToSourceTab(p_Items);
         }
 
         public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)

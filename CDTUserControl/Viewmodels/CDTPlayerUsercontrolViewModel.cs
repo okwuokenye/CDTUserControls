@@ -67,12 +67,19 @@ namespace CDTUserControl.Viewmodels
 
         #region Private variables
         Visibility _LoaderVisibility = Visibility.Visible;
-        Int32 _Slider1 = 50;
-        Int32 _Slider2 = 50;
-        Int32 _Slider3 = 50;
-        Int32 _Slider4 = 50;
-        Int32 _Slider5 = 50;
-        Int32 _Slider6 = 50;
+        Int32 _Slider1 = 100;
+        Int32 _Slider2 = 100;
+        Int32 _Slider3 = 100;
+        Int32 _Slider4 = 100;
+        Int32 _Slider5 = 100;
+        Int32 _Slider6 = 100;
+        Int32 _Slider7;
+
+        string _SliderText1 = "100";
+        string _SliderText2 = "100";
+        string _SliderText3 = "100";
+        string _SliderText4 = "100";
+        string _SliderText5 = "100";
 
         ObservableCollection<String> _EnglishTabListBoxItems = new ObservableCollection<String>();
         String _EnglishTabListBoxItem;
@@ -111,6 +118,15 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider1 != value)
                 {
                     _Slider1 = value;
+                    if (value > 100)
+                    {
+                        SliderText1 = "+" + value.ToString();
+                    }
+                    else
+                    {
+                        SliderText1 = value.ToString();
+                    }
+
                     RaisePropertyChanged("Slider1");
                 }
             }
@@ -123,6 +139,14 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider2 != value)
                 {
                     _Slider2 = value;
+                    if (value > 100)
+                    {
+                        SliderText2 = "+" + value.ToString();
+                    }
+                    else
+                    {
+                        SliderText2 = value.ToString();
+                    }
                     RaisePropertyChanged("Slider2");
                 }
             }
@@ -135,6 +159,14 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider3 != value)
                 {
                     _Slider3 = value;
+                    if (value > 100)
+                    {
+                        SliderText3 = "+" + value.ToString();
+                    }
+                    else
+                    {
+                        SliderText3 = value.ToString();
+                    }
                     RaisePropertyChanged("Slider3");
                 }
             }
@@ -147,6 +179,14 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider4 != value)
                 {
                     _Slider4 = value;
+                    if (value > 100)
+                    {
+                        SliderText4 = "+" + value.ToString();
+                    }
+                    else
+                    {
+                        SliderText4 = value.ToString();
+                    }
                     RaisePropertyChanged("Slider4");
                 }
             }
@@ -159,6 +199,14 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider5 != value)
                 {
                     _Slider5 = value;
+                    if (value > 100)
+                    {
+                        SliderText5 = "+" + value.ToString();
+                    }
+                    else
+                    {
+                        SliderText5 = value.ToString();
+                    }
                     RaisePropertyChanged("Slider5");
                 }
             }
@@ -175,6 +223,82 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+        public Int32 Slider7
+        {
+            get { return _Slider7; }
+            set
+            {
+                if (_Slider7 != value)
+                {
+                    _Slider7 = value;
+                    RaisePropertyChanged("Slider7");
+                }
+            }
+        }
+
+        public string SliderText1
+        {
+            get { return _SliderText1; }
+            set
+            {
+                if (_SliderText1 != value)
+                {                   
+                    _SliderText1 = value;
+                    RaisePropertyChanged("SliderText1");
+                }
+            }
+        }
+        public string SliderText2
+        {
+            get { return _SliderText2; }
+            set
+            {
+                if (_SliderText2 != value)
+                {
+                    _SliderText2 = value;
+                    RaisePropertyChanged("SliderText2");
+                }
+            }
+        }
+        public string SliderText3
+        {
+            get { return _SliderText3; }
+            set
+            {
+                if (_SliderText3 != value)
+                {
+                    _SliderText3 = value;
+                    RaisePropertyChanged("SliderText3");
+                }
+            }
+        }
+        public string SliderText4
+        {
+            get { return _SliderText4; }
+            set
+            {
+                if (_SliderText4 != value)
+                {
+                    _SliderText4 = value;
+                    RaisePropertyChanged("SliderText4");
+                }
+            }
+        }
+        public string SliderText5
+        {
+            get { return _SliderText5; }
+            set
+            {
+                if (_SliderText5 != value)
+                {
+                    _SliderText5 = value;
+                    RaisePropertyChanged("SliderText5");
+                }
+            }
+        }
+        
+
+
         public ObservableCollection<String> EnglishTabListBoxItems { get { return _EnglishTabListBoxItems; } }
         public String EnglishTabListBoxItem
         {
@@ -348,7 +472,7 @@ namespace CDTUserControl.Viewmodels
         }
         public Visibility SliderVisibility { get { return _IsSliderVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
-        public Double SliderHeight { get { return _ExtendSliderHeight ? 400 : 200; } }
+        public Double SliderHeight { get { return _ExtendSliderHeight ? 280 : 80; } }
         public String StatusPane { get { return _StatusPane; } }
         #endregion
 
@@ -536,8 +660,9 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("StatusPane");
         }
 
-        public void AddItemToEnglishTab(List<String> p_Items)
+        public void AddItemsToEnglishTab(List<String> p_Items)
         {
+            RemoveAllItemsFromEnglishTab();
             foreach (var p_Item in p_Items)
             {
                 _EnglishTabListBoxItems.Add(p_Item);
@@ -545,8 +670,9 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("EnglishTabListBoxItems");
         }
 
-        public void AddItemToSourceTab(List<String> p_Items)
+        public void AddItemsToSourceTab(List<String> p_Items)
         {
+            RemoveAllItemsFromSourceTab();
             foreach (var p_Item in p_Items)
             {
                 _SourceTabListBoxItems.Add(p_Item);
