@@ -107,6 +107,11 @@ namespace CDTUserControl.Viewmodels
         String _Tab1HeaderText = "English";
         String _Tab2HeaderText = "Source";
         String _Tab3HeaderText = "Glossary";
+        Int32 _ProgressBar1Maximum = 100;
+        Int32 _ProgressBar1Value = 70;
+        Int32 _ProgressBar2Maximum = 100;
+        Int32 _ProgressBar2Value = 20;
+
         #endregion
 
         #region Properties
@@ -239,7 +244,6 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
         public string SliderText1
         {
             get { return _SliderText1; }
@@ -300,9 +304,6 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        
-
-
         public ObservableCollection<String> EnglishTabListBoxItems { get { return _EnglishTabListBoxItems; } }
         public String EnglishTabListBoxItem
         {
@@ -478,7 +479,22 @@ namespace CDTUserControl.Viewmodels
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Double SliderHeight { get { return _ExtendSliderHeight ? 280 : 80; } }
         public String StatusPane { get { return _StatusPane; } }
-        public String H { get; set; }
+        public String Tab1HeaderText
+        {
+            get { return _Tab1HeaderText; }
+        }
+        public String Tab2HeaderText
+        {
+            get { return _Tab2HeaderText; }
+        }
+        public String Tab3HeaderText
+        {
+            get { return _Tab3HeaderText; }
+        }
+        public Int32 ProgressBar1Maximum { get { return _ProgressBar1Maximum; } }
+        public Int32 ProgressBar1Value { get { return _ProgressBar1Value; } }
+        public Int32 ProgressBar2Maximum { get { return _ProgressBar2Maximum; } }
+        public Int32 ProgressBar2Value { get { return _ProgressBar2Value; } }
         #endregion
 
         #region Constructors
@@ -707,6 +723,48 @@ namespace CDTUserControl.Viewmodels
         {
             _SourceTabListBoxItems.Clear();
             RaisePropertyChanged("SourceTabListBoxItems");
+        }
+
+        public void SetTab1HeaderText(String p_Text)
+        {
+            _Tab1HeaderText = p_Text;
+            RaisePropertyChanged("Tab1HeaderText");
+        }
+
+        public void SetTab2HeaderText(String p_Text)
+        {
+            _Tab2HeaderText = p_Text;
+            RaisePropertyChanged("Tab2HeaderText");
+        }
+
+        public void SetTab3HeaderText(String p_Text)
+        {
+            _Tab3HeaderText = p_Text;
+            RaisePropertyChanged("Tab3HeaderText");
+        }
+
+        public void SetProgressBar1Maximum(Int32 p_Value)
+        {
+            _ProgressBar1Maximum = p_Value;
+            RaisePropertyChanged("ProgressBar1Maximum");
+        }
+
+        public void SetProgressBar1Value(Int32 p_Value)
+        {
+            _ProgressBar1Value = p_Value;
+            RaisePropertyChanged("ProgressBar1Value");
+        }
+
+        public void SetProgressBar2Maximum(Int32 p_Value)
+        {
+            _ProgressBar2Maximum = p_Value;
+            RaisePropertyChanged("ProgressBar2Maximum");
+        }
+
+        public void SetProgressBar2Value(Int32 p_Value)
+        {
+            _ProgressBar2Value = p_Value;
+            RaisePropertyChanged("ProgressBar2Value");
         }
         #endregion
 

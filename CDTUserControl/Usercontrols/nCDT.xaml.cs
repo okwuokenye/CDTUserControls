@@ -255,6 +255,49 @@ namespace CDTUserControl.Usercontrols
         {
             vm.RemoveAllItemsFromSourceTab();
         }
+
+        public void SetTab1HeaderText(String p_Text)
+        {
+            vm.SetTab1HeaderText(p_Text);
+        }
+
+        public void SetTab2HeaderText(String p_Text)
+        {
+            vm.SetTab2HeaderText(p_Text);
+        }
+
+        public void SetTab3HeaderText(String p_Text)
+        {
+            vm.SetTab3HeaderText(p_Text);
+        }
+
+        public void SetProgressBar1Maximum(Int32 p_Value)
+        {
+            vm.SetProgressBar1Maximum(p_Value);
+        }
+
+        public void SetProgressBar1Value(Int32 p_Value)
+        {
+            vm.SetProgressBar1Value(p_Value);
+        }
+
+        public void SetProgressBar2Maximum(Int32 p_Value)
+        {
+            vm.SetProgressBar2Maximum(p_Value);
+        }
+
+        public void SetProgressBar2Value(Int32 p_Value)
+        {
+            vm.SetProgressBar2Value(p_Value);
+        }
+
+        public void ResizeControl(Int32 p_Width)
+        {
+            //need more information on how this should work
+            this.Width = p_Width;
+            TCtrl.Width = p_Width - 200;
+            MessageBox.Show("Control Resized");
+        }
         #endregion
     }
 }

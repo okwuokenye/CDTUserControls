@@ -35,7 +35,7 @@
             // 
             this.elementHost1.Location = new System.Drawing.Point(13, 13);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(1400, 1000);
+            this.elementHost1.Size = new System.Drawing.Size(800, 600);
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
@@ -49,6 +49,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.ResizeEnd += new System.EventHandler(this.Form_Resized);
             this.ResumeLayout(false);
 
         }

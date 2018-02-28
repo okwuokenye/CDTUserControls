@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
              mc:Ignorable="d" Height="349.403" Width="635.237" 
             >
@@ -42,7 +41,7 @@
 
                     <!--Each of the list boxes here should resize with the form - like fill dock in win forms-->
 
-                    <TabControl Height="124" MinHeight="120" Width="380" MinWidth="380" HorizontalAlignment="Left">
+                    <TabControl x:Name="TCtrl" Height="124" MinHeight="120" Width="380" MinWidth="380" HorizontalAlignment="Left">
                         <TabItem Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
                             <StackPanel>
                                 <ListBox ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" Width="auto" Height="auto"/>
@@ -64,8 +63,8 @@
                     </TabControl>
                 </StackPanel>
                 <StackPanel Height="7" Width="380" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <ProgressBar Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0"/>
-                    <ProgressBar Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0"/>
+                    <ProgressBar Maximum="{Binding ProgressBar1Maximum}" Value="{Binding ProgressBar1Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0"/>
+                    <ProgressBar Maximum="{Binding ProgressBar2Maximum}" Value="{Binding ProgressBar2Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0"/>
                 </StackPanel>
                 <!--All sliders and buttons should align to the left when the listboxes resize. They should not change size. -->
 

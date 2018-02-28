@@ -62,6 +62,12 @@ namespace TestCDT
             MessageBox.Show("Delete clicked for " + p_FileName);
             ctrl.RemoveItemFromEnglishTab(p_Index);
         }
+
+        private void Form_Resized(object sender, EventArgs e)
+        {
+            Control control = (Control)sender;
+            ctrl.ResizeControl(control.Size.Width);
+        }
         #endregion
     }
 }
