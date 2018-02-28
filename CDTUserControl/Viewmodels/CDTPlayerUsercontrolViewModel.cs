@@ -62,6 +62,13 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void SpkButtonEventHandler();
         public event SpkButtonEventHandler SpkButtonEvent;
+        //list box selected item event
+        public delegate void Tab1ItemSelectedEventHandler(String p_Item, Int32 p_Index);
+        public event Tab1ItemSelectedEventHandler Tab1ItemSelectedEvent;
+        public delegate void Tab2ItemSelectedEventHandler(String p_Item, Int32 p_Index);
+        public event Tab2ItemSelectedEventHandler Tab2ItemSelectedEvent;
+        public delegate void Tab3ItemSelectedEventHandler(String p_Item, Int32 p_Index);
+        public event Tab3ItemSelectedEventHandler Tab3ItemSelectedEvent;
 
         #endregion
 
@@ -111,7 +118,6 @@ namespace CDTUserControl.Viewmodels
         Int32 _ProgressBar1Value = 70;
         Int32 _ProgressBar2Maximum = 100;
         Int32 _ProgressBar2Value = 20;
-
         #endregion
 
         #region Properties
@@ -316,6 +322,8 @@ namespace CDTUserControl.Viewmodels
                 if (_EnglishTabListBoxItem != value)
                 {
                     _EnglishTabListBoxItem = value;
+                    //raise Item selected event
+                    Tab1ItemSelectedEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
                 }
             }
         }
@@ -331,6 +339,8 @@ namespace CDTUserControl.Viewmodels
                 if (_SourceTabListBoxItem != value)
                 {
                     _SourceTabListBoxItem = value;
+                    //raise Item selected event
+                    Tab2ItemSelectedEvent(_SourceTabListBoxItem, _SourceTabListBoxItems.IndexOf(_SourceTabListBoxItem));
                 }
             }
         }

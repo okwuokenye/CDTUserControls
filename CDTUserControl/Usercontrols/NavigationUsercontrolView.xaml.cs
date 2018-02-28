@@ -231,6 +231,11 @@ namespace CDTUserControl.Usercontrols
         {
             vm.AddCurrentCharacter(p_CurrentCharacter);
         }
+
+        public void SetStatusPaneText(String p_Value)
+        {
+            vm.SetStatusPaneText(p_Value);
+        }
         #endregion
     }
 }

@@ -13,6 +13,7 @@ namespace CDTUserControl.Viewmodels
         #region private variables
         ObservableCollection<String> _CurrentCharacters = new ObservableCollection<String>();
         String _CurrentCharacter;
+        String _StatusPane = "Status Pane";
         #endregion
 
         #region event declarations
@@ -96,6 +97,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+        public String StatusPane { get { return _StatusPane; } }
         #endregion
 
         #region constructor
@@ -114,6 +116,12 @@ namespace CDTUserControl.Viewmodels
         {
             _CurrentCharacters.Add(p_CurrentCharacter);
             RaisePropertyChanged("CurrentCharacters");
+        }
+
+        public void SetStatusPaneText(String p_Value)
+        {
+            _StatusPane = p_Value;
+            RaisePropertyChanged("StatusPane");
         }
         #endregion
 

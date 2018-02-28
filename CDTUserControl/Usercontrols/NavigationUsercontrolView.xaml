@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="380">
     <Grid Background="AliceBlue">
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
             <GroupBox Header="Current Character" Margin="5 20">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -132,6 +136,10 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        </StackPanel> 
+            
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding StatusPane}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
