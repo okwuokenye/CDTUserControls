@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
-             mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="380">
+             mc:Ignorable="d" d:DesignWidth="380" Height="595.655">
     <Grid Background="AliceBlue">
         <StackPanel>
             <GroupBox Header="Current Character" Margin="5 20">
@@ -70,7 +69,7 @@
                             </StackPanel>
                         </GroupBox>
 
-                        <GroupBox Header="Position" Margin="5 10">
+                        <GroupBox Header="Position" Margin="5 10" Height="75">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="100" Content="Save Row" Command="{Binding SaveRow}" Margin="5 5" />
@@ -118,7 +117,7 @@
                                 <TextBlock Text="Actor" Width="50" />
                                 <TextBox Text="{Binding Actor}" Width="100" />
                             </StackPanel>
-                            
+
                             <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="FileName" Width="*"/>
@@ -132,6 +131,6 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        </StackPanel> 
+        </StackPanel>
     </Grid>
 </UserControl>
