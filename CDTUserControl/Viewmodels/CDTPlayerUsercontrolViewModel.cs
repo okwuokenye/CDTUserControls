@@ -103,6 +103,10 @@ namespace CDTUserControl.Viewmodels
         Boolean _IsMetaDataVisible = false;
         Boolean _ExtendSliderHeight = false;
         String _StatusPane = "Test";
+
+        String _Tab1HeaderText = "English";
+        String _Tab2HeaderText = "Source";
+        String _Tab3HeaderText = "Glossary";
         #endregion
 
         #region Properties
@@ -474,6 +478,7 @@ namespace CDTUserControl.Viewmodels
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Double SliderHeight { get { return _ExtendSliderHeight ? 280 : 80; } }
         public String StatusPane { get { return _StatusPane; } }
+        public String H { get; set; }
         #endregion
 
         #region Constructors

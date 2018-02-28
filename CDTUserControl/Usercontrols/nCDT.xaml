@@ -43,19 +43,19 @@
                     <!--Each of the list boxes here should resize with the form - like fill dock in win forms-->
 
                     <TabControl Height="124" MinHeight="120" Width="380" MinWidth="380" HorizontalAlignment="Left">
-                        <TabItem Header="English" HorizontalAlignment="Left">
+                        <TabItem Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
                             <StackPanel>
                                 <ListBox ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" Width="auto" Height="auto"/>
                             </StackPanel>
                         </TabItem>
 
-                        <TabItem Header="Source" HorizontalAlignment="Left">
+                        <TabItem Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
                             <StackPanel>
                                 <ListBox ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" Width="auto" Height="auto"/>
                             </StackPanel>
                         </TabItem>
 
-                        <TabItem Header="Glossary" HorizontalAlignment="Left">
+                        <TabItem Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
                             <StackPanel>
                                 <ListBox ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" Width="auto" Height="auto"/>
                             </StackPanel>
