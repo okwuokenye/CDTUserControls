@@ -16,7 +16,7 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <ComboBox Width="310" ItemsSource="{Binding CurrentCharacters}" SelectedItem="{Binding CurrentCharacter}" IsEditable="True" />
-                        <CheckBox Margin="10 5" />
+                        <CheckBox Margin="10 5" IsChecked="{Binding IsCheckBox1Checked}" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
@@ -25,12 +25,12 @@
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Button Height="20" Width="100" Margin="0 5" Command="{Binding FirstLine}" Content="First Line" />
-                                <CheckBox Margin="10 5" />
+                                <CheckBox Margin="10 5" IsChecked="{Binding IsCheckBox2Checked}"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
                                 <Button Height="20" Width="100" Margin="0 5" Command="{Binding LastLine}" Content="Last Line" />
-                                <CheckBox Margin="10 5" />
+                                <CheckBox Margin="10 5" IsChecked="{Binding IsCheckBox3Checked}"/>
                             </StackPanel>
 
                         </StackPanel>
@@ -47,13 +47,13 @@
                                     <Button Width="100" Content="Reading Font" Command="{Binding ReadingFont}" Margin="5 5" />
                                     <Button Width="70" Content="Highlight" Command="{Binding Highlight}" Margin="0 5" />
                                     <Border Background="Orange" Width="20" Height="20" Margin="5 5" />
-                                    <CheckBox Margin="5 10" Command="{Binding GoToFirst}" Content="Goto First" />
+                                    <CheckBox Margin="5 10" IsChecked="{Binding IsGoToFirst}" Content="Goto First" />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="100" Command="{Binding DeleteFont}" Content="Delete Font" Margin="5 0" />
                                     <Button Width="100" Command="{Binding ClearColour}" Content="Clear Colour" Margin="0 0" />
-                                    <ComboBox Width="120" IsEditable="True" Margin="10 0" />
+                                    <ComboBox Width="120" IsEditable="True" ItemsSource="{Binding ClearColourComboItems}" SelectedIndex="{Binding ClearColourComboItemIndex}" Margin="10 0" />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
@@ -78,8 +78,8 @@
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="100" Content="Save Row" Command="{Binding SaveRow}" Margin="5 5" />
-                                    <TextBox Width="30" Margin="5 5" />
-                                    <TextBox Width="30" Margin="10 5" />
+                                    <TextBox Width="30" Text="{Binding SaveRowText1}" IsReadOnly="True" Margin="5 5" />
+                                    <TextBox Width="30" Text="{Binding SaveRowText2}" IsReadOnly="True" Margin="10 5" />
                                     <Button Width="40" Content="GoTo" Command="{Binding GoTo}" Margin="10 5" />
                                     <Button Width="80" Content="GoT Saved" Command="{Binding GoTSaved}" Margin="5 5" />
                                 </StackPanel>
@@ -90,9 +90,9 @@
 
                 <TabItem Header="Analysis">
                     <StackPanel Background="AliceBlue">
-                        <GroupBox Header="Randal">
+                        <GroupBox Header="{Binding AnalysisTabName}">
                             <StackPanel>
-                                <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True" >
+                                <DataGrid x:Name="AnalysisDataGrid" Height="200" CanUserAddRows="True" CanUserDeleteRows="True" >
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="" Width="*"/>
                                         <DataGridTextColumn Header="Word #" Width="*"/>
@@ -103,7 +103,7 @@
                                 </DataGrid>
 
                                 <StackPanel Orientation="Horizontal" Margin="5 10">
-                                    <Button Content="Off" Command="{Binding Off}" Width="50"/>
+                                    <Button Content="{Binding AnalysisText}" Command="{Binding Off}" Width="50"/>
 
                                     <Button Content="Refresh" Command="{Binding Refresh}" Width="50" Margin="250 0 0 0" HorizontalAlignment="Right" />
                                 </StackPanel>
@@ -123,7 +123,7 @@
                                 <TextBox Text="{Binding Actor}" Width="100" />
                             </StackPanel>
                             
-                            <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True">
+                            <DataGrid x:Name="SessionLogDataGrid" Height="200" CanUserAddRows="True" CanUserDeleteRows="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="FileName" Width="*"/>
                                     <DataGridTextColumn Header="Row" Width="*"/>

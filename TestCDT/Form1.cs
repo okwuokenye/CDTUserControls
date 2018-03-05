@@ -43,7 +43,8 @@ namespace TestCDT
 
         private void Ctrl_NavigateButtonEvent()
         {
-            elementHost1.Child = ctrl.Nav;
+            NavigationTest nav = new NavigationTest();
+            nav.ShowDialog();
         }
 
         private void Nav_PreviousButtonEvent()

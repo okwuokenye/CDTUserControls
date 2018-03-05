@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,6 +87,19 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void PauseButtonEventHandler();
         public event PauseButtonEventHandler PauseButtonEvent;
+
+        public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
+        public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
+        public delegate void Checkbox1CheckedEventHandler();
+        public event Checkbox1CheckedEventHandler Checkbox1CheckedEvent;
+
+        public delegate void Checkbox2CheckedEventHandler();
+        public event Checkbox2CheckedEventHandler Checkbox2CheckedEvent;
+
+        public delegate void Checkbox3CheckedEventHandler();
+        public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
+        public delegate void GotoFirstCheckboxEventHandler();
+        public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
         #endregion
 
         public NavigationUsercontrolView()
@@ -115,10 +129,14 @@ namespace CDTUserControl.Usercontrols
             vm.RefreshButtonEvent += Vm_RefreshButtonEvent;
             vm.PauseButtonEvent += Vm_PauseButtonEvent;
             vm.StartButtonEvent += Vm_StartButtonEvent;
-
+            vm.CurrentCharacterSelectedEvent += Vm_CurrentCharacterSelectedEvent;
+            vm.Checkbox1CheckedEvent += Vm_Checkbox1CheckedEvent;
+            vm.Checkbox2CheckedEvent += Vm_Checkbox2CheckedEvent;
+            vm.Checkbox3CheckedEvent += Vm_Checkbox3CheckedEvent;
+            vm.GotoFirstCheckboxEvent += Vm_GotoFirstCheckboxEvent;
             base.DataContext = vm;
         }
-
+        
         #region event handlers
         private void Vm_StartButtonEvent()
         {
@@ -224,17 +242,72 @@ namespace CDTUserControl.Usercontrols
         {
             NextButtonEvent();
         }
+
+        private void Vm_CurrentCharacterSelectedEvent(Int32 p_Index)
+        {
+            CurrentCharacterSelectedEvent(p_Index);
+        }
+
+        private void Vm_Checkbox1CheckedEvent()
+        {
+            Checkbox1CheckedEvent();
+        }
+
+        private void Vm_Checkbox2CheckedEvent()
+        {
+            Checkbox2CheckedEvent();
+        }
+
+        private void Vm_Checkbox3CheckedEvent()
+        {
+            Checkbox3CheckedEvent();
+        }
+
+        private void Vm_GotoFirstCheckboxEvent()
+        {
+            GotoFirstCheckboxEvent();
+        }
         #endregion
 
         #region public functions
-        public void AddCurrentCharacter(String p_CurrentCharacter)
+        public void AddCurrentCharacter(List<String> p_CurrentCharacters)
         {
-            vm.AddCurrentCharacter(p_CurrentCharacter);
+            vm.AddCurrentCharacters(p_CurrentCharacters);
+        }
+
+        public void ClearCurrentCharacters()
+        {
+            vm.ClearCurrentCharacters();
         }
 
         public void SetStatusPaneText(String p_Value)
         {
             vm.SetStatusPaneText(p_Value);
+        }
+
+        public void SetSaveRowText1(String p_Value)
+        {
+            vm.SetSaveRowText1(p_Value);
+        }
+
+        public void SetSaveRowText2(String p_Value)
+        {
+            vm.SetSaveRowText2(p_Value);
+        }
+
+        public void SetAnalysisTabName(String p_Value)
+        {
+            vm.SetAnalysisTabName(p_Value);
+        }
+
+        public void SetSessionLogDataGrid(DataTable p_Tbl)
+        {
+            SessionLogDataGrid.ItemsSource = p_Tbl.AsDataView();
+        }
+
+        public void SetAnalysisDataGrid(DataTable p_Tbl)
+        {
+            AnalysisDataGrid.ItemsSource = p_Tbl.AsDataView();
         }
         #endregion
     }
