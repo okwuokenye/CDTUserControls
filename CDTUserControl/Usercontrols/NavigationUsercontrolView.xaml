@@ -112,7 +112,7 @@
                     </StackPanel>
                 </TabItem>
 
-                <TabItem Header="Session Log">
+                <TabItem Header="Session Log" Height="22" VerticalAlignment="Top">
                     <StackPanel Background="AliceBlue">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="5 10">
