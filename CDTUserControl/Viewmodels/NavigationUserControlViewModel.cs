@@ -13,6 +13,17 @@ namespace CDTUserControl.Viewmodels
         #region private variables
         ObservableCollection<String> _CurrentCharacters = new ObservableCollection<String>();
         String _CurrentCharacter;
+        String _StatusPane = "Status Pane";
+        Boolean _IsCheckBox1Checked = false;
+        Boolean _IsCheckBox2Checked = false;
+        Boolean _IsCheckBox3Checked = false;
+        Boolean _IsGoToFirst = false;
+        ObservableCollection<String> _ClearColourComboItems = new ObservableCollection<String>{ "All columns", "Selected columns", "Text column only" };
+        Int32 _ClearColourComboItemIndex = 0;
+        String _SaveRowText1 = String.Empty;
+        String _SaveRowText2 = String.Empty;
+        Boolean _AnalysisOn = false;
+        String _AnalysisTabName = "Randal";
         #endregion
 
         #region event declarations
@@ -78,6 +89,19 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void PauseButtonEventHandler();
         public event PauseButtonEventHandler PauseButtonEvent;
+        public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
+        public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
+        public delegate void Checkbox1CheckedEventHandler();
+        public event Checkbox1CheckedEventHandler Checkbox1CheckedEvent;
+
+        public delegate void Checkbox2CheckedEventHandler();
+        public event Checkbox2CheckedEventHandler Checkbox2CheckedEvent;
+
+        public delegate void Checkbox3CheckedEventHandler();
+        public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
+
+        public delegate void GotoFirstCheckboxEventHandler();
+        public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
         #endregion
 
         #region properties
@@ -93,9 +117,110 @@ namespace CDTUserControl.Viewmodels
                 if (_CurrentCharacter != value)
                 {
                     _CurrentCharacter = value;
+                    CurrentCharacterSelectedEvent(_CurrentCharacters.IndexOf(value));
                 }
             }
         }
+        public String StatusPane { get { return _StatusPane; } }
+        public Boolean IsCheckBox1Checked
+        {
+            get { return _IsCheckBox1Checked; }
+            set
+            {
+                if (_IsCheckBox1Checked != value)
+                {
+                    _IsCheckBox1Checked = value;
+                    Checkbox1CheckedEvent();
+                }
+            }
+        }
+        public Boolean IsCheckBox2Checked
+        {
+            get { return _IsCheckBox2Checked; }
+            set
+            {
+                if (_IsCheckBox2Checked != value)
+                {
+                    _IsCheckBox2Checked = value;
+                    Checkbox2CheckedEvent();
+                }
+            }
+        }
+        public Boolean IsCheckBox3Checked
+        {
+            get { return _IsCheckBox3Checked; }
+            set
+            {
+                if (_IsCheckBox3Checked != value)
+                {
+                    _IsCheckBox3Checked = value;
+                    Checkbox3CheckedEvent();
+                }
+            }
+        }
+        public Boolean IsGoToFirst
+        {
+            get { return _IsGoToFirst; }
+            set
+            {
+                if (_IsGoToFirst = value)
+                {
+                    _IsGoToFirst = value;
+                    GotoFirstCheckboxEvent();
+                }
+            }
+        }
+        public ObservableCollection<String> ClearColourComboItems { get { return _ClearColourComboItems; } }
+        public Int32 ClearColourComboItemIndex { get { return _ClearColourComboItemIndex; }
+            set
+            {
+                if (_ClearColourComboItemIndex != value)
+                {
+                    _ClearColourComboItemIndex = value;
+                }
+            }
+        }
+        public String SaveRowText1
+        {
+            get
+            {
+                return _SaveRowText1;
+            }
+            set
+            {
+                if (_SaveRowText1 != value)
+                {
+                    _SaveRowText1 = value;
+                }
+            }
+        }
+        public String SaveRowText2
+        {
+            get
+            {
+                return _SaveRowText2;
+            }
+            set
+            {
+                if (_SaveRowText2 != value)
+                {
+                    _SaveRowText2 = value;
+                }
+            }
+        }
+        public Boolean AnalysisOn
+        {
+            get { return _AnalysisOn; }
+            set
+            {
+                if (_AnalysisOn != value)
+                {
+                    _AnalysisOn = value;
+                }
+            }
+        }
+        public String AnalysisText { get { return _AnalysisOn ? "Off" : "On"; } }
+        public String AnalysisTabName { get { return _AnalysisTabName; } }
         #endregion
 
         #region constructor
@@ -110,10 +235,44 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region public methods
-        public void AddCurrentCharacter(String p_CurrentCharacter)
+
+        public void AddCurrentCharacters(List<String> p_CurrentCharacters)
         {
-            _CurrentCharacters.Add(p_CurrentCharacter);
+            _CurrentCharacters.Clear();
+            foreach (var l_CurrentCharacter in p_CurrentCharacters)
+            {
+                _CurrentCharacters.Add(l_CurrentCharacter);
+            }
             RaisePropertyChanged("CurrentCharacters");
+        }
+
+        public void ClearCurrentCharacters()
+        {
+            _CurrentCharacters.Clear();
+            RaisePropertyChanged("CurrentCharacters");
+        }
+
+        public void SetStatusPaneText(String p_Value)
+        {
+            _StatusPane = p_Value;
+            RaisePropertyChanged("StatusPane");
+        }
+
+        public void SetSaveRowText1(String p_Value)
+        {
+            _SaveRowText1 = p_Value;
+            RaisePropertyChanged("SaveRowText1");
+        }
+
+        public void SetSaveRowText2(String p_Value)
+        {
+            _SaveRowText2 = p_Value;
+            RaisePropertyChanged("SaveRowText2");
+        }
+
+        public void SetAnalysisTabName(String p_Value)
+        {
+            _AnalysisTabName = p_Value;
         }
         #endregion
 
@@ -228,7 +387,9 @@ namespace CDTUserControl.Viewmodels
 
         private void OffExecute()
         {
-            OffButtonEvent();
+            //OffButtonEvent();
+            _AnalysisOn = _AnalysisOn ? false : true;
+            RaisePropertyChanged("AnalysisOn");
         }
         public ICommand Off { get { return new RelayCommand(OffExecute); } }
 

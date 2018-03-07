@@ -68,6 +68,13 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void SpkButtonEventHandler();
         public event SpkButtonEventHandler SpkButtonEvent;
+        //list box selected item event
+        public delegate void Tab1ItemSelectedEventHandler(String p_Item, Int32 p_Index);
+        public event Tab1ItemSelectedEventHandler Tab1ItemSelectedEvent;
+        public delegate void Tab2ItemSelectedEventHandler(String p_Item, Int32 p_Index);
+        public event Tab2ItemSelectedEventHandler Tab2ItemSelectedEvent;
+        public delegate void Tab3ItemSelectedEventHandler(String p_Item, Int32 p_Index);
+        public event Tab3ItemSelectedEventHandler Tab3ItemSelectedEvent;
         #endregion
 
         #region public properties
@@ -95,7 +102,11 @@ namespace CDTUserControl.Usercontrols
             vm.AmbientButtonEvent += Vm_AmbientButtonEvent;
             vm.MusicButtonEvent += Vm_MusicButtonEvent;
             vm.SpkButtonEvent += Vm_SpkButtonEvent;
+            vm.Tab1ItemSelectedEvent += Vm_Tab1ItemSelectedEvent;
+            vm.Tab2ItemSelectedEvent += Vm_Tab2ItemSelectedEvent;
+            vm.Tab3ItemSelectedEvent += Vm_Tab3ItemSelectedEvent;
         }
+
         #endregion
 
         #region Properties
@@ -211,6 +222,21 @@ namespace CDTUserControl.Usercontrols
             NavigateButtonEvent();
             //_Nav;
         }
+
+        private void Vm_Tab3ItemSelectedEvent(string p_Item, int p_Index)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Vm_Tab2ItemSelectedEvent(string p_Item, int p_Index)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Vm_Tab1ItemSelectedEvent(string p_Item, int p_Index)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region public functions
@@ -254,6 +280,49 @@ namespace CDTUserControl.Usercontrols
         public void RemoveAllItemsFromSourceTab()
         {
             vm.RemoveAllItemsFromSourceTab();
+        }
+
+        public void SetTab1HeaderText(String p_Text)
+        {
+            vm.SetTab1HeaderText(p_Text);
+        }
+
+        public void SetTab2HeaderText(String p_Text)
+        {
+            vm.SetTab2HeaderText(p_Text);
+        }
+
+        public void SetTab3HeaderText(String p_Text)
+        {
+            vm.SetTab3HeaderText(p_Text);
+        }
+
+        public void SetProgressBar1Maximum(Int32 p_Value)
+        {
+            vm.SetProgressBar1Maximum(p_Value);
+        }
+
+        public void SetProgressBar1Value(Int32 p_Value)
+        {
+            vm.SetProgressBar1Value(p_Value);
+        }
+
+        public void SetProgressBar2Maximum(Int32 p_Value)
+        {
+            vm.SetProgressBar2Maximum(p_Value);
+        }
+
+        public void SetProgressBar2Value(Int32 p_Value)
+        {
+            vm.SetProgressBar2Value(p_Value);
+        }
+
+        public void ResizeControl(Int32 p_Width)
+        {
+            //need more information on how this should work
+            this.Width = p_Width;
+            TCtrl.Width = p_Width - 200;
+            MessageBox.Show("Control Resized");
         }
         #endregion
     }

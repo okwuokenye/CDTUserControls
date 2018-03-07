@@ -27,10 +27,7 @@ C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Use
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.exe
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.exe.config
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.exe
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
@@ -102,3 +99,38 @@ E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTU
 E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
 E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
 E:\Dropbox\_CDT Projects GIT\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
+C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\CDTUserControl.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\CDTUserControl.pdb
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\de\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\en\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\es\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\it\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\App.g.cs
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\TestControl.g.cs
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.g.cs
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\App.baml
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\TestControl.baml
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.baml
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.g.resources
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.dll
+D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.pdb

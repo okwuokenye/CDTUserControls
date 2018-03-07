@@ -5,14 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="380">
+             d:DesignHeight="410" d:DesignWidth="360">
     <Grid Background="AliceBlue">
-        <StackPanel>
-            <GroupBox Header="Current Character" Margin="5 20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <GroupBox Header="Current Character" Margin="5,5,5,5" Height="102">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <ComboBox Width="310" ItemsSource="{Binding CurrentCharacters}" SelectedItem="{Binding CurrentCharacter}" IsEditable="True" />
-                        <CheckBox Margin="10 5" />
+                        <CheckBox Margin="5 5" IsChecked="{Binding IsCheckBox1Checked}" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
@@ -21,12 +25,12 @@
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Button Height="20" Width="100" Margin="0 5" Command="{Binding FirstLine}" Content="First Line" />
-                                <CheckBox Margin="10 5" />
+                                <CheckBox Margin="5 5" IsChecked="{Binding IsCheckBox2Checked}"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
                                 <Button Height="20" Width="100" Margin="0 5" Command="{Binding LastLine}" Content="Last Line" />
-                                <CheckBox Margin="10 5" />
+                                <CheckBox Margin="5 5" IsChecked="{Binding IsCheckBox3Checked}"/>
                             </StackPanel>
 
                         </StackPanel>
@@ -34,24 +38,23 @@
                 </StackPanel>
             </GroupBox>
 
-            <TabControl>
+            <TabControl Margin="0,0,5,0">
                 <TabItem Header="Highlight">
-                    <StackPanel Background="AliceBlue">
-                        <GroupBox Header="Character" Margin="5 10">
+                    <StackPanel Background="AliceBlue" Height="247">
+                        <GroupBox Header="Character" Margin="5,5,0,5" Height="108">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="100" Content="Reading Font" Command="{Binding ReadingFont}" Margin="5 5" />
                                     <Button Width="70" Content="Highlight" Command="{Binding Highlight}" Margin="0 5" />
                                     <Border Background="Orange" Width="20" Height="20" Margin="5 5" />
-                                    <CheckBox Margin="5 10" Command="{Binding GoToFirst}" Content="Goto First" />
+                                    <CheckBox Margin="5 10" IsChecked="{Binding IsGoToFirst}" Content="Goto First" />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="100" Command="{Binding DeleteFont}" Content="Delete Font" Margin="5 0" />
                                     <Button Width="100" Command="{Binding ClearColour}" Content="Clear Colour" Margin="0 0" />
-                                    <ComboBox Width="120" IsEditable="True" Margin="10 0" />
+                                    <ComboBox Width="100" IsEditable="True" ItemsSource="{Binding ClearColourComboItems}" SelectedIndex="{Binding ClearColourComboItemIndex}" Margin="5 0" />
                                 </StackPanel>
-
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="30" Content="-" Command="{Binding Minus}" Margin="5 5 30 5" />
                                     <Button Width="30" Content="+" Command="{Binding Plus}" Margin="10 5" />
@@ -59,25 +62,25 @@
                             </StackPanel>
                         </GroupBox>
 
-                        <GroupBox Header="Selected Range" Margin="5 10">
+                        <GroupBox Header="Selected Range" Margin="5,5,0,5">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="100" Content="Reading Font" Command="{Binding SelectedRangeReadingFont}" Margin="5 5" />
                                     <Button Width="30" Content="-" Command="{Binding SelectedRangeMinus}" Margin="5 5" />
                                     <Button Width="30" Content="+" Command="{Binding SelectedRangePlus}" Margin="10 5 30 5" />
-                                    <Button Width="80" Content="Clear Colour" Command="{Binding SelectedRangeClearColour}" Margin="45 5" />
+                                    <Button Width="80" Content="Clear Colour" Command="{Binding SelectedRangeClearColour}" Margin="10 5" />
                                 </StackPanel>
                             </StackPanel>
                         </GroupBox>
 
-                        <GroupBox Header="Position" Margin="5 10">
+                        <GroupBox Header="Position" Margin="5,10,0,10">
                             <StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Width="100" Content="Save Row" Command="{Binding SaveRow}" Margin="5 5" />
-                                    <TextBox Width="30" Margin="5 5" />
-                                    <TextBox Width="30" Margin="10 5" />
-                                    <Button Width="40" Content="GoTo" Command="{Binding GoTo}" Margin="10 5" />
-                                    <Button Width="80" Content="GoT Saved" Command="{Binding GoTSaved}" Margin="5 5" />
+                                <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                                    <Button Width="77" Content="Save Row" Command="{Binding SaveRow}" Margin="5 5" />
+                                    <TextBox Width="30" Text="{Binding SaveRowText1}" IsReadOnly="True" Margin="5 5" />
+                                    <TextBox Width="30" Text="{Binding SaveRowText2}" IsReadOnly="True" Margin="10 5" />
+                                    <Button Width="40" Content="GoTo" Command="{Binding GoTo}" Margin="5 5" />
+                                    <Button Width="76" Content="GoT Saved" Command="{Binding GoTSaved}" Margin="5 5" />
                                 </StackPanel>
                             </StackPanel>
                         </GroupBox>
@@ -86,9 +89,15 @@
 
                 <TabItem Header="Analysis">
                     <StackPanel Background="AliceBlue">
-                        <GroupBox Header="Randal">
+                        <GroupBox Header="{Binding AnalysisTabName}">
                             <StackPanel>
-                                <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True" >
+                                
+                                <StackPanel Orientation="Horizontal" Margin="5 10">
+                                    <Button Content="{Binding AnalysisText}" Command="{Binding Off}" Width="50"/>
+
+                                    <Button Content="Refresh" Command="{Binding Refresh}" Width="50" Margin="200 0 0 0" HorizontalAlignment="Right" />
+                                </StackPanel>
+                                <DataGrid x:Name="AnalysisDataGrid" Height="200" CanUserAddRows="True" CanUserDeleteRows="True" >
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="" Width="*"/>
                                         <DataGridTextColumn Header="Word #" Width="*"/>
@@ -98,11 +107,6 @@
                                     </DataGrid.Columns>
                                 </DataGrid>
 
-                                <StackPanel Orientation="Horizontal" Margin="5 10">
-                                    <Button Content="Off" Command="{Binding Off}" Width="50"/>
-
-                                    <Button Content="Refresh" Command="{Binding Refresh}" Width="50" Margin="250 0 0 0" HorizontalAlignment="Right" />
-                                </StackPanel>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
@@ -119,7 +123,7 @@
                                 <TextBox Text="{Binding Actor}" Width="100" />
                             </StackPanel>
                             
-                            <DataGrid Height="200" CanUserAddRows="True" CanUserDeleteRows="True">
+                            <DataGrid x:Name="SessionLogDataGrid" Height="200" CanUserAddRows="True" CanUserDeleteRows="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="FileName" Width="*"/>
                                     <DataGridTextColumn Header="Row" Width="*"/>
@@ -132,6 +136,10 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        </StackPanel> 
+            
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding StatusPane}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

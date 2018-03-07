@@ -1,6 +1,6 @@
 ﻿namespace TestCDT
 {
-    partial class Form1
+    partial class NavigationTest
     {
         /// <summary>
         /// Required designer variable.
@@ -33,23 +33,22 @@
             // 
             // elementHost1
             // 
-            this.elementHost1.Location = new System.Drawing.Point(13, 13);
+            this.elementHost1.Location = new System.Drawing.Point(5, 10);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(800, 600);
+            this.elementHost1.Size = new System.Drawing.Size(363, 423);
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
             // 
-            // Form1
+            // NavigationTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 566);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.elementHost1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
-            this.ResizeEnd += new System.EventHandler(this.Form_Resized);
+            this.Name = "NavigationTest";
+            this.Text = "NavigationTest";
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
 
         }
@@ -59,4 +58,3 @@
         private System.Windows.Forms.Integration.ElementHost elementHost1;
     }
 }
-

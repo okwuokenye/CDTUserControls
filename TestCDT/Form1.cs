@@ -43,7 +43,8 @@ namespace TestCDT
 
         private void Ctrl_NavigateButtonEvent()
         {
-            elementHost1.Child = ctrl.Nav;
+            NavigationTest nav = new NavigationTest();
+            nav.ShowDialog();
         }
 
         private void Nav_PreviousButtonEvent()
@@ -61,6 +62,12 @@ namespace TestCDT
         {
             MessageBox.Show("Delete clicked for " + p_FileName);
             ctrl.RemoveItemFromEnglishTab(p_Index);
+        }
+
+        private void Form_Resized(object sender, EventArgs e)
+        {
+            Control control = (Control)sender;
+            ctrl.ResizeControl(control.Size.Width);
         }
         #endregion
     }
