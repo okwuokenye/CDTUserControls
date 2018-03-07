@@ -129,6 +129,7 @@ namespace CDTUserControl.Usercontrols
             vm.RefreshButtonEvent += Vm_RefreshButtonEvent;
             vm.PauseButtonEvent += Vm_PauseButtonEvent;
             vm.StartButtonEvent += Vm_StartButtonEvent;
+
             vm.CurrentCharacterSelectedEvent += Vm_CurrentCharacterSelectedEvent;
             vm.Checkbox1CheckedEvent += Vm_Checkbox1CheckedEvent;
             vm.Checkbox2CheckedEvent += Vm_Checkbox2CheckedEvent;

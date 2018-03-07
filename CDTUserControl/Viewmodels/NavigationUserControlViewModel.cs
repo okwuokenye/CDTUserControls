@@ -235,8 +235,10 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region public methods
+
         public void AddCurrentCharacters(List<String> p_CurrentCharacters)
         {
+            _CurrentCharacters.Clear();
             foreach (var l_CurrentCharacter in p_CurrentCharacters)
             {
                 _CurrentCharacters.Add(l_CurrentCharacter);
