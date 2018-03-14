@@ -74,13 +74,13 @@ namespace CDTUserControl.Viewmodels
 
         #region Private variables
         Visibility _LoaderVisibility = Visibility.Visible;
-        Int32 _Slider1 = 100;
-        Int32 _Slider2 = 100;
-        Int32 _Slider3 = 100;
-        Int32 _Slider4 = 100;
-        Int32 _Slider5 = 100;
-        Int32 _Slider6 = 100;
-        Int32 _Slider7;
+        Double _Slider1 = 100;
+        Double _Slider2 = 100;
+        Double _Slider3 = 100;
+        Double _Slider4 = 100;
+        Double _Slider5 = 100;
+        Double _Slider6 = 100;
+        Double _Slider7;
 
         string _SliderText1 = "100";
         string _SliderText2 = "100";
@@ -125,7 +125,7 @@ namespace CDTUserControl.Viewmodels
         {
             get { return _LoaderVisibility; }
         }
-        public Int32 Slider1
+        public Double Slider1
         {
             get { return _Slider1; }
             set
@@ -146,7 +146,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Int32 Slider2
+        public Double Slider2
         {
             get { return _Slider2; }
             set
@@ -166,7 +166,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Int32 Slider3
+        public Double Slider3
         {
             get { return _Slider3; }
             set
@@ -186,7 +186,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Int32 Slider4
+        public Double Slider4
         {
             get { return _Slider4; }
             set
@@ -206,7 +206,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Int32 Slider5
+        public Double Slider5
         {
             get { return _Slider5; }
             set
@@ -226,7 +226,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Int32 Slider6
+        public Double Slider6
         {
             get { return _Slider6; }
             set
@@ -238,7 +238,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Int32 Slider7
+        public Double Slider7
         {
             get { return _Slider7; }
             set
