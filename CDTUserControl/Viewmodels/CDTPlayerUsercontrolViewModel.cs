@@ -651,6 +651,52 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("SliderHeight");
         }
         public ICommand ExtendSliderHeight { get { return new RelayCommand(ExtendSliderHeightExecute); } }
+
+        private void MuteSlider1Execute()
+        {
+            _Slider1 = 0;
+            RaisePropertyChanged("Slider1");
+        }
+        public ICommand MuteSlider1 { get { return new RelayCommand(MuteSlider1Execute); } }
+
+        private void MuteSlider2Execute()
+        {
+            _Slider2 = 0;
+            RaisePropertyChanged("Slider2");
+        }
+        public ICommand MuteSlider2 { get { return new RelayCommand(MuteSlider2Execute); } }
+
+
+        private void MuteSlider3Execute()
+        {
+            _Slider3 = 0;
+            RaisePropertyChanged("Slider3");
+        }
+        public ICommand MuteSlider3 { get { return new RelayCommand(MuteSlider3Execute); } }
+
+
+        private void MuteSlider4Execute()
+        {
+            _Slider4 = 0;
+            RaisePropertyChanged("Slider4");
+        }
+        public ICommand MuteSlider4 { get { return new RelayCommand(MuteSlider4Execute); } }
+
+
+        private void MuteSlider5Execute()
+        {
+            _Slider5 = 0;
+            RaisePropertyChanged("Slider5");
+        }
+        public ICommand MuteSlider5 { get { return new RelayCommand(MuteSlider5Execute); } }
+
+        private void MuteSlider6Execute()
+        {
+            _Slider6 = 0;
+            RaisePropertyChanged("Slider6");
+        }
+        public ICommand MuteSlider6 { get { return new RelayCommand(MuteSlider6Execute); } }
+
         #endregion
 
         #region Public Functions

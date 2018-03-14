@@ -90,54 +90,66 @@
 
                         <!--There should be mute buttons above each slider, and mute and loop buttons above the Ambient and Music sliders-->
 
-                        <Image x:Name="mute1" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent">
+                            <Image x:Name="mute1" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        </Button>
                         <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" />
                         <Border BorderThickness="1" BorderBrush="Black" >
-                            <TextBlock Text="{Binding SliderText1}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Slider1}" HorizontalAlignment="Center"/>
                         </Border>
                     </StackPanel>
 
                     <StackPanel Margin="12,0,12,10">
-                        <Image x:Name="mute2" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent">
+                            <Image x:Name="mute2" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        </Button>
                         <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" />
                         <Border BorderThickness="1" BorderBrush="Black" >
-                            <TextBlock Text="{Binding SliderText2}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Slider2}" HorizontalAlignment="Center"/>
                         </Border>
                     </StackPanel>
 
-                    <StackPanel Margin="12 0" Height="130" VerticalAlignment="Top">
-                        <Image x:Name="mute3" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                    <StackPanel Margin="12 0">
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent">
+                            <Image x:Name="mute3" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        </Button>
                         <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" />
                         <Border BorderThickness="1" BorderBrush="Black" >
-                            <TextBlock Text="{Binding SliderText3}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Slider3}" HorizontalAlignment="Center"/>
                         </Border>
                     </StackPanel>
 
                     <StackPanel Margin="2,0,2,10">
                         <StackPanel Orientation="Horizontal">
-                            <Image x:Name="mute4" Height="15" Width="15" Margin="5 0"  ToolTip="Mute" Source="../Resources/unmute.png" />
+                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider4}" Foreground="Transparent">
+                                <Image x:Name="mute4" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                            </Button>
                             <Image x:Name="loop4" Height="15" Width="15" Margin="5 0" ToolTip="Loop" Source="../Resources/loop.png" />
                         </StackPanel>
 
                         <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="200" Orientation="Vertical" />
                         <Border BorderThickness="1" BorderBrush="Black" Margin="10 0">
-                            <TextBlock Text="{Binding SliderText4}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Slider4}" HorizontalAlignment="Center"/>
                         </Border>
                     </StackPanel>
 
                     <StackPanel Margin="2,0,2,10">
                         <StackPanel Orientation="Horizontal">
-                            <Image x:Name="mute5" Height="15" Width="15" Margin="5 0"  ToolTip="Mute" Source="../Resources/unmute.png" />
+                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider5}" Foreground="Transparent">
+                                <Image x:Name="mute5" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                            </Button>
                             <Image x:Name="loop5" Height="15" Width="15" Margin="5 0" ToolTip="Loop" Source="../Resources/loop.png" />
                         </StackPanel>
                         <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="200" Orientation="Vertical" />
                         <Border BorderThickness="1" BorderBrush="Black" Margin="10 0" >
-                            <TextBlock Text="{Binding SliderText5}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Slider5}" HorizontalAlignment="Center"/>
                         </Border>
                     </StackPanel>
 
                     <StackPanel Margin="12,0,12,10">
-                        <Image x:Name="mute6" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider6}" Foreground="Transparent">
+                            <Image x:Name="mute6" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                        </Button>
                         <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider6}" Maximum="100" Orientation="Vertical" />
                         <Border BorderThickness="1" BorderBrush="Black" >
                             <TextBlock Text="{Binding Slider6}" HorizontalAlignment="Center"/>
@@ -148,7 +160,7 @@
 
                     <StackPanel Margin="12,0,12,10">
                         
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
+                        <Slider Margin="0 15 0 0" Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
                         <Border BorderThickness="1" BorderBrush="Black" >
                             <TextBlock Text="{Binding Slider7}" HorizontalAlignment="Center"/>
                         </Border>
