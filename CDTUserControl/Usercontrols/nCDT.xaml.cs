@@ -320,9 +320,9 @@ namespace CDTUserControl.Usercontrols
         public void ResizeControl(Int32 p_Width)
         {
             //need more information on how this should work
-            this.Width = p_Width;
-            TCtrl.Width = p_Width - 200;
-            MessageBox.Show("Control Resized");
+            //this.Width = p_Width;
+            //TCtrl.Width = p_Width - 200;
+            //MessageBox.Show("Control Resized");
         }
         #endregion
     }

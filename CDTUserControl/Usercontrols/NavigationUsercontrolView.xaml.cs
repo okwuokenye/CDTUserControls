@@ -98,10 +98,24 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void Checkbox3CheckedEventHandler();
         public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
+
         public delegate void GotoFirstCheckboxEventHandler();
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
+
+        public delegate void ColorBoxClickEventHandler();
+        public event ColorBoxClickEventHandler ColorBoxClickEvent;
+
+        public delegate void MyTabItem1EventHandler();
+        public event MyTabItem1EventHandler MyTabItem1Event;
+
+        public delegate void MyTabItem2EventHandler();
+        public event MyTabItem2EventHandler MyTabItem2Event;
+
+        public delegate void MyTabItem3EventHandler();
+        public event MyTabItem3EventHandler MyTabItem3Event;
         #endregion
 
+        #region constructor
         public NavigationUsercontrolView()
         {
             InitializeComponent();
@@ -137,7 +151,8 @@ namespace CDTUserControl.Usercontrols
             vm.GotoFirstCheckboxEvent += Vm_GotoFirstCheckboxEvent;
             base.DataContext = vm;
         }
-        
+        #endregion
+
         #region event handlers
         private void Vm_StartButtonEvent()
         {
@@ -268,6 +283,43 @@ namespace CDTUserControl.Usercontrols
         {
             GotoFirstCheckboxEvent();
         }
+
+        private void Btn_ColorBoxClickEvent(object sender, EventArgs args)
+        {
+            ColorBoxClickEvent();
+        }
+
+        void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.Source is TabControl)
+            {
+                var l_Tab = (TabControl)sender;
+                if(l_Tab != null && l_Tab.SelectedContent != null)
+                {
+                    if (MyTabItem1.IsSelected)
+                    {
+                        if (MyTabItem1Event != null)
+                            MyTabItem1Event();
+                        else
+                            MessageBox.Show("Event thrown for tab1");
+                    }
+                    if (MyTabItem2.IsSelected)
+                    {
+                        if (MyTabItem2Event != null)
+                            MyTabItem2Event();
+                        else
+                            MessageBox.Show("Event thrown for tab2");
+                    }
+                    if (MyTabItem3.IsSelected)
+                    {
+                        if (MyTabItem3Event != null)
+                            MyTabItem3Event();
+                        else
+                            MessageBox.Show("Event thrown for tab3");
+                    }
+                }
+            }
+        }
         #endregion
 
         #region public functions
@@ -309,6 +361,11 @@ namespace CDTUserControl.Usercontrols
         public void SetAnalysisDataGrid(DataTable p_Tbl)
         {
             AnalysisDataGrid.ItemsSource = p_Tbl.AsDataView();
+        }
+
+        public void SetColorButtonColor(Brush p_Color)
+        {
+            ColorButton.Background = p_Color;
         }
         #endregion
     }

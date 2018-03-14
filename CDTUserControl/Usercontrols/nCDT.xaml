@@ -7,10 +7,10 @@
              mc:Ignorable="d" Height="349.403" Width="635.237" 
             >
     <!--Width="Auto" HorizontalAlignment="Stretch"-->
-    <StackPanel Width="Auto" HorizontalAlignment="Stretch" Margin="5,5,5,0">
+    <StackPanel Width="Auto" Height="Auto" Margin="5,5,5,0">
         
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="313">
-            <StackPanel Width="Auto" Height="310">
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="auto">
+            <StackPanel Width="Auto" Height="auto">
                 <Button Content="Delete" Command="{Binding Delete}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
                 <Button Content="Edit" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
@@ -36,7 +36,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Margin="5 0" Width="384" Height="313" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Margin="5 0" Width="384" Height="auto" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <StackPanel Height="124" Width="380" MinWidth="380" HorizontalAlignment="Left">
 
                     <!--Each of the list boxes here should resize with the form - like fill dock in win forms-->
@@ -84,7 +84,7 @@
                     <Button Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5" Visibility="{Binding SliderVisibility}" Width="380" Height="140" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" Margin="0,5" Visibility="{Binding SliderVisibility}" Width="380" Height="auto" HorizontalAlignment="Left">
                     <StackPanel Margin="12,0,12,10">
 
 
@@ -158,7 +158,7 @@
 
             </StackPanel>
 
-            <StackPanel Margin="2,0,0,0" Visibility="{Binding MetaDataVisibility}" Width="180">
+            <StackPanel Margin="2,0,0,0" Height="auto" Visibility="{Binding MetaDataVisibility}" Width="180">
                 <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
                     <TextBlock Text="File Size" Width="80" FontSize="9"/>
                     <TextBlock Text="{Binding FileSize}" Width="100" />
