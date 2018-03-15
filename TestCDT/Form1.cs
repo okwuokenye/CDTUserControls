@@ -37,8 +37,50 @@ namespace TestCDT
             ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;
             ctrl.EditButtonEvent += Ctrl_EditButtonEvent;
             ctrl.NavigateButtonEvent += Ctrl_NavigateButtonEvent;
+
+            //add event for resizing winform screen
+            ctrl.ExtendSliderHeightEvent += Ctrl_ExtendSliderHeightEvent;
+            ctrl.IsSliderVisibleEvent += Ctrl_IsSliderVisibleEvent;
+            ctrl.ShowMetaDataEvent += Ctrl_ShowMetaDataEvent;
+
             //add control to element host
             elementHost1.Child = ctrl;
+        }
+
+        private void Ctrl_ShowMetaDataEvent(bool p_bool)
+        {
+            if (p_bool)
+            {
+                this.Width = this.Width + 150;
+            }
+            else
+            {
+                this.Width = this.Width - 150;
+            }
+        }
+
+        private void Ctrl_IsSliderVisibleEvent(bool p_bool)
+        {
+            if (p_bool)
+            {
+                this.Height = this.Height + 130;
+            }
+            else
+            {
+                this.Height = this.Height - 130;
+            }
+        }
+
+        private void Ctrl_ExtendSliderHeightEvent(bool p_bool)
+        {
+            if (p_bool)
+            {
+                this.Height = this.Height + 200;
+            }
+            else
+            {
+                this.Height = this.Height - 200;
+            }
         }
 
         private void Ctrl_NavigateButtonEvent()

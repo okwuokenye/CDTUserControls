@@ -24,6 +24,15 @@ namespace CDTUserControl.Usercontrols
         CDTPlayerUsercontrolViewModel vm;
         NavigationUsercontrolView _Nav = new NavigationUsercontrolView();
         #region events
+        public delegate void ExtendSliderHeightEventHandler(Boolean p_bool);
+        public event ExtendSliderHeightEventHandler ExtendSliderHeightEvent;
+
+        public delegate void ShowMetaDataEventHandler(Boolean p_bool);
+        public event ShowMetaDataEventHandler ShowMetaDataEvent;
+
+        public delegate void IsSliderVisibleEventHandler(Boolean p_bool);
+        public event IsSliderVisibleEventHandler IsSliderVisibleEvent;
+
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
 
@@ -105,8 +114,11 @@ namespace CDTUserControl.Usercontrols
             vm.Tab1ItemSelectedEvent += Vm_Tab1ItemSelectedEvent;
             vm.Tab2ItemSelectedEvent += Vm_Tab2ItemSelectedEvent;
             vm.Tab3ItemSelectedEvent += Vm_Tab3ItemSelectedEvent;
-        }
 
+            vm.ExtendSliderHeightEvent += Vm_ExtendSliderHeightEvent;
+            vm.ShowMetaDataEvent += Vm_ShowMetaDataEvent;
+            vm.IsSliderVisibleEvent += Vm_IsSliderVisibleEvent;
+        }
         #endregion
 
         #region Properties
@@ -147,6 +159,21 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region eventhandlers
+        private void Vm_IsSliderVisibleEvent(Boolean p_bool)
+        {
+            IsSliderVisibleEvent(p_bool);
+        }
+
+        private void Vm_ShowMetaDataEvent(Boolean p_bool)
+        {
+            ShowMetaDataEvent(p_bool);
+        }
+
+        private void Vm_ExtendSliderHeightEvent(Boolean p_bool)
+        {
+            ExtendSliderHeightEvent(p_bool);
+        }
+
         private void Vm_PrimaryButtonEvent(string p_FileName)
         {
             PrimaryButtonEvent(p_FileName);

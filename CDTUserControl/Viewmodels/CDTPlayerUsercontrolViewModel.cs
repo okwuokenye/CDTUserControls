@@ -14,8 +14,14 @@ namespace CDTUserControl.Viewmodels
     class CDTPlayerUsercontrolViewModel : ObservableObject
     {
         #region Event Declarations
-        public delegate void DataUpdatedEventHandler();
-        public event DataUpdatedEventHandler DataUpdatedEvent;
+        public delegate void ExtendSliderHeightEventHandler(Boolean p_bool);
+        public event ExtendSliderHeightEventHandler ExtendSliderHeightEvent;
+
+        public delegate void ShowMetaDataEventHandler(Boolean p_bool);
+        public event ShowMetaDataEventHandler ShowMetaDataEvent;
+
+        public delegate void IsSliderVisibleEventHandler(Boolean p_bool);
+        public event IsSliderVisibleEventHandler IsSliderVisibleEvent;
 
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
@@ -619,6 +625,7 @@ namespace CDTUserControl.Viewmodels
             {
                 _IsSliderVisible = true;
             }
+            IsSliderVisibleEvent(_IsSliderVisible);
             RaisePropertyChanged("SliderVisibility");
         }
         public ICommand CloseSlider { get { return new RelayCommand(CloseSliderExecute); } }
@@ -633,7 +640,7 @@ namespace CDTUserControl.Viewmodels
             {
                 _IsMetaDataVisible = true;
             }
-
+            ShowMetaDataEvent(_IsMetaDataVisible);
             RaisePropertyChanged("MetaDataVisibility");
         }
         public ICommand CloseMetaData { get { return new RelayCommand(CloseMetaDataExecute); } }
@@ -648,6 +655,7 @@ namespace CDTUserControl.Viewmodels
             {
                 _ExtendSliderHeight = true;
             }
+            ExtendSliderHeightEvent(_ExtendSliderHeight);
             RaisePropertyChanged("SliderHeight");
         }
         public ICommand ExtendSliderHeight { get { return new RelayCommand(ExtendSliderHeightExecute); } }
