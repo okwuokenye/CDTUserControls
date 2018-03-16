@@ -4,233 +4,250 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
-             mc:Ignorable="d" Height="349.403" Width="635.237" 
-            >
-    <!--Width="Auto" HorizontalAlignment="Stretch"-->
-    <StackPanel Width="Auto" Height="Auto" Margin="5,5,5,0">
-        
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="auto">
-            <StackPanel Width="Auto" Height="auto">
-                <Button Content="Delete" Command="{Binding Delete}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+	VerticalAlignment="Stretch"
+	HorizontalContentAlignment="Stretch"
+	VerticalContentAlignment="Stretch" Height="342.363"
+    >
 
-                <Button Content="Edit" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   Margin="5,5,5,5">
 
-                <Button Content="Rename" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="100" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
 
-                <Button Content="Primary" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="160" />
+        </Grid.ColumnDefinitions>
 
-                <StackPanel Visibility="{Binding SliderVisibility}" Margin="0,0,0,0">
+        <StackPanel Grid.Row="0" Grid.Column="0" Height="125" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Button Content="Delete" Command="{Binding Delete}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-                    <Button Content="TextBox" Command="{Binding TextBox}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button Content="Edit" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-                    <Button Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50"/>
+            <Button Content="Rename" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-                    <Button Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button Content="Primary" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
 
-                    <Button Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+        </StackPanel>
 
-                    <Button Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Visibility="{Binding SliderVisibility}" Margin="0,12,0,0" Height="150" VerticalAlignment="Top">
 
-                    <Button Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button Content="TextBox" Command="{Binding TextBox}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
+            <Button Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50"/>
+
+            <Button Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+        </StackPanel>
+
+        <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl">
+            <TabItem Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
+                <StackPanel>
+                    <ListBox ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" Width="auto" Height="auto"/>
                 </StackPanel>
+            </TabItem>
+
+            <TabItem Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
+                <StackPanel>
+                    <ListBox ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" Width="auto" Height="auto"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
+                <StackPanel>
+                    <ListBox ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" Width="auto" Height="auto"/>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+            <StackPanel  Height="7" Width="380" Orientation="Horizontal" HorizontalAlignment="Left">
+                <ProgressBar Maximum="{Binding ProgressBar1Maximum}" Value="{Binding ProgressBar1Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0"/>
+                <ProgressBar Maximum="{Binding ProgressBar2Maximum}" Value="{Binding ProgressBar2Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0"/>
             </StackPanel>
 
-            <StackPanel Margin="5 0" Width="400" Height="auto" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <StackPanel Height="124" Width="380" MinWidth="380" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
+                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                    <!--Each of the list boxes here should resize with the form - like fill dock in win forms-->
+                <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                    <TabControl x:Name="TCtrl" Height="124" MinHeight="120" Width="380" MinWidth="380" HorizontalAlignment="Left">
-                        <TabItem Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
-                            <StackPanel>
-                                <ListBox ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" Width="auto" Height="auto"/>
-                            </StackPanel>
-                        </TabItem>
+                <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                        <TabItem Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
-                            <StackPanel>
-                                <ListBox ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" Width="auto" Height="auto"/>
-                            </StackPanel>
-                        </TabItem>
+                <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                        <TabItem Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
-                            <StackPanel>
-                                <ListBox ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" Width="auto" Height="auto"/>
-                            </StackPanel>
-                        </TabItem>
+                <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                    </TabControl>
-                </StackPanel>
-                <StackPanel Height="7" Width="380" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <ProgressBar Maximum="{Binding ProgressBar1Maximum}" Value="{Binding ProgressBar1Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0"/>
-                    <ProgressBar Maximum="{Binding ProgressBar2Maximum}" Value="{Binding ProgressBar2Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0"/>
-                </StackPanel>
-                <!--All sliders and buttons should align to the left when the listboxes resize. They should not change size. -->
+                <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
-                    <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
-                    <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"/>
-
-                    <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"/>
-
-                    <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"/>
-
-                    <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9"/>
-
-                    <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"/>
-
-                    <Button Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
-
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5" Visibility="{Binding SliderVisibility}" Width="400" Height="auto" HorizontalAlignment="Left">
-                    <StackPanel Margin="12,0,12,10">
-
-
-                        <!--There should be mute buttons above each slider, and mute and loop buttons above the Ambient and Music sliders-->
-
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent">
-                            <Image x:Name="mute1" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
-                        </Button>
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" />
-                        <TextBlock Text="{Binding Slider1, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="12,0,12,10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent">
-                            <Image x:Name="mute2" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
-                        </Button>
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" />
-                        <TextBlock Text="{Binding Slider2, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="12 0">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent">
-                            <Image x:Name="mute3" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
-                        </Button>
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" />
-                        <TextBlock Text="{Binding Slider3, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="2,0,2,10">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider4}" Foreground="Transparent">
-                                <Image x:Name="mute4" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
-                            </Button>
-                            <Image x:Name="loop4" Height="15" Width="15" Margin="5 0" ToolTip="Loop" Source="../Resources/loop.png" />
-                        </StackPanel>
-
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="200" Orientation="Vertical" />
-                        <TextBlock Text="{Binding Slider4, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="2,0,2,10">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider5}" Foreground="Transparent">
-                                <Image x:Name="mute5" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
-                            </Button>
-                            <Image x:Name="loop5" Height="15" Width="15" Margin="5 0" ToolTip="Loop" Source="../Resources/loop.png" />
-                        </StackPanel>
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="200" Orientation="Vertical" />
-                        <TextBlock Text="{Binding Slider5, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="12,0,12,10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider6}" Foreground="Transparent">
-                            <Image x:Name="mute6" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
-                        </Button>
-                        <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider6}" Maximum="100" Orientation="Vertical" />
-                        <TextBlock Text="{Binding Slider6, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <!--This is a master volume control which was missing. It goes under the stop button-->
-
-                    <StackPanel Margin="12,0,12,10">
-                        
-                        <Slider Margin="0 20 0 0" Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
-                        <TextBlock Text="{Binding Slider7, StringFormat=N2}" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Margin="2,0,0,0" Height="auto" Visibility="{Binding MetaDataVisibility}" Width="180">
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="File Size" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding FileSize}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Date Mod" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding DateMod}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Audio Type" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding AudioType}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Bit Depth" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding BitDepth}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Format" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding Format}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Sample Rate" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding SampleRate}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="AAT" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding AAT}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="9"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="EAT" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding EAT}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Difference" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding Difference}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="%" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding Percentage}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Word Count" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding WordCount}" Width="100" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 7 0 0">
-                    <TextBlock Text="Char Count" Width="80" FontSize="9"/>
-                    <TextBlock Text="{Binding CharCount}" Width="100" />
-                </StackPanel>
             </StackPanel>
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
-            <Button Content="" ToolTip="Hide Meta Data" Command="{Binding CloseMetaData}" HorizontalAlignment="Left" Width="25"  Height="25" Margin="5 1 5 1"/>
-            <Button Content="" ToolTip="Hide Slider" Command="{Binding CloseSlider}" HorizontalAlignment="Left" Width="25"  Height="25" Margin="5 1 5 1"/>
-            <Button Content="" ToolTip="Extend Slider Height" Command="{Binding ExtendSliderHeight}"  HorizontalAlignment="Left" Width="25"  Height="25" Margin="5 1 5 1"/>
-            <Button Content="" ToolTip="Snow File Path" Command="{Binding ShowFilePath}" HorizontalAlignment="Left" Width="25"  Height="25" Margin="5 1 5 1"/>
-            <TextBlock Text="{Binding StatusPane}" MinWidth="400" Width="429" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,2" Visibility="{Binding SliderVisibility}" Width="390" HorizontalAlignment="Left">
+
+            <StackPanel Margin="12,0,12,10" VerticalAlignment="Stretch">
+
+                <!--There should be mute buttons above each slider, and mute and loop buttons above the Ambient and Music sliders-->
+
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent">
+                    <Image x:Name="mute1" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider1, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Margin="12,0,12,10">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent">
+                    <Image x:Name="mute2" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider2, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Margin="12 0">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent">
+                    <Image x:Name="mute3" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider3, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Margin="2,0,2,10">
+                <StackPanel Orientation="Horizontal">
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider4}" Foreground="Transparent">
+                        <Image x:Name="mute4" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                    </Button>
+                    <Image x:Name="loop4" Height="15" Width="15" Margin="5 0" ToolTip="Loop" Source="../Resources/loop.png" />
+                </StackPanel>
+
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider4, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Margin="2,0,2,10">
+                <StackPanel Orientation="Horizontal">
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider5}" Foreground="Transparent">
+                        <Image x:Name="mute5" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                    </Button>
+                    <Image x:Name="loop5" Height="15" Width="15" Margin="5 0" ToolTip="Loop" Source="../Resources/loop.png" />
+                </StackPanel>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider5, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Margin="12,0,12,10">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider6}" Foreground="Transparent">
+                    <Image x:Name="mute6" Height="15" Width="15" ToolTip="Mute" Source="../Resources/unmute.png" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider6}" Maximum="100" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider6, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!--This is a master volume control which was missing. It goes under the stop button-->
+
+            <StackPanel Margin="12,0,12,10">
+
+                <Slider Margin="0 20 0 0" Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
+                <TextBlock Text="{Binding Slider7, StringFormat=N2}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
         </StackPanel>
 
-    </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Margin="0,0,0,0" Height="170" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right" >
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="File Size" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding FileSize}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Date Mod" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding DateMod}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Audio Type" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding AudioType}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Bit Depth" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding BitDepth}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Format" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding Format}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Sample Rate" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding SampleRate}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="AAT" Width="80" FontSize="9"/>
+                <TextBlock Text="{Binding AAT}" Width="100" />
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Height="120" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right">
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="9"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="EAT" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding EAT}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Difference" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding Difference}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="%" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding Percentage}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Word Count" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding WordCount}" Width="110" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Char Count" Width="50" FontSize="9"/>
+                <TextBlock Text="{Binding CharCount}" Width="110" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" >
+            <Button Content="" ToolTip="Hide Meta Data" Command="{Binding CloseMetaData}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
+            <Button Content="" ToolTip="Hide Slider" Command="{Binding CloseSlider}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
+            <Button Content="" ToolTip="Extend Slider Height" Command="{Binding ExtendSliderHeight}"  HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
+            <Button Content="" ToolTip="Snow File Path" Command="{Binding ShowFilePath}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
+            <TextBlock Text="{Binding StatusPane}" MinWidth="400" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        </StackPanel>
+
+    </Grid>
+
 </UserControl>

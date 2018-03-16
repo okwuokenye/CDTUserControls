@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CDTUserControl"
         mc:Ignorable="d"
-        Height="460" Width="800">
+        Height="460" Width="872.927">
     <StackPanel>
-    <StackPanel Orientation="Horizontal" Margin="5 5 5 0">
+    <StackPanel Orientation="Horizontal" Margin="5,5,0,0" Height="412">
             <StackPanel Margin="5 5 5 0">
             <Button Content="Delete" Command="{Binding Delete}" Width="80" Height="30" Margin="0 0 0 5"/>
 
@@ -113,15 +113,15 @@
             
         </StackPanel>
 
-        <StackPanel Margin="5 5">
-            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+        <StackPanel Margin="5 5" Width="259">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                 <TextBlock Text="File Size" Width="80"/>
-                <TextBox Width="100" />
+                <TextBox Width="179" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                 <TextBlock Text="Date Mod" Width="80"/>
-                <TextBox Width="100" />
+                <TextBox Width="177" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 15 0 0">

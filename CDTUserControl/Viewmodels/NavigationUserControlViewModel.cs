@@ -78,7 +78,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void GoTSavedButtonEventHandler();
         public event GoTSavedButtonEventHandler GoTSavedButtonEvent;
 
-        public delegate void OffButtonEventHandler();
+        public delegate void OffButtonEventHandler(Boolean p_Value);
         public event OffButtonEventHandler OffButtonEvent;
 
         public delegate void RefreshButtonEventHandler();
@@ -91,13 +91,14 @@ namespace CDTUserControl.Viewmodels
         public event PauseButtonEventHandler PauseButtonEvent;
         public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
         public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
-        public delegate void Checkbox1CheckedEventHandler();
+
+        public delegate void Checkbox1CheckedEventHandler(Boolean p_Value);
         public event Checkbox1CheckedEventHandler Checkbox1CheckedEvent;
 
-        public delegate void Checkbox2CheckedEventHandler();
+        public delegate void Checkbox2CheckedEventHandler(Boolean p_Value);
         public event Checkbox2CheckedEventHandler Checkbox2CheckedEvent;
 
-        public delegate void Checkbox3CheckedEventHandler();
+        public delegate void Checkbox3CheckedEventHandler(Boolean p_Value);
         public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
 
         public delegate void GotoFirstCheckboxEventHandler();
@@ -130,7 +131,7 @@ namespace CDTUserControl.Viewmodels
                 if (_IsCheckBox1Checked != value)
                 {
                     _IsCheckBox1Checked = value;
-                    Checkbox1CheckedEvent();
+                    Checkbox1CheckedEvent(value);
                 }
             }
         }
@@ -142,7 +143,7 @@ namespace CDTUserControl.Viewmodels
                 if (_IsCheckBox2Checked != value)
                 {
                     _IsCheckBox2Checked = value;
-                    Checkbox2CheckedEvent();
+                    Checkbox2CheckedEvent(value);
                 }
             }
         }
@@ -154,7 +155,7 @@ namespace CDTUserControl.Viewmodels
                 if (_IsCheckBox3Checked != value)
                 {
                     _IsCheckBox3Checked = value;
-                    Checkbox3CheckedEvent();
+                    Checkbox3CheckedEvent(value);
                 }
             }
         }
@@ -235,6 +236,16 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region public methods
+
+        public string ReturnCharacter()
+        {
+            return CurrentCharacter;
+        }
+
+        public void ChangeCharacter(String p_Value)
+        {
+            CurrentCharacter = p_Value;
+        }
 
         public void AddCurrentCharacters(List<String> p_CurrentCharacters)
         {
@@ -387,8 +398,8 @@ namespace CDTUserControl.Viewmodels
 
         private void OffExecute()
         {
-            //OffButtonEvent();
             _AnalysisOn = _AnalysisOn ? false : true;
+            OffButtonEvent(_AnalysisOn);
             RaisePropertyChanged("AnalysisOn");
         }
         public ICommand Off { get { return new RelayCommand(OffExecute); } }

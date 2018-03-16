@@ -76,7 +76,7 @@ namespace CDTUserControl.Usercontrols
         public delegate void GoTSavedButtonEventHandler();
         public event GoTSavedButtonEventHandler GoTSavedButtonEvent;
 
-        public delegate void OffButtonEventHandler();
+        public delegate void OffButtonEventHandler(Boolean p_Value);
         public event OffButtonEventHandler OffButtonEvent;
 
         public delegate void RefreshButtonEventHandler();
@@ -90,13 +90,13 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
         public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
-        public delegate void Checkbox1CheckedEventHandler();
+        public delegate void Checkbox1CheckedEventHandler(Boolean p_Value);
         public event Checkbox1CheckedEventHandler Checkbox1CheckedEvent;
 
-        public delegate void Checkbox2CheckedEventHandler();
+        public delegate void Checkbox2CheckedEventHandler(Boolean p_Value);
         public event Checkbox2CheckedEventHandler Checkbox2CheckedEvent;
 
-        public delegate void Checkbox3CheckedEventHandler();
+        public delegate void Checkbox3CheckedEventHandler(Boolean p_Value);
         public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
 
         public delegate void GotoFirstCheckboxEventHandler();
@@ -169,9 +169,9 @@ namespace CDTUserControl.Usercontrols
             RefreshButtonEvent();
         }
 
-        private void Vm_OffButtonEvent()
+        private void Vm_OffButtonEvent(Boolean p_Value)
         {
-            OffButtonEvent();
+            OffButtonEvent(p_Value);
         }
 
         private void Vm_GoTSavedButtonEvent()
@@ -264,19 +264,19 @@ namespace CDTUserControl.Usercontrols
             CurrentCharacterSelectedEvent(p_Index);
         }
 
-        private void Vm_Checkbox1CheckedEvent()
+        private void Vm_Checkbox1CheckedEvent(Boolean p_Value)
         {
-            Checkbox1CheckedEvent();
+            Checkbox1CheckedEvent(p_Value);
         }
 
-        private void Vm_Checkbox2CheckedEvent()
+        private void Vm_Checkbox2CheckedEvent(Boolean p_Value)
         {
-            Checkbox2CheckedEvent();
+            Checkbox2CheckedEvent(p_Value);
         }
 
-        private void Vm_Checkbox3CheckedEvent()
+        private void Vm_Checkbox3CheckedEvent(Boolean p_Value)
         {
-            Checkbox3CheckedEvent();
+            Checkbox3CheckedEvent(p_Value);
         }
 
         private void Vm_GotoFirstCheckboxEvent()
@@ -323,6 +323,17 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region public functions
+
+        public string ReturnCharacter()
+        {
+            return vm.ReturnCharacter();
+        }
+
+        public void ChangeCharacter(String p_Value)
+        {
+            vm.ChangeCharacter(p_Value);
+        }
+
         public void AddCurrentCharacter(List<String> p_CurrentCharacters)
         {
             vm.AddCurrentCharacters(p_CurrentCharacters);
