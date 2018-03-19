@@ -84,6 +84,20 @@ namespace CDTUserControl.Usercontrols
         public event Tab2ItemSelectedEventHandler Tab2ItemSelectedEvent;
         public delegate void Tab3ItemSelectedEventHandler(String p_Item, Int32 p_Index);
         public event Tab3ItemSelectedEventHandler Tab3ItemSelectedEvent;
+
+        public delegate void MuteSlider1EventHandler(Boolean p_IsMute);
+        public event MuteSlider1EventHandler MuteSlider1Event;
+        public delegate void MuteSlider2EventHandler(Boolean p_IsMute);
+        public event MuteSlider2EventHandler MuteSlider2Event;
+        public delegate void MuteSlider3EventHandler(Boolean p_IsMute);
+        public event MuteSlider3EventHandler MuteSlider3Event;
+
+        public delegate void MuteSlider4EventHandler(Boolean p_IsMute);
+        public event MuteSlider4EventHandler MuteSlider4Event;
+        public delegate void MuteSlider5EventHandler(Boolean p_IsMute);
+        public event MuteSlider5EventHandler MuteSlider5Event;
+        public delegate void MuteSlider6EventHandler(Boolean p_IsMute);
+        public event MuteSlider6EventHandler MuteSlider6Event;
         #endregion
 
         #region public properties
@@ -118,7 +132,15 @@ namespace CDTUserControl.Usercontrols
             vm.ExtendSliderHeightEvent += Vm_ExtendSliderHeightEvent;
             vm.ShowMetaDataEvent += Vm_ShowMetaDataEvent;
             vm.IsSliderVisibleEvent += Vm_IsSliderVisibleEvent;
+            vm.MuteSlider1Event += Vm_MuteSlider1Event;
+            vm.MuteSlider2Event += Vm_MuteSlider2Event;
+            vm.MuteSlider3Event += Vm_MuteSlider3Event;
+            vm.MuteSlider4Event += Vm_MuteSlider4Event;
+            vm.MuteSlider5Event += Vm_MuteSlider5Event;
+            vm.MuteSlider6Event += Vm_MuteSlider6Event;
+
         }
+
         #endregion
 
         #region Properties
@@ -159,6 +181,37 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region eventhandlers
+
+        private void Vm_MuteSlider1Event(bool p_IsMute)
+        {
+            MuteSlider1Event(p_IsMute);
+        }
+
+        private void Vm_MuteSlider2Event(bool p_IsMute)
+        {
+            MuteSlider2Event(p_IsMute);
+        }
+
+        private void Vm_MuteSlider3Event(bool p_IsMute)
+        {
+            MuteSlider3Event(p_IsMute);
+        }
+
+        private void Vm_MuteSlider4Event(bool p_IsMute)
+        {
+            MuteSlider4Event(p_IsMute);
+        }
+
+        private void Vm_MuteSlider5Event(bool p_IsMute)
+        {
+            MuteSlider5Event(p_IsMute);
+        }
+
+        private void Vm_MuteSlider6Event(bool p_IsMute)
+        {
+            MuteSlider6Event(p_IsMute);
+        }
+
         private void Vm_IsSliderVisibleEvent(Boolean p_bool)
         {
             IsSliderVisibleEvent(p_bool);

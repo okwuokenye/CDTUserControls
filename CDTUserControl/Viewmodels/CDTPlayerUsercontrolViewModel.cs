@@ -76,6 +76,22 @@ namespace CDTUserControl.Viewmodels
         public delegate void Tab3ItemSelectedEventHandler(String p_Item, Int32 p_Index);
         public event Tab3ItemSelectedEventHandler Tab3ItemSelectedEvent;
 
+        public delegate void MuteSlider1EventHandler(Boolean p_IsMute);
+        public event MuteSlider1EventHandler MuteSlider1Event;
+        public delegate void MuteSlider2EventHandler(Boolean p_IsMute);
+        public event MuteSlider2EventHandler MuteSlider2Event;
+        public delegate void MuteSlider3EventHandler(Boolean p_IsMute);
+        public event MuteSlider3EventHandler MuteSlider3Event;
+
+        public delegate void MuteSlider4EventHandler(Boolean p_IsMute);
+        public event MuteSlider4EventHandler MuteSlider4Event;
+        public delegate void MuteSlider5EventHandler(Boolean p_IsMute);
+        public event MuteSlider5EventHandler MuteSlider5Event;
+        public delegate void MuteSlider6EventHandler(Boolean p_IsMute);
+        public event MuteSlider6EventHandler MuteSlider6Event;
+        public delegate void MuteSlider7EventHandler(Boolean p_IsMute);
+        public event MuteSlider7EventHandler MuteSlider7Event;
+
         #endregion
 
         #region Private variables
@@ -88,11 +104,18 @@ namespace CDTUserControl.Viewmodels
         Double _Slider6 = 100;
         Double _Slider7;
 
-        string _SliderText1 = "100";
-        string _SliderText2 = "100";
-        string _SliderText3 = "100";
-        string _SliderText4 = "100";
-        string _SliderText5 = "100";
+        String _SliderText1 = "100";
+        String _SliderText2 = "100";
+        String _SliderText3 = "100";
+        String _SliderText4 = "100";
+        String _SliderText5 = "100";
+
+        Boolean _Slider1IsMute = false;
+        Boolean _Slider2IsMute = false;
+        Boolean _Slider3IsMute = false;
+        Boolean _Slider4IsMute = false;
+        Boolean _Slider5IsMute = false;
+        Boolean _Slider6IsMute = false;
 
         ObservableCollection<String> _EnglishTabListBoxItems = new ObservableCollection<String>();
         String _EnglishTabListBoxItem;
@@ -115,6 +138,7 @@ namespace CDTUserControl.Viewmodels
         Boolean _IsSliderVisible = true;
         Boolean _IsMetaDataVisible = false;
         Boolean _ExtendSliderHeight = false;
+        Boolean _CloseSlider = false;
         String _StatusPane = "Test";
 
         String _Tab1HeaderText = "English";
@@ -493,7 +517,7 @@ namespace CDTUserControl.Viewmodels
         }
         public Visibility SliderVisibility { get { return _IsSliderVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
-        public Double SliderHeight { get { return _ExtendSliderHeight ? 280 : 80; } }
+        public Double SliderHeight { get { return _CloseSlider ? 0 : _ExtendSliderHeight ? 280 : 80; } }
         public String StatusPane { get { return _StatusPane; } }
         public String Tab1HeaderText
         {
@@ -662,46 +686,88 @@ namespace CDTUserControl.Viewmodels
 
         private void MuteSlider1Execute()
         {
-            _Slider1 = 0;
-            RaisePropertyChanged("Slider1");
+            if (_Slider1IsMute)
+            {
+                _Slider1IsMute = false;
+            }
+            else
+            {
+                _Slider1IsMute = true;
+            }
+            MuteSlider1Event(_Slider1IsMute);
         }
         public ICommand MuteSlider1 { get { return new RelayCommand(MuteSlider1Execute); } }
 
         private void MuteSlider2Execute()
         {
-            _Slider2 = 0;
-            RaisePropertyChanged("Slider2");
+            if (_Slider2IsMute)
+            {
+                _Slider2IsMute = false;
+            }
+            else
+            {
+                _Slider2IsMute = true;
+            }
+            MuteSlider2Event(_Slider2IsMute);
         }
         public ICommand MuteSlider2 { get { return new RelayCommand(MuteSlider2Execute); } }
 
 
         private void MuteSlider3Execute()
         {
-            _Slider3 = 0;
-            RaisePropertyChanged("Slider3");
+            if (_Slider3IsMute)
+            {
+                _Slider3IsMute = false;
+            }
+            else
+            {
+                _Slider3IsMute = true;
+            }
+            MuteSlider3Event(_Slider3IsMute);
         }
         public ICommand MuteSlider3 { get { return new RelayCommand(MuteSlider3Execute); } }
 
 
         private void MuteSlider4Execute()
         {
-            _Slider4 = 0;
-            RaisePropertyChanged("Slider4");
+            if (_Slider4IsMute)
+            {
+                _Slider4IsMute = false;
+            }
+            else
+            {
+                _Slider4IsMute = true;
+            }
+            MuteSlider4Event(_Slider4IsMute);
         }
         public ICommand MuteSlider4 { get { return new RelayCommand(MuteSlider4Execute); } }
 
 
         private void MuteSlider5Execute()
         {
-            _Slider5 = 0;
-            RaisePropertyChanged("Slider5");
+            if (_Slider5IsMute)
+            {
+                _Slider5IsMute = false;
+            }
+            else
+            {
+                _Slider5IsMute = true;
+            }
+            MuteSlider5Event(_Slider5IsMute);
         }
         public ICommand MuteSlider5 { get { return new RelayCommand(MuteSlider5Execute); } }
 
         private void MuteSlider6Execute()
         {
-            _Slider6 = 0;
-            RaisePropertyChanged("Slider6");
+            if (_Slider6IsMute)
+            {
+                _Slider6IsMute = false;
+            }
+            else
+            {
+                _Slider6IsMute = true;
+            }
+            MuteSlider6Event(_Slider6IsMute);
         }
         public ICommand MuteSlider6 { get { return new RelayCommand(MuteSlider6Execute); } }
 
