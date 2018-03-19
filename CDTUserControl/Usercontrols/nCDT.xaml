@@ -23,7 +23,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="56" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="160" />
+            <ColumnDefinition Width="{Binding Column2Width}" />
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Height="125" Margin="0,0,0,0" VerticalAlignment="Top">

@@ -136,7 +136,7 @@ namespace CDTUserControl.Viewmodels
         String _WordCount;
         String _CharCount;
         Boolean _IsSliderVisible = true;
-        Boolean _IsMetaDataVisible = false;
+        Boolean _IsMetaDataVisible = true;
         Boolean _ExtendSliderHeight = false;
         Boolean _CloseSlider = false;
         String _StatusPane = "Test";
@@ -517,6 +517,7 @@ namespace CDTUserControl.Viewmodels
         }
         public Visibility SliderVisibility { get { return _IsSliderVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
+        public Double Column2Width { get { return _IsMetaDataVisible ? 160 : 0; } }
         public Double SliderHeight { get { return _CloseSlider ? 0 : _ExtendSliderHeight ? 280 : 80; } }
         public String StatusPane { get { return _StatusPane; } }
         public String Tab1HeaderText
@@ -665,7 +666,7 @@ namespace CDTUserControl.Viewmodels
                 _IsMetaDataVisible = true;
             }
             ShowMetaDataEvent(_IsMetaDataVisible);
-            RaisePropertyChanged("MetaDataVisibility");
+            RaisePropertyChanged("Column2Width");
         }
         public ICommand CloseMetaData { get { return new RelayCommand(CloseMetaDataExecute); } }
 
