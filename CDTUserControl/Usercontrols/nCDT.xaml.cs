@@ -24,13 +24,13 @@ namespace CDTUserControl.Usercontrols
         CDTPlayerUsercontrolViewModel vm;
         NavigationUsercontrolView _Nav = new NavigationUsercontrolView();
         #region events
-        public delegate void ExtendSliderHeightEventHandler(Boolean p_bool);
+        public delegate void ExtendSliderHeightEventHandler(Boolean p_bool, Int32 p_Value);
         public event ExtendSliderHeightEventHandler ExtendSliderHeightEvent;
 
-        public delegate void ShowMetaDataEventHandler(Boolean p_bool);
+        public delegate void ShowMetaDataEventHandler(Boolean p_bool, Int32 p_Value);
         public event ShowMetaDataEventHandler ShowMetaDataEvent;
 
-        public delegate void IsSliderVisibleEventHandler(Boolean p_bool);
+        public delegate void IsSliderVisibleEventHandler(Boolean p_bool, Int32 p_Value);
         public event IsSliderVisibleEventHandler IsSliderVisibleEvent;
 
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
@@ -212,19 +212,19 @@ namespace CDTUserControl.Usercontrols
             MuteSlider6Event(p_IsMute);
         }
 
-        private void Vm_IsSliderVisibleEvent(Boolean p_bool)
+        private void Vm_IsSliderVisibleEvent(Boolean p_bool, Int32 p_Value)
         {
-            IsSliderVisibleEvent(p_bool);
+            IsSliderVisibleEvent(p_bool, p_Value);
         }
 
-        private void Vm_ShowMetaDataEvent(Boolean p_bool)
+        private void Vm_ShowMetaDataEvent(Boolean p_bool, Int32 p_Value)
         {
-            ShowMetaDataEvent(p_bool);
+            ShowMetaDataEvent(p_bool, p_Value);
         }
 
-        private void Vm_ExtendSliderHeightEvent(Boolean p_bool)
+        private void Vm_ExtendSliderHeightEvent(Boolean p_bool, Int32 p_Value)
         {
-            ExtendSliderHeightEvent(p_bool);
+            ExtendSliderHeightEvent(p_bool, p_Value);
         }
 
         private void Vm_PrimaryButtonEvent(string p_FileName)
