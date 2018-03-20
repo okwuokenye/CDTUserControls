@@ -98,6 +98,11 @@ namespace CDTUserControl.Usercontrols
         public event MuteSlider5EventHandler MuteSlider5Event;
         public delegate void MuteSlider6EventHandler(Boolean p_IsMute);
         public event MuteSlider6EventHandler MuteSlider6Event;
+
+        public delegate void Loop4EventHandler(Boolean p_IsLoop);
+        public event Loop4EventHandler Loop4Event;
+        public delegate void Loop5EventHandler(Boolean p_IsLoop);
+        public event Loop5EventHandler Loop5Event;
         #endregion
 
         #region public properties
@@ -138,7 +143,8 @@ namespace CDTUserControl.Usercontrols
             vm.MuteSlider4Event += Vm_MuteSlider4Event;
             vm.MuteSlider5Event += Vm_MuteSlider5Event;
             vm.MuteSlider6Event += Vm_MuteSlider6Event;
-
+            vm.Loop4Event += Vm_Loop4Event;
+            vm.Loop5Event += Vm_Loop5Event;
         }
 
         #endregion
@@ -181,6 +187,15 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region eventhandlers
+        private void Vm_Loop5Event(Boolean p_IsLoop)
+        {
+            Loop5Event(p_IsLoop);
+        }
+
+        private void Vm_Loop4Event(Boolean p_IsLoop)
+        {
+            Loop4Event(p_IsLoop);
+        }
 
         private void Vm_MuteSlider1Event(bool p_IsMute)
         {
