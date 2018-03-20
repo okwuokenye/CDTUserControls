@@ -14,13 +14,13 @@ namespace CDTUserControl.Viewmodels
     class CDTPlayerUsercontrolViewModel : ObservableObject
     {
         #region Event Declarations
-        public delegate void ExtendSliderHeightEventHandler(Boolean p_bool);
+        public delegate void ExtendSliderHeightEventHandler(Boolean p_bool, Int32 p_Value);
         public event ExtendSliderHeightEventHandler ExtendSliderHeightEvent;
 
-        public delegate void ShowMetaDataEventHandler(Boolean p_bool);
+        public delegate void ShowMetaDataEventHandler(Boolean p_bool, Int32 p_Value);
         public event ShowMetaDataEventHandler ShowMetaDataEvent;
 
-        public delegate void IsSliderVisibleEventHandler(Boolean p_bool);
+        public delegate void IsSliderVisibleEventHandler(Boolean p_bool, Int32 p_Value);
         public event IsSliderVisibleEventHandler IsSliderVisibleEvent;
 
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
@@ -89,20 +89,18 @@ namespace CDTUserControl.Viewmodels
         public event MuteSlider5EventHandler MuteSlider5Event;
         public delegate void MuteSlider6EventHandler(Boolean p_IsMute);
         public event MuteSlider6EventHandler MuteSlider6Event;
-        public delegate void MuteSlider7EventHandler(Boolean p_IsMute);
-        public event MuteSlider7EventHandler MuteSlider7Event;
 
         #endregion
 
         #region Private variables
         Visibility _LoaderVisibility = Visibility.Visible;
-        Double _Slider1 = 100;
-        Double _Slider2 = 100;
-        Double _Slider3 = 100;
-        Double _Slider4 = 100;
-        Double _Slider5 = 100;
-        Double _Slider6 = 100;
-        Double _Slider7;
+        Int32 _Slider1 = 100;
+        Int32 _Slider2 = 100;
+        Int32 _Slider3 = 100;
+        Int32 _Slider4 = 100;
+        Int32 _Slider5 = 100;
+        Int32 _Slider6 = 100;
+        Int32 _Slider7;
 
         String _SliderText1 = "100";
         String _SliderText2 = "100";
@@ -135,10 +133,11 @@ namespace CDTUserControl.Viewmodels
         String _Percentage;
         String _WordCount;
         String _CharCount;
+
         Boolean _IsSliderVisible = true;
-        Boolean _IsMetaDataVisible = true;
+        Boolean _IsMetaDataVisible = false;
         Boolean _ExtendSliderHeight = false;
-        Boolean _CloseSlider = false;
+        
         String _StatusPane = "Test";
 
         String _Tab1HeaderText = "English";
@@ -155,7 +154,7 @@ namespace CDTUserControl.Viewmodels
         {
             get { return _LoaderVisibility; }
         }
-        public Double Slider1
+        public Int32 Slider1
         {
             get { return _Slider1; }
             set
@@ -176,7 +175,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Double Slider2
+        public Int32 Slider2
         {
             get { return _Slider2; }
             set
@@ -196,7 +195,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Double Slider3
+        public Int32 Slider3
         {
             get { return _Slider3; }
             set
@@ -216,7 +215,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Double Slider4
+        public Int32 Slider4
         {
             get { return _Slider4; }
             set
@@ -236,7 +235,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Double Slider5
+        public Int32 Slider5
         {
             get { return _Slider5; }
             set
@@ -256,7 +255,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Double Slider6
+        public Int32 Slider6
         {
             get { return _Slider6; }
             set
@@ -268,7 +267,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        public Double Slider7
+        public Int32 Slider7
         {
             get { return _Slider7; }
             set
@@ -515,10 +514,18 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+        
         public Visibility SliderVisibility { get { return _IsSliderVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
-        public Double Column2Width { get { return _IsMetaDataVisible ? 160 : 0; } }
-        public Double SliderHeight { get { return _CloseSlider ? 0 : _ExtendSliderHeight ? 280 : 80; } }
+        
+        public String CloseSliderTT { get { return _IsSliderVisible ? "Hide Slider" : "Show Slider"; } }
+        public String ExtendSliderTT { get { return _ExtendSliderHeight ? "Reduce Slider Height" : "Extend Slider Height"; } }
+        public String MetaDataTT { get { return _IsMetaDataVisible ? "Hide MetaData" : "Show MetaData"; } }
+        
+        public Int32 Column2Width { get { return _IsMetaDataVisible ? 165 : 0; } }
+        public Int32 SliderHeight { get { return _IsSliderVisible ? _ExtendSliderHeight ? 180 : 80 :  0; } }
+        public Int32 Row2Height { get { return _IsSliderVisible ? _ExtendSliderHeight ? 225 : 125 : 0; } }
+
         public String StatusPane { get { return _StatusPane; } }
         public String Tab1HeaderText
         {
@@ -650,8 +657,24 @@ namespace CDTUserControl.Viewmodels
             {
                 _IsSliderVisible = true;
             }
-            IsSliderVisibleEvent(_IsSliderVisible);
+
+            RaisePropertyChanged("SliderHeight");
             RaisePropertyChanged("SliderVisibility");
+            RaisePropertyChanged("Row2Height");
+            RaisePropertyChanged("CloseSliderTT");
+
+            if (_ExtendSliderHeight)
+            {
+                
+                IsSliderVisibleEvent(_IsSliderVisible, 200);
+            }
+            else
+            {
+                IsSliderVisibleEvent(_IsSliderVisible, 125);
+            }
+
+            
+
         }
         public ICommand CloseSlider { get { return new RelayCommand(CloseSliderExecute); } }
 
@@ -665,13 +688,19 @@ namespace CDTUserControl.Viewmodels
             {
                 _IsMetaDataVisible = true;
             }
-            ShowMetaDataEvent(_IsMetaDataVisible);
+
             RaisePropertyChanged("Column2Width");
+            RaisePropertyChanged("MetaDataVisibility");   
+            ShowMetaDataEvent(_IsMetaDataVisible, 165);
+            RaisePropertyChanged("MetaDataTT");
+
+
         }
         public ICommand CloseMetaData { get { return new RelayCommand(CloseMetaDataExecute); } }
 
         private void ExtendSliderHeightExecute()
         {
+
             if (_ExtendSliderHeight)
             {
                 _ExtendSliderHeight = false;
@@ -680,8 +709,18 @@ namespace CDTUserControl.Viewmodels
             {
                 _ExtendSliderHeight = true;
             }
-            ExtendSliderHeightEvent(_ExtendSliderHeight);
+
             RaisePropertyChanged("SliderHeight");
+            RaisePropertyChanged("SliderVisibility");
+            RaisePropertyChanged("Row2Height");
+            RaisePropertyChanged("ExtendSliderTT");
+
+            if (_IsSliderVisible)
+            {
+                ExtendSliderHeightEvent(_ExtendSliderHeight, 100);
+            }
+
+
         }
         public ICommand ExtendSliderHeight { get { return new RelayCommand(ExtendSliderHeightExecute); } }
 
