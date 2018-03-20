@@ -16,5 +16,5 @@ DEBUG;TRACE
 18754602081
 App.xaml;TestControl.xaml;Usercontrols\CDTPlayerUsercontrolView.xaml;Usercontrols\NavigationUsercontrolView.xaml;Usercontrols\nCDT.xaml;
 
-True
+False
 
