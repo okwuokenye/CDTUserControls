@@ -92,6 +92,12 @@ namespace CDTUserControl.Viewmodels
         public delegate void MuteSlider7EventHandler(Boolean p_IsMute);
         public event MuteSlider7EventHandler MuteSlider7Event;
 
+        public delegate void Loop4EventHandler(Boolean p_IsLoop);
+        public event Loop4EventHandler Loop4Event;
+
+        public delegate void Loop5EventHandler(Boolean p_IsLoop);
+        public event Loop5EventHandler Loop5Event;
+
         #endregion
 
         #region Private variables
@@ -116,6 +122,8 @@ namespace CDTUserControl.Viewmodels
         Boolean _Slider4IsMute = false;
         Boolean _Slider5IsMute = false;
         Boolean _Slider6IsMute = false;
+        Boolean _Slider4IsLoop = true;
+        Boolean _Slider5IsLoop = true;
 
         ObservableCollection<String> _EnglishTabListBoxItems = new ObservableCollection<String>();
         String _EnglishTabListBoxItem;
@@ -536,6 +544,29 @@ namespace CDTUserControl.Viewmodels
         public Int32 ProgressBar1Value { get { return _ProgressBar1Value; } }
         public Int32 ProgressBar2Maximum { get { return _ProgressBar2Maximum; } }
         public Int32 ProgressBar2Value { get { return _ProgressBar2Value; } }
+        public String Mute1Source { get { return _Slider1IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
+        public String Mute1Tooltip { get { return _Slider1IsMute ? "unmute" : "mute"; } }
+
+        public String Mute2Source { get { return _Slider2IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
+        public String Mute2Tooltip { get { return _Slider2IsMute ? "unmute" : "mute"; } }
+
+        public String Mute3Source { get { return _Slider3IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
+        public String Mute3Tooltip { get { return _Slider3IsMute ? "unmute" : "mute"; } }
+
+        public String Mute4Source { get { return _Slider4IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
+        public String Mute4Tooltip { get { return _Slider4IsMute ? "unmute" : "mute"; } }
+
+        public String Mute5Source { get { return _Slider5IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
+        public String Mute5Tooltip { get { return _Slider5IsMute ? "unmute" : "mute"; } }
+
+        public String Mute6Source { get { return _Slider6IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
+        public String Mute6Tooltip { get { return _Slider6IsMute ? "unmute" : "mute"; } }
+
+        public String Loop4Source { get { return _Slider4IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
+        public String Loop4Tooltip { get { return _Slider4IsLoop ? "unloop" : "loop"; } }
+
+        public String Loop5Source { get { return _Slider4IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
+        public String Loop5Tooltip { get { return _Slider5IsLoop ? "unloop" : "loop"; } }
         #endregion
 
         #region Constructors
@@ -695,6 +726,7 @@ namespace CDTUserControl.Viewmodels
             {
                 _Slider1IsMute = true;
             }
+            RaisePropertyChanged("Mute1Source");
             MuteSlider1Event(_Slider1IsMute);
         }
         public ICommand MuteSlider1 { get { return new RelayCommand(MuteSlider1Execute); } }
@@ -709,11 +741,11 @@ namespace CDTUserControl.Viewmodels
             {
                 _Slider2IsMute = true;
             }
+            RaisePropertyChanged("Mute2Source");
             MuteSlider2Event(_Slider2IsMute);
         }
         public ICommand MuteSlider2 { get { return new RelayCommand(MuteSlider2Execute); } }
-
-
+        
         private void MuteSlider3Execute()
         {
             if (_Slider3IsMute)
@@ -724,11 +756,11 @@ namespace CDTUserControl.Viewmodels
             {
                 _Slider3IsMute = true;
             }
+            RaisePropertyChanged("Mute3Source");
             MuteSlider3Event(_Slider3IsMute);
         }
         public ICommand MuteSlider3 { get { return new RelayCommand(MuteSlider3Execute); } }
-
-
+        
         private void MuteSlider4Execute()
         {
             if (_Slider4IsMute)
@@ -739,11 +771,11 @@ namespace CDTUserControl.Viewmodels
             {
                 _Slider4IsMute = true;
             }
+            RaisePropertyChanged("Mute4Source");
             MuteSlider4Event(_Slider4IsMute);
         }
         public ICommand MuteSlider4 { get { return new RelayCommand(MuteSlider4Execute); } }
-
-
+        
         private void MuteSlider5Execute()
         {
             if (_Slider5IsMute)
@@ -754,6 +786,7 @@ namespace CDTUserControl.Viewmodels
             {
                 _Slider5IsMute = true;
             }
+            RaisePropertyChanged("Mute5Source");
             MuteSlider5Event(_Slider5IsMute);
         }
         public ICommand MuteSlider5 { get { return new RelayCommand(MuteSlider5Execute); } }
@@ -768,10 +801,40 @@ namespace CDTUserControl.Viewmodels
             {
                 _Slider6IsMute = true;
             }
+            RaisePropertyChanged("Mute6Source");
             MuteSlider6Event(_Slider6IsMute);
         }
         public ICommand MuteSlider6 { get { return new RelayCommand(MuteSlider6Execute); } }
 
+        private void LoopSlider4Execute()
+        {
+            if (_Slider4IsLoop)
+            {
+                _Slider4IsLoop = false;
+            }
+            else
+            {
+                _Slider4IsLoop = true;
+            }
+            RaisePropertyChanged("Loop4Source");
+            Loop4Event(_Slider4IsLoop);
+        }
+        public ICommand LoopSlider4 { get { return new RelayCommand(LoopSlider4Execute); }}
+
+        private void LoopSlider5Execute()
+        {
+            if (_Slider5IsLoop)
+            {
+                _Slider5IsLoop = false;
+            }
+            else
+            {
+                _Slider5IsLoop = true;
+            }
+            RaisePropertyChanged("Loop5Source");
+            Loop5Event(_Slider5IsLoop);
+        }
+        public ICommand LoopSlider5 { get { return new RelayCommand(LoopSlider5Execute); } }
         #endregion
 
         #region Public Functions
