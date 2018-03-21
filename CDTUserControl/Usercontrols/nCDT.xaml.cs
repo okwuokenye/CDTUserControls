@@ -45,6 +45,9 @@ namespace CDTUserControl.Usercontrols
         public delegate void PrimaryButtonEventHandler(String p_FileName);
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
 
+        public delegate void TextboxButtonEventHandler();
+        public event TextboxButtonEventHandler TextboxButtonEvent;
+
         public delegate void CharacterButtonEventHandler();
         public event CharacterButtonEventHandler CharacterButtonEvent;
 
@@ -66,8 +69,8 @@ namespace CDTUserControl.Usercontrols
         public delegate void SourceButtonEventHandler();
         public event SourceButtonEventHandler SourceButtonEvent;
 
-        public delegate void SportButtonEventHandler();
-        public event SportButtonEventHandler SportButtonEvent;
+        public delegate void SpotButtonEventHandler();
+        public event SpotButtonEventHandler SpotButtonEvent;
 
         public delegate void AmbientButtonEventHandler();
         public event AmbientButtonEventHandler AmbientButtonEvent;
@@ -77,6 +80,10 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void SpkButtonEventHandler();
         public event SpkButtonEventHandler SpkButtonEvent;
+        
+        public delegate void StopButtonEventHandler();
+        public event StopButtonEventHandler StopButtonEvent;
+
         //list box selected item event
         public delegate void Tab1ItemSelectedEventHandler(String p_Item, Int32 p_Index);
         public event Tab1ItemSelectedEventHandler Tab1ItemSelectedEvent;
@@ -91,7 +98,6 @@ namespace CDTUserControl.Usercontrols
         public event MuteSlider2EventHandler MuteSlider2Event;
         public delegate void MuteSlider3EventHandler(Boolean p_IsMute);
         public event MuteSlider3EventHandler MuteSlider3Event;
-
         public delegate void MuteSlider4EventHandler(Boolean p_IsMute);
         public event MuteSlider4EventHandler MuteSlider4Event;
         public delegate void MuteSlider5EventHandler(Boolean p_IsMute);
@@ -103,6 +109,21 @@ namespace CDTUserControl.Usercontrols
         public event Loop4EventHandler Loop4Event;
         public delegate void Loop5EventHandler(Boolean p_IsLoop);
         public event Loop5EventHandler Loop5Event;
+
+        public delegate void Volume1EventHandler(Int32 p_Value);
+        public event Volume1EventHandler Volume1Event;
+        public delegate void Volume2EventHandler(Int32 p_Value);
+        public event Volume2EventHandler Volume2Event;
+        public delegate void Volume3EventHandler(Int32 p_Value);
+        public event Volume3EventHandler Volume3Event;
+        public delegate void Volume4EventHandler(Int32 p_Value);
+        public event Volume4EventHandler Volume4Event;
+        public delegate void Volume5EventHandler(Int32 p_Value);
+        public event Volume5EventHandler Volume5Event;
+        public delegate void Volume6EventHandler(Int32 p_Value);
+        public event Volume6EventHandler Volume6Event;
+        public delegate void Volume7EventHandler(Int32 p_Value);
+        public event Volume7EventHandler Volume7Event;
         #endregion
 
         #region public properties
@@ -119,6 +140,7 @@ namespace CDTUserControl.Usercontrols
             vm.EditButonEvent += Vm_EditButonEvent;
             vm.RenameButtonEvent += Vm_RenameButtonEvent;
             vm.PrimaryButtonEvent += Vm_PrimaryButtonEvent;
+            vm.TextboxButtonEvent += Vm_TextboxButtonEvent;
             vm.CharacterButtonEvent += Vm_CharacterButtonEvent;
             vm.SceneButtonEvent += Vm_SceneButtonEvent;
             vm.ItemButtonEvent += Vm_ItemButtonEvent;
@@ -126,10 +148,12 @@ namespace CDTUserControl.Usercontrols
             vm.NavigateButtonEvent += Vm_NavigateButtonEvent;
             vm.VoiceButtonEvent += Vm_VoiceButtonEvent;
             vm.SourceButtonEvent += Vm_SourceButtonEvent;
-            vm.SportButtonEvent += Vm_SportButtonEvent;
+            vm.SpotButtonEvent += Vm_SpotButtonEvent;
             vm.AmbientButtonEvent += Vm_AmbientButtonEvent;
             vm.MusicButtonEvent += Vm_MusicButtonEvent;
             vm.SpkButtonEvent += Vm_SpkButtonEvent;
+            vm.StopButtonEvent += Vm_StopButtonEvent;
+
             vm.Tab1ItemSelectedEvent += Vm_Tab1ItemSelectedEvent;
             vm.Tab2ItemSelectedEvent += Vm_Tab2ItemSelectedEvent;
             vm.Tab3ItemSelectedEvent += Vm_Tab3ItemSelectedEvent;
@@ -145,6 +169,15 @@ namespace CDTUserControl.Usercontrols
             vm.MuteSlider6Event += Vm_MuteSlider6Event;
             vm.Loop4Event += Vm_Loop4Event;
             vm.Loop5Event += Vm_Loop5Event;
+
+
+            vm.Volume1Event += Vm_Volume1Event;
+            vm.Volume2Event += Vm_Volume2Event;
+            vm.Volume3Event += Vm_Volume3Event;
+            vm.Volume4Event += Vm_Volume4Event;
+            vm.Volume5Event += Vm_Volume5Event;
+            vm.Volume6Event += Vm_Volume6Event;
+            vm.Volume7Event += Vm_Volume7Event;
         }
 
         #endregion
@@ -175,18 +208,67 @@ namespace CDTUserControl.Usercontrols
             get { return vm.SliderText5; }
         }
 
-        public Double Slider6
+        public Int32 Slider1
+        {
+            get { return vm.Slider1; }
+        }
+        public Int32 Slider2
+        {
+            get { return vm.Slider2; }
+        }
+        public Int32 Slider3
+        {
+            get { return vm.Slider3; }
+        }
+        public Int32 Slider4
+        {
+            get { return vm.Slider4; }
+        }
+        public Int32 Slider5
+        {
+            get { return vm.Slider5; }
+        }
+        public Int32 Slider6
         {
             get { return vm.Slider6; }
         }
-
-        public Double Slider7
+        public Int32 Slider7
         {
             get { return vm.Slider7; }
         }
+
         #endregion
 
         #region eventhandlers
+        private void Vm_Volume1Event(Int32 p_Value)
+        {
+            Volume1Event(p_Value);
+        }
+        private void Vm_Volume2Event(Int32 p_Value)
+        {
+            Volume2Event(p_Value);
+        }
+        private void Vm_Volume3Event(Int32 p_Value)
+        {
+            Volume3Event(p_Value);
+        }
+        private void Vm_Volume4Event(Int32 p_Value)
+        {
+            Volume4Event(p_Value);
+        }
+        private void Vm_Volume5Event(Int32 p_Value)
+        {
+            Volume5Event(p_Value);
+        }
+        private void Vm_Volume6Event(Int32 p_Value)
+        {
+            Volume6Event(p_Value);
+        }
+        private void Vm_Volume7Event(Int32 p_Value)
+        {
+            Volume7Event(p_Value);
+        }
+
         private void Vm_Loop5Event(Boolean p_IsLoop)
         {
             Loop5Event(p_IsLoop);
@@ -282,9 +364,19 @@ namespace CDTUserControl.Usercontrols
             CharacterButtonEvent();
         }
 
+        private void Vm_TextboxButtonEvent()
+        {
+            TextboxButtonEvent();
+        }
+
         private void Vm_SpkButtonEvent()
         {
             SpkButtonEvent();
+        }
+
+        private void Vm_StopButtonEvent()
+        {
+            StopButtonEvent();
         }
 
         private void Vm_MusicButtonEvent()
@@ -297,9 +389,9 @@ namespace CDTUserControl.Usercontrols
             AmbientButtonEvent();
         }
 
-        private void Vm_SportButtonEvent()
+        private void Vm_SpotButtonEvent()
         {
-            SportButtonEvent();
+            SpotButtonEvent();
         }
 
         private void Vm_SourceButtonEvent()
@@ -315,22 +407,21 @@ namespace CDTUserControl.Usercontrols
         private void Vm_NavigateButtonEvent()
         {
             NavigateButtonEvent();
-            //_Nav;
         }
 
         private void Vm_Tab3ItemSelectedEvent(string p_Item, int p_Index)
         {
-            throw new NotImplementedException();
+            Tab3ItemSelectedEvent(p_Item, p_Index);
         }
 
         private void Vm_Tab2ItemSelectedEvent(string p_Item, int p_Index)
         {
-            throw new NotImplementedException();
+            Tab2ItemSelectedEvent(p_Item, p_Index);
         }
 
         private void Vm_Tab1ItemSelectedEvent(string p_Item, int p_Index)
         {
-            throw new NotImplementedException();
+            Tab1ItemSelectedEvent(p_Item, p_Index);
         }
         #endregion
 
@@ -420,5 +511,6 @@ namespace CDTUserControl.Usercontrols
             //MessageBox.Show("Control Resized");
         }
         #endregion
+        
     }
 }

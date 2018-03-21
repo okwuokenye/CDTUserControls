@@ -36,6 +36,9 @@ namespace CDTUserControl.Viewmodels
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
 
         //ignore small buttons 1 and 2
+        public delegate void TextboxButtonEventHandler();
+        public event TextboxButtonEventHandler TextboxButtonEvent;
+
         public delegate void CharacterButtonEventHandler();
         public event CharacterButtonEventHandler CharacterButtonEvent;
 
@@ -57,8 +60,8 @@ namespace CDTUserControl.Viewmodels
         public delegate void SourceButtonEventHandler();
         public event SourceButtonEventHandler SourceButtonEvent;
 
-        public delegate void SportButtonEventHandler();
-        public event SportButtonEventHandler SportButtonEvent;
+        public delegate void SpotButtonEventHandler();
+        public event SpotButtonEventHandler SpotButtonEvent;
 
         public delegate void AmbientButtonEventHandler();
         public event AmbientButtonEventHandler AmbientButtonEvent;
@@ -68,6 +71,11 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void SpkButtonEventHandler();
         public event SpkButtonEventHandler SpkButtonEvent;
+
+        public delegate void StopButtonEventHandler();
+        public event StopButtonEventHandler StopButtonEvent;
+
+
         //list box selected item event
         public delegate void Tab1ItemSelectedEventHandler(String p_Item, Int32 p_Index);
         public event Tab1ItemSelectedEventHandler Tab1ItemSelectedEvent;
@@ -95,6 +103,21 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void Loop5EventHandler(Boolean p_IsLoop);
         public event Loop5EventHandler Loop5Event;
+        
+        public delegate void Volume1EventHandler(Int32 p_Value);
+        public event Volume1EventHandler Volume1Event;
+        public delegate void Volume2EventHandler(Int32 p_Value);
+        public event Volume2EventHandler Volume2Event;
+        public delegate void Volume3EventHandler(Int32 p_Value);
+        public event Volume3EventHandler Volume3Event;
+        public delegate void Volume4EventHandler(Int32 p_Value);
+        public event Volume4EventHandler Volume4Event;
+        public delegate void Volume5EventHandler(Int32 p_Value);
+        public event Volume5EventHandler Volume5Event;
+        public delegate void Volume6EventHandler(Int32 p_Value);
+        public event Volume6EventHandler Volume6Event;
+        public delegate void Volume7EventHandler(Int32 p_Value);
+        public event Volume7EventHandler Volume7Event;
 
         #endregion
 
@@ -178,7 +201,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         SliderText1 = value.ToString();
                     }
-
+                    Volume1Event(value);
                     RaisePropertyChanged("Slider1");
                 }
             }
@@ -199,6 +222,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         SliderText2 = value.ToString();
                     }
+                    Volume2Event(value);
                     RaisePropertyChanged("Slider2");
                 }
             }
@@ -219,6 +243,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         SliderText3 = value.ToString();
                     }
+                    Volume3Event(value);
                     RaisePropertyChanged("Slider3");
                 }
             }
@@ -239,6 +264,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         SliderText4 = value.ToString();
                     }
+                    Volume4Event(value);
                     RaisePropertyChanged("Slider4");
                 }
             }
@@ -259,6 +285,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         SliderText5 = value.ToString();
                     }
+                    Volume5Event(value);
                     RaisePropertyChanged("Slider5");
                 }
             }
@@ -271,6 +298,7 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider6 != value)
                 {
                     _Slider6 = value;
+                    Volume6Event(value);
                     RaisePropertyChanged("Slider6");
                 }
             }
@@ -283,6 +311,7 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider7 != value)
                 {
                     _Slider7 = value;
+                    Volume7Event(value);
                     RaisePropertyChanged("Slider7");
                 }
             }
@@ -552,28 +581,28 @@ namespace CDTUserControl.Viewmodels
         public Int32 ProgressBar2Maximum { get { return _ProgressBar2Maximum; } }
         public Int32 ProgressBar2Value { get { return _ProgressBar2Value; } }
         public String Mute1Source { get { return _Slider1IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
-        public String Mute1Tooltip { get { return _Slider1IsMute ? "unmute" : "mute"; } }
+        public String Mute1Tooltip { get { return _Slider1IsMute ? "unmute voice stream" : "mute voice stream"; } }
 
         public String Mute2Source { get { return _Slider2IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
-        public String Mute2Tooltip { get { return _Slider2IsMute ? "unmute" : "mute"; } }
+        public String Mute2Tooltip { get { return _Slider2IsMute ? "unmute source stream" : "mute source stream"; } }
 
         public String Mute3Source { get { return _Slider3IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
-        public String Mute3Tooltip { get { return _Slider3IsMute ? "unmute" : "mute"; } }
+        public String Mute3Tooltip { get { return _Slider3IsMute ? "unmute spot effects" : "mute spot effects"; } }
 
         public String Mute4Source { get { return _Slider4IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
-        public String Mute4Tooltip { get { return _Slider4IsMute ? "unmute" : "mute"; } }
+        public String Mute4Tooltip { get { return _Slider4IsMute ? "unmute ambient effects" : "mute ambient effects"; } }
 
         public String Mute5Source { get { return _Slider5IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
-        public String Mute5Tooltip { get { return _Slider5IsMute ? "unmute" : "mute"; } }
+        public String Mute5Tooltip { get { return _Slider5IsMute ? "unmute music" : "mute music"; } }
 
         public String Mute6Source { get { return _Slider6IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
-        public String Mute6Tooltip { get { return _Slider6IsMute ? "unmute" : "mute"; } }
+        public String Mute6Tooltip { get { return _Slider6IsMute ? "unmute text to speech" : "mute text to speech"; } }
 
         public String Loop4Source { get { return _Slider4IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
-        public String Loop4Tooltip { get { return _Slider4IsLoop ? "unloop" : "loop"; } }
+        public String Loop4Tooltip { get { return _Slider4IsLoop ? "unloop ambient effects" : "loop ambient effects"; } }
 
-        public String Loop5Source { get { return _Slider4IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
-        public String Loop5Tooltip { get { return _Slider5IsLoop ? "unloop" : "loop"; } }
+        public String Loop5Source { get { return _Slider5IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
+        public String Loop5Tooltip { get { return _Slider5IsLoop ? "unloop music" : "loop music"; } }
         #endregion
 
         #region Constructors
@@ -611,6 +640,12 @@ namespace CDTUserControl.Viewmodels
             PrimaryButtonEvent(_EnglishTabListBoxItem);
         }
         public ICommand Primary { get { return new RelayCommand(PrimaryExecute, TabLisItenSelected); } }
+
+        private void TextboxExecute()
+        {
+            TextboxButtonEvent();
+        }
+        public ICommand Textbox { get { return new RelayCommand(TextboxExecute); } }
 
         private void CharacterExecute()
         {
@@ -654,11 +689,11 @@ namespace CDTUserControl.Viewmodels
         }
         public ICommand Source { get { return new RelayCommand(SourceExecute); } }
 
-        private void SportExecute()
+        private void SpotExecute()
         {
-            SportButtonEvent();
+            SpotButtonEvent();
         }
-        public ICommand Sport { get { return new RelayCommand(SportExecute); } }
+        public ICommand Spot { get { return new RelayCommand(SpotExecute); } }
 
         private void AmbientExecute()
         {
@@ -677,6 +712,12 @@ namespace CDTUserControl.Viewmodels
             SpkButtonEvent();
         }
         public ICommand Spk { get { return new RelayCommand(SpkExecute); } }
+        
+        private void StopExecute()
+        {
+            StopButtonEvent();
+        }
+        public ICommand Stop { get { return new RelayCommand(StopExecute); } }
 
         private void CloseSliderExecute()
         {
@@ -999,6 +1040,43 @@ namespace CDTUserControl.Viewmodels
             _ProgressBar2Value = p_Value;
             RaisePropertyChanged("ProgressBar2Value");
         }
+        
+        public void SetSlider1Value(Int32 p_Value)
+        {
+            _Slider1 = p_Value;
+            RaisePropertyChanged("Slider1");
+        }
+        public void SetSlider2Value(Int32 p_Value)
+        {
+            _Slider2 = p_Value;
+            RaisePropertyChanged("Slider2");
+        }
+        public void SetSlider3Value(Int32 p_Value)
+        {
+            _Slider3 = p_Value;
+            RaisePropertyChanged("Slider3");
+        }
+        public void SetSlider4Value(Int32 p_Value)
+        {
+            _Slider4 = p_Value;
+            RaisePropertyChanged("Slider4");
+        }
+        public void SetSlider5Value(Int32 p_Value)
+        {
+            _Slider5 = p_Value;
+            RaisePropertyChanged("Slider5");
+        }
+        public void SetSlider6Value(Int32 p_Value)
+        {
+            _Slider6 = p_Value;
+            RaisePropertyChanged("Slider6");
+        }
+        public void SetSlider7Value(Int32 p_Value)
+        {
+            _Slider7 = p_Value;
+            RaisePropertyChanged("Slider7");
+        }
+
         #endregion
 
         #region Private Functions

@@ -145,14 +145,12 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.xml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\TestControl.g.cs
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\TestControl.baml
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.g.resources

@@ -96,14 +96,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Usercontrols\CDTPlayerUsercontrolView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="Usercontrols\CDTPlayerUsercontrolView.xaml.cs">
-      <DependentUpon>CDTPlayerUsercontrolView.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Usercontrols\NavigationUsercontrolView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

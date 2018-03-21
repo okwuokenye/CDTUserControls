@@ -58,7 +58,7 @@
 
                 <Button Content="Source" Width="80" Margin="2 0"/>
 
-                <Button Content="Sport" Width="80" Margin="2 0"/>
+                <Button Content="Spot" Width="80" Margin="2 0"/>
 
                 <Button Content="Ambient" Width="80" Margin="2 0"/>
 

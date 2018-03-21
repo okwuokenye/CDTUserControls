@@ -24,6 +24,9 @@ namespace CDTUserControl
         CDTPlayerUsercontrolViewModel vm;
 
         #region events
+        public delegate void TextBoxButtonEventHandler();
+        public event TextBoxButtonEventHandler TextBoxButtonEvent;
+
         public delegate void CharacterButtonEventHandler();
         public event CharacterButtonEventHandler CharacterButtonEvent;
 
@@ -45,8 +48,8 @@ namespace CDTUserControl
         public delegate void SourceButtonEventHandler();
         public event SourceButtonEventHandler SourceButtonEvent;
 
-        public delegate void SportButtonEventHandler();
-        public event SportButtonEventHandler SportButtonEvent;
+        public delegate void SpotButtonEventHandler();
+        public event SpotButtonEventHandler SpotButtonEvent;
 
         public delegate void AmbientButtonEventHandler();
         public event AmbientButtonEventHandler AmbientButtonEvent;
@@ -56,6 +59,10 @@ namespace CDTUserControl
 
         public delegate void SpkButtonEventHandler();
         public event SpkButtonEventHandler SpkButtonEvent;
+        
+        public delegate void StopButtonEventHandler();
+        public event StopButtonEventHandler StopButtonEvent;
+
         #endregion 
 
         public MainWindow()
