@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace CDTUserControl.Viewmodels
 {
@@ -23,6 +24,9 @@ namespace CDTUserControl.Viewmodels
         public delegate void IsSliderVisibleEventHandler(Boolean p_bool, Int32 p_Value);
         public event IsSliderVisibleEventHandler IsSliderVisibleEvent;
 
+        public delegate void ShowFilePathEventHandler();
+        public event ShowFilePathEventHandler ShowFilePathEvent;
+        
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
 
@@ -34,6 +38,26 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void PrimaryButtonEventHandler(String p_FileName);
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
+
+
+        public delegate void VoiceClickEventHandler();
+        public event VoiceClickEventHandler VoiceClickEvent;
+
+        public delegate void VoiceDblClickEventHandler();
+        public event VoiceDblClickEventHandler VoiceDblClickEvent;
+
+
+        public delegate void SourceClickEventHandler();
+        public event SourceClickEventHandler SourceClickEvent;
+
+        public delegate void SourceDblClickEventHandler();
+        public event SourceDblClickEventHandler SourceDblClickEvent;
+
+        public delegate void GlossaryClickEventHandler();
+        public event GlossaryClickEventHandler GlossaryClickEvent;
+
+        public delegate void GlossaryDblClickEventHandler();
+        public event GlossaryDblClickEventHandler GlossaryDblClickEvent;
 
         //ignore small buttons 1 and 2
         public delegate void TextboxButtonEventHandler();
@@ -83,6 +107,9 @@ namespace CDTUserControl.Viewmodels
         public event Tab2ItemSelectedEventHandler Tab2ItemSelectedEvent;
         public delegate void Tab3ItemSelectedEventHandler(String p_Item, Int32 p_Index);
         public event Tab3ItemSelectedEventHandler Tab3ItemSelectedEvent;
+
+        public delegate void CompareSourceEventHandler(Boolean p_Bool);
+        public event CompareSourceEventHandler CompareSourceEvent;
 
         public delegate void MuteSlider1EventHandler(Boolean p_IsMute);
         public event MuteSlider1EventHandler MuteSlider1Event;
@@ -137,6 +164,8 @@ namespace CDTUserControl.Viewmodels
         String _SliderText4 = "100";
         String _SliderText5 = "100";
 
+        Boolean _CompareSource = false;
+
         Boolean _Slider1IsMute = false;
         Boolean _Slider2IsMute = false;
         Boolean _Slider3IsMute = false;
@@ -181,6 +210,9 @@ namespace CDTUserControl.Viewmodels
         Int32 _ProgressBar1Value = 70;
         Int32 _ProgressBar2Maximum = 100;
         Int32 _ProgressBar2Value = 20;
+
+        Color _ProgressBarColour = Color.Green;
+
         #endregion
 
         #region Properties
@@ -601,6 +633,9 @@ namespace CDTUserControl.Viewmodels
         public Int32 ProgressBar1Value { get { return _ProgressBar1Value; } }
         public Int32 ProgressBar2Maximum { get { return _ProgressBar2Maximum; } }
         public Int32 ProgressBar2Value { get { return _ProgressBar2Value; } }
+
+        public Color ProgressBarColour { get { return _ProgressBarColour; } }
+
         public String Mute1Source { get { return _Slider1IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
         public String Mute1Tooltip { get { return _Slider1IsMute ? "unmute voice stream" : "mute voice stream"; } }
 
@@ -634,10 +669,49 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Commands
+
+
+        private void SourceClickExecute()
+        {
+            SourceClickEvent();
+        }
+        public ICommand SourceClick { get { return new RelayCommand(SourceClickExecute); } }
+
+        private void SourceDblClickExecute()
+        {
+            SourceDblClickEvent();
+        }
+        public ICommand SourceDblClick { get { return new RelayCommand(SourceDblClickExecute); } }
+        
+        private void GlossaryClickExecute()
+        {
+            GlossaryClickEvent();
+        }
+        public ICommand GlossaryClick { get { return new RelayCommand(GlossaryClickExecute); } }
+
+        private void GlossaryDblClickExecute()
+        {
+            GlossaryDblClickEvent();
+        }
+        public ICommand GlossaryDblClick { get { return new RelayCommand(GlossaryDblClickExecute); } }
+        
+        private void VoiceClickExecute()
+        {
+            VoiceClickEvent();
+        }
+        public ICommand VoiceClick { get { return new RelayCommand(VoiceClickExecute); } }
+
+        private void VoiceDblClickExecute()
+        {
+            VoiceDblClickEvent();
+        }
+        public ICommand VoiceDblClick { get { return new RelayCommand(VoiceDblClickExecute); } }
+
         private void DeleteExecute()
         {
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
+
         private Boolean TabLisItenSelected()
         {
             return _EnglishTabListBoxItem != null || _SourceTabListBoxItem != null;
@@ -791,6 +865,12 @@ namespace CDTUserControl.Viewmodels
         }
         public ICommand CloseMetaData { get { return new RelayCommand(CloseMetaDataExecute); } }
 
+        private void ShowFilePathExecute()
+        {
+            ShowFilePathEvent();
+        }
+        public ICommand ShowFilePath { get { return new RelayCommand(ShowFilePathExecute); } }
+        
         private void ExtendSliderHeightExecute()
         {
 
@@ -830,7 +910,25 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("Mute1Source");
             MuteSlider1Event(_Slider1IsMute);
         }
+
         public ICommand MuteSlider1 { get { return new RelayCommand(MuteSlider1Execute); } }
+
+        private void CompareSourceExecute()
+        {
+            if (_CompareSource)
+            {
+                _CompareSource = false;
+            }
+            else
+            {
+                _CompareSource = true;
+            }
+            RaisePropertyChanged("CompareSource");
+            CompareSourceEvent(_CompareSource);
+        }
+
+        public ICommand CompareSource { get { return new RelayCommand(CompareSourceExecute); } }
+
 
         private void MuteSlider2Execute()
         {
@@ -1053,6 +1151,12 @@ namespace CDTUserControl.Viewmodels
         {
             _Tab3HeaderText = p_Text;
             RaisePropertyChanged("Tab3HeaderText");
+        }
+
+        public void SetProgressBarColour(Color p_Color)
+        {
+            _ProgressBarColour = p_Color;
+            RaisePropertyChanged("ProgressBarColour");
         }
 
         public void SetProgressBar1Maximum(Int32 p_Value)

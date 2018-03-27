@@ -65,7 +65,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" MouseLeftButtonUp="{Binding VoiceClick}" MouseDoubleClick="{Binding VoiceDblClick}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     
                 </Grid>
             </TabItem>
@@ -81,7 +81,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" MouseLeftButtonUp="{Binding SourceClick}" MouseDoubleClick="{Binding SourceDblClick}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                 </Grid>
 
@@ -98,7 +98,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" MouseLeftButtonUp="{Binding GlossaryClick}" MouseDoubleClick="{Binding GlossaryDblClick}" SelectedItem="{Binding GlossaryTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                 </Grid>                
             </TabItem>
@@ -108,8 +108,8 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
 
             <StackPanel  Height="7" Width="380" Orientation="Horizontal" HorizontalAlignment="Left">
-                <ProgressBar Maximum="{Binding ProgressBar1Maximum}" Value="{Binding ProgressBar1Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0"/>
-                <ProgressBar Maximum="{Binding ProgressBar2Maximum}" Value="{Binding ProgressBar2Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0"/>
+                <ProgressBar Maximum="{Binding ProgressBar1Maximum}" Value="{Binding ProgressBar1Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0" Foreground="{Binding ProgressBarColour}"/>
+                <ProgressBar Maximum="{Binding ProgressBar2Maximum}" Value="{Binding ProgressBar2Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0" Foreground="{Binding ProgressBarColour}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
@@ -246,7 +246,7 @@
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="5 0 0 0" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right">
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="9"/>
+                <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="9" VerticalContentAlignment="Center" Command="{Binding CompareSource}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">

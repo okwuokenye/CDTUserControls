@@ -33,8 +33,31 @@ namespace CDTUserControl.Usercontrols
         public delegate void IsSliderVisibleEventHandler(Boolean p_bool, Int32 p_Value);
         public event IsSliderVisibleEventHandler IsSliderVisibleEvent;
 
+        public delegate void ShowFilePathEventHandler();
+        public event ShowFilePathEventHandler ShowFilePathEvent;
+
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
+
+
+        public delegate void VoiceClickEventHandler();
+        public event VoiceClickEventHandler VoiceClickEvent;
+
+        public delegate void VoiceDblClickEventHandler();
+        public event VoiceDblClickEventHandler VoiceDblClickEvent;
+
+
+        public delegate void SourceClickEventHandler();
+        public event SourceClickEventHandler SourceClickEvent;
+
+        public delegate void SourceDblClickEventHandler();
+        public event SourceDblClickEventHandler SourceDblClickEvent;
+
+        public delegate void GlossaryClickEventHandler();
+        public event GlossaryClickEventHandler GlossaryClickEvent;
+
+        public delegate void GlossaryDblClickEventHandler();
+        public event GlossaryDblClickEventHandler GlossaryDblClickEvent;
 
         public delegate void EditButtonEventHandler(String p_FileName);
         public event EditButtonEventHandler EditButtonEvent;
@@ -92,6 +115,10 @@ namespace CDTUserControl.Usercontrols
         public delegate void Tab3ItemSelectedEventHandler(String p_Item, Int32 p_Index);
         public event Tab3ItemSelectedEventHandler Tab3ItemSelectedEvent;
 
+
+        public delegate void CompareSourceEventHandler(Boolean p_Bool);
+        public event CompareSourceEventHandler CompareSourceEvent;
+
         public delegate void MuteSlider1EventHandler(Boolean p_IsMute);
         public event MuteSlider1EventHandler MuteSlider1Event;
         public delegate void MuteSlider2EventHandler(Boolean p_IsMute);
@@ -136,6 +163,9 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new CDTPlayerUsercontrolViewModel();
             base.DataContext = vm;
+
+
+
             vm.DeleteButtonEvent += Vm_DeleteButtonEvent;
             vm.EditButonEvent += Vm_EditButonEvent;
             vm.RenameButtonEvent += Vm_RenameButtonEvent;
@@ -161,6 +191,10 @@ namespace CDTUserControl.Usercontrols
             vm.ExtendSliderHeightEvent += Vm_ExtendSliderHeightEvent;
             vm.ShowMetaDataEvent += Vm_ShowMetaDataEvent;
             vm.IsSliderVisibleEvent += Vm_IsSliderVisibleEvent;
+            vm.ShowFilePathEvent += Vm_ShowFilePathEvent;
+
+            vm.CompareSourceEvent += Vm_CompareSourceEvent;
+
             vm.MuteSlider1Event += Vm_MuteSlider1Event;
             vm.MuteSlider2Event += Vm_MuteSlider2Event;
             vm.MuteSlider3Event += Vm_MuteSlider3Event;
@@ -279,6 +313,12 @@ namespace CDTUserControl.Usercontrols
             Loop4Event(p_IsLoop);
         }
 
+
+        private void Vm_CompareSourceEvent(bool p_Bool)
+        {
+            CompareSourceEvent(p_Bool);
+        }
+
         private void Vm_MuteSlider1Event(bool p_IsMute)
         {
             MuteSlider1Event(p_IsMute);
@@ -322,6 +362,11 @@ namespace CDTUserControl.Usercontrols
         private void Vm_ExtendSliderHeightEvent(Boolean p_bool, Int32 p_Value)
         {
             ExtendSliderHeightEvent(p_bool, p_Value);
+        }
+
+        private void Vm_ShowFilePathEvent()
+        {
+            ShowFilePathEvent();
         }
 
         private void Vm_PrimaryButtonEvent(string p_FileName)
@@ -507,6 +552,12 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetProgressBar2Value(p_Value);
         }
+
+        public void SetProgressBarColour(System.Drawing.Color p_Color)
+        {
+            vm.SetProgressBarColour(p_Color);
+        }
+
 
         public void ResizeControl(Int32 p_Width)
         {
