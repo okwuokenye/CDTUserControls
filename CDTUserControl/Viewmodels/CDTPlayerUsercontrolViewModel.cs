@@ -151,6 +151,9 @@ namespace CDTUserControl.Viewmodels
 
         ObservableCollection<String> _SourceTabListBoxItems = new ObservableCollection<String>();
         String _SourceTabListBoxItem;
+        
+        ObservableCollection<String> _GlossaryTabListBoxItems = new ObservableCollection<String>();
+        String _GlossaryTabListBoxItem;
 
         String _FileSize;
         String _DateMod;
@@ -407,6 +410,24 @@ namespace CDTUserControl.Viewmodels
                     _SourceTabListBoxItem = value;
                     //raise Item selected event
                     Tab2ItemSelectedEvent(_SourceTabListBoxItem, _SourceTabListBoxItems.IndexOf(_SourceTabListBoxItem));
+                }
+            }
+        }
+
+        public ObservableCollection<String> GlossaryTabListBoxItems { get { return _GlossaryTabListBoxItems; } }
+        public String GlossaryTabListBoxItem
+        {
+            get
+            {
+                return _GlossaryTabListBoxItem;
+            }
+            set
+            {
+                if (_GlossaryTabListBoxItem != value)
+                {
+                    _GlossaryTabListBoxItem = value;
+                    //raise Item selected event
+                    Tab2ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
                 }
             }
         }
@@ -975,6 +996,17 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("SourceTabListBoxItems");
         }
 
+        public void AddItemsToGlossaryTab(List<String> p_Items)
+        {
+            RemoveAllItemsFromGlossaryTab();
+            foreach (var p_Item in p_Items)
+            {
+                _GlossaryTabListBoxItems.Add(p_Item);
+            }
+            RaisePropertyChanged("GlossaryTabListBoxItems");
+        }
+
+
         public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)
         {
             _EnglishTabListBoxItems.RemoveAt(p_ItemIndex);
@@ -997,6 +1029,12 @@ namespace CDTUserControl.Viewmodels
         {
             _SourceTabListBoxItems.Clear();
             RaisePropertyChanged("SourceTabListBoxItems");
+        }
+
+        public void RemoveAllItemsFromGlossaryTab()
+        {
+            _GlossaryTabListBoxItems.Clear();
+            RaisePropertyChanged("GlossaryTabListBoxItems");
         }
 
         public void SetTab1HeaderText(String p_Text)
@@ -1090,10 +1128,7 @@ namespace CDTUserControl.Viewmodels
                 {
 
                 });
-
-                _EnglishTabListBoxItems.Add("No Files Found");
-                _SourceTabListBoxItems.Add("No Files Found");
-
+                
                 _LoaderVisibility = Visibility.Collapsed;
                 //Raise property changed for every property in view model
                 foreach (System.Reflection.PropertyInfo p in this.GetType().GetProperties())

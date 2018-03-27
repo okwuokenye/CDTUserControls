@@ -438,14 +438,19 @@ namespace CDTUserControl.Usercontrols
             vm.SetStatusPane(p_StatusPane);
         }
 
-        public void AddItemToEnglishTab(List<String> p_Items)
+        public void AddItemsToEnglishTab(List<String> p_Items)
         {
             vm.AddItemsToEnglishTab(p_Items);
         }
 
-        public void AddItemToSourceTab(List<String> p_Items)
+        public void AddItemsToSourceTab(List<String> p_Items)
         {
             vm.AddItemsToSourceTab(p_Items);
+        }
+        
+        public void AddItemsToGlossaryTab(List<String> p_Items)
+        {
+            vm.AddItemsToGlossaryTab(p_Items);
         }
 
         public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)
