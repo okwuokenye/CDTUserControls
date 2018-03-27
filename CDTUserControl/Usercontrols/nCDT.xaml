@@ -55,21 +55,52 @@
 
         <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl">
             <TabItem Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
-                <StackPanel>
-                    <ListBox ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" Width="auto" Height="auto"/>
-                </StackPanel>
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    
+                </Grid>
             </TabItem>
 
             <TabItem Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
-                <StackPanel>
-                    <ListBox ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" Width="auto" Height="auto"/>
-                </StackPanel>
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                </Grid>
+
             </TabItem>
 
             <TabItem Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
-                <StackPanel>
-                    <ListBox ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" Width="auto" Height="auto"/>
-                </StackPanel>
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                </Grid>                
             </TabItem>
 
         </TabControl>
@@ -245,10 +276,18 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" >
-            <Button Content="" ToolTip="{Binding MetaDataTT}" Command="{Binding CloseMetaData}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
-            <Button Content="" ToolTip="{Binding CloseSliderTT}" Command="{Binding CloseSlider}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
-            <Button Content="" ToolTip="{Binding ExtendSliderTT}" Command="{Binding ExtendSliderHeight}"  HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
-            <Button Content="" ToolTip="Snow File Path" Command="{Binding ShowFilePath}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1"/>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent" ToolTip="{Binding MetaDataTT}" Command="{Binding CloseMetaData}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
+            <Image x:Name="metaimage" Source="../Resources/metadata.png" />
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="{Binding CloseSliderTT}" Command="{Binding CloseSlider}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
+                <Image x:Name="closesliderimage" Source="../Resources/mixerpanelsmall.png" />
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="{Binding ExtendSliderTT}" Command="{Binding ExtendSliderHeight}"  HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
+                <Image x:Name="extendimage" Source="../Resources/mixerpanelextend.png" />
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="Show File Path" Command="{Binding ShowFilePath}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1">
+                <Image x:Name="filepathimage" Source="../Resources/filepath.png" />
+            </Button>
             <TextBlock Text="{Binding StatusPane}" MinWidth="400" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Left" />
         </StackPanel>
 

@@ -139,5 +139,11 @@
     <Resource Include="Resources\unloop.png" />
     <Resource Include="Resources\unmute.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\filepath.png" />
+    <Resource Include="Resources\metadata.png" />
+    <Resource Include="Resources\mixerpanelextend.png" />
+    <Resource Include="Resources\mixerpanelsmall.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
