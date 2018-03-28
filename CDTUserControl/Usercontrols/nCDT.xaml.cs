@@ -68,8 +68,8 @@ namespace CDTUserControl.Usercontrols
         public delegate void PrimaryButtonEventHandler(String p_FileName);
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
 
-        public delegate void TextboxButtonEventHandler();
-        public event TextboxButtonEventHandler TextboxButtonEvent;
+        public delegate void TextButtonEventHandler();
+        public event TextButtonEventHandler TextButtonEvent;
 
         public delegate void CharacterButtonEventHandler();
         public event CharacterButtonEventHandler CharacterButtonEvent;
@@ -170,7 +170,7 @@ namespace CDTUserControl.Usercontrols
             vm.EditButonEvent += Vm_EditButonEvent;
             vm.RenameButtonEvent += Vm_RenameButtonEvent;
             vm.PrimaryButtonEvent += Vm_PrimaryButtonEvent;
-            vm.TextboxButtonEvent += Vm_TextboxButtonEvent;
+            vm.TextButtonEvent += Vm_TextButtonEvent;
             vm.CharacterButtonEvent += Vm_CharacterButtonEvent;
             vm.SceneButtonEvent += Vm_SceneButtonEvent;
             vm.ItemButtonEvent += Vm_ItemButtonEvent;
@@ -409,9 +409,9 @@ namespace CDTUserControl.Usercontrols
             CharacterButtonEvent();
         }
 
-        private void Vm_TextboxButtonEvent()
+        private void Vm_TextButtonEvent()
         {
-            TextboxButtonEvent();
+            TextButtonEvent();
         }
 
         private void Vm_SpkButtonEvent()

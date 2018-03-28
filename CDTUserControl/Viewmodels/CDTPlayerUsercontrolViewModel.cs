@@ -60,8 +60,8 @@ namespace CDTUserControl.Viewmodels
         public event GlossaryDblClickEventHandler GlossaryDblClickEvent;
 
         //ignore small buttons 1 and 2
-        public delegate void TextboxButtonEventHandler();
-        public event TextboxButtonEventHandler TextboxButtonEvent;
+        public delegate void TextButtonEventHandler();
+        public event TextButtonEventHandler TextButtonEvent;
 
         public delegate void CharacterButtonEventHandler();
         public event CharacterButtonEventHandler CharacterButtonEvent;
@@ -736,11 +736,11 @@ namespace CDTUserControl.Viewmodels
         }
         public ICommand Primary { get { return new RelayCommand(PrimaryExecute, TabLisItenSelected); } }
 
-        private void TextboxExecute()
+        private void TextExecute()
         {
-            TextboxButtonEvent();
+            TextButtonEvent();
         }
-        public ICommand Textbox { get { return new RelayCommand(TextboxExecute); } }
+        public ICommand Text { get { return new RelayCommand(TextExecute); } }
 
         private void CharacterExecute()
         {
