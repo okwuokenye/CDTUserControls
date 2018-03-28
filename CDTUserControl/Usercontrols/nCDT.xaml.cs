@@ -593,15 +593,35 @@ namespace CDTUserControl.Usercontrols
             vm.SetProgressBarColour(p_Color);
         }
 
-
-        public void ResizeControl(Int32 p_Width)
+        public void SetSlider1Value(Int32 p_Value)
         {
-            //need more information on how this should work
-            //this.Width = p_Width;
-            //TCtrl.Width = p_Width - 200;
-            //MessageBox.Show("Control Resized");
+            vm.SetSlider1Value(p_Value);
+        }
+        public void SetSlider2Value(Int32 p_Value)
+        {
+            vm.SetSlider2Value(p_Value);
+        }
+        public void SetSlider3Value(Int32 p_Value)
+        {
+            vm.SetSlider3Value(p_Value);
+        }
+        public void SetSlider4Value(Int32 p_Value)
+        {
+            vm.SetSlider4Value(p_Value);
+        }
+        public void SetSlider5Value(Int32 p_Value)
+        {
+            vm.SetSlider5Value(p_Value);
+        }
+        public void SetSlider6Value(Int32 p_Value)
+        {
+            vm.SetSlider6Value(p_Value);
+        }
+        public void SetSlider7Value(Int32 p_Value)
+        {
+            vm.SetSlider7Value(p_Value);
         }
         #endregion
-        
+
     }
 }
