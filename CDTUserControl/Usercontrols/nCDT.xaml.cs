@@ -38,15 +38,13 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
-
-
+        
         public delegate void VoiceClickEventHandler();
         public event VoiceClickEventHandler VoiceClickEvent;
 
         public delegate void VoiceDblClickEventHandler();
         public event VoiceDblClickEventHandler VoiceDblClickEvent;
-
-
+        
         public delegate void SourceClickEventHandler();
         public event SourceClickEventHandler SourceClickEvent;
 
@@ -163,9 +161,7 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new CDTPlayerUsercontrolViewModel();
             base.DataContext = vm;
-
-
-
+            
             vm.DeleteButtonEvent += Vm_DeleteButtonEvent;
             vm.EditButonEvent += Vm_EditButonEvent;
             vm.RenameButtonEvent += Vm_RenameButtonEvent;
@@ -212,6 +208,13 @@ namespace CDTUserControl.Usercontrols
             vm.Volume5Event += Vm_Volume5Event;
             vm.Volume6Event += Vm_Volume6Event;
             vm.Volume7Event += Vm_Volume7Event;
+
+            vm.VoiceClickEvent += Vm_VoiceClickEvent;
+            vm.VoiceDblClickEvent += Vm_VoiceDblClickEvent;
+            vm.SourceClickEvent += Vm_SourceClickEvent;
+            vm.SourceDblClickEvent += Vm_SourceDblClickEvent;
+            vm.GlossaryClickEvent += Vm_GlossaryClickEvent;
+            vm.GlossaryDblClickEvent += Vm_GlossaryDblClickEvent;
         }
 
         #endregion
@@ -468,6 +471,38 @@ namespace CDTUserControl.Usercontrols
         {
             Tab1ItemSelectedEvent(p_Item, p_Index);
         }
+
+
+        private void Vm_VoiceClickEvent()
+        {
+            VoiceClickEvent();
+        }
+
+        private void Vm_VoiceDblClickEvent()
+        {
+            VoiceDblClickEvent();
+        }
+
+        private void Vm_SourceClickEvent()
+        {
+            SourceClickEvent();
+        }
+
+        private void Vm_SourceDblClickEvent()
+        {
+            SourceDblClickEvent();
+        }
+
+        private void Vm_GlossaryClickEvent()
+        {
+            GlossaryClickEvent();
+        }
+
+        private void Vm_GlossaryDblClickEvent()
+        {
+            GlossaryDblClickEvent();
+        }
+
         #endregion
 
         #region public functions

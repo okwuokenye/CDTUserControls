@@ -45,8 +45,7 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void VoiceDblClickEventHandler();
         public event VoiceDblClickEventHandler VoiceDblClickEvent;
-
-
+        
         public delegate void SourceClickEventHandler();
         public event SourceClickEventHandler SourceClickEvent;
 
@@ -669,8 +668,7 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Commands
-
-
+        
         private void SourceClickExecute()
         {
             SourceClickEvent();
@@ -706,6 +704,7 @@ namespace CDTUserControl.Viewmodels
             VoiceDblClickEvent();
         }
         public ICommand VoiceDblClick { get { return new RelayCommand(VoiceDblClickExecute); } }
+
 
         private void DeleteExecute()
         {
