@@ -298,24 +298,15 @@ namespace CDTUserControl.Usercontrols
                 {
                     if (MyTabItem1.IsSelected)
                     {
-                        if (MyTabItem1Event != null)
                             MyTabItem1Event();
-                        else
-                            MessageBox.Show("Event thrown for tab1");
                     }
                     if (MyTabItem2.IsSelected)
                     {
-                        if (MyTabItem2Event != null)
                             MyTabItem2Event();
-                        else
-                            MessageBox.Show("Event thrown for tab2");
                     }
                     if (MyTabItem3.IsSelected)
                     {
-                        if (MyTabItem3Event != null)
                             MyTabItem3Event();
-                        else
-                            MessageBox.Show("Event thrown for tab3");
                     }
                 }
             }

@@ -145,5 +145,12 @@
     <Resource Include="Resources\mixerpanelextend.png" />
     <Resource Include="Resources\mixerpanelsmall.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\filter.png" />
+    <Resource Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\filtercolour.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
