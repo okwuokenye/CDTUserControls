@@ -99,7 +99,7 @@ namespace CDTUserControl.Usercontrols
         public delegate void Checkbox3CheckedEventHandler(Boolean p_Value);
         public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
 
-        public delegate void GotoFirstCheckboxEventHandler();
+        public delegate void GotoFirstCheckboxEventHandler(Boolean p_Value);
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
 
         public delegate void ColorBoxClickEventHandler();
@@ -279,9 +279,9 @@ namespace CDTUserControl.Usercontrols
             Checkbox3CheckedEvent(p_Value);
         }
 
-        private void Vm_GotoFirstCheckboxEvent()
+        private void Vm_GotoFirstCheckboxEvent(Boolean p_Value)
         {
-            GotoFirstCheckboxEvent();
+            GotoFirstCheckboxEvent(p_Value);
         }
 
         private void Btn_ColorBoxClickEvent(object sender, EventArgs args)

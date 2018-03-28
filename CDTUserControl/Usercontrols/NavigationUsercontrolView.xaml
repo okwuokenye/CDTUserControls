@@ -105,7 +105,7 @@
                                         </Button.Style>
                                     </Button>
                                 <CheckBox Grid.Row="1" Grid.Column="4" Margin="2 2 2 2" IsChecked="{Binding IsGoToFirst}" Content="Go to first line" ToolTip="Go to first line after highlight" VerticalContentAlignment="Center"  />
-                                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding DeleteFont}" Content="Delete Font" Margin="2 2 2 2" />
+                                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding DeleteFont}" Content="Default Font" Margin="2 2 2 2" />
                                 <Button Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Command="{Binding ClearColour}" Content="Clear Colour" Margin="2 2 2 2" />
                                 <ComboBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Height="20" IsEditable="True" ItemsSource="{Binding ClearColourComboItems}" SelectedIndex="{Binding ClearColourComboItemIndex}" Margin="2 2 2 2" />
                                 <Button Grid.Row="2" Grid.Column="0"  Content="-" Command="{Binding Minus}" Margin="2 2 2 2"  />
@@ -126,8 +126,8 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="28" />
                                 </Grid.RowDefinitions>
-                                
-                                <Button Grid.Column="0" Content="Reading Font" Command="{Binding SelectedRangeReadingFont}" Margin="2,2,2,2" />
+
+                            <Button Grid.Column="0" Content="Default Font" Command="{Binding SelectedRangeReadingFont}" Margin="2,2,2,2" />
                                 <Button Grid.Column="1" Content="-" Command="{Binding SelectedRangeMinus}" Margin="2,2,2,2" />
                                 <Button Grid.Column="2" Content="+" Command="{Binding SelectedRangePlus}" Margin="2,2,2,2" />
                                 <Button Grid.Column="3" Content="Clear Colour" Command="{Binding SelectedRangeClearColour}" Margin="2,2,2,2" />
@@ -148,9 +148,9 @@
                                     <RowDefinition Height="28" />
                                 </Grid.RowDefinitions>
                                 <Button Grid.Column="0" Content="Save Row" Command="{Binding SaveRow}" Margin="2,2,2,2" />
-                                <TextBox Grid.Column="1" Text="{Binding SaveRowText1}" IsReadOnly="False" Margin="2,2,2,2" />
+                                <TextBox Grid.Column="1" Text="{Binding SaveRowText1}" IsReadOnly="False" Margin="2,2,2,2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                                 <Button Grid.Column="2" Content="Go" Command="{Binding GoTSaved}" Margin="2,2,2,2" ToolTip="Go to the saved row" />
-                                <TextBox Grid.Column="3"  Text="{Binding SaveRowText2}" IsReadOnly="False" Margin="2,2,2,2" />
+                            <TextBox Grid.Column="3"  Text="{Binding SaveRowText2}" IsReadOnly="False" Margin="2,2,2,2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                                 <Button Grid.Column="4" Content="GoTo" Command="{Binding GoTo}" Margin="2,2,2,2" ToolTip="Go to the entered row"/>
                                 
                                 </Grid>

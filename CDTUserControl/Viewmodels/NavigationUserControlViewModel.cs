@@ -101,7 +101,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void Checkbox3CheckedEventHandler(Boolean p_Value);
         public event Checkbox3CheckedEventHandler Checkbox3CheckedEvent;
 
-        public delegate void GotoFirstCheckboxEventHandler();
+        public delegate void GotoFirstCheckboxEventHandler(Boolean p_Value);
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
         #endregion
 
@@ -167,7 +167,7 @@ namespace CDTUserControl.Viewmodels
                 if (_IsGoToFirst = value)
                 {
                     _IsGoToFirst = value;
-                    GotoFirstCheckboxEvent();
+                    GotoFirstCheckboxEvent(value);
                 }
             }
         }
@@ -323,13 +323,7 @@ namespace CDTUserControl.Viewmodels
             HighlightButtonEvent();
         }
         public ICommand Highlight { get { return new RelayCommand(HighlightExecute); } }
-
-        private void GoToFirstExecute()
-        {
-            //GoToFirstCheckboxEvent();
-        }
-        public ICommand GoToFirst { get { return new RelayCommand(GoToFirstExecute); } }
-
+        
         private void DeleteFontExecute()
         {
             DeleteFontButtonEvent();

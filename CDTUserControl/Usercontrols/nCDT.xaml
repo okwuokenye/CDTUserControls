@@ -207,38 +207,38 @@
 
         <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Margin="5,0,0,0" Height="170" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right" >
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="File Size" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding FileSize}" Width="110" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="File Size" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding FileSize}" Width="110" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Date Mod" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding DateMod}" Width="110" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="Date Mod" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding DateMod}" Width="110" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Audio Type" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding AudioType}" Width="110" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="Audio Type" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding AudioType}" Width="110" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Bit Depth" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding BitDepth}" Width="110" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="Bit Depth" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding BitDepth}" Width="110" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Format" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding Format}" Width="110" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="Format" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding Format}" Width="110" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Sample Rate" Width="52" FontSize="9"/>
-                <TextBlock Text="{Binding SampleRate}" Width="100" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="Sample Rate" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding SampleRate}" Width="100" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="AAT" Width="52" FontSize="9"/>
-                <TextBlock Text="{Binding AAT}" Width="100" FontSize="9" Margin="4 0 0 0"/>
+                <TextBlock Text="AAT" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding AAT}" Width="100" FontSize="10" Margin="4 2 0 2"/>
             </StackPanel>
 
         </StackPanel>
@@ -246,32 +246,32 @@
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="5 0 0 0" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right">
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="9" VerticalContentAlignment="Center" Command="{Binding CompareSource}"/>
+                <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="10" VerticalContentAlignment="Center" Command="{Binding CompareSource}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="EAT" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding EAT}" Width="100" FontSize="9"  Margin="4 0 0 0" />
+                <TextBlock Text="EAT" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding EAT}" Width="100" FontSize="10"  Margin="4 2 0 2" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Difference" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding Difference}" Width="100" FontSize="9"  Margin="4 0 0 0"/>
+                <TextBlock Text="Difference" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding Difference}" Width="100" FontSize="10"  Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="%" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding Percentage}" Width="100" FontSize="9"  Margin="4 0 0 0"/>
+                <TextBlock Text="%" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding Percentage}" Width="100" FontSize="10"  Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Word Count" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding WordCount}" Width="100" FontSize="9"  Margin="4 0 0 0"/>
+                <TextBlock Text="Word Count" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding WordCount}" Width="100" FontSize="10"  Margin="4 2 0 2"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
-                <TextBlock Text="Char Count" Width="50" FontSize="9"/>
-                <TextBlock Text="{Binding CharCount}" Width="100" FontSize="9"  Margin="4 0 0 0" />
+                <TextBlock Text="Char Count" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding CharCount}" Width="100" FontSize="10"  Margin="4 2 0 2" />
             </StackPanel>
         </StackPanel>
 
