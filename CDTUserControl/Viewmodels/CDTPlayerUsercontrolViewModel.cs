@@ -458,7 +458,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _GlossaryTabListBoxItem = value;
                     //raise Item selected event
-                    Tab2ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
+                    Tab3ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
                 }
             }
         }
