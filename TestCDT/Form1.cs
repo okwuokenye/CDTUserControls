@@ -31,7 +31,7 @@ namespace TestCDT
             ctrl.Visibility = System.Windows.Visibility.Visible;
             //elementHost1.BackColor = Color.Black;
             List<String> l_Items = new List<String>() { "Try Me", "Try Me", "Try Me" };
-            ctrl.AddItemToEnglishTab(l_Items);
+            ctrl.AddItemsToEnglishTab(l_Items);
 
             //add event listener here
             ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;
@@ -47,7 +47,7 @@ namespace TestCDT
             elementHost1.Child = ctrl;
         }
 
-        private void Ctrl_ShowMetaDataEvent(bool p_bool)
+        private void Ctrl_ShowMetaDataEvent(bool p_bool, int p_Value)
         {
             if (p_bool)
             {
@@ -59,7 +59,7 @@ namespace TestCDT
             }
         }
 
-        private void Ctrl_IsSliderVisibleEvent(bool p_bool)
+        private void Ctrl_IsSliderVisibleEvent(bool p_bool, int p_Value)
         {
             if (p_bool)
             {
@@ -71,7 +71,7 @@ namespace TestCDT
             }
         }
 
-        private void Ctrl_ExtendSliderHeightEvent(bool p_bool)
+        private void Ctrl_ExtendSliderHeightEvent(bool p_bool, int p_Value)
         {
             if (p_bool)
             {
@@ -109,7 +109,6 @@ namespace TestCDT
         private void Form_Resized(object sender, EventArgs e)
         {
             Control control = (Control)sender;
-            ctrl.ResizeControl(control.Size.Width);
         }
         #endregion
     }
