@@ -31,7 +31,7 @@ namespace TestCDT
             ctrl.Visibility = System.Windows.Visibility.Visible;
             //elementHost1.BackColor = Color.Black;
             List<String> l_Items = new List<String>() { "Try Me", "Try Me", "Try Me" };
-            ctrl.AddItemToEnglishTab(l_Items);
+            //ctrl.AddItemToEnglishTab(l_Items);
 
             //add event listener here
             ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;
@@ -39,9 +39,9 @@ namespace TestCDT
             ctrl.NavigateButtonEvent += Ctrl_NavigateButtonEvent;
 
             //add event for resizing winform screen
-            ctrl.ExtendSliderHeightEvent += Ctrl_ExtendSliderHeightEvent;
-            ctrl.IsSliderVisibleEvent += Ctrl_IsSliderVisibleEvent;
-            ctrl.ShowMetaDataEvent += Ctrl_ShowMetaDataEvent;
+            //ctrl.ExtendSliderHeightEvent += Ctrl_ExtendSliderHeightEvent;
+            //ctrl.IsSliderVisibleEvent += Ctrl_IsSliderVisibleEvent;
+            //ctrl.ShowMetaDataEvent += Ctrl_ShowMetaDataEvent;
 
             //add control to element host
             elementHost1.Child = ctrl;
@@ -109,7 +109,7 @@ namespace TestCDT
         private void Form_Resized(object sender, EventArgs e)
         {
             Control control = (Control)sender;
-            ctrl.ResizeControl(control.Size.Width);
+            //ctrl.ResizeControl(control.Size.Width);
         }
         #endregion
     }
