@@ -13,7 +13,7 @@ namespace CDTUserControl.Viewmodels
         #region private variables
         ObservableCollection<String> _CurrentCharacters = new ObservableCollection<String>();
         String _CurrentCharacter;
-        String _StatusPane = "Status Pane";
+        String _StatusPane = "";
         Boolean _IsCheckBox1Checked = false;
         Boolean _IsCheckBox2Checked = false;
         Boolean _IsCheckBox3Checked = false;
@@ -23,7 +23,7 @@ namespace CDTUserControl.Viewmodels
         String _SaveRowText1 = String.Empty;
         String _SaveRowText2 = String.Empty;
         Boolean _AnalysisOn = false;
-        String _AnalysisTabName = "Randal";
+        String _AnalysisTabName = "";
         #endregion
 
         #region event declarations

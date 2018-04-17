@@ -494,6 +494,11 @@ namespace CDTUserControl.Usercontrols
             vm.SetMetaData(p_FileSize, p_DateMod, p_AudioType, p_BitDpth, p_Format, p_SampleRate, p_AAT, p_EAT, p_Difference, p_Percent, p_WordCount, p_CharCount);
         }
 
+        public void SetVoiceEnabled(Boolean p_Value)
+        {
+            vm.SetVoiceEnabled(p_Value);
+        }
+
         public void SetStatusPane(String p_StatusPane)
         {
             vm.SetStatusPane(p_StatusPane);

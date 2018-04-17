@@ -199,8 +199,10 @@ namespace CDTUserControl.Viewmodels
         Boolean _IsSliderVisible = true;
         Boolean _IsMetaDataVisible = false;
         Boolean _ExtendSliderHeight = false;
-        
-        String _StatusPane = "Test";
+
+        Boolean _VoiceEnabled = false;
+
+        String _StatusPane = "";
 
         String _Tab1HeaderText = "English";
         String _Tab2HeaderText = "Source";
@@ -616,6 +618,9 @@ namespace CDTUserControl.Viewmodels
         public Int32 Row2Height { get { return _IsSliderVisible ? _ExtendSliderHeight ? 225 : 125 : 0; } }
 
         public String StatusPane { get { return _StatusPane; } }
+        
+        public Boolean VoiceEnabled { get { return _VoiceEnabled; } }
+
         public String Tab1HeaderText
         {
             get { return _Tab1HeaderText; }
@@ -672,10 +677,17 @@ namespace CDTUserControl.Viewmodels
         {
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
+
         private Boolean TabLisItenSelected()
         {
             return _EnglishTabListBoxItem != null || _SourceTabListBoxItem != null;
         }
+
+        private Boolean CheckVoice()
+        {
+            return VoiceEnabled;
+        }
+
         public ICommand Delete { get { return new RelayCommand(DeleteExecute, TabLisItenSelected); } }
 
         private void EditExecute()
@@ -736,7 +748,9 @@ namespace CDTUserControl.Viewmodels
         {
             VoiceButtonEvent();
         }
-        public ICommand Voice { get { return new RelayCommand(VoiceExecute); } }
+
+        //I want this function to run anytime the value VoiceEnabled changes
+        public ICommand Voice { get { return new RelayCommand(VoiceExecute, CheckVoice); } }
 
         private void SourceExecute()
         {
@@ -1034,6 +1048,12 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("StatusPane");
         }
 
+        public void SetVoiceEnabled(Boolean p_Value)
+        {
+            _VoiceEnabled = p_Value;
+            RaisePropertyChanged("VoiceEnabled");
+        }
+
         public void AddItemsToEnglishTab(List<String> p_Items)
         {
             RemoveAllItemsFromEnglishTab();
@@ -1063,8 +1083,7 @@ namespace CDTUserControl.Viewmodels
             }
             RaisePropertyChanged("GlossaryTabListBoxItems");
         }
-
-
+        
         public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)
         {
             _EnglishTabListBoxItems.RemoveAt(p_ItemIndex);
