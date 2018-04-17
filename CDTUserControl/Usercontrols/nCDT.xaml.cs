@@ -574,7 +574,7 @@ namespace CDTUserControl.Usercontrols
             vm.SetProgressBar2Value(p_Value);
         }
 
-        public void SetProgressBarColour(System.Drawing.Color p_Color)
+        public void SetProgressBarColour(System.Windows.Media.Brush p_Color)
         {
             vm.SetProgressBarColour(p_Color);
         }

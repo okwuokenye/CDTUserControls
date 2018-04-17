@@ -212,7 +212,7 @@ namespace CDTUserControl.Viewmodels
         Int32 _ProgressBar2Maximum = 100;
         Int32 _ProgressBar2Value = 20;
 
-        Color _ProgressBarColour = Color.Green;
+        System.Windows.Media.Brush _ProgressBarColour = System.Windows.Media.Brushes.Green;
 
         #endregion
 
@@ -638,7 +638,7 @@ namespace CDTUserControl.Viewmodels
         public Int32 ProgressBar2Maximum { get { return _ProgressBar2Maximum; } }
         public Int32 ProgressBar2Value { get { return _ProgressBar2Value; } }
 
-        public Color ProgressBarColour { get { return _ProgressBarColour; } }
+        public System.Windows.Media.Brush ProgressBarColour { get { return _ProgressBarColour; } }
 
         public String Mute1Source { get { return _Slider1IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
         public String Mute1Tooltip { get { return _Slider1IsMute ? "unmute voice stream" : "mute voice stream"; } }
@@ -1132,7 +1132,7 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("Tab3HeaderText");
         }
 
-        public void SetProgressBarColour(Color p_Color)
+        public void SetProgressBarColour(System.Windows.Media.Brush p_Color)
         {
             _ProgressBarColour = p_Color;
             RaisePropertyChanged("ProgressBarColour");
