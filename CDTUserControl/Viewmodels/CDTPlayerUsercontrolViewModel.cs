@@ -458,7 +458,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _GlossaryTabListBoxItem = value;
                     //raise Item selected event
-                    Tab2ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
+                    Tab3ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
                 }
             }
         }
@@ -668,49 +668,10 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Commands
-        
-        private void SourceClickExecute()
-        {
-            SourceClickEvent();
-        }
-        public ICommand SourceClick { get { return new RelayCommand(SourceClickExecute); } }
-
-        private void SourceDblClickExecute()
-        {
-            SourceDblClickEvent();
-        }
-        public ICommand SourceDblClick { get { return new RelayCommand(SourceDblClickExecute); } }
-        
-        private void GlossaryClickExecute()
-        {
-            GlossaryClickEvent();
-        }
-        public ICommand GlossaryClick { get { return new RelayCommand(GlossaryClickExecute); } }
-
-        private void GlossaryDblClickExecute()
-        {
-            GlossaryDblClickEvent();
-        }
-        public ICommand GlossaryDblClick { get { return new RelayCommand(GlossaryDblClickExecute); } }
-        
-        private void VoiceClickExecute()
-        {
-            VoiceClickEvent();
-        }
-        public ICommand VoiceClick { get { return new RelayCommand(VoiceClickExecute); } }
-
-        private void VoiceDblClickExecute()
-        {
-            VoiceDblClickEvent();
-        }
-        public ICommand VoiceDblClick { get { return new RelayCommand(VoiceDblClickExecute); } }
-
-
         private void DeleteExecute()
         {
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
-
         private Boolean TabLisItenSelected()
         {
             return _EnglishTabListBoxItem != null || _SourceTabListBoxItem != null;

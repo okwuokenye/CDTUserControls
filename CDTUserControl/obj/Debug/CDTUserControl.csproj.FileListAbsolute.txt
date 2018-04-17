@@ -22,7 +22,6 @@ C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Debug\User
 C:\Users\Administrator\source\repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.g.cs
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
@@ -31,7 +30,6 @@ C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDT
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
-C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\CDTPlayerUsercontrolView.baml
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
 C:\Users\Administrator\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
