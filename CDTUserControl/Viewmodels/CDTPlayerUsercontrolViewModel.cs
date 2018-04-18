@@ -213,7 +213,9 @@ namespace CDTUserControl.Viewmodels
         Int32 _ProgressBar2Value = 20;
 
         System.Windows.Media.Brush _ProgressBarColour = System.Windows.Media.Brushes.Green;
-
+        //bool variables for enabling buttons
+        bool _IsDeleteEnabled = false;
+        bool _IsEditEnabled = false;
         #endregion
 
         #region Properties
@@ -678,9 +680,9 @@ namespace CDTUserControl.Viewmodels
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
 
-        private Boolean TabLisItenSelected()
+        private Boolean CanDelete()
         {
-            return _EnglishTabListBoxItem != null || _SourceTabListBoxItem != null;
+            return _IsDeleteEnabled;
         }
 
         private Boolean CheckVoice()
@@ -688,25 +690,29 @@ namespace CDTUserControl.Viewmodels
             return VoiceEnabled;
         }
 
-        public ICommand Delete { get { return new RelayCommand(DeleteExecute, TabLisItenSelected); } }
+        public ICommand Delete { get { return new RelayCommand(DeleteExecute, CanDelete); } }
 
         private void EditExecute()
         {
             EditButonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Edit { get { return new RelayCommand(EditExecute, TabLisItenSelected); } }
+        private Boolean CanEdit()
+        {
+            return _IsDeleteEnabled;
+        }
+        public ICommand Edit { get { return new RelayCommand(EditExecute, CanEdit); } }
 
         private void RenameExecute()
         {
             RenameButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Rename { get { return new RelayCommand(RenameExecute, TabLisItenSelected); } }
+        public ICommand Rename { get { return new RelayCommand(RenameExecute); } }
 
         private void PrimaryExecute()
         {
             PrimaryButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Primary { get { return new RelayCommand(PrimaryExecute, TabLisItenSelected); } }
+        public ICommand Primary { get { return new RelayCommand(PrimaryExecute); } }
 
         private void TextExecute()
         {
@@ -1197,7 +1203,14 @@ namespace CDTUserControl.Viewmodels
             _Slider7 = p_Value;
             RaisePropertyChanged("Slider7");
         }
-
+        public void ChangeDeleteButtonStatus(bool p_IsEnabled)
+        {
+            _IsDeleteEnabled = p_IsEnabled;
+        }
+        public void ChangeEditButtonStatus(bool p_IsEnabled)
+        {
+            _IsEditEnabled = p_IsEnabled;
+        }
         #endregion
 
         #region Private Functions
