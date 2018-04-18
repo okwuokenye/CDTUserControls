@@ -365,7 +365,7 @@ namespace CDTUserControl.Usercontrols
             AnalysisDataGrid.ItemsSource = p_Tbl.AsDataView();
         }
 
-        public void SetColorButtonColor(Brush p_Color)
+        public void SetColorButtonColor(System.Windows.Media.Brush p_Color)
         {
             ColorButton.Background = p_Color;
         }

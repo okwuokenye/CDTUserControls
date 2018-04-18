@@ -43,7 +43,7 @@ namespace CDTUserControl.Usercontrols
         public event VoiceClickEventHandler VoiceClickEvent;
 
         public delegate void VoiceDblClickEventHandler();
-        public event VoiceDblClickEventHandler VoiceDblClickEvent;
+        public event VoiceDblClickEventHandler EnglishDblClickEvent;
         
         public delegate void SourceClickEventHandler();
         public event SourceClickEventHandler SourceClickEvent;
@@ -209,12 +209,6 @@ namespace CDTUserControl.Usercontrols
             vm.Volume6Event += Vm_Volume6Event;
             vm.Volume7Event += Vm_Volume7Event;
 
-            vm.VoiceClickEvent += Vm_VoiceClickEvent;
-            vm.VoiceDblClickEvent += Vm_VoiceDblClickEvent;
-            vm.SourceClickEvent += Vm_SourceClickEvent;
-            vm.SourceDblClickEvent += Vm_SourceDblClickEvent;
-            vm.GlossaryClickEvent += Vm_GlossaryClickEvent;
-            vm.GlossaryDblClickEvent += Vm_GlossaryDblClickEvent;
         }
 
         #endregion
@@ -276,7 +270,7 @@ namespace CDTUserControl.Usercontrols
 
         #endregion
 
-        #region eventhandlers
+        #region viewmodel eventhandlers
         private void Vm_Volume1Event(Int32 p_Value)
         {
             Volume1Event(p_Value);
@@ -472,37 +466,24 @@ namespace CDTUserControl.Usercontrols
             Tab1ItemSelectedEvent(p_Item, p_Index);
         }
 
+        #endregion
 
-        private void Vm_VoiceClickEvent()
+        #region child window eventhandlers
+        private void English_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            VoiceClickEvent();
+            EnglishDblClickEvent();
         }
 
-        private void Vm_VoiceDblClickEvent()
-        {
-            VoiceDblClickEvent();
-        }
-
-        private void Vm_SourceClickEvent()
-        {
-            SourceClickEvent();
-        }
-
-        private void Vm_SourceDblClickEvent()
+        private void Source_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             SourceDblClickEvent();
         }
 
-        private void Vm_GlossaryClickEvent()
+        private void Glossary_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            GlossaryClickEvent();
-        }
-
-        private void Vm_GlossaryDblClickEvent()
-        {
+            //what do you want the event to return?
             GlossaryDblClickEvent();
         }
-
         #endregion
 
         #region public functions
@@ -511,6 +492,11 @@ namespace CDTUserControl.Usercontrols
             String p_Percent, String p_WordCount, String p_CharCount)
         {
             vm.SetMetaData(p_FileSize, p_DateMod, p_AudioType, p_BitDpth, p_Format, p_SampleRate, p_AAT, p_EAT, p_Difference, p_Percent, p_WordCount, p_CharCount);
+        }
+
+        public void SetVoiceEnabled(Boolean p_Value)
+        {
+            vm.SetVoiceEnabled(p_Value);
         }
 
         public void SetStatusPane(String p_StatusPane)
@@ -588,7 +574,7 @@ namespace CDTUserControl.Usercontrols
             vm.SetProgressBar2Value(p_Value);
         }
 
-        public void SetProgressBarColour(System.Drawing.Color p_Color)
+        public void SetProgressBarColour(System.Windows.Media.Brush p_Color)
         {
             vm.SetProgressBarColour(p_Color);
         }

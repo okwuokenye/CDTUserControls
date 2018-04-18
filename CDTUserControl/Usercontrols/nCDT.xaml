@@ -65,7 +65,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" MouseDoubleClick="English_MouseDoubleClick" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     
                 </Grid>
             </TabItem>
@@ -81,7 +81,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" MouseDoubleClick="Source_MouseDoubleClick" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                 </Grid>
 
@@ -98,7 +98,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" MouseDoubleClick="Glossary_MouseDoubleClick" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                 </Grid>                
             </TabItem>

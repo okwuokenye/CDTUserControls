@@ -199,8 +199,10 @@ namespace CDTUserControl.Viewmodels
         Boolean _IsSliderVisible = true;
         Boolean _IsMetaDataVisible = false;
         Boolean _ExtendSliderHeight = false;
-        
-        String _StatusPane = "Test";
+
+        Boolean _VoiceEnabled = false;
+
+        String _StatusPane = "";
 
         String _Tab1HeaderText = "English";
         String _Tab2HeaderText = "Source";
@@ -210,7 +212,7 @@ namespace CDTUserControl.Viewmodels
         Int32 _ProgressBar2Maximum = 100;
         Int32 _ProgressBar2Value = 20;
 
-        Color _ProgressBarColour = Color.Green;
+        System.Windows.Media.Brush _ProgressBarColour = System.Windows.Media.Brushes.Green;
 
         #endregion
 
@@ -458,7 +460,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _GlossaryTabListBoxItem = value;
                     //raise Item selected event
-                    Tab2ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
+                    Tab3ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
                 }
             }
         }
@@ -616,6 +618,9 @@ namespace CDTUserControl.Viewmodels
         public Int32 Row2Height { get { return _IsSliderVisible ? _ExtendSliderHeight ? 225 : 125 : 0; } }
 
         public String StatusPane { get { return _StatusPane; } }
+        
+        public Boolean VoiceEnabled { get { return _VoiceEnabled; } }
+
         public String Tab1HeaderText
         {
             get { return _Tab1HeaderText; }
@@ -633,7 +638,7 @@ namespace CDTUserControl.Viewmodels
         public Int32 ProgressBar2Maximum { get { return _ProgressBar2Maximum; } }
         public Int32 ProgressBar2Value { get { return _ProgressBar2Value; } }
 
-        public Color ProgressBarColour { get { return _ProgressBarColour; } }
+        public System.Windows.Media.Brush ProgressBarColour { get { return _ProgressBarColour; } }
 
         public String Mute1Source { get { return _Slider1IsMute ? "../Resources/mute.png" : "../Resources/unmute.png"; } }
         public String Mute1Tooltip { get { return _Slider1IsMute ? "unmute voice stream" : "mute voice stream"; } }
@@ -668,44 +673,6 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Commands
-        
-        private void SourceClickExecute()
-        {
-            SourceClickEvent();
-        }
-        public ICommand SourceClick { get { return new RelayCommand(SourceClickExecute); } }
-
-        private void SourceDblClickExecute()
-        {
-            SourceDblClickEvent();
-        }
-        public ICommand SourceDblClick { get { return new RelayCommand(SourceDblClickExecute); } }
-        
-        private void GlossaryClickExecute()
-        {
-            GlossaryClickEvent();
-        }
-        public ICommand GlossaryClick { get { return new RelayCommand(GlossaryClickExecute); } }
-
-        private void GlossaryDblClickExecute()
-        {
-            GlossaryDblClickEvent();
-        }
-        public ICommand GlossaryDblClick { get { return new RelayCommand(GlossaryDblClickExecute); } }
-        
-        private void VoiceClickExecute()
-        {
-            VoiceClickEvent();
-        }
-        public ICommand VoiceClick { get { return new RelayCommand(VoiceClickExecute); } }
-
-        private void VoiceDblClickExecute()
-        {
-            VoiceDblClickEvent();
-        }
-        public ICommand VoiceDblClick { get { return new RelayCommand(VoiceDblClickExecute); } }
-
-
         private void DeleteExecute()
         {
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
@@ -715,6 +682,12 @@ namespace CDTUserControl.Viewmodels
         {
             return _EnglishTabListBoxItem != null || _SourceTabListBoxItem != null;
         }
+
+        private Boolean CheckVoice()
+        {
+            return VoiceEnabled;
+        }
+
         public ICommand Delete { get { return new RelayCommand(DeleteExecute, TabLisItenSelected); } }
 
         private void EditExecute()
@@ -775,7 +748,9 @@ namespace CDTUserControl.Viewmodels
         {
             VoiceButtonEvent();
         }
-        public ICommand Voice { get { return new RelayCommand(VoiceExecute); } }
+
+        //I want this function to run anytime the value VoiceEnabled changes
+        public ICommand Voice { get { return new RelayCommand(VoiceExecute, CheckVoice); } }
 
         private void SourceExecute()
         {
@@ -1073,6 +1048,12 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("StatusPane");
         }
 
+        public void SetVoiceEnabled(Boolean p_Value)
+        {
+            _VoiceEnabled = p_Value;
+            RaisePropertyChanged("VoiceEnabled");
+        }
+
         public void AddItemsToEnglishTab(List<String> p_Items)
         {
             RemoveAllItemsFromEnglishTab();
@@ -1102,8 +1083,7 @@ namespace CDTUserControl.Viewmodels
             }
             RaisePropertyChanged("GlossaryTabListBoxItems");
         }
-
-
+        
         public void RemoveItemFromEnglishTab(Int32 p_ItemIndex)
         {
             _EnglishTabListBoxItems.RemoveAt(p_ItemIndex);
@@ -1152,7 +1132,7 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("Tab3HeaderText");
         }
 
-        public void SetProgressBarColour(Color p_Color)
+        public void SetProgressBarColour(System.Windows.Media.Brush p_Color)
         {
             _ProgressBarColour = p_Color;
             RaisePropertyChanged("ProgressBarColour");
