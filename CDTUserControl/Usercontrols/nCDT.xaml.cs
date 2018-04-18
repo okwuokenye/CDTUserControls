@@ -607,6 +607,14 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetSlider7Value(p_Value);
         }
+        public void ChangeDeleteButtonStatus(bool p_IsEnabled)
+        {
+            vm.ChangeDeleteButtonStatus(p_IsEnabled);
+        }
+        public void ChangeEditButtonStatus(bool p_IsEnabled)
+        {
+            vm.ChangeEditButtonStatus(p_IsEnabled);
+        }
         #endregion
 
     }
