@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace CDTUserControl.Viewmodels
 {
@@ -24,6 +25,9 @@ namespace CDTUserControl.Viewmodels
         String _SaveRowText2 = String.Empty;
         Boolean _AnalysisOn = false;
         String _AnalysisTabName = "";
+        Color? _HighlightColor;
+
+
         #endregion
 
         #region event declarations
@@ -103,6 +107,13 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void GotoFirstCheckboxEventHandler(Boolean p_Value);
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
+        
+        public delegate void HighlightColorEventHandler(Color? p_Value);
+        public event HighlightColorEventHandler HighlightColorEvent;
+        
+        public delegate void ClearColourComboIndexEventHandler(Int32 p_Index);
+        public event ClearColourComboIndexEventHandler ClearColourComboIndexEvent;
+
         #endregion
 
         #region properties
@@ -123,6 +134,7 @@ namespace CDTUserControl.Viewmodels
             }
         }
         public String StatusPane { get { return _StatusPane; } }
+        
         public Boolean IsCheckBox1Checked
         {
             get { return _IsCheckBox1Checked; }
@@ -135,6 +147,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
         public Boolean IsCheckBox2Checked
         {
             get { return _IsCheckBox2Checked; }
@@ -178,6 +191,7 @@ namespace CDTUserControl.Viewmodels
                 if (_ClearColourComboItemIndex != value)
                 {
                     _ClearColourComboItemIndex = value;
+                    ClearColourComboIndexEvent(value);
                 }
             }
         }
@@ -222,6 +236,20 @@ namespace CDTUserControl.Viewmodels
         }
         public String AnalysisText { get { return _AnalysisOn ? "Off" : "On"; } }
         public String AnalysisTabName { get { return _AnalysisTabName; } }
+        
+        public Color? HighlightColor
+        {
+            get { return _HighlightColor; }
+            set
+            {
+                if (_HighlightColor != value)
+                {
+                    _HighlightColor = value;
+                    HighlightColorEvent(value);
+                }
+            }
+        }
+
         #endregion
 
         #region constructor

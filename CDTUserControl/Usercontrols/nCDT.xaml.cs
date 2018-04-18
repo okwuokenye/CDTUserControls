@@ -607,14 +607,35 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetSlider7Value(p_Value);
         }
-        public void ChangeDeleteButtonStatus(bool p_IsEnabled)
+        public void ChangeSideButtonStatus(bool p_IsEnabled)
         {
-            vm.ChangeDeleteButtonStatus(p_IsEnabled);
+            vm.ChangeSideButtonStatus(p_IsEnabled);
         }
-        public void ChangeEditButtonStatus(bool p_IsEnabled)
+        public void ChangeVoiceStatus(bool p_IsEnabled)
         {
-            vm.ChangeEditButtonStatus(p_IsEnabled);
+            vm.ChangeVoiceStatus(p_IsEnabled);
         }
+        public void ChangeSourceStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSourceStatus(p_IsEnabled);
+        }
+        public void ChangeMusicStatus(bool p_IsEnabled)
+        {
+            vm.ChangeMusicStatus(p_IsEnabled);
+        }
+        public void ChangeSFXStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSFXStatus(p_IsEnabled);
+        }
+        public void ChangeLFXStatus(bool p_IsEnabled)
+        {
+            vm.ChangeLFXStatus(p_IsEnabled);
+        }
+        public void ChangeSpkTextStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSpkTextStatus(p_IsEnabled);
+        }
+        
         #endregion
 
     }

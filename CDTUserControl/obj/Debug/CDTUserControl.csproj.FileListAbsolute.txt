@@ -181,3 +181,5 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll

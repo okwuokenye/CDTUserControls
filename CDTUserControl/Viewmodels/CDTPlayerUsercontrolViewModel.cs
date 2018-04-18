@@ -213,9 +213,16 @@ namespace CDTUserControl.Viewmodels
         Int32 _ProgressBar2Value = 20;
 
         System.Windows.Media.Brush _ProgressBarColour = System.Windows.Media.Brushes.Green;
+
         //bool variables for enabling buttons
-        bool _IsDeleteEnabled = false;
-        bool _IsEditEnabled = false;
+        bool _IsSideButtons = false;
+        bool _IsVoiceEnabled = false;
+        bool _IsSourceEnabled = false;
+        bool _IsMusicEnabled = false;
+        bool _IsSFXEnabled = false;
+        bool _IsLFXEnabled = false;
+        bool _IsSpkTextEnabled = false;
+
         #endregion
 
         #region Properties
@@ -680,39 +687,31 @@ namespace CDTUserControl.Viewmodels
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
 
-        private Boolean CanDelete()
+        private Boolean CheckSideButtons()
         {
-            return _IsDeleteEnabled;
+            return _IsSideButtons;
         }
 
-        private Boolean CheckVoice()
-        {
-            return VoiceEnabled;
-        }
-
-        public ICommand Delete { get { return new RelayCommand(DeleteExecute, CanDelete); } }
+        public ICommand Delete { get { return new RelayCommand(DeleteExecute, CheckSideButtons); } }
 
         private void EditExecute()
         {
             EditButonEvent(_EnglishTabListBoxItem);
         }
-        private Boolean CanEdit()
-        {
-            return _IsDeleteEnabled;
-        }
-        public ICommand Edit { get { return new RelayCommand(EditExecute, CanEdit); } }
+
+        public ICommand Edit { get { return new RelayCommand(EditExecute, CheckSideButtons); } }
 
         private void RenameExecute()
         {
             RenameButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Rename { get { return new RelayCommand(RenameExecute); } }
+        public ICommand Rename { get { return new RelayCommand(RenameExecute, CheckSideButtons); } }
 
         private void PrimaryExecute()
         {
             PrimaryButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Primary { get { return new RelayCommand(PrimaryExecute); } }
+        public ICommand Primary { get { return new RelayCommand(PrimaryExecute, CheckSideButtons); } }
 
         private void TextExecute()
         {
@@ -749,44 +748,68 @@ namespace CDTUserControl.Viewmodels
             NavigateButtonEvent();
         }
         public ICommand Navigate { get { return new RelayCommand(NavigateExecute); } }
-
+        
         private void VoiceExecute()
         {
             VoiceButtonEvent();
         }
 
-        //I want this function to run anytime the value VoiceEnabled changes
+        private Boolean CheckVoice()
+        {
+            return _IsVoiceEnabled;
+        }
+        private Boolean CheckSource()
+        {
+            return _IsSourceEnabled;
+        }
+        private Boolean CheckMusic()
+        {
+            return _IsMusicEnabled;
+        }
+        private Boolean CheckLFX()
+        {
+            return _IsLFXEnabled;
+        }
+        private Boolean CheckSFX()
+        {
+            return _IsSFXEnabled;
+        }
+        private Boolean CheckSpkText()
+        {
+            return _IsSpkTextEnabled;
+        }
+
         public ICommand Voice { get { return new RelayCommand(VoiceExecute, CheckVoice); } }
 
         private void SourceExecute()
         {
             SourceButtonEvent();
         }
-        public ICommand Source { get { return new RelayCommand(SourceExecute); } }
+        public ICommand Source { get { return new RelayCommand(SourceExecute, CheckSource); } }
 
         private void SpotExecute()
         {
             SpotButtonEvent();
         }
-        public ICommand Spot { get { return new RelayCommand(SpotExecute); } }
+        public ICommand Spot { get { return new RelayCommand(SpotExecute, CheckSFX); } }
 
         private void AmbientExecute()
         {
             AmbientButtonEvent();
         }
-        public ICommand Ambient { get { return new RelayCommand(AmbientExecute); } }
+        public ICommand Ambient { get { return new RelayCommand(AmbientExecute, CheckLFX); } }
 
         private void MusicExecute()
         {
             MusicButtonEvent();
         }
-        public ICommand Music { get { return new RelayCommand(MusicExecute); } }
+        public ICommand Music { get { return new RelayCommand(MusicExecute, CheckMusic); } }
 
         private void SpkExecute()
         {
             SpkButtonEvent();
         }
-        public ICommand Spk { get { return new RelayCommand(SpkExecute); } }
+        public ICommand Spk { get { return new RelayCommand(SpkExecute, CheckSpkText); } }
         
         private void StopExecute()
         {
@@ -1203,13 +1226,34 @@ namespace CDTUserControl.Viewmodels
             _Slider7 = p_Value;
             RaisePropertyChanged("Slider7");
         }
-        public void ChangeDeleteButtonStatus(bool p_IsEnabled)
+        
+        public void ChangeSideButtonStatus(bool p_IsEnabled)
         {
-            _IsDeleteEnabled = p_IsEnabled;
+            _IsSideButtons = p_IsEnabled;
         }
-        public void ChangeEditButtonStatus(bool p_IsEnabled)
+        public void ChangeVoiceStatus(bool p_IsEnabled)
         {
-            _IsEditEnabled = p_IsEnabled;
+            _IsVoiceEnabled = p_IsEnabled;
+        }
+        public void ChangeSpkTextStatus(bool p_IsEnabled)
+        {
+            _IsSpkTextEnabled = p_IsEnabled;
+        }
+        public void ChangeLFXStatus(bool p_IsEnabled)
+        {
+            _IsLFXEnabled = p_IsEnabled;
+        }
+        public void ChangeSFXStatus(bool p_IsEnabled)
+        {
+            _IsSFXEnabled = p_IsEnabled;
+        }
+        public void ChangeMusicStatus(bool p_IsEnabled)
+        {
+            _IsMusicEnabled = p_IsEnabled;
+        }
+        public void ChangeSourceStatus(bool p_IsEnabled)
+        {
+            _IsSourceEnabled = p_IsEnabled;
         }
         #endregion
 

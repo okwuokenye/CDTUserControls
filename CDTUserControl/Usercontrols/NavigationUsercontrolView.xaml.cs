@@ -90,6 +90,7 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
         public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
+
         public delegate void Checkbox1CheckedEventHandler(Boolean p_Value);
         public event Checkbox1CheckedEventHandler Checkbox1CheckedEvent;
 
@@ -101,10 +102,7 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void GotoFirstCheckboxEventHandler(Boolean p_Value);
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
-
-        public delegate void ColorBoxClickEventHandler();
-        public event ColorBoxClickEventHandler ColorBoxClickEvent;
-
+        
         public delegate void MyTabItem1EventHandler();
         public event MyTabItem1EventHandler MyTabItem1Event;
 
@@ -113,6 +111,13 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void MyTabItem3EventHandler();
         public event MyTabItem3EventHandler MyTabItem3Event;
+
+        public delegate void HighlightColorEventHandler(Color? p_Value);
+        public event HighlightColorEventHandler HighlightColorEvent;
+        
+        public delegate void ClearColourComboIndexEventHandler(Int32 p_Index);
+        public event ClearColourComboIndexEventHandler ClearColourComboIndexEvent;
+
         #endregion
 
         #region constructor
@@ -149,6 +154,9 @@ namespace CDTUserControl.Usercontrols
             vm.Checkbox2CheckedEvent += Vm_Checkbox2CheckedEvent;
             vm.Checkbox3CheckedEvent += Vm_Checkbox3CheckedEvent;
             vm.GotoFirstCheckboxEvent += Vm_GotoFirstCheckboxEvent;
+
+            vm.HighlightColorEvent += Vm_HighlightColourEvent;
+            vm.ClearColourComboIndexEvent += Vm_ClearColourComboIndexEvent;
             base.DataContext = vm;
         }
         #endregion
@@ -283,10 +291,15 @@ namespace CDTUserControl.Usercontrols
         {
             GotoFirstCheckboxEvent(p_Value);
         }
-
-        private void Btn_ColorBoxClickEvent(object sender, EventArgs args)
+        
+        private void Vm_HighlightColourEvent(Color? p_Value)
         {
-            ColorBoxClickEvent();
+            HighlightColorEvent(p_Value);
+        }
+
+        private void Vm_ClearColourComboIndexEvent(Int32 p_int)
+        {
+            ClearColourComboIndexEvent(p_int);
         }
 
         void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -364,11 +377,7 @@ namespace CDTUserControl.Usercontrols
         {
             AnalysisDataGrid.ItemsSource = p_Tbl.AsDataView();
         }
-
-        public void SetColorButtonColor(System.Windows.Media.Brush p_Color)
-        {
-            ColorButton.Background = p_Color;
-        }
+        
         #endregion
     }
 }
