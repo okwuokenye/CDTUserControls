@@ -176,12 +176,15 @@ namespace CDTUserControl.Viewmodels
 
         ObservableCollection<String> _EnglishTabListBoxItems = new ObservableCollection<String>();
         String _EnglishTabListBoxItem;
+        Int32 _EnglishTabIndex = 0;
 
         ObservableCollection<String> _SourceTabListBoxItems = new ObservableCollection<String>();
         String _SourceTabListBoxItem;
-        
+        Int32 _SourceTabIndex = 0;
+
         ObservableCollection<String> _GlossaryTabListBoxItems = new ObservableCollection<String>();
         String _GlossaryTabListBoxItem;
+        Int32 _GlossaryTabIndex = 0;
 
         String _FileSize;
         String _DateMod;
@@ -473,6 +476,49 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public Int32 GlossaryTabIndex
+        {
+            get { return _GlossaryTabIndex; }
+            set
+            {
+                if (_GlossaryTabIndex != value)
+                {
+                    _GlossaryTabIndex = value;
+                    Volume7Event(value);
+                    RaisePropertyChanged("GlossaryTabIndex");
+                }
+            }
+        }
+
+        public Int32 EnglishTabIndex
+        {
+            get { return _EnglishTabIndex; }
+            set
+            {
+                if (_EnglishTabIndex != value)
+                {
+                    _EnglishTabIndex = value;
+                    Volume7Event(value);
+                    RaisePropertyChanged("EnglishTabIndex");
+                }
+            }
+        }
+
+        public Int32 SourceTabIndex
+        {
+            get { return _SourceTabIndex; }
+            set
+            {
+                if (_SourceTabIndex != value)
+                {
+                    _SourceTabIndex = value;
+                    Volume7Event(value);
+                    RaisePropertyChanged("SourceTabIndex");
+                }
+            }
+        }
+
         public String FileSize
         {
             get
@@ -1076,13 +1122,7 @@ namespace CDTUserControl.Viewmodels
             _StatusPane = p_StatusPane;
             RaisePropertyChanged("StatusPane");
         }
-
-        public void SetVoiceEnabled(Boolean p_Value)
-        {
-            _VoiceEnabled = p_Value;
-            RaisePropertyChanged("VoiceEnabled");
-        }
-
+        
         public void AddItemsToEnglishTab(List<String> p_Items)
         {
             RemoveAllItemsFromEnglishTab();
@@ -1090,6 +1130,9 @@ namespace CDTUserControl.Viewmodels
             {
                 _EnglishTabListBoxItems.Add(p_Item);
             }
+
+            ChangeEnglishIndex(0);
+
             RaisePropertyChanged("EnglishTabListBoxItems");
         }
 
@@ -1100,6 +1143,9 @@ namespace CDTUserControl.Viewmodels
             {
                 _SourceTabListBoxItems.Add(p_Item);
             }
+            
+            ChangeSourceIndex(0);
+
             RaisePropertyChanged("SourceTabListBoxItems");
         }
 
@@ -1110,6 +1156,9 @@ namespace CDTUserControl.Viewmodels
             {
                 _GlossaryTabListBoxItems.Add(p_Item);
             }
+            
+            ChangeGlossaryIndex(0);
+
             RaisePropertyChanged("GlossaryTabListBoxItems");
         }
         
@@ -1258,6 +1307,22 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Private Functions
+
+        private void ChangeEnglishIndex(Int32 p_value)
+        {
+            EnglishTabIndex = p_value;
+        }
+
+        private void ChangeSourceIndex(Int32 p_value)
+        {
+            SourceTabIndex = p_value;
+        }
+
+        private void ChangeGlossaryIndex(Int32 p_value)
+        {
+            GlossaryTabIndex = p_value;
+        }
+
         private async void Load_Async()
         {
             try
