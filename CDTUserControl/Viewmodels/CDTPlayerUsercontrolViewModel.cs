@@ -718,6 +718,7 @@ namespace CDTUserControl.Viewmodels
 
         public String Loop5Source { get { return _Slider5IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
         public String Loop5Tooltip { get { return _Slider5IsLoop ? "unloop music" : "loop music"; } }
+        public bool IsSideButtonsEnabled { get { return _IsSideButtons; } } //property for side buttons
         #endregion
 
         #region Constructors
@@ -1279,6 +1280,7 @@ namespace CDTUserControl.Viewmodels
         public void ChangeSideButtonStatus(bool p_IsEnabled)
         {
             _IsSideButtons = p_IsEnabled;
+            RaisePropertyChanged("IsSideButtonsEnabled"); //I added a property to the properties region. The property is bound to the buttons in the view
         }
         public void ChangeVoiceStatus(bool p_IsEnabled)
         {
