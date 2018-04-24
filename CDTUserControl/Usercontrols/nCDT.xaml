@@ -149,17 +149,17 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
-                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
 
-                <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSourceEnabled}"/>
 
-                <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSFXEnabled}"/>
 
-                <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsLFXEnabled}"/>
 
-                <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9" IsEnabled="{Binding IsMusicEnabled}"/>
 
-                <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"   IsEnabled="{Binding IsSpkTextEnabled}"/>
 
                 <Button Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 

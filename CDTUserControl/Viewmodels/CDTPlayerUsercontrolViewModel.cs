@@ -719,6 +719,13 @@ namespace CDTUserControl.Viewmodels
         public String Loop5Source { get { return _Slider5IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
         public String Loop5Tooltip { get { return _Slider5IsLoop ? "unloop music" : "loop music"; } }
         public bool IsSideButtonsEnabled { get { return _IsSideButtons; } } //property for side buttons
+        public bool IsVoiceEnabled { get { return _IsVoiceEnabled; } } //property for side buttons
+        public bool IsSourceEnabled { get { return _IsSourceEnabled; } } //property for side buttons
+        public bool IsMusicEnabled { get { return _IsMusicEnabled; } } //property for side buttons
+        public bool IsSFXEnabled { get { return _IsSFXEnabled; } } //property for side buttons
+        public bool IsLFXEnabled { get { return _IsLFXEnabled; } } //property for side buttons
+        public bool IsSpkTextEnabled { get { return _IsSpkTextEnabled; } } //property for side buttons
+
         #endregion
 
         #region Constructors
@@ -1285,26 +1292,32 @@ namespace CDTUserControl.Viewmodels
         public void ChangeVoiceStatus(bool p_IsEnabled)
         {
             _IsVoiceEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsVoiceEnabled");
         }
         public void ChangeSpkTextStatus(bool p_IsEnabled)
         {
             _IsSpkTextEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSpkTextEnabled");
         }
         public void ChangeLFXStatus(bool p_IsEnabled)
         {
             _IsLFXEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsLFXEnabled");
         }
         public void ChangeSFXStatus(bool p_IsEnabled)
         {
             _IsSFXEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSFXEnabled");
         }
         public void ChangeMusicStatus(bool p_IsEnabled)
         {
             _IsMusicEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsMusicEnabled");
         }
         public void ChangeSourceStatus(bool p_IsEnabled)
         {
             _IsSourceEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSourceEnabled");
         }
         #endregion
 
