@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -23,10 +24,14 @@ namespace CDTUserControl.Viewmodels
         Int32 _ClearColourComboItemIndex = 0;
         String _SaveRowText1 = String.Empty;
         String _SaveRowText2 = String.Empty;
+        String _Actor = "";
+
         Boolean _AnalysisOn = false;
         String _AnalysisTabName = "";
         Color? _HighlightColor;
-
+        Color? _FilterColor;
+        Boolean _StartOn = false;
+        Boolean _PauseOn = false;
 
         #endregion
 
@@ -46,7 +51,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void ReadingFontButtonEventHandler();
         public event ReadingFontButtonEventHandler ReadingFontButtonEvent;
 
-        public delegate void HighlightButtonEventHandler();
+        public delegate void HighlightButtonEventHandler(Boolean p_Value);
         public event HighlightButtonEventHandler HighlightButtonEvent;
 
         public delegate void DeleteFontButtonEventHandler();
@@ -76,7 +81,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void SaveRowButtonEventHandler();
         public event SaveRowButtonEventHandler SaveRowButtonEvent;
 
-        public delegate void GoToButtonEventHandler();
+        public delegate void GoToButtonEventHandler(String p_Value);
         public event GoToButtonEventHandler GoToButtonEvent;
 
         public delegate void GoTSavedButtonEventHandler();
@@ -88,11 +93,21 @@ namespace CDTUserControl.Viewmodels
         public delegate void RefreshButtonEventHandler();
         public event RefreshButtonEventHandler RefreshButtonEvent;
 
-        public delegate void StartButtonEventHandler();
+        public delegate void StartButtonEventHandler(Boolean p_Value);
         public event StartButtonEventHandler StartButtonEvent;
 
-        public delegate void PauseButtonEventHandler();
+        public delegate void OpenLogButtonEventHandler();
+        public event OpenLogButtonEventHandler OpenLogButtonEvent;
+
+        public delegate void FilterColourChangedEventHandler();
+        public event FilterColourChangedEventHandler FilterColourChangedEvent;
+
+        public delegate void ActorChangedEventHandler(String p_Value);
+        public event ActorChangedEventHandler ActorChangedEvent;
+
+        public delegate void PauseButtonEventHandler(Boolean p_Value);
         public event PauseButtonEventHandler PauseButtonEvent;
+
         public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
         public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
 
@@ -223,6 +238,22 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public String Actor
+        {
+            get
+            {
+                return _Actor;
+            }
+            set
+            {
+                if (_Actor != value)
+                {
+                    _Actor = value;
+                }
+            }
+        }
+
         public Boolean AnalysisOn
         {
             get { return _AnalysisOn; }
@@ -234,9 +265,40 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public Boolean StartOn
+        {
+            get { return _StartOn; }
+            set
+            {
+                if (_StartOn != value)
+                {
+                    _StartOn = value;
+                }
+            }
+        }
+        
+        public Boolean PauseOn
+        {
+            get { return _PauseOn; }
+            set
+            {
+                if (_PauseOn != value)
+                {
+                    _PauseOn = value;
+                }
+            }
+        }
+
         public String AnalysisText { get { return _AnalysisOn ? "Off" : "On"; } }
         public String AnalysisTabName { get { return _AnalysisTabName; } }
+
+
+        public String StartText { get { return _StartOn ? "Start" : "Stop"; } }
+        public String PauseText { get { return _PauseOn ? "Pause" : "Unpause"; } }
         
+        public Visibility PauseVisibility { get { return _StartOn ? Visibility.Visible : Visibility.Collapsed; } }
+
         public Color? HighlightColor
         {
             get { return _HighlightColor; }
@@ -246,6 +308,19 @@ namespace CDTUserControl.Viewmodels
                 {
                     _HighlightColor = value;
                     HighlightColorEvent(value);
+                }
+            }
+        }
+
+        public Color? FilterColor
+        {
+            get { return _FilterColor; }
+            set
+            {
+                if (_FilterColor != value)
+                {
+                    _FilterColor = value;
+                    RaisePropertyChanged("FilterColor");
                 }
             }
         }
@@ -313,6 +388,13 @@ namespace CDTUserControl.Viewmodels
         {
             _AnalysisTabName = p_Value;
         }
+
+
+        public void SetFilterColor(Color? p_Value)
+        {
+            _FilterColor = p_Value;
+        }
+
         #endregion
 
         #region commands
@@ -348,7 +430,7 @@ namespace CDTUserControl.Viewmodels
 
         private void HighlightExecute()
         {
-            HighlightButtonEvent();
+            HighlightButtonEvent(IsGoToFirst);
         }
         public ICommand Highlight { get { return new RelayCommand(HighlightExecute); } }
         
@@ -408,7 +490,7 @@ namespace CDTUserControl.Viewmodels
 
         private void GoToExecute()
         {
-            GoToButtonEvent();
+            GoToButtonEvent(SaveRowText2);
         }
         public ICommand GoTo { get { return new RelayCommand(GoToExecute); } }
 
@@ -434,15 +516,33 @@ namespace CDTUserControl.Viewmodels
 
         private void StartExecute()
         {
-            StartButtonEvent();
+            StartButtonEvent(StartOn);
         }
         public ICommand Start { get { return new RelayCommand(StartExecute); } }
+        
+        private void ActorChangedExecute()
+        {
+            ActorChangedEvent(Actor);
+        }
+        public ICommand ActorChanged { get { return new RelayCommand(ActorChangedExecute); } }
+
+        private void OpenLogExecute()
+        {
+            OpenLogButtonEvent();
+        }
+        public ICommand OpenLog { get { return new RelayCommand(OpenLogExecute); } }
 
         private void PauseExecute()
         {
-            PauseButtonEvent();
+            PauseButtonEvent(PauseOn);
         }
         public ICommand Pause { get { return new RelayCommand(PauseExecute); } }
+        
+        private void FilterColourChangedExecute()
+        {
+            FilterColourChangedEvent();
+        }
+        public ICommand FilterColourChanged { get { return new RelayCommand(FilterColourChangedExecute); } }
 
         #endregion
     }

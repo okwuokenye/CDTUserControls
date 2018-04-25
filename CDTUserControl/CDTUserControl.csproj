@@ -155,5 +155,8 @@
   <ItemGroup>
     <Resource Include="Resources\filtercolour.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Missing.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

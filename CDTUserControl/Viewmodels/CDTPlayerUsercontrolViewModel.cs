@@ -663,7 +663,8 @@ namespace CDTUserControl.Viewmodels
         
         public Visibility SliderVisibility { get { return _IsSliderVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
-        
+
+
         public String CloseSliderTT { get { return _IsSliderVisible ? "Hide Slider" : "Show Slider"; } }
         public String ExtendSliderTT { get { return _ExtendSliderHeight ? "Reduce Slider Height" : "Extend Slider Height"; } }
         public String MetaDataTT { get { return _IsMetaDataVisible ? "Hide MetaData" : "Show MetaData"; } }
