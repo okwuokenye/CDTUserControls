@@ -350,6 +350,18 @@ namespace CDTUserControl.Usercontrols
                 }
             }
         }
+
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+        }
+
+        private void MouseButtonDownHandler(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
         #endregion
 
         #region public functions

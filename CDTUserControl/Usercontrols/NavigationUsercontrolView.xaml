@@ -43,7 +43,7 @@
                 <ToggleButton Grid.Row="1" Grid.Column="3"  Margin="4" IsChecked="{Binding IsCheckBox2Checked}" VerticalAlignment="Center" ToolTip="Lock navigator to the current character">
                     <Image x:Name="lockimage" Source="../Resources/padlock.png" />
                 </ToggleButton>
-                <ToggleButton Background="{Binding FilterColor}"  Grid.Row="2" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox3Checked}" VerticalAlignment="Center" ToolTip="Filter by selected colour (e.g. marked missing)" MouseRightButtonDown="{Binding FilterColourChanged}">
+                <ToggleButton Background="{Binding FilterColor}"  Grid.Row="2" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox3Checked}" VerticalAlignment="Center" ToolTip="Filter by selected colour (e.g. marked missing)" MouseRightButtonDown="MouseButtonDownHandler">
                     <Image x:Name="filtercolourimage" Source="../Resources/missing.png" />
                 </ToggleButton>
             </Grid>
@@ -196,7 +196,7 @@
                         <Button Grid.Row="0" Grid.Column="1" Visibility="{Binding PauseVisibility}" Content="{Binding PauseText}" Command="{Binding Pause}" Margin="2 2 2 2"/>
 
                         <TextBlock Grid.Row="0" Grid.Column="2"   Text="Actor" Margin="8 2 2 2" VerticalAlignment="Center"  />
-                        <TextBox Grid.Row="0" Grid.Column="3"   Text="{Binding Actor}" Margin="2 2 2 2" TextChanged="{Binding ActorChanged}"/>
+                        <TextBox Grid.Row="0" Grid.Column="3"   Text="{Binding Actor}" Margin="2 2 2 2" TextChanged="TextBox_TextChanged"/>
                         <Button Grid.Row="0" Grid.Column="4" Content="Open" Command="{Binding OpenLog}" Margin="2 2 2 2" />
 
                         <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"  x:Name="SessionLogDataGrid" Margin="2 2 2 2" CanUserAddRows="True" CanUserDeleteRows="True">
