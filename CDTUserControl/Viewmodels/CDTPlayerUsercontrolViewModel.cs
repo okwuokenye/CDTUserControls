@@ -207,13 +207,15 @@ namespace CDTUserControl.Viewmodels
 
         String _StatusPane = "";
 
+        Int32 _TabIndex = 0;
+
         String _Tab1HeaderText = "English";
         String _Tab2HeaderText = "Source";
         String _Tab3HeaderText = "Glossary";
         Int32 _ProgressBar1Maximum = 100;
-        Int32 _ProgressBar1Value = 70;
+        Int32 _ProgressBar1Value = 0;
         Int32 _ProgressBar2Maximum = 100;
-        Int32 _ProgressBar2Value = 20;
+        Int32 _ProgressBar2Value = 0;
 
         System.Windows.Media.Brush _ProgressBarColour = System.Windows.Media.Brushes.Green;
 
@@ -477,6 +479,8 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
+
+
         public Int32 GlossaryTabIndex
         {
             get { return _GlossaryTabIndex; }
@@ -485,7 +489,6 @@ namespace CDTUserControl.Viewmodels
                 if (_GlossaryTabIndex != value)
                 {
                     _GlossaryTabIndex = value;
-                    Volume7Event(value);
                     RaisePropertyChanged("GlossaryTabIndex");
                 }
             }
@@ -499,7 +502,6 @@ namespace CDTUserControl.Viewmodels
                 if (_EnglishTabIndex != value)
                 {
                     _EnglishTabIndex = value;
-                    Volume7Event(value);
                     RaisePropertyChanged("EnglishTabIndex");
                 }
             }
@@ -513,7 +515,6 @@ namespace CDTUserControl.Viewmodels
                 if (_SourceTabIndex != value)
                 {
                     _SourceTabIndex = value;
-                    Volume7Event(value);
                     RaisePropertyChanged("SourceTabIndex");
                 }
             }
@@ -547,6 +548,9 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+
+
         public String AudioType
         {
             get
@@ -677,6 +681,18 @@ namespace CDTUserControl.Viewmodels
         
         public Boolean VoiceEnabled { get { return _VoiceEnabled; } }
 
+        public Int32 TabIndex
+        {
+            get { return _TabIndex; }
+            set
+            {
+                if (_TabIndex != value)
+                {
+                    _TabIndex = value;
+                }
+            }
+        }
+
         public String Tab1HeaderText
         {
             get { return _Tab1HeaderText; }
@@ -747,26 +763,26 @@ namespace CDTUserControl.Viewmodels
             return _IsSideButtons;
         }
 
-        public ICommand Delete { get { return new RelayCommand(DeleteExecute, CheckSideButtons); } }
+        public ICommand Delete { get { return new RelayCommand(DeleteExecute); } }
 
         private void EditExecute()
         {
             EditButonEvent(_EnglishTabListBoxItem);
         }
 
-        public ICommand Edit { get { return new RelayCommand(EditExecute, CheckSideButtons); } }
+        public ICommand Edit { get { return new RelayCommand(EditExecute); } }
 
         private void RenameExecute()
         {
             RenameButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Rename { get { return new RelayCommand(RenameExecute, CheckSideButtons); } }
+        public ICommand Rename { get { return new RelayCommand(RenameExecute); } }
 
         private void PrimaryExecute()
         {
             PrimaryButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Primary { get { return new RelayCommand(PrimaryExecute, CheckSideButtons); } }
+        public ICommand Primary { get { return new RelayCommand(PrimaryExecute); } }
 
         private void TextExecute()
         {
@@ -834,37 +850,37 @@ namespace CDTUserControl.Viewmodels
             return _IsSpkTextEnabled;
         }
 
-        public ICommand Voice { get { return new RelayCommand(VoiceExecute, CheckVoice); } }
+        public ICommand Voice { get { return new RelayCommand(VoiceExecute); } }
 
         private void SourceExecute()
         {
             SourceButtonEvent();
         }
-        public ICommand Source { get { return new RelayCommand(SourceExecute, CheckSource); } }
+        public ICommand Source { get { return new RelayCommand(SourceExecute); } }
 
         private void SpotExecute()
         {
             SpotButtonEvent();
         }
-        public ICommand Spot { get { return new RelayCommand(SpotExecute, CheckSFX); } }
+        public ICommand Spot { get { return new RelayCommand(SpotExecute); } }
 
         private void AmbientExecute()
         {
             AmbientButtonEvent();
         }
-        public ICommand Ambient { get { return new RelayCommand(AmbientExecute, CheckLFX); } }
+        public ICommand Ambient { get { return new RelayCommand(AmbientExecute); } }
 
         private void MusicExecute()
         {
             MusicButtonEvent();
         }
-        public ICommand Music { get { return new RelayCommand(MusicExecute, CheckMusic); } }
+        public ICommand Music { get { return new RelayCommand(MusicExecute); } }
 
         private void SpkExecute()
         {
             SpkButtonEvent();
         }
-        public ICommand Spk { get { return new RelayCommand(SpkExecute, CheckSpkText); } }
+        public ICommand Spk { get { return new RelayCommand(SpkExecute); } }
         
         private void StopExecute()
         {
@@ -1200,6 +1216,12 @@ namespace CDTUserControl.Viewmodels
             _GlossaryTabListBoxItems.Clear();
             RaisePropertyChanged("GlossaryTabListBoxItems");
         }
+        
+        public void SetTabIndex(Int32 p_Value)
+        {
+            TabIndex = p_Value;
+            RaisePropertyChanged("TabIndex");
+        }
 
         public void SetTab1HeaderText(String p_Text)
         {
@@ -1251,37 +1273,37 @@ namespace CDTUserControl.Viewmodels
         
         public void SetSlider1Value(Int32 p_Value)
         {
-            _Slider1 = p_Value;
+            Slider1 = p_Value;
             RaisePropertyChanged("Slider1");
         }
         public void SetSlider2Value(Int32 p_Value)
         {
-            _Slider2 = p_Value;
+            Slider2 = p_Value;
             RaisePropertyChanged("Slider2");
         }
         public void SetSlider3Value(Int32 p_Value)
         {
-            _Slider3 = p_Value;
+            Slider3 = p_Value;
             RaisePropertyChanged("Slider3");
         }
         public void SetSlider4Value(Int32 p_Value)
         {
-            _Slider4 = p_Value;
+            Slider4 = p_Value;
             RaisePropertyChanged("Slider4");
         }
         public void SetSlider5Value(Int32 p_Value)
         {
-            _Slider5 = p_Value;
+            Slider5 = p_Value;
             RaisePropertyChanged("Slider5");
         }
         public void SetSlider6Value(Int32 p_Value)
         {
-            _Slider6 = p_Value;
+            Slider6 = p_Value;
             RaisePropertyChanged("Slider6");
         }
         public void SetSlider7Value(Int32 p_Value)
         {
-            _Slider7 = p_Value;
+            Slider7 = p_Value;
             RaisePropertyChanged("Slider7");
         }
         

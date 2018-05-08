@@ -30,6 +30,7 @@ namespace CDTUserControl.Viewmodels
         String _AnalysisTabName = "";
         Color? _HighlightColor;
         Color? _FilterColor;
+        Brush _FilterBrush;
         Boolean _StartOn = false;
         Boolean _PauseOn = false;
 
@@ -274,6 +275,7 @@ namespace CDTUserControl.Viewmodels
                 if (_StartOn != value)
                 {
                     _StartOn = value;
+                    RaisePropertyChanged("StartOn");
                 }
             }
         }
@@ -290,12 +292,26 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
+        public String AnalysisTabName
+        {
+            get
+            {
+                return _AnalysisTabName;
+            }
+            set
+            {
+                if (_AnalysisTabName != value)
+                {
+                    _AnalysisTabName = value;
+                    RaisePropertyChanged("AnalysisTabName");
+                }
+            }
+        }
+
         public String AnalysisText { get { return _AnalysisOn ? "Off" : "On"; } }
-        public String AnalysisTabName { get { return _AnalysisTabName; } }
 
-
-        public String StartText { get { return _StartOn ? "Start" : "Stop"; } }
-        public String PauseText { get { return _PauseOn ? "Pause" : "Unpause"; } }
+        public String StartText { get { return _StartOn ? "Stop" : "Start"; } }
+        public String PauseText { get { return _PauseOn ? "Unpause" : "Pause"; } }
         
         public Visibility PauseVisibility { get { return _StartOn ? Visibility.Visible : Visibility.Collapsed; } }
 
@@ -321,10 +337,23 @@ namespace CDTUserControl.Viewmodels
                 {
                     _FilterColor = value;
                     RaisePropertyChanged("FilterColor");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    FilterBrush = new SolidColorBrush(cl);
                 }
             }
         }
-
+        public Brush FilterBrush
+        {
+            get { return _FilterBrush; }
+            set
+            {
+                if (_FilterBrush != value)
+                {
+                    _FilterBrush = value;
+                    RaisePropertyChanged("FilterBrush");
+                }
+            }
+        }
         #endregion
 
         #region constructor
@@ -348,6 +377,7 @@ namespace CDTUserControl.Viewmodels
         public void ChangeCharacter(String p_Value)
         {
             CurrentCharacter = p_Value;
+            RaisePropertyChanged("CurrentCharacter");
         }
 
         public void AddCurrentCharacters(List<String> p_CurrentCharacters)
@@ -387,12 +417,20 @@ namespace CDTUserControl.Viewmodels
         public void SetAnalysisTabName(String p_Value)
         {
             _AnalysisTabName = p_Value;
+            RaisePropertyChanged("AnalysisTabName");
         }
-
 
         public void SetFilterColor(Color? p_Value)
         {
-            _FilterColor = p_Value;
+            FilterColor = p_Value;
+            RaisePropertyChanged("FilterColor");
+        }
+
+
+        public void SetHighlightColor(Color? p_Value)
+        {
+            HighlightColor = p_Value;
+            RaisePropertyChanged("HighlightColor");
         }
 
         #endregion
@@ -516,7 +554,10 @@ namespace CDTUserControl.Viewmodels
 
         private void StartExecute()
         {
+            _StartOn = _StartOn ? false : true;
             StartButtonEvent(StartOn);
+            RaisePropertyChanged("PauseVisibility");
+            RaisePropertyChanged("StartText");
         }
         public ICommand Start { get { return new RelayCommand(StartExecute); } }
         
@@ -534,7 +575,9 @@ namespace CDTUserControl.Viewmodels
 
         private void PauseExecute()
         {
+            _PauseOn = _PauseOn ? false : true;
             PauseButtonEvent(PauseOn);
+            RaisePropertyChanged("PauseText");
         }
         public ICommand Pause { get { return new RelayCommand(PauseExecute); } }
         

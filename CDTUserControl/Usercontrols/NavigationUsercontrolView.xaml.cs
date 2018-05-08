@@ -161,6 +161,7 @@ namespace CDTUserControl.Usercontrols
 
             vm.ActorChangedEvent += Vm_ActorChangedEvent;
             vm.FilterColourChangedEvent += Vm_FilterColourChangedEvent;
+
             vm.CurrentCharacterSelectedEvent += Vm_CurrentCharacterSelectedEvent;
             vm.Checkbox1CheckedEvent += Vm_Checkbox1CheckedEvent;
             vm.Checkbox2CheckedEvent += Vm_Checkbox2CheckedEvent;
@@ -260,7 +261,7 @@ namespace CDTUserControl.Usercontrols
 
         private void Vm_DeleteFontButtonEvent()
         {
-            ClearColourButtonEvent();
+            DeleteFontButtonEvent();
         }
 
         private void Vm_HighlightButtonEvent(Boolean p_Value)
@@ -354,12 +355,13 @@ namespace CDTUserControl.Usercontrols
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           
+            var textBox = sender as TextBox;
+            ActorChangedEvent(textBox.Text);
         }
 
         private void MouseButtonDownHandler(object sender, MouseButtonEventArgs e)
         {
-           
+            FilterColourChangedEvent();
         }
 
         #endregion
@@ -409,6 +411,12 @@ namespace CDTUserControl.Usercontrols
         public void SetFilterColor(Color? p_Value)
         {
             vm.SetFilterColor(p_Value);
+        }
+
+
+        public void SetHighlightColor(Color? p_Value)
+        {
+            vm.SetHighlightColor(p_Value);
         }
 
         public void SetSessionLogDataGrid(DataTable p_Tbl)
