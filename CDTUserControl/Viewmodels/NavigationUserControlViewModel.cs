@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace CDTUserControl.Viewmodels
 {
@@ -22,8 +24,16 @@ namespace CDTUserControl.Viewmodels
         Int32 _ClearColourComboItemIndex = 0;
         String _SaveRowText1 = String.Empty;
         String _SaveRowText2 = String.Empty;
+        String _Actor = "";
+
         Boolean _AnalysisOn = false;
         String _AnalysisTabName = "";
+        Color? _HighlightColor;
+        Color? _FilterColor;
+        Brush _FilterBrush;
+        Boolean _StartOn = false;
+        Boolean _PauseOn = false;
+
         #endregion
 
         #region event declarations
@@ -42,7 +52,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void ReadingFontButtonEventHandler();
         public event ReadingFontButtonEventHandler ReadingFontButtonEvent;
 
-        public delegate void HighlightButtonEventHandler();
+        public delegate void HighlightButtonEventHandler(Boolean p_Value);
         public event HighlightButtonEventHandler HighlightButtonEvent;
 
         public delegate void DeleteFontButtonEventHandler();
@@ -72,7 +82,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void SaveRowButtonEventHandler();
         public event SaveRowButtonEventHandler SaveRowButtonEvent;
 
-        public delegate void GoToButtonEventHandler();
+        public delegate void GoToButtonEventHandler(String p_Value);
         public event GoToButtonEventHandler GoToButtonEvent;
 
         public delegate void GoTSavedButtonEventHandler();
@@ -84,11 +94,21 @@ namespace CDTUserControl.Viewmodels
         public delegate void RefreshButtonEventHandler();
         public event RefreshButtonEventHandler RefreshButtonEvent;
 
-        public delegate void StartButtonEventHandler();
+        public delegate void StartButtonEventHandler(Boolean p_Value);
         public event StartButtonEventHandler StartButtonEvent;
 
-        public delegate void PauseButtonEventHandler();
+        public delegate void OpenLogButtonEventHandler();
+        public event OpenLogButtonEventHandler OpenLogButtonEvent;
+
+        public delegate void FilterColourChangedEventHandler();
+        public event FilterColourChangedEventHandler FilterColourChangedEvent;
+
+        public delegate void ActorChangedEventHandler(String p_Value);
+        public event ActorChangedEventHandler ActorChangedEvent;
+
+        public delegate void PauseButtonEventHandler(Boolean p_Value);
         public event PauseButtonEventHandler PauseButtonEvent;
+
         public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
         public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
 
@@ -103,6 +123,13 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void GotoFirstCheckboxEventHandler(Boolean p_Value);
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
+        
+        public delegate void HighlightColorEventHandler(Color? p_Value);
+        public event HighlightColorEventHandler HighlightColorEvent;
+        
+        public delegate void ClearColourComboIndexEventHandler(Int32 p_Index);
+        public event ClearColourComboIndexEventHandler ClearColourComboIndexEvent;
+
         #endregion
 
         #region properties
@@ -123,6 +150,7 @@ namespace CDTUserControl.Viewmodels
             }
         }
         public String StatusPane { get { return _StatusPane; } }
+        
         public Boolean IsCheckBox1Checked
         {
             get { return _IsCheckBox1Checked; }
@@ -135,6 +163,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
         public Boolean IsCheckBox2Checked
         {
             get { return _IsCheckBox2Checked; }
@@ -178,6 +207,7 @@ namespace CDTUserControl.Viewmodels
                 if (_ClearColourComboItemIndex != value)
                 {
                     _ClearColourComboItemIndex = value;
+                    ClearColourComboIndexEvent(value);
                 }
             }
         }
@@ -209,6 +239,22 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public String Actor
+        {
+            get
+            {
+                return _Actor;
+            }
+            set
+            {
+                if (_Actor != value)
+                {
+                    _Actor = value;
+                }
+            }
+        }
+
         public Boolean AnalysisOn
         {
             get { return _AnalysisOn; }
@@ -220,8 +266,94 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public Boolean StartOn
+        {
+            get { return _StartOn; }
+            set
+            {
+                if (_StartOn != value)
+                {
+                    _StartOn = value;
+                    RaisePropertyChanged("StartOn");
+                }
+            }
+        }
+        
+        public Boolean PauseOn
+        {
+            get { return _PauseOn; }
+            set
+            {
+                if (_PauseOn != value)
+                {
+                    _PauseOn = value;
+                }
+            }
+        }
+
+        public String AnalysisTabName
+        {
+            get
+            {
+                return _AnalysisTabName;
+            }
+            set
+            {
+                if (_AnalysisTabName != value)
+                {
+                    _AnalysisTabName = value;
+                    RaisePropertyChanged("AnalysisTabName");
+                }
+            }
+        }
+
         public String AnalysisText { get { return _AnalysisOn ? "Off" : "On"; } }
-        public String AnalysisTabName { get { return _AnalysisTabName; } }
+
+        public String StartText { get { return _StartOn ? "Stop" : "Start"; } }
+        public String PauseText { get { return _PauseOn ? "Unpause" : "Pause"; } }
+        
+        public Visibility PauseVisibility { get { return _StartOn ? Visibility.Visible : Visibility.Collapsed; } }
+
+        public Color? HighlightColor
+        {
+            get { return _HighlightColor; }
+            set
+            {
+                if (_HighlightColor != value)
+                {
+                    _HighlightColor = value;
+                    HighlightColorEvent(value);
+                }
+            }
+        }
+
+        public Color? FilterColor
+        {
+            get { return _FilterColor; }
+            set
+            {
+                if (_FilterColor != value)
+                {
+                    _FilterColor = value;
+                    RaisePropertyChanged("FilterColor");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    FilterBrush = new SolidColorBrush(cl);
+                }
+            }
+        }
+        public Brush FilterBrush
+        {
+            get { return _FilterBrush; }
+            set
+            {
+                if (_FilterBrush != value)
+                {
+                    _FilterBrush = value;
+                    RaisePropertyChanged("FilterBrush");
+                }
+            }
+        }
         #endregion
 
         #region constructor
@@ -245,6 +377,7 @@ namespace CDTUserControl.Viewmodels
         public void ChangeCharacter(String p_Value)
         {
             CurrentCharacter = p_Value;
+            RaisePropertyChanged("CurrentCharacter");
         }
 
         public void AddCurrentCharacters(List<String> p_CurrentCharacters)
@@ -284,7 +417,22 @@ namespace CDTUserControl.Viewmodels
         public void SetAnalysisTabName(String p_Value)
         {
             _AnalysisTabName = p_Value;
+            RaisePropertyChanged("AnalysisTabName");
         }
+
+        public void SetFilterColor(Color? p_Value)
+        {
+            FilterColor = p_Value;
+            RaisePropertyChanged("FilterColor");
+        }
+
+
+        public void SetHighlightColor(Color? p_Value)
+        {
+            HighlightColor = p_Value;
+            RaisePropertyChanged("HighlightColor");
+        }
+
         #endregion
 
         #region commands
@@ -320,7 +468,7 @@ namespace CDTUserControl.Viewmodels
 
         private void HighlightExecute()
         {
-            HighlightButtonEvent();
+            HighlightButtonEvent(IsGoToFirst);
         }
         public ICommand Highlight { get { return new RelayCommand(HighlightExecute); } }
         
@@ -380,7 +528,7 @@ namespace CDTUserControl.Viewmodels
 
         private void GoToExecute()
         {
-            GoToButtonEvent();
+            GoToButtonEvent(SaveRowText2);
         }
         public ICommand GoTo { get { return new RelayCommand(GoToExecute); } }
 
@@ -406,15 +554,38 @@ namespace CDTUserControl.Viewmodels
 
         private void StartExecute()
         {
-            StartButtonEvent();
+            _StartOn = _StartOn ? false : true;
+            StartButtonEvent(StartOn);
+            RaisePropertyChanged("PauseVisibility");
+            RaisePropertyChanged("StartText");
         }
         public ICommand Start { get { return new RelayCommand(StartExecute); } }
+        
+        private void ActorChangedExecute()
+        {
+            ActorChangedEvent(Actor);
+        }
+        public ICommand ActorChanged { get { return new RelayCommand(ActorChangedExecute); } }
+
+        private void OpenLogExecute()
+        {
+            OpenLogButtonEvent();
+        }
+        public ICommand OpenLog { get { return new RelayCommand(OpenLogExecute); } }
 
         private void PauseExecute()
         {
-            PauseButtonEvent();
+            _PauseOn = _PauseOn ? false : true;
+            PauseButtonEvent(PauseOn);
+            RaisePropertyChanged("PauseText");
         }
         public ICommand Pause { get { return new RelayCommand(PauseExecute); } }
+        
+        private void FilterColourChangedExecute()
+        {
+            FilterColourChangedEvent();
+        }
+        public ICommand FilterColourChanged { get { return new RelayCommand(FilterColourChangedExecute); } }
 
         #endregion
     }

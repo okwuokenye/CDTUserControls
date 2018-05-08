@@ -40,7 +40,7 @@ namespace CDTUserControl.Usercontrols
         public delegate void ReadingFontButtonEventHandler();
         public event ReadingFontButtonEventHandler ReadingFontButtonEvent;
 
-        public delegate void HighlightButtonEventHandler();
+        public delegate void HighlightButtonEventHandler(Boolean p_Value);
         public event HighlightButtonEventHandler HighlightButtonEvent;
 
         public delegate void DeleteFontButtonEventHandler();
@@ -70,7 +70,7 @@ namespace CDTUserControl.Usercontrols
         public delegate void SaveRowButtonEventHandler();
         public event SaveRowButtonEventHandler SaveRowButtonEvent;
 
-        public delegate void GoToButtonEventHandler();
+        public delegate void GoToButtonEventHandler(String p_Value);
         public event GoToButtonEventHandler GoToButtonEvent;
 
         public delegate void GoTSavedButtonEventHandler();
@@ -82,14 +82,24 @@ namespace CDTUserControl.Usercontrols
         public delegate void RefreshButtonEventHandler();
         public event RefreshButtonEventHandler RefreshButtonEvent;
 
-        public delegate void StartButtonEventHandler();
+        public delegate void StartButtonEventHandler(Boolean p_Value);
         public event StartButtonEventHandler StartButtonEvent;
 
-        public delegate void PauseButtonEventHandler();
+        public delegate void PauseButtonEventHandler(Boolean p_Value);
         public event PauseButtonEventHandler PauseButtonEvent;
+
+        public delegate void OpenLogButtonEventHandler();
+        public event OpenLogButtonEventHandler OpenLogButtonEvent;
+        
+        public delegate void FilterColourChangedEventHandler();
+        public event FilterColourChangedEventHandler FilterColourChangedEvent;
+
+        public delegate void ActorChangedEventHandler(String p_Value);
+        public event ActorChangedEventHandler ActorChangedEvent;
 
         public delegate void CurrentCharacterSelectedEventHandler(Int32 p_Index);
         public event CurrentCharacterSelectedEventHandler CurrentCharacterSelectedEvent;
+
         public delegate void Checkbox1CheckedEventHandler(Boolean p_Value);
         public event Checkbox1CheckedEventHandler Checkbox1CheckedEvent;
 
@@ -101,10 +111,7 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void GotoFirstCheckboxEventHandler(Boolean p_Value);
         public event GotoFirstCheckboxEventHandler GotoFirstCheckboxEvent;
-
-        public delegate void ColorBoxClickEventHandler();
-        public event ColorBoxClickEventHandler ColorBoxClickEvent;
-
+        
         public delegate void MyTabItem1EventHandler();
         public event MyTabItem1EventHandler MyTabItem1Event;
 
@@ -113,6 +120,13 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void MyTabItem3EventHandler();
         public event MyTabItem3EventHandler MyTabItem3Event;
+
+        public delegate void HighlightColorEventHandler(Color? p_Value);
+        public event HighlightColorEventHandler HighlightColorEvent;
+        
+        public delegate void ClearColourComboIndexEventHandler(Int32 p_Index);
+        public event ClearColourComboIndexEventHandler ClearColourComboIndexEvent;
+
         #endregion
 
         #region constructor
@@ -143,27 +157,48 @@ namespace CDTUserControl.Usercontrols
             vm.RefreshButtonEvent += Vm_RefreshButtonEvent;
             vm.PauseButtonEvent += Vm_PauseButtonEvent;
             vm.StartButtonEvent += Vm_StartButtonEvent;
+            vm.OpenLogButtonEvent += Vm_OpenLogButtonEvent;
+
+            vm.ActorChangedEvent += Vm_ActorChangedEvent;
+            vm.FilterColourChangedEvent += Vm_FilterColourChangedEvent;
 
             vm.CurrentCharacterSelectedEvent += Vm_CurrentCharacterSelectedEvent;
             vm.Checkbox1CheckedEvent += Vm_Checkbox1CheckedEvent;
             vm.Checkbox2CheckedEvent += Vm_Checkbox2CheckedEvent;
             vm.Checkbox3CheckedEvent += Vm_Checkbox3CheckedEvent;
             vm.GotoFirstCheckboxEvent += Vm_GotoFirstCheckboxEvent;
+
+            vm.HighlightColorEvent += Vm_HighlightColourEvent;
+            vm.ClearColourComboIndexEvent += Vm_ClearColourComboIndexEvent;
             base.DataContext = vm;
         }
         #endregion
 
         #region event handlers
-        private void Vm_StartButtonEvent()
+
+        private void Vm_ActorChangedEvent(String p_Value)
         {
-            StartButtonEvent();
+            ActorChangedEvent(p_Value);
         }
 
-        private void Vm_PauseButtonEvent()
+        private void Vm_StartButtonEvent(Boolean p_Value)
         {
-            PauseButtonEvent();
+            StartButtonEvent(p_Value);
         }
 
+        private void Vm_PauseButtonEvent(Boolean p_Value)
+        {
+            PauseButtonEvent(p_Value);
+        }
+        private void Vm_OpenLogButtonEvent()
+        {
+            OpenLogButtonEvent();
+        }
+
+        private void Vm_FilterColourChangedEvent()
+        {
+            FilterColourChangedEvent();
+        }
         private void Vm_RefreshButtonEvent()
         {
             RefreshButtonEvent();
@@ -179,9 +214,9 @@ namespace CDTUserControl.Usercontrols
             GoTSavedButtonEvent();
         }
 
-        private void Vm_GoToButtonEvent()
+        private void Vm_GoToButtonEvent(String p_Value)
         {
-            GoToButtonEvent();
+            GoToButtonEvent(p_Value);
         }
 
         private void Vm_SaveRowButtonEvent()
@@ -226,12 +261,12 @@ namespace CDTUserControl.Usercontrols
 
         private void Vm_DeleteFontButtonEvent()
         {
-            ClearColourButtonEvent();
+            DeleteFontButtonEvent();
         }
 
-        private void Vm_HighlightButtonEvent()
+        private void Vm_HighlightButtonEvent(Boolean p_Value)
         {
-            HighlightButtonEvent();
+            HighlightButtonEvent(p_Value);
         }
 
         private void Vm_ReadingFontButtonEvent()
@@ -283,10 +318,15 @@ namespace CDTUserControl.Usercontrols
         {
             GotoFirstCheckboxEvent(p_Value);
         }
-
-        private void Btn_ColorBoxClickEvent(object sender, EventArgs args)
+        
+        private void Vm_HighlightColourEvent(Color? p_Value)
         {
-            ColorBoxClickEvent();
+            HighlightColorEvent(p_Value);
+        }
+
+        private void Vm_ClearColourComboIndexEvent(Int32 p_int)
+        {
+            ClearColourComboIndexEvent(p_int);
         }
 
         void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -311,6 +351,19 @@ namespace CDTUserControl.Usercontrols
                 }
             }
         }
+
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            ActorChangedEvent(textBox.Text);
+        }
+
+        private void MouseButtonDownHandler(object sender, MouseButtonEventArgs e)
+        {
+            FilterColourChangedEvent();
+        }
+
         #endregion
 
         #region public functions
@@ -355,6 +408,17 @@ namespace CDTUserControl.Usercontrols
             vm.SetAnalysisTabName(p_Value);
         }
 
+        public void SetFilterColor(Color? p_Value)
+        {
+            vm.SetFilterColor(p_Value);
+        }
+
+
+        public void SetHighlightColor(Color? p_Value)
+        {
+            vm.SetHighlightColor(p_Value);
+        }
+
         public void SetSessionLogDataGrid(DataTable p_Tbl)
         {
             SessionLogDataGrid.ItemsSource = p_Tbl.AsDataView();
@@ -362,13 +426,10 @@ namespace CDTUserControl.Usercontrols
 
         public void SetAnalysisDataGrid(DataTable p_Tbl)
         {
-            AnalysisDataGrid.ItemsSource = p_Tbl.AsDataView();
+            AnalysisDataGrid.DataContext = p_Tbl.DefaultView;
         }
+        
 
-        public void SetColorButtonColor(System.Windows.Media.Brush p_Color)
-        {
-            ColorButton.Background = p_Color;
-        }
         #endregion
     }
 }

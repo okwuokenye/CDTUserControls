@@ -70,7 +70,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Xceed.Wpf.Toolkit">
-      <HintPath>..\..\CDT\CDT\External DLLs\Xceed.Wpf.Toolkit.dll</HintPath>
+      <HintPath>..\..\CDT\External DLLs\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\filtercolour.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Missing.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

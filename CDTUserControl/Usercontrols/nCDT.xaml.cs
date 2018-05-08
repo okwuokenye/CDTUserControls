@@ -43,7 +43,7 @@ namespace CDTUserControl.Usercontrols
         public event VoiceClickEventHandler VoiceClickEvent;
 
         public delegate void VoiceDblClickEventHandler();
-        public event VoiceDblClickEventHandler EnglishDblClickEvent;
+        public event VoiceDblClickEventHandler VoiceDblClickEvent;
         
         public delegate void SourceClickEventHandler();
         public event SourceClickEventHandler SourceClickEvent;
@@ -149,6 +149,11 @@ namespace CDTUserControl.Usercontrols
         public event Volume6EventHandler Volume6Event;
         public delegate void Volume7EventHandler(Int32 p_Value);
         public event Volume7EventHandler Volume7Event;
+
+
+        public delegate void TabIndexChangedEventHandler(Int32 p_Value);
+        public event TabIndexChangedEventHandler TabIndexChangedEvent;
+
         #endregion
 
         #region public properties
@@ -469,9 +474,9 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region child window eventhandlers
-        private void English_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void Voice_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EnglishDblClickEvent();
+            VoiceDblClickEvent();
         }
 
         private void Source_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -481,9 +486,47 @@ namespace CDTUserControl.Usercontrols
 
         private void Glossary_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //what do you want the event to return?
             GlossaryDblClickEvent();
         }
+
+        private void Voice_MouseClick(object sender, MouseEventArgs e)
+        {
+            VoiceClickEvent();
+        }
+
+        private void Source_MouseClick(object sender, MouseEventArgs e)
+        {
+            SourceClickEvent();
+        }
+
+        private void Glossary_MouseClick(object sender, MouseEventArgs e)
+        {
+            GlossaryClickEvent();
+        }
+
+        void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.Source is TabControl)
+            {
+                var l_Tab = (TabControl)sender;
+                if (l_Tab != null && l_Tab.SelectedContent != null)
+                {
+                    if (MyTabItem0.IsSelected)
+                    {
+                        TabIndexChangedEvent(0);
+                    }
+                    else if (MyTabItem1.IsSelected)
+                    {
+                        TabIndexChangedEvent(1);
+                    }
+                    else if (MyTabItem2.IsSelected)
+                    {
+                        TabIndexChangedEvent(2);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region public functions
@@ -493,12 +536,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetMetaData(p_FileSize, p_DateMod, p_AudioType, p_BitDpth, p_Format, p_SampleRate, p_AAT, p_EAT, p_Difference, p_Percent, p_WordCount, p_CharCount);
         }
-
-        public void SetVoiceEnabled(Boolean p_Value)
-        {
-            vm.SetVoiceEnabled(p_Value);
-        }
-
+        
         public void SetStatusPane(String p_StatusPane)
         {
             vm.SetStatusPane(p_StatusPane);
@@ -537,6 +575,23 @@ namespace CDTUserControl.Usercontrols
         public void RemoveAllItemsFromSourceTab()
         {
             vm.RemoveAllItemsFromSourceTab();
+        }
+
+        public void SetTabIndex(Int32 p_Value)
+        {
+            vm.SetTabIndex(p_Value);
+            if(p_Value == 0)
+            {
+                MyTabItem0.IsSelected = true;
+            }
+            else if (p_Value == 1)
+            {
+                MyTabItem1.IsSelected = true;
+            }
+            else if (p_Value == 2)
+            {
+                MyTabItem2.IsSelected = true;
+            }
         }
 
         public void SetTab1HeaderText(String p_Text)
@@ -607,6 +662,35 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetSlider7Value(p_Value);
         }
+        public void ChangeSideButtonStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSideButtonStatus(p_IsEnabled);
+        }
+        public void ChangeVoiceStatus(bool p_IsEnabled)
+        {
+            vm.ChangeVoiceStatus(p_IsEnabled);
+        }
+        public void ChangeSourceStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSourceStatus(p_IsEnabled);
+        }
+        public void ChangeMusicStatus(bool p_IsEnabled)
+        {
+            vm.ChangeMusicStatus(p_IsEnabled);
+        }
+        public void ChangeSFXStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSFXStatus(p_IsEnabled);
+        }
+        public void ChangeLFXStatus(bool p_IsEnabled)
+        {
+            vm.ChangeLFXStatus(p_IsEnabled);
+        }
+        public void ChangeSpkTextStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSpkTextStatus(p_IsEnabled);
+        }
+        
         #endregion
 
     }

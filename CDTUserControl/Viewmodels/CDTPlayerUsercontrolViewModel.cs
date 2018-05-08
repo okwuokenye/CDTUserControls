@@ -176,12 +176,15 @@ namespace CDTUserControl.Viewmodels
 
         ObservableCollection<String> _EnglishTabListBoxItems = new ObservableCollection<String>();
         String _EnglishTabListBoxItem;
+        Int32 _EnglishTabIndex = 0;
 
         ObservableCollection<String> _SourceTabListBoxItems = new ObservableCollection<String>();
         String _SourceTabListBoxItem;
-        
+        Int32 _SourceTabIndex = 0;
+
         ObservableCollection<String> _GlossaryTabListBoxItems = new ObservableCollection<String>();
         String _GlossaryTabListBoxItem;
+        Int32 _GlossaryTabIndex = 0;
 
         String _FileSize;
         String _DateMod;
@@ -204,15 +207,26 @@ namespace CDTUserControl.Viewmodels
 
         String _StatusPane = "";
 
+        Int32 _TabIndex = 0;
+
         String _Tab1HeaderText = "English";
         String _Tab2HeaderText = "Source";
         String _Tab3HeaderText = "Glossary";
         Int32 _ProgressBar1Maximum = 100;
-        Int32 _ProgressBar1Value = 70;
+        Int32 _ProgressBar1Value = 0;
         Int32 _ProgressBar2Maximum = 100;
-        Int32 _ProgressBar2Value = 20;
+        Int32 _ProgressBar2Value = 0;
 
         System.Windows.Media.Brush _ProgressBarColour = System.Windows.Media.Brushes.Green;
+
+        //bool variables for enabling buttons
+        bool _IsSideButtons = false;
+        bool _IsVoiceEnabled = false;
+        bool _IsSourceEnabled = false;
+        bool _IsMusicEnabled = false;
+        bool _IsSFXEnabled = false;
+        bool _IsLFXEnabled = false;
+        bool _IsSpkTextEnabled = false;
 
         #endregion
 
@@ -464,6 +478,48 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+
+
+        public Int32 GlossaryTabIndex
+        {
+            get { return _GlossaryTabIndex; }
+            set
+            {
+                if (_GlossaryTabIndex != value)
+                {
+                    _GlossaryTabIndex = value;
+                    RaisePropertyChanged("GlossaryTabIndex");
+                }
+            }
+        }
+
+        public Int32 EnglishTabIndex
+        {
+            get { return _EnglishTabIndex; }
+            set
+            {
+                if (_EnglishTabIndex != value)
+                {
+                    _EnglishTabIndex = value;
+                    RaisePropertyChanged("EnglishTabIndex");
+                }
+            }
+        }
+
+        public Int32 SourceTabIndex
+        {
+            get { return _SourceTabIndex; }
+            set
+            {
+                if (_SourceTabIndex != value)
+                {
+                    _SourceTabIndex = value;
+                    RaisePropertyChanged("SourceTabIndex");
+                }
+            }
+        }
+
         public String FileSize
         {
             get
@@ -492,6 +548,9 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+
+
         public String AudioType
         {
             get
@@ -608,7 +667,8 @@ namespace CDTUserControl.Viewmodels
         
         public Visibility SliderVisibility { get { return _IsSliderVisible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility MetaDataVisibility { get { return _IsMetaDataVisible ? Visibility.Visible : Visibility.Collapsed; } }
-        
+
+
         public String CloseSliderTT { get { return _IsSliderVisible ? "Hide Slider" : "Show Slider"; } }
         public String ExtendSliderTT { get { return _ExtendSliderHeight ? "Reduce Slider Height" : "Extend Slider Height"; } }
         public String MetaDataTT { get { return _IsMetaDataVisible ? "Hide MetaData" : "Show MetaData"; } }
@@ -620,6 +680,18 @@ namespace CDTUserControl.Viewmodels
         public String StatusPane { get { return _StatusPane; } }
         
         public Boolean VoiceEnabled { get { return _VoiceEnabled; } }
+
+        public Int32 TabIndex
+        {
+            get { return _TabIndex; }
+            set
+            {
+                if (_TabIndex != value)
+                {
+                    _TabIndex = value;
+                }
+            }
+        }
 
         public String Tab1HeaderText
         {
@@ -663,6 +735,14 @@ namespace CDTUserControl.Viewmodels
 
         public String Loop5Source { get { return _Slider5IsLoop ? "../Resources/loop.png" : "../Resources/unloop.png"; } }
         public String Loop5Tooltip { get { return _Slider5IsLoop ? "unloop music" : "loop music"; } }
+        public bool IsSideButtonsEnabled { get { return _IsSideButtons; } } //property for side buttons
+        public bool IsVoiceEnabled { get { return _IsVoiceEnabled; } } //property for side buttons
+        public bool IsSourceEnabled { get { return _IsSourceEnabled; } } //property for side buttons
+        public bool IsMusicEnabled { get { return _IsMusicEnabled; } } //property for side buttons
+        public bool IsSFXEnabled { get { return _IsSFXEnabled; } } //property for side buttons
+        public bool IsLFXEnabled { get { return _IsLFXEnabled; } } //property for side buttons
+        public bool IsSpkTextEnabled { get { return _IsSpkTextEnabled; } } //property for side buttons
+
         #endregion
 
         #region Constructors
@@ -678,35 +758,31 @@ namespace CDTUserControl.Viewmodels
             DeleteButtonEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
         }
 
-        private Boolean TabLisItenSelected()
+        private Boolean CheckSideButtons()
         {
-            return _EnglishTabListBoxItem != null || _SourceTabListBoxItem != null;
+            return _IsSideButtons;
         }
 
-        private Boolean CheckVoice()
-        {
-            return VoiceEnabled;
-        }
-
-        public ICommand Delete { get { return new RelayCommand(DeleteExecute, TabLisItenSelected); } }
+        public ICommand Delete { get { return new RelayCommand(DeleteExecute); } }
 
         private void EditExecute()
         {
             EditButonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Edit { get { return new RelayCommand(EditExecute, TabLisItenSelected); } }
+
+        public ICommand Edit { get { return new RelayCommand(EditExecute); } }
 
         private void RenameExecute()
         {
             RenameButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Rename { get { return new RelayCommand(RenameExecute, TabLisItenSelected); } }
+        public ICommand Rename { get { return new RelayCommand(RenameExecute); } }
 
         private void PrimaryExecute()
         {
             PrimaryButtonEvent(_EnglishTabListBoxItem);
         }
-        public ICommand Primary { get { return new RelayCommand(PrimaryExecute, TabLisItenSelected); } }
+        public ICommand Primary { get { return new RelayCommand(PrimaryExecute); } }
 
         private void TextExecute()
         {
@@ -743,14 +819,38 @@ namespace CDTUserControl.Viewmodels
             NavigateButtonEvent();
         }
         public ICommand Navigate { get { return new RelayCommand(NavigateExecute); } }
-
+        
         private void VoiceExecute()
         {
             VoiceButtonEvent();
         }
 
-        //I want this function to run anytime the value VoiceEnabled changes
-        public ICommand Voice { get { return new RelayCommand(VoiceExecute, CheckVoice); } }
+        private Boolean CheckVoice()
+        {
+            return _IsVoiceEnabled;
+        }
+        private Boolean CheckSource()
+        {
+            return _IsSourceEnabled;
+        }
+        private Boolean CheckMusic()
+        {
+            return _IsMusicEnabled;
+        }
+        private Boolean CheckLFX()
+        {
+            return _IsLFXEnabled;
+        }
+        private Boolean CheckSFX()
+        {
+            return _IsSFXEnabled;
+        }
+        private Boolean CheckSpkText()
+        {
+            return _IsSpkTextEnabled;
+        }
+
+        public ICommand Voice { get { return new RelayCommand(VoiceExecute); } }
 
         private void SourceExecute()
         {
@@ -1047,13 +1147,7 @@ namespace CDTUserControl.Viewmodels
             _StatusPane = p_StatusPane;
             RaisePropertyChanged("StatusPane");
         }
-
-        public void SetVoiceEnabled(Boolean p_Value)
-        {
-            _VoiceEnabled = p_Value;
-            RaisePropertyChanged("VoiceEnabled");
-        }
-
+        
         public void AddItemsToEnglishTab(List<String> p_Items)
         {
             RemoveAllItemsFromEnglishTab();
@@ -1061,6 +1155,9 @@ namespace CDTUserControl.Viewmodels
             {
                 _EnglishTabListBoxItems.Add(p_Item);
             }
+
+            ChangeEnglishIndex(0);
+
             RaisePropertyChanged("EnglishTabListBoxItems");
         }
 
@@ -1071,6 +1168,9 @@ namespace CDTUserControl.Viewmodels
             {
                 _SourceTabListBoxItems.Add(p_Item);
             }
+            
+            ChangeSourceIndex(0);
+
             RaisePropertyChanged("SourceTabListBoxItems");
         }
 
@@ -1081,6 +1181,9 @@ namespace CDTUserControl.Viewmodels
             {
                 _GlossaryTabListBoxItems.Add(p_Item);
             }
+            
+            ChangeGlossaryIndex(0);
+
             RaisePropertyChanged("GlossaryTabListBoxItems");
         }
         
@@ -1112,6 +1215,12 @@ namespace CDTUserControl.Viewmodels
         {
             _GlossaryTabListBoxItems.Clear();
             RaisePropertyChanged("GlossaryTabListBoxItems");
+        }
+        
+        public void SetTabIndex(Int32 p_Value)
+        {
+            TabIndex = p_Value;
+            RaisePropertyChanged("TabIndex");
         }
 
         public void SetTab1HeaderText(String p_Text)
@@ -1164,43 +1273,94 @@ namespace CDTUserControl.Viewmodels
         
         public void SetSlider1Value(Int32 p_Value)
         {
-            _Slider1 = p_Value;
+            Slider1 = p_Value;
             RaisePropertyChanged("Slider1");
         }
         public void SetSlider2Value(Int32 p_Value)
         {
-            _Slider2 = p_Value;
+            Slider2 = p_Value;
             RaisePropertyChanged("Slider2");
         }
         public void SetSlider3Value(Int32 p_Value)
         {
-            _Slider3 = p_Value;
+            Slider3 = p_Value;
             RaisePropertyChanged("Slider3");
         }
         public void SetSlider4Value(Int32 p_Value)
         {
-            _Slider4 = p_Value;
+            Slider4 = p_Value;
             RaisePropertyChanged("Slider4");
         }
         public void SetSlider5Value(Int32 p_Value)
         {
-            _Slider5 = p_Value;
+            Slider5 = p_Value;
             RaisePropertyChanged("Slider5");
         }
         public void SetSlider6Value(Int32 p_Value)
         {
-            _Slider6 = p_Value;
+            Slider6 = p_Value;
             RaisePropertyChanged("Slider6");
         }
         public void SetSlider7Value(Int32 p_Value)
         {
-            _Slider7 = p_Value;
+            Slider7 = p_Value;
             RaisePropertyChanged("Slider7");
         }
-
+        
+        public void ChangeSideButtonStatus(bool p_IsEnabled)
+        {
+            _IsSideButtons = p_IsEnabled;
+            RaisePropertyChanged("IsSideButtonsEnabled"); //I added a property to the properties region. The property is bound to the buttons in the view
+        }
+        public void ChangeVoiceStatus(bool p_IsEnabled)
+        {
+            _IsVoiceEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsVoiceEnabled");
+        }
+        public void ChangeSpkTextStatus(bool p_IsEnabled)
+        {
+            _IsSpkTextEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSpkTextEnabled");
+        }
+        public void ChangeLFXStatus(bool p_IsEnabled)
+        {
+            _IsLFXEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsLFXEnabled");
+        }
+        public void ChangeSFXStatus(bool p_IsEnabled)
+        {
+            _IsSFXEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSFXEnabled");
+        }
+        public void ChangeMusicStatus(bool p_IsEnabled)
+        {
+            _IsMusicEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsMusicEnabled");
+        }
+        public void ChangeSourceStatus(bool p_IsEnabled)
+        {
+            _IsSourceEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSourceEnabled");
+        }
         #endregion
 
         #region Private Functions
+
+        private void ChangeEnglishIndex(Int32 p_value)
+        {
+            EnglishTabIndex = p_value;
+        }
+
+        private void ChangeSourceIndex(Int32 p_value)
+        {
+            SourceTabIndex = p_value;
+        }
+
+        private void ChangeGlossaryIndex(Int32 p_value)
+        {
+            GlossaryTabIndex = p_value;
+        }
+
         private async void Load_Async()
         {
             try

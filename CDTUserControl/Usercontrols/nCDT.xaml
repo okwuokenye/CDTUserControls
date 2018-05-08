@@ -27,13 +27,13 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Height="125" Margin="0,0,0,0" VerticalAlignment="Top">
-            <Button ToolTip="Delete current file" Content="Delete" Command="{Binding Delete}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Delete current file" Content="Delete" Command="{Binding Delete}" IsEnabled="{Binding IsSideButtonsEnabled}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-            <Button ToolTip="Edit current file (opens audition)" Content="Edit" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Edit current file (opens audition)" Content="Edit" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-            <Button ToolTip="Rename current file" Content="Rename" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Rename current file" Content="Rename" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-            <Button ToolTip="Make current file primary" Content="Primary" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Make current file primary" Content="Primary" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
 
         </StackPanel>
 
@@ -53,8 +53,9 @@
 
         </StackPanel>
 
-        <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl">
-            <TabItem Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
+        <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl" SelectionChanged="TabControl_SelectionChanged" SelectedIndex="{Binding PlayerIndex}">
+            
+            <TabItem Name="MyTabItem0" Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
                     <Grid.RowDefinitions>
@@ -65,12 +66,25 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" MouseDoubleClick="English_MouseDoubleClick" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" PreviewMouseLeftButtonDown="Voice_MouseClick" MouseDoubleClick="Voice_MouseDoubleClick" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding EnglishTabIndex}">
+
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                    </Trigger>
+                                </Style.Triggers>                                
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+
+                    </ListBox>
+                        
+
                 </Grid>
             </TabItem>
 
-            <TabItem Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
+            <TabItem Name="MyTabItem1" Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
                     <Grid.RowDefinitions>
@@ -81,13 +95,25 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" MouseDoubleClick="Source_MouseDoubleClick" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" PreviewMouseLeftButtonDown="Source_MouseClick"  MouseDoubleClick="Source_MouseDoubleClick" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding SourceTabIndex}">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True" >
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    </ListBox>
 
                 </Grid>
 
             </TabItem>
 
-            <TabItem Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
+            <TabItem  Name="MyTabItem2" Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
                     <Grid.RowDefinitions>
@@ -98,8 +124,19 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" MouseDoubleClick="Glossary_MouseDoubleClick" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" PreviewMouseLeftButtonDown="Glossary_MouseClick"  MouseDoubleClick="Glossary_MouseDoubleClick" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding GlossaryTabIndex}">
 
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True" >
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    </ListBox>
                 </Grid>                
             </TabItem>
 
@@ -113,17 +150,17 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
-                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
 
-                <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSourceEnabled}"/>
 
-                <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSFXEnabled}"/>
 
-                <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsLFXEnabled}"/>
 
-                <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9" IsEnabled="{Binding IsMusicEnabled}"/>
 
-                <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"   IsEnabled="{Binding IsSpkTextEnabled}"/>
 
                 <Button Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
