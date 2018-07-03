@@ -1,0 +1,456 @@
+﻿<UserControl x:Class="CDTUserControl.Usercontrols.OptionsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" Width="320">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        
+        <Expander Header="General" Grid.Row="0" IsExpanded="true">
+            <Grid Height="230">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <GroupBox Header="Project Folder" Height="50" BorderThickness="2" Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="25" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Path" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <Button Content="..." Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" />
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Header="Player Settings" Height="80" BorderThickness="2" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Alt Suffix" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
+                        <Label Content="Header Row" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <ComboBox Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"/>
+                        <CheckBox Content="Autoplay on File column" Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center"/>
+                        <CheckBox Content="Autostop on row change" Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center"/>
+
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Header="Output Device" Height="50" BorderThickness="2" Grid.Row="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="95" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Device:" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
+                        <CheckBox Content="Use Default" Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" VerticalContentAlignment="Center"/>
+                        <ComboBox Grid.Row="0" Grid.Column="2" Margin="2 4 2 4"/>
+
+
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Header="Glossary" Height="50" BorderThickness="2" Grid.Row="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Asset Folder" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                    </Grid>
+                </GroupBox>
+
+
+
+            </Grid>
+                 
+        </Expander>
+        
+        <Expander Header="Language Headers" Grid.Row="1">
+            <Grid Height="280">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="Primary language" Height="140" BorderThickness="2" Grid.Row="0">
+                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Audio Asset Folder" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <CheckBox Content="Uses Directory Header" Grid.Row="1" Grid.Column="0" Margin="2 4 2 4" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="File Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Text Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
+                        <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" />
+
+                    </Grid>
+                    
+                </GroupBox>
+
+                <GroupBox Header="Secondary language (source)" Height="140" BorderThickness="2" Grid.Row="1">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Audio Asset Folder" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <CheckBox Content="Uses Directory Header" Grid.Row="1" Grid.Column="0" Margin="2 4 2 4" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="File Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Text Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
+                        <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" />
+
+                    </Grid>
+
+                </GroupBox>
+
+
+
+
+            </Grid>
+
+        </Expander>
+        
+        <Expander Header="Asset Headers" Grid.Row="2">
+            <Grid Height="280">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="Visual Assets" Height="140" BorderThickness="2" Grid.Row="0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Character Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Scene Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Item Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
+                        <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" />
+
+                    </Grid>
+
+                </GroupBox>
+
+                <GroupBox Header="Audio Assets" Height="110" BorderThickness="2" Grid.Row="1">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Ambient Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Spot Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Music Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+
+                    </Grid>
+
+                </GroupBox>
+
+
+
+
+            </Grid>
+
+        </Expander>
+
+        <Expander Header="Time Sync/Analysis Settings" Grid.Row="3">
+            
+            <Grid Height="280">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="Time Constraint Setup" Height="140" BorderThickness="2" Grid.Row="0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Character Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Scene Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Item Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
+                        <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" />
+
+                    </Grid>
+
+                </GroupBox>
+
+                <GroupBox Header="Text Analysis" Height="110" BorderThickness="2" Grid.Row="1">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Ambient Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Spot Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Music Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+
+                    </Grid>
+
+                </GroupBox>
+
+
+
+
+            </Grid>
+
+        </Expander>
+
+        <Expander Header="Editing Software/Synthetic Speech" Grid.Row="4">
+            <Grid Height="280">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="Visual Assets" Height="140" BorderThickness="2" Grid.Row="0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Character Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Scene Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Item Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
+                        <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" />
+
+                    </Grid>
+
+                </GroupBox>
+
+                <GroupBox Header="Audio Assets" Height="110" BorderThickness="2" Grid.Row="1">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Ambient Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Spot Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+
+                        <Label Content="Music Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" />
+                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+
+
+                    </Grid>
+
+                </GroupBox>
+
+
+
+
+            </Grid>
+
+        </Expander>
+
+        <Grid Grid.Row="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Save and Update" Grid.Column="2" HorizontalAlignment="Center" Width="110">
+                
+            </Button>
+                    
+        </Grid>
+        
+        <StackPanel Grid.Row="6">
+            <TextBlock Text="{Binding StatusPane}" Margin="2 0 2 0" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
