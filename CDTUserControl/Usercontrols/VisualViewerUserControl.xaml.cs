@@ -1,4 +1,5 @@
 ﻿using CDTUserControl.Viewmodels;
+using NewCDT.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CDTUserControl.Usercontrols
+namespace NewCDT.Controls
 {
     /// <summary>
     /// Interaction logic for VisualViewer.xaml
@@ -28,6 +29,11 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new VisualViewerViewModel();
             base.DataContext = vm;
+        }
+
+        public VisualViewerViewModel GetVM()
+        {
+            return vm;
         }
     }
 }

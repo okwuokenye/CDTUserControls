@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CDTUserControl.Viewmodels
 {
-    class VisualViewerViewModel : ObservableObject
+    public class VisualViewerViewModel : ObservableObject
     {
         #region Events
 

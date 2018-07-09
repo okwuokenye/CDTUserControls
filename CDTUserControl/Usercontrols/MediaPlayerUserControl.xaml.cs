@@ -36,19 +36,6 @@ namespace CDTUserControl.Usercontrols
             }
         }
 
-        private void Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Media files (*.mp3;*.mpg;*.mpeg)|*.mp3;*.mpg;*.mpeg|All files (*.*)|*.*";
-            if (openFileDialog.ShowDialog() == true)
-                CDTPlayer.Source = new Uri(openFileDialog.FileName);
-        }
-
         private void Play_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
@@ -102,5 +89,11 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
 
+        #region Public method
+        private void SetMediaFile(string p_FileName)
+        {
+                CDTPlayer.Source = new Uri(p_FileName);
+        }
+        #region
     }
 }
