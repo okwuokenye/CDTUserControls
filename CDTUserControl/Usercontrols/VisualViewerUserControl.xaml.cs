@@ -1,4 +1,4 @@
-﻿using NewCDT.ViewModels;
+﻿using CDTUserControl.Viewmodels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewCDT.Controls
+namespace CDTUserControl.Usercontrols
 {
     /// <summary>
     /// Interaction logic for VisualViewer.xaml

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewCDT.Controls
+namespace CDTUserControl.Usercontrols
 {
     /// <summary>
     /// Interaction logic for AnalysisUserControl.xaml

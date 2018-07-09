@@ -6,7 +6,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using Microsoft.Win32;
 
-namespace NewCDT.Controls
+namespace CDTUserControl.Usercontrols
 {
     /// <summary>
     /// Interaction logic for MediaPlayerUserControl.xaml

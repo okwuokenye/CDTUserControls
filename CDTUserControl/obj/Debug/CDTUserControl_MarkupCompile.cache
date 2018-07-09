@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-51192375610
+81193917103
 
-141184995759
-19-1495581976
-App.xaml;TestControl.xaml;Usercontrols\OptionsUserControl.xaml;Usercontrols\NavigationUsercontrolView.xaml;Usercontrols\nCDT.xaml;
+19-1239641814
+20619866934
+App.xaml;TestControl.xaml;Usercontrols\AnalysisUserControl.xaml;Usercontrols\MediaPlayerUserControl.xaml;Usercontrols\OptionsUserControl.xaml;Usercontrols\NavigationUserControl.xaml;Usercontrols\PlayerUserControl.xaml;Usercontrols\VisualViewerUserControl.xaml;
 
 False
 

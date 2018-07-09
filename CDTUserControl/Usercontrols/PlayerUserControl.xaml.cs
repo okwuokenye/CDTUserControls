@@ -157,7 +157,7 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region public properties
-        public NavigationUsercontrolView Nav { get { return _Nav; } }
+        public NavigationUserControl Nav { get { return _Nav; } }
         #endregion
 
         #region Constructor
