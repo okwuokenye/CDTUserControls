@@ -1,4 +1,5 @@
-﻿using NewCDT.ViewModels;
+﻿using CDTUserControl.Viewmodels;
+using NewCDT.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace NewCDT.Controls
             InitializeComponent();
             vm = new VisualViewerViewModel();
             base.DataContext = vm;
+        }
+
+        public VisualViewerViewModel GetVM()
+        {
+            return vm;
         }
     }
 }

@@ -104,6 +104,7 @@
     <Compile Include="Usercontrols\VisualViewerUserControl.xaml.cs">
       <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Viewmodels\AnalysisViewModel.cs" />
     <Compile Include="Viewmodels\PlayerUsercontrolViewModel.cs" />
     <Compile Include="Viewmodels\OptionsUserControlViewModel.cs" />
     <Compile Include="Viewmodels\NavigationUserControlViewModel.cs" />
