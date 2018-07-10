@@ -78,8 +78,9 @@ namespace CDTUserControl.Viewmodels
         ObservableCollection<String> _TCDirectionItems = new ObservableCollection<String> {"Between -/+", "Shorter than +", "Longer than -"};
         ObservableCollection<String> _TabItems = new ObservableCollection<String> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         ObservableCollection<String> _DelayItems = new ObservableCollection<String> {"20ms", "40ms", "60ms", "80ms", "100ms", "120ms", "140ms", "160ms", "180ms", "200ms"};
+        ObservableCollection<String> _EditorItems = new ObservableCollection<String> { "Adobe Audition 3.0", "Adobe Audition CC"};
 
-        
+
         public Visibility DeviceVisibility { get { return _DefaultDeviceChecked ? Visibility.Collapsed: Visibility.Visible; } }
         public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility Dir2Visibility { get { return _UsesDir2Checked ? Visibility.Visible : Visibility.Collapsed; } }
@@ -95,6 +96,8 @@ namespace CDTUserControl.Viewmodels
         public delegate void EditorExeChangeButtonEventHandler();
         public event EditorExeChangeButtonEventHandler EditorExeChangeButtonEvent;
 
+        public delegate void TCChangeEventHandler();
+        public event TCChangeEventHandler TCChangeEvent;
         #endregion
 
 
@@ -659,6 +662,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _TCValue = value;
                     RaisePropertyChanged("TCValue");
+                    TCChangeEvent();
                 }
             }
         }
@@ -831,6 +835,7 @@ namespace CDTUserControl.Viewmodels
                     _TCMS = value;
                     _TCPerCent = !value;
                     RaisePropertyChanged("TCMS");
+                    TCChangeEvent();
                 }
             }
         }
@@ -863,6 +868,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _TCDirection = value;
                     RaisePropertyChanged("TCDirection");
+                    TCChangeEvent();
                 }
             }
         }
@@ -896,8 +902,8 @@ namespace CDTUserControl.Viewmodels
                 if (_WPS != value)
                 {
                     _WPS = value;
-                    double div = value / 100;
-                    _WPSText = Math.Round(div, 2).ToString();
+                    decimal div = Math.Round((decimal)_WPS/100,2);
+                    _WPSText = div.ToString();
                     RaisePropertyChanged("WPS");
                     RaisePropertyChanged("WPSText");
                 }
@@ -990,6 +996,7 @@ namespace CDTUserControl.Viewmodels
         public ObservableCollection<String> TCDirectionItems { get { return _TCDirectionItems; } }
         public ObservableCollection<String> TabItems { get { return _TabItems; } }
         public ObservableCollection<String> DelayItems { get { return _DelayItems; } }
+        public ObservableCollection<String> EditorItems { get { return _EditorItems; } }
 
         #endregion
 
@@ -1281,13 +1288,18 @@ namespace CDTUserControl.Viewmodels
         public void SetDiffRange(int p_Value)
         {
             _DiffRange = p_Value;
+            _DiffRangeText = p_Value.ToString();
             RaisePropertyChanged("DiffRange");
+            RaisePropertyChanged("DiffRangeText");
         }
 
         public void SetWPS(int p_Value)
         {
             _WPS = p_Value;
+            decimal div = Math.Round((decimal)p_Value / 100, 2);
+            _WPSText = div.ToString();
             RaisePropertyChanged("WPS");
+            RaisePropertyChanged("WPSText");
         }
 
         public void SetEditorIndex(int p_Value)

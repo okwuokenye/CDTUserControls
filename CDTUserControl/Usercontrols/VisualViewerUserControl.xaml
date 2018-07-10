@@ -9,22 +9,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="35" />
+            <RowDefinition Height="25" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="35" />
+            <ColumnDefinition Width="25" />
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Fill">
-            <Image.Source>
-                <BitmapImage UriSource="{Binding ImageSource}"/>
-            </Image.Source>
-        </Image>
-        
-        <ToggleButton Grid.Row="1" Grid.Column="1" Margin="4,4,4,4" ToolTip="Lock current image">
-        <Image x:Name="lockimage" Source="../Resources/padlock.png" />
+        <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Fill" Source="{Binding ImageSource}">
+            
+       </Image>
+
+
+
+            <ToggleButton Grid.Row="1" Grid.Column="1" Margin="4,4,4,4" ToolTip="Lock current image" IsChecked="{Binding IsLocked}">
+            <Image x:Name="lockimage" Source="{Binding LockImage}"/>
         </ToggleButton>
         
     </Grid>

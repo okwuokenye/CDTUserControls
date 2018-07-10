@@ -14,6 +14,7 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region private variables
+
         ObservableCollection<string> _Sheets = new ObservableCollection<string>();
         string _Sheet;
         bool _AnalyzeMultipleSheets = false;
@@ -33,6 +34,7 @@ namespace CDTUserControl.Viewmodels
         bool _AddToExistingSheet = false;
         ObservableCollection<string> _UListItems = new ObservableCollection<string>();
         string _UListItem;
+
         #endregion
 
         #region properties

@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Expander Grid.Row="0" Header="Sheet to analyse" IsExpanded="True" Margin="0,0,0,10">
+        <GroupBox Grid.Row="0" Header="Sheet to analyse" Margin="0,0,0,10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -32,9 +32,9 @@
                     <RadioButton GroupName="chk" IsChecked="{Binding IsSelected}" Content="Selected" Margin="10,2,2,2" />
                 </StackPanel>        
             </Grid>
-       </Expander>
+       </GroupBox>
 
-        <Expander  Grid.Row="1" Header="Column Headers" IsExpanded="True"  Margin="0,0,0,10">
+        <GroupBox  Grid.Row="1" Header="Column Headers"  Margin="0,0,0,10">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -62,7 +62,7 @@
 
             </Grid>
 
-        </Expander>
+        </GroupBox>
 
         <Expander Header="Settings" Grid.Row="2" Margin="0,0,0,10">
             <Grid Height="160">

@@ -46,7 +46,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Path" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
-                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding RootText}" />
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding RootText}"  VerticalContentAlignment="Center"/>
                             <Button Content="..." Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Command="{Binding RootChange}"/>
                     </Grid>
                 </GroupBox>
@@ -65,7 +65,7 @@
 
                         <Label Content="Alt Suffix" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
                         <Label Content="Header Row" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding AltSuffix}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding AltSuffix}" VerticalContentAlignment="Center"/>
                             <ComboBox Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" SelectedIndex="{Binding HeadRowIndex}"  ItemsSource="{Binding HeadRowItems}"/>
                         <CheckBox Content="Autoplay on File column" Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoPlayChecked}"/>
                             <CheckBox Content="Autostop on row change" Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoStopChecked}"/>
@@ -86,10 +86,16 @@
 
                         <Label Content="Device:" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
                             <CheckBox Content="Use Default" Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding DefaultDeviceChecked}"/>
-                            <ComboBox Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding DeviceName}" ItemsSource="{Binding DeviceItems}" SelectedIndex="{Binding DeviceIndex}" Visibility="{Binding DeviceVisibility}"/>
+                            <ComboBox Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding DeviceName}" ItemsSource="{Binding DeviceItems}" SelectedIndex="{Binding DeviceIndex}" Visibility="{Binding DeviceVisibility}">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Width" Value="300"/>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
 
 
-                    </Grid>
+                        </Grid>
                 </GroupBox>
 
                 <GroupBox Header="Glossary" Height="50" BorderThickness="2" Grid.Row="3">
@@ -103,7 +109,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Asset Folder" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding GlossaryFolder}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding GlossaryFolder}" VerticalContentAlignment="Center"/>
                     </Grid>
                 </GroupBox>
 
@@ -136,19 +142,19 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Audio Asset Folder" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding AssetFolder1}" />
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding AssetFolder1}"  VerticalContentAlignment="Center"/>
 
                         <CheckBox Content="Uses Directory Header" Grid.Row="1" Grid.Column="0" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding UsesDir1Checked}"/>
-                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding DirHeader1}"  Visibility="{Binding Dir1Visibility}"/>
-                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4"  Text="{Binding DirHeader1C}"  Visibility="{Binding Dir1Visibility}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding DirHeader1}"  Visibility="{Binding Dir1Visibility}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4"  Text="{Binding DirHeader1C}"  Visibility="{Binding Dir1Visibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                         <Label Content="File Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding FileHeader1}"/>
-                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding FileHeader1C}" />
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding FileHeader1}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding FileHeader1C}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                         <Label Content="Text Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding TextHeader1}"/>
-                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextHeader1C}" />
+                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding TextHeader1}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextHeader1C}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                     </Grid>
                     
@@ -173,16 +179,16 @@
                             <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding AssetFolder2}" />
 
                             <CheckBox Content="Uses Directory Header" Grid.Row="1" Grid.Column="0" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding UsesDir2Checked}"/>
-                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding DirHeader2}"  Visibility="{Binding Dir2Visibility}"/>
-                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding DirHeader2C}"  Visibility="{Binding Dir2Visibility}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding DirHeader2}"  Visibility="{Binding Dir2Visibility}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding DirHeader2C}"  Visibility="{Binding Dir2Visibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                         <Label Content="File Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding FileHeader2}"/>
-                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4"  Text="{Binding FileHeader2C}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding FileHeader2}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4"  Text="{Binding FileHeader2C}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                         <Label Content="Text Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding TextHeader2}" />
-                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextHeader2C}" />
+                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding TextHeader2}" VerticalContentAlignment="Center" />
+                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextHeader2C}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                     </Grid>
 
@@ -298,14 +304,14 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                            <TextBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="2,8,2,8" Text="{Binding TCValue}" />
+                            <TextBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="2,8,2,8" Text="{Binding TCValue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                             <RadioButton Content="%" Grid.Row="0" Grid.Column="1" Margin="2,2,2,2" IsChecked="{Binding TCPerCent}" />
                             <RadioButton Content="MS" Grid.Row="1" Grid.Column="1" Margin="2,2,2,2"  IsChecked="{Binding TCMS}"/>
 
                             <ComboBox Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Margin="2,8,2,8"  SelectedIndex="{Binding TCDirection}"  ItemsSource="{Binding TCDirectionItems}"/>
 
                         <TextBlock Text="Rule:" Grid.Row="2" Grid.Column="0" Margin="2,2,2,2"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="2,2,2,2" Text="{Binding TCRule}"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="2,2,2,2" Text="{Binding TCRule}"  VerticalContentAlignment="Center"/>
 
 
                     </Grid>
@@ -367,17 +373,17 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Edit Program" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <ComboBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Grid.ColumnSpan="2"  SelectedIndex="{Binding EditorIndex}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Grid.ColumnSpan="2" ItemsSource="{Binding EditorItems}" SelectedIndex="{Binding EditorIndex}"/>
 
                         <Label Content="EXE Location" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                         <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EditorExe}" />
                             <Button Content=".."  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Command="{Binding EditorExeChange}" />
                         
                         <Label Content="Automation delay" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <ComboBox  Grid.Row="2" Grid.Column="1" Margin="2 4 100 4"  SelectedIndex="{Binding DelayIndex}"  ItemsSource="{Binding DelayItems}"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="1" Margin="2 4 80 4"  SelectedIndex="{Binding DelayIndex}"  ItemsSource="{Binding DelayItems}"/>
 
                         <Label Content="Tab Count" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <ComboBox  Grid.Row="3" Grid.Column="1" Margin="2 4 100 4" SelectedIndex="{Binding TabIndex}"  ItemsSource="{Binding TabItems}"/>
+                            <ComboBox  Grid.Row="3" Grid.Column="1" Margin="2 4 80 4" SelectedIndex="{Binding TabIndex}"  ItemsSource="{Binding TabItems}"/>
 
                     </Grid>
 

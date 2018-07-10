@@ -39,15 +39,12 @@
                 <TextBlock Name="lblTotalStatus">00:00:00</TextBlock>
             </StatusBarItem>
             <StatusBarItem Grid.Column="3">
-            <Slider Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" />
+            <Slider Name="pbVolume" Width="50" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" />
         </StatusBarItem>
     </StatusBar>
         
-        <ToolBar Grid.Row="2">
-            <!--<Button Command="ApplicationCommands.Open" Width="30">
-                <fa:ImageAwesome Icon="FolderOpen" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Button>-->
-            <Separator />
+        <ToolBar Grid.Row="2" >
+            
             <Button Command="MediaCommands.Play" Width="30">
                 <fa:ImageAwesome Icon="PlayCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
@@ -57,11 +54,20 @@
             <Button Command="MediaCommands.Stop" Width="30">
                 <fa:ImageAwesome Icon="StopCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Slider Name="VolumeControl" Width="150">
-                
-            </Slider>
-            <Button Name="Menu" Width="50" Content="Menu">
+
+            <Separator />
+            <Slider Name="VolumeControl" Width="150" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" Margin="10,5,2,2"/>
+
+            <Separator />
+            <Button Command="ApplicationCommands.Open" Width="30">
+                <fa:ImageAwesome Icon="FolderOpen" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
+            <Separator />
+
+            <Separator />
+            <Button Name="Menu" Width="50" Content="Menu" />
+
+            <Separator />
 
             <ToggleButton Margin="4,4,4,4" ToolTip="Lock current image">
                 <Image x:Name="lockimage" Source="../Resources/padlock.png" />

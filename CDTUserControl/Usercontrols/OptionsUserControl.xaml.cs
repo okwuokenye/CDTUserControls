@@ -32,6 +32,8 @@ namespace CDTUserControl.Usercontrols
         public delegate void EditorExeChangeButtonEventHandler();
         public event EditorExeChangeButtonEventHandler EditorExeChangeButtonEvent;
 
+        public delegate void TCChangeEventHandler();
+        public event TCChangeEventHandler TCChangeEvent;
         #endregion
 
         #region constructor
@@ -44,9 +46,8 @@ namespace CDTUserControl.Usercontrols
             //add event listeners
             vm.RootChangeButtonEvent += Vm_RootChangeButtonEvent;
             vm.EditorExeChangeButtonEvent += Vm_EditorExeChangeButtonEvent;
-
-
-
+            vm.TCChangeEvent += Vm_TCChangeEvent;
+            
             base.DataContext = vm;
         }
 
@@ -77,6 +78,11 @@ namespace CDTUserControl.Usercontrols
         private void Vm_EditorExeChangeButtonEvent()
         {
             EditorExeChangeButtonEvent();
+        }
+        
+        private void Vm_TCChangeEvent()
+        {
+            TCChangeEvent();
         }
         #endregion
 
