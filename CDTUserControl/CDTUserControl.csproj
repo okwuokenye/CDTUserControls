@@ -47,6 +47,9 @@
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.WPF">
+      <HintPath>.\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.0.362, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -83,14 +86,29 @@
     <Compile Include="TestControl.xaml.cs">
       <DependentUpon>TestControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Usercontrols\NavigationUsercontrolView.xaml.cs">
-      <DependentUpon>NavigationUsercontrolView.xaml</DependentUpon>
+    <Compile Include="Usercontrols\AnalysisUserControl.xaml.cs">
+      <DependentUpon>AnalysisUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Usercontrols\nCDT.xaml.cs">
-      <DependentUpon>nCDT.xaml</DependentUpon>
+    <Compile Include="Usercontrols\MediaPlayerUserControl.xaml.cs">
+      <DependentUpon>MediaPlayerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Viewmodels\CDTPlayerUsercontrolViewModel.cs" />
+    <Compile Include="Usercontrols\OptionsUserControl.xaml.cs">
+      <DependentUpon>OptionsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\NavigationUserControl.xaml.cs">
+      <DependentUpon>NavigationUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\PlayerUserControl.xaml.cs">
+      <DependentUpon>PlayerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\VisualViewerUserControl.xaml.cs">
+      <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viewmodels\AnalysisViewModel.cs" />
+    <Compile Include="Viewmodels\PlayerUsercontrolViewModel.cs" />
+    <Compile Include="Viewmodels\OptionsUserControlViewModel.cs" />
     <Compile Include="Viewmodels\NavigationUserControlViewModel.cs" />
+    <Compile Include="Viewmodels\VisualViewerViewModel.cs" />
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,13 +117,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Usercontrols\NavigationUsercontrolView.xaml">
+    <Page Include="Usercontrols\AnalysisUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Usercontrols\MediaPlayerUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Usercontrols\OptionsUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Usercontrols\NavigationUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Usercontrols\nCDT.xaml">
+    <Page Include="Usercontrols\PlayerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usercontrols\VisualViewerUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

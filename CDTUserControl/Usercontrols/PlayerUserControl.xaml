@@ -1,0 +1,333 @@
+﻿<UserControl x:Class="CDTUserControl.Usercontrols.PlayerUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+	VerticalAlignment="Stretch"
+	HorizontalContentAlignment="Stretch"
+	VerticalContentAlignment="Stretch" 
+    >
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   Margin="5,5,5,5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="115" Height="*"/>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="{Binding Row2Height}"/>
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{Binding Column2Width}" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Height="125" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Button ToolTip="Delete current file" Content="Delete" Command="{Binding Delete}" IsEnabled="{Binding IsSideButtonsEnabled}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Edit current file (opens audition)" Content="Edit" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Rename current file" Content="Rename" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Make current file primary" Content="Primary" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Margin="0,12,0,0" VerticalAlignment="Top" Visibility="{Binding SliderVisibility}">
+
+            <Button ToolTip="Open TextBox form" Content="TextBox" Command="{Binding Text}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Open Character Viewer form" Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50"/>
+
+            <Button ToolTip="Open Scene Viewer form" Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Open Item Viewer form" Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Open Video Viewer form" Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+            <Button ToolTip="Open Navigator form" Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+
+        </StackPanel>
+
+        <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl" SelectionChanged="TabControl_SelectionChanged" SelectedIndex="{Binding PlayerIndex}">
+            
+            <TabItem Name="MyTabItem0" Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding EnglishTabListBoxItems}" PreviewMouseLeftButtonDown="Voice_MouseClick" MouseDoubleClick="Voice_MouseDoubleClick" SelectedItem="{Binding EnglishTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding EnglishTabIndex}">
+
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                    </Trigger>
+                                </Style.Triggers>                                
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+
+                    </ListBox>
+                        
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="MyTabItem1" Header="{Binding Tab2HeaderText}" HorizontalAlignment="Left">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" PreviewMouseLeftButtonDown="Source_MouseClick"  MouseDoubleClick="Source_MouseDoubleClick" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding SourceTabIndex}">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True" >
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    </ListBox>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem  Name="MyTabItem2" Header="{Binding Tab3HeaderText}" HorizontalAlignment="Left">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" SelectedItem="{Binding GlossaryTabListBoxItem}" PreviewMouseLeftButtonDown="Glossary_MouseClick"  MouseDoubleClick="Glossary_MouseDoubleClick" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding GlossaryTabIndex}">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True" >
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    </ListBox>
+                </Grid>                
+            </TabItem>
+
+        </TabControl>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5 0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+            <StackPanel  Height="7" Width="380" Orientation="Horizontal" HorizontalAlignment="Left">
+                <ProgressBar Maximum="{Binding ProgressBar1Maximum}" Value="{Binding ProgressBar1Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="RightToLeft" Margin="0 2 0 0" Foreground="{Binding ProgressBarColour}"/>
+                <ProgressBar Maximum="{Binding ProgressBar2Maximum}" Value="{Binding ProgressBar2Value, Mode=OneWay}" Height="5" Width="190" FlowDirection="LeftToRight" Margin="0 2 0 0" Foreground="{Binding ProgressBarColour}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
+                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
+
+                <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSourceEnabled}"/>
+
+                <Button Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSFXEnabled}"/>
+
+                <Button Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsLFXEnabled}"/>
+
+                <Button Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9" IsEnabled="{Binding IsMusicEnabled}"/>
+
+                <Button Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"   IsEnabled="{Binding IsSpkTextEnabled}"/>
+
+                <Button Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Orientation="Horizontal" Margin="0,0,0,0" Visibility="{Binding SliderVisibility}" Width="390" HorizontalAlignment="Left">
+
+            <StackPanel Width="50" Margin="8,2,0,4" VerticalAlignment="Stretch">
+
+                <!--There should be mute buttons above each slider, and mute and loop buttons above the Ambient and Music sliders-->
+
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                    <Image x:Name="mute1" ToolTip="{Binding Mute1Tooltip}" Source="{Binding Mute1Source}" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding SliderText1}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel  Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                    <Image x:Name="mute2" ToolTip="{Binding Mute2Tooltip}" Source="{Binding Mute2Source}" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding SliderText2}" HorizontalAlignment="Center"  Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                    <Image x:Name="mute3" ToolTip="{Binding Mute3Tooltip}" Source="{Binding Mute3Source}" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding SliderText3}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal">
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider4}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="4 0 1 2 ">
+                        <Image x:Name="mute4" ToolTip="{Binding Mute4Tooltip}" Source="{Binding Mute4Source}" />
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding LoopSlider4}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="1 0 4 2 ">
+                        <Image x:Name="loop4" ToolTip="{Binding Loop4Tooltip}" Source="{Binding Loop4Source}" />
+                    </Button>
+                </StackPanel>
+
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding SliderText4}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal">
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider5}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="4 0 1 2 " >
+                        <Image x:Name="mute5" ToolTip="{Binding Mute5Tooltip}" Source="{Binding Mute5Source}" />
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding LoopSlider5}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="1 0 4 2 ">
+                        <Image x:Name="loop5"  ToolTip="{Binding Loop5Tooltip}" Source="{Binding Loop5Source}" />
+                    </Button>
+                </StackPanel>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="200" Orientation="Vertical" />
+                <TextBlock Text="{Binding SliderText5}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider6}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                    <Image x:Name="mute6" Height="15" Width="15" ToolTip="{Binding Mute6Tooltip}" Source="{Binding Mute6Source}" />
+                </Button>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider6}" Maximum="100" Orientation="Vertical" />
+                <TextBlock Text="{Binding Slider6}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+            <!--This is a master volume control which was missing. It goes under the stop button-->
+
+            <StackPanel Width="50" Margin="4,2,0,4">
+
+                <Slider Margin="0 20 0 0" Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
+                <TextBlock Text="{Binding Slider7}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Margin="5,0,0,0" Height="170" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right" >
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="File Size" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding FileSize}" Width="110" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Date Mod" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding DateMod}" Width="110" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Audio Type" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding AudioType}" Width="110" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Bit Depth" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding BitDepth}" Width="110" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Format" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding Format}" Width="110" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Sample Rate" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding SampleRate}" Width="100" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="AAT" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding AAT}" Width="100" FontSize="10" Margin="4 2 0 2"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Margin="5 0 0 0" Visibility="{Binding MetaDataVisibility}" Width="160" VerticalAlignment="Top" HorizontalAlignment="Right">
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <CheckBox x:Name="CompareLang" Content="Compare Source" FontSize="10" VerticalContentAlignment="Center" Command="{Binding CompareSource}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="EAT" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding EAT}" Width="100" FontSize="10"  Margin="4 2 0 2" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Difference" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding Difference}" Width="100" FontSize="10"  Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="%" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding Percentage}" Width="100" FontSize="10"  Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Word Count" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding WordCount}" Width="100" FontSize="10"  Margin="4 2 0 2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 4 0 0">
+                <TextBlock Text="Char Count" Width="60" FontSize="10"/>
+                <TextBlock Text="{Binding CharCount}" Width="100" FontSize="10"  Margin="4 2 0 2" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" >
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent" ToolTip="{Binding MetaDataTT}" Command="{Binding CloseMetaData}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
+            <Image x:Name="metaimage" Source="../Resources/metadata.png" />
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="{Binding CloseSliderTT}" Command="{Binding CloseSlider}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
+                <Image x:Name="closesliderimage" Source="../Resources/mixerpanelsmall.png" />
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="{Binding ExtendSliderTT}" Command="{Binding ExtendSliderHeight}"  HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
+                <Image x:Name="extendimage" Source="../Resources/mixerpanelextend.png" />
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="Show File Path" Command="{Binding ShowFilePath}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 5 1">
+                <Image x:Name="filepathimage" Source="../Resources/filepath.png" />
+            </Button>
+            <TextBlock Text="{Binding StatusPane}" MinWidth="400" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>
