@@ -4,7 +4,7 @@
 library
 C#
 .cs
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\
 CDTUserControl
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 4-1832813689
 
-161825869940
-19-1495581976
+16-1940002966
+191682961330
 App.xaml;TestControl.xaml;Usercontrols\NavigationUsercontrolView.xaml;Usercontrols\nCDT.xaml;
 
 False

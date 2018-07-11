@@ -132,31 +132,6 @@ D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\C
 D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.dll
 D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll.config
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.pdb
@@ -182,3 +157,28 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.Properti
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
