@@ -89,7 +89,7 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
         
-        private void SetMediaFile(string p_FileName)
+        public void SetMediaFile(string p_FileName)
         {
                 CDTPlayer.Source = new Uri(p_FileName);
         }

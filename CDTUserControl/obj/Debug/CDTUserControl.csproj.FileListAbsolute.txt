@@ -161,12 +161,9 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll.conf
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.pdb
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.pdb
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.xml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\TestControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
@@ -192,3 +189,4 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlaye
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
