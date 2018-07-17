@@ -59,10 +59,13 @@
             <Slider Name="VolumeControl" Width="150" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" Margin="10,5,2,2"/>
 
             <Separator />
+            <Button Click="Open_File" Width="25" BorderThickness="0">
+                <fa:ImageAwesome Icon="FolderOpen" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Button>
             <Separator />
 
             <ToggleButton x:Name="Lock" Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" Click="LockImage_Click" BorderThickness="1" BorderBrush="DarkGray">
-                <Image x:Name="LockImage" Source="{Binding LockImage}"/>
+                <Image x:Name="LockImage"/>
             </ToggleButton>
 
         </StackPanel>

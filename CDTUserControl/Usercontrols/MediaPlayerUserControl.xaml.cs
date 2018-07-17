@@ -6,6 +6,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -93,6 +94,7 @@ namespace CDTUserControl.Usercontrols
 
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            //this does not work - also the volume of the video playback should be linked to the VolumeControl slider.  
             CDTPlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
         
@@ -101,19 +103,27 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Source = new Uri(p_FileName);
         }
 
+        private void Open_File()
+        {
+            string p_FileName = "";
+
+            //This should enable someone to browse for a video file.
+            CDTPlayer.Source = new Uri(p_FileName);
+        }
+
+
         private void LockImage_Click(object sender, RoutedEventArgs e)
         {
-            //here you can do an if to change the image on the lock button
             if ((bool)Lock.IsChecked)
             {
-                //LockImage.Source = ;
+                //can't get this to work
+                LockImage.Source = new BitmapImage(new Uri("/Resources/padlock.png", UriKind.Relative));
             }
             else
             {
-                //LockImage.Source = ;
+                LockImage.Source = null;
             }
-
-            //this returns an event with a bool property
+            
             LockEvent((bool)Lock.IsChecked);
         }
     }
