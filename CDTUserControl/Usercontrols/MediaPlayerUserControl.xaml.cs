@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using System.Windows.Media;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -15,6 +16,11 @@ namespace CDTUserControl.Usercontrols
     {
         private bool mediaPlayerIsPlaying = false;
         private bool userIsDraggingSlider = false;
+
+        #region events
+        public delegate void LockEventHandler(bool p_IsLocked);
+        public event LockEventHandler LockEvent;
+        #endregion
 
         public MediaPlayerUserControl()
         {
@@ -93,6 +99,22 @@ namespace CDTUserControl.Usercontrols
         public void SetMediaFile(string p_FileName)
         {
             CDTPlayer.Source = new Uri(p_FileName);
+        }
+
+        private void LockImage_Click(object sender, RoutedEventArgs e)
+        {
+            //here you can do an if to change the image on the lock button
+            if ((bool)Lock.IsChecked)
+            {
+                //LockImage.Source = ;
+            }
+            else
+            {
+                //LockImage.Source = ;
+            }
+
+            //this returns an event with a bool property
+            LockEvent((bool)Lock.IsChecked);
         }
     }
 }
