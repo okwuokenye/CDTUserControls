@@ -52,6 +52,10 @@
       <HintPath>..\..\CDT\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Infralution.Licensing.WPF, Version=6.3.0.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CDT\External DLLs\Infralution.Licensing.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -89,8 +93,14 @@
     <Compile Include="Usercontrols\AnalysisUserControl.xaml.cs">
       <DependentUpon>AnalysisUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usercontrols\LicenseManagerUserControl.xaml.cs">
+      <DependentUpon>LicenseManagerUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrols\MediaPlayerUserControl.xaml.cs">
       <DependentUpon>MediaPlayerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\LicenseDialogueUserControl.xaml.cs">
+      <DependentUpon>LicenseDialogueUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Usercontrols\OptionsUserControl.xaml.cs">
       <DependentUpon>OptionsUserControl.xaml</DependentUpon>
@@ -105,6 +115,8 @@
       <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Viewmodels\AnalysisViewModel.cs" />
+    <Compile Include="Viewmodels\LicenseDialogueControlViewModel.cs" />
+    <Compile Include="Viewmodels\LicenseManagerControlViewModel.cs" />
     <Compile Include="Viewmodels\PlayerUsercontrolViewModel.cs" />
     <Compile Include="Viewmodels\OptionsUserControlViewModel.cs" />
     <Compile Include="Viewmodels\NavigationUserControlViewModel.cs" />
@@ -121,7 +133,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Usercontrols\LicenseManagerUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Usercontrols\MediaPlayerUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Usercontrols\LicenseDialogueUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -161,6 +181,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="CDTUser_SN.snk" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

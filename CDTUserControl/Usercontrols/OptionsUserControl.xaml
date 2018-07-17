@@ -68,8 +68,8 @@
                         <Label Content="Header Row" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
                             <TextBox Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding AltSuffix}" VerticalContentAlignment="Center"/>
                             <ComboBox Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" SelectedIndex="{Binding HeadRowIndex}"  ItemsSource="{Binding HeadRowItems}"/>
-                        <CheckBox Content="Autoplay on File column" Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoPlayChecked}"/>
-                            <CheckBox Content="Autostop on row change" Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoStopChecked}"/>
+                        <CheckBox Content="Play on File column" Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoPlayChecked}"/>
+                            <CheckBox Content="Stop on row change" Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoStopChecked}"/>
 
                         </Grid>
                 </GroupBox>
