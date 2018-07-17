@@ -17,6 +17,7 @@ namespace CDTUserControl.Viewmodels
         private string _RootText;
         private string _EditorExe;
         private string _StatusWarn;
+        private string _VersionNumber;
         private string _AltSuffix;
         private string _DeviceName;
         private string _GlossaryFolder;
@@ -98,6 +99,10 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void TCChangeEventHandler();
         public event TCChangeEventHandler TCChangeEvent;
+        
+        public delegate void SaveButtonEventHandler();
+        public event SaveButtonEventHandler SaveButtonEvent;
+
         #endregion
 
 
@@ -115,6 +120,22 @@ namespace CDTUserControl.Viewmodels
                 {
                     _StatusWarn = value;
                     RaisePropertyChanged("StatusWarn");
+                }
+            }
+        }
+        
+        public String VersionNumber
+        {
+            get
+            {
+                return _VersionNumber;
+            }
+            set
+            {
+                if (_VersionNumber != value)
+                {
+                    _VersionNumber = value;
+                    RaisePropertyChanged("VersionNumber");
                 }
             }
         }
@@ -1054,6 +1075,11 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("StatusWarn");
         }
 
+        public void SetVersionNumber(string p_Value)
+        {
+            _VersionNumber = p_Value;
+            RaisePropertyChanged("VersionNumber");
+        }
         public void SetAltSuffix(string p_Value)
         {
             _AltSuffix = p_Value;
@@ -1397,9 +1423,14 @@ namespace CDTUserControl.Viewmodels
         }
         public ICommand EditorExeChange { get { return new RelayCommand(EditorExeChangeExecute); } }
 
+        private void SaveExecute()
+        {
+            SaveButtonEvent();
+        }
+        public ICommand SaveButton { get { return new RelayCommand(SaveExecute); } }
 
         #endregion
-        
+
         #region public send functions
 
         public string SendRootText()

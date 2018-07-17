@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
+            <RowDefinition Height="90" />
             <RowDefinition Height="24" />
         </Grid.RowDefinitions>
     
@@ -67,8 +68,8 @@
                         <Label Content="Header Row" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
                             <TextBox Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding AltSuffix}" VerticalContentAlignment="Center"/>
                             <ComboBox Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" SelectedIndex="{Binding HeadRowIndex}"  ItemsSource="{Binding HeadRowItems}"/>
-                        <CheckBox Content="Autoplay on File column" Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoPlayChecked}"/>
-                            <CheckBox Content="Autostop on row change" Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoStopChecked}"/>
+                        <CheckBox Content="Play on File column" Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoPlayChecked}"/>
+                            <CheckBox Content="Stop on row change" Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AutoStopChecked}"/>
 
                         </Grid>
                 </GroupBox>
@@ -417,9 +418,19 @@
     </Grid>
 
         <StackPanel Grid.Row="1" Margin="0 2 0 2">
-            <Button Content="Save and Update" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2"/>
+            <Button Content="Save and Update" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding SaveButton}"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
+            <TextBlock Margin="2 0 2 0" FontWeight="Bold" VerticalAlignment="Center" Text="CDT Beta" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="2 0 2 0" VerticalAlignment="Center" Text="Version" />
+                <TextBlock Margin="10 0 2 0" VerticalAlignment="Center" Text="{Binding VersionNumber}" />
+            </StackPanel>
+            <TextBlock Margin="2 0 2 0" VerticalAlignment="Center" Text="Copyright © 2018 Mark Estdale " />
+            <TextBlock TextWrapping="Wrap" Margin="2 0 2 0" VerticalAlignment="Center" Text="This product is licensed under the terms and conditions of the EULA agreed during install and available in the help file." />
+            
+        </StackPanel>
+        <StackPanel Grid.Row="3">
             <TextBlock Margin="2 0 2 0" VerticalAlignment="Center" Text="{Binding StatusWarn}" />
         </StackPanel>
     </Grid>

@@ -138,10 +138,14 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
@@ -157,12 +161,8 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll.conf
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.pdb
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.pdb
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\MahApps.Metro.xml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\TestControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
@@ -182,22 +182,75 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlaye
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.DataGrid.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.cache
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CoreCompileInputs.cache
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CopyComplete
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
+C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\de\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\en\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\es\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\it\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml

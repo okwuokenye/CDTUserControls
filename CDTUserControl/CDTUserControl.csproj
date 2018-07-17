@@ -45,21 +45,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External DLLs\ControlzEx.dll</HintPath>
     </Reference>
-    <Reference Include="FontAwesome.WPF">
-      <HintPath>.\FontAwesome.WPF.dll</HintPath>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\..\CDT\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.6.0.362, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.6.0\lib\net45\MahApps.Metro.dll</HintPath>
+    <Reference Include="Infralution.Licensing.WPF, Version=6.3.0.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External DLLs\Infralution.Licensing.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,8 +72,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.Toolkit">
-      <HintPath>..\..\CDT\External DLLs\Xceed.Wpf.Toolkit.dll</HintPath>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External DLLs\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="Usercontrols\AnalysisUserControl.xaml.cs">
       <DependentUpon>AnalysisUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\LicenseDialogueUserControl.xaml.cs">
+      <DependentUpon>LicenseDialogueUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\LicenseManagerUserControl.xaml.cs">
+      <DependentUpon>LicenseManagerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Usercontrols\MediaPlayerUserControl.xaml.cs">
       <DependentUpon>MediaPlayerUserControl.xaml</DependentUpon>
@@ -105,6 +112,8 @@
       <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Viewmodels\AnalysisViewModel.cs" />
+    <Compile Include="Viewmodels\LicenseDialogueViewModel.cs" />
+    <Compile Include="Viewmodels\LicenseManagerViewModel.cs" />
     <Compile Include="Viewmodels\PlayerUsercontrolViewModel.cs" />
     <Compile Include="Viewmodels\OptionsUserControlViewModel.cs" />
     <Compile Include="Viewmodels\NavigationUserControlViewModel.cs" />
@@ -120,6 +129,14 @@
     <Page Include="Usercontrols\AnalysisUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Usercontrols\LicenseDialogueUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usercontrols\LicenseManagerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Usercontrols\MediaPlayerUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +178,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="CDTUser_SN.snk" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

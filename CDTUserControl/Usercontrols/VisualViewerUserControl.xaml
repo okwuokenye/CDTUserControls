@@ -23,7 +23,7 @@
 
 
 
-            <ToggleButton Grid.Row="1" Grid.Column="1" Margin="4,4,4,4" ToolTip="Lock current image" IsChecked="{Binding IsLocked}">
+            <ToggleButton Grid.Row="1" Grid.Column="1" Margin="4,4,4,4" ToolTip="Lock current image" IsChecked="{Binding IsLocked}" >
             <Image x:Name="lockimage" Source="{Binding LockImage}"/>
         </ToggleButton>
         

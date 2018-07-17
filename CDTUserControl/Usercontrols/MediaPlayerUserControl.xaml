@@ -7,6 +7,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="370" d:DesignWidth="500">
+    
     <Grid>
         <Grid.RowDefinitions>            
             <RowDefinition Height="*" />
@@ -14,7 +15,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         
-        <MediaElement Name="CDTPlayer" Grid.Row="0" LoadedBehavior="Manual" Stretch="None" />
+        <MediaElement Name="CDTPlayer" Grid.Row="0" LoadedBehavior="Manual" Stretch="Fill" />
         
         <StatusBar Grid.Row="1">
         <StatusBar.ItemsPanel>
@@ -39,19 +40,18 @@
                 <TextBlock Name="lblTotalStatus">00:00:00</TextBlock>
             </StatusBarItem>
             <StatusBarItem Grid.Column="3">
-            <Slider Name="pbVolume" Width="50" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" />
         </StatusBarItem>
     </StatusBar>
         
-        <ToolBar Grid.Row="2" >
-            
-            <Button Command="MediaCommands.Play" Width="30">
+        <StackPanel Grid.Row="2" SnapsToDevicePixels="True" Orientation="Horizontal" >
+
+            <Button Click="Play_Executed" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="PlayCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Button Command="MediaCommands.Pause" Width="30">
+            <Button Click="Pause_Executed" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="PauseCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Button Command="MediaCommands.Stop" Width="30">
+            <Button Click="Stop_Executed" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="StopCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
 
@@ -59,21 +59,16 @@
             <Slider Name="VolumeControl" Width="150" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" Margin="10,5,2,2"/>
 
             <Separator />
-            <Button Command="ApplicationCommands.Open" Width="30">
+            <Button Click="Open_File" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="FolderOpen" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
             <Separator />
 
-            <Separator />
-            <Button Name="Menu" Width="50" Content="Menu" />
-
-            <Separator />
-
-            <ToggleButton Margin="4,4,4,4" ToolTip="Lock current image">
-                <Image x:Name="lockimage" Source="../Resources/padlock.png" />
+            <ToggleButton x:Name="Lock" Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" Click="LockImage_Click" BorderThickness="1" BorderBrush="DarkGray">
+                <Image x:Name="LockImage"/>
             </ToggleButton>
 
-        </ToolBar>
+        </StackPanel>
         
     </Grid>
 </UserControl>

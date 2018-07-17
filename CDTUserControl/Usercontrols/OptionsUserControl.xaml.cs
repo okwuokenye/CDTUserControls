@@ -34,6 +34,9 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void TCChangeEventHandler();
         public event TCChangeEventHandler TCChangeEvent;
+        
+        public delegate void SaveButtonEventHandler();
+        public event SaveButtonEventHandler SaveButtonEvent;
         #endregion
 
         #region constructor
@@ -47,7 +50,9 @@ namespace CDTUserControl.Usercontrols
             vm.RootChangeButtonEvent += Vm_RootChangeButtonEvent;
             vm.EditorExeChangeButtonEvent += Vm_EditorExeChangeButtonEvent;
             vm.TCChangeEvent += Vm_TCChangeEvent;
-            
+
+            vm.SaveButtonEvent += Vm_SaveButtonEvent;
+
             base.DataContext = vm;
         }
 
@@ -84,6 +89,13 @@ namespace CDTUserControl.Usercontrols
         {
             TCChangeEvent();
         }
+
+
+        private void Vm_SaveButtonEvent()
+        {
+            SaveButtonEvent();
+        }
+
         #endregion
 
         #region public set functions
@@ -110,6 +122,10 @@ namespace CDTUserControl.Usercontrols
             vm.SetStatusWarn(p_Value);
         }
 
+        public void SetVersionNumber(string p_Value)
+        {
+            vm.SetVersionNumber(p_Value);
+        }
         public void SetAltSuffix(string p_Value)
         {
             vm.SetAltSuffix(p_Value);

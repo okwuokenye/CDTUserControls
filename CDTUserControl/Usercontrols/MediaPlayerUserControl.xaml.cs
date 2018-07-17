@@ -5,6 +5,8 @@ using System.Windows.Input;
 using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -15,6 +17,11 @@ namespace CDTUserControl.Usercontrols
     {
         private bool mediaPlayerIsPlaying = false;
         private bool userIsDraggingSlider = false;
+
+        #region events
+        public delegate void LockEventHandler(bool p_IsLocked);
+        public event LockEventHandler LockEvent;
+        #endregion
 
         public MediaPlayerUserControl()
         {
@@ -33,6 +40,7 @@ namespace CDTUserControl.Usercontrols
                 sliProgress.Minimum = 0;
                 sliProgress.Maximum = CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds;
                 sliProgress.Value = CDTPlayer.Position.TotalSeconds;
+                lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
             }
         }
 
@@ -41,7 +49,7 @@ namespace CDTUserControl.Usercontrols
             e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
         }
 
-        private void Play_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Play_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Play();
             mediaPlayerIsPlaying = true;
@@ -52,7 +60,7 @@ namespace CDTUserControl.Usercontrols
             e.CanExecute = mediaPlayerIsPlaying;
         }
 
-        private void Pause_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Pause_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Pause();
         }
@@ -62,7 +70,7 @@ namespace CDTUserControl.Usercontrols
             e.CanExecute = mediaPlayerIsPlaying;
         }
 
-        private void Stop_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Stop_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Stop();
             mediaPlayerIsPlaying = false;
@@ -86,12 +94,37 @@ namespace CDTUserControl.Usercontrols
 
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            //this does not work - also the volume of the video playback should be linked to the VolumeControl slider.  
             CDTPlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
         
-        private void SetMediaFile(string p_FileName)
+        public void SetMediaFile(string p_FileName)
         {
-                CDTPlayer.Source = new Uri(p_FileName);
+            CDTPlayer.Source = new Uri(p_FileName);
+        }
+
+        private void Open_File()
+        {
+            string p_FileName = "";
+
+            //This should enable someone to browse for a video file.
+            CDTPlayer.Source = new Uri(p_FileName);
+        }
+
+
+        private void LockImage_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)Lock.IsChecked)
+            {
+                //can't get this to work
+                LockImage.Source = new BitmapImage(new Uri("/Resources/padlock.png", UriKind.Relative));
+            }
+            else
+            {
+                LockImage.Source = null;
+            }
+            
+            LockEvent((bool)Lock.IsChecked);
         }
     }
 }
