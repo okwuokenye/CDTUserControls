@@ -163,7 +163,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\TestControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
@@ -183,13 +182,11 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlaye
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
@@ -240,3 +237,20 @@ C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserCont
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CopyComplete
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\de\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\en\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\es\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\it\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml

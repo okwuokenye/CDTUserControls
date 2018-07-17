@@ -33,6 +33,7 @@ namespace CDTUserControl.Usercontrols
                 sliProgress.Minimum = 0;
                 sliProgress.Maximum = CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds;
                 sliProgress.Value = CDTPlayer.Position.TotalSeconds;
+                lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
             }
         }
 
@@ -44,7 +45,6 @@ namespace CDTUserControl.Usercontrols
         private void Play_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Play();
-            MessageBox.Show("Play Clicked");
             mediaPlayerIsPlaying = true;
         }
 
@@ -92,7 +92,7 @@ namespace CDTUserControl.Usercontrols
         
         public void SetMediaFile(string p_FileName)
         {
-                CDTPlayer.Source = new Uri(p_FileName);
+            CDTPlayer.Source = new Uri(p_FileName);
         }
     }
 }

@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         
-        <MediaElement Name="CDTPlayer" Grid.Row="0" LoadedBehavior="Manual" Stretch="None" />
+        <MediaElement Name="CDTPlayer" Grid.Row="0" LoadedBehavior="Manual" Stretch="Fill" />
         
         <StatusBar Grid.Row="1">
         <StatusBar.ItemsPanel>
