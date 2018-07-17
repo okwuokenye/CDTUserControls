@@ -13,7 +13,7 @@ namespace TestCDT
 {
     public partial class Form1 : Form
     {
-        nCDT ctrl;
+        MediaPlayerUserControl ctrl;
         public Form1()
         {
             InitializeComponent();
@@ -22,28 +22,29 @@ namespace TestCDT
        
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            ctrl = new nCDT();
+            ctrl = new MediaPlayerUserControl();
 
             //navigation control and event listener
-            ctrl.Nav.PreviousButtonEvent += Nav_PreviousButtonEvent;
-            ctrl.Nav.Visibility = System.Windows.Visibility.Visible;
+            //ctrl.Nav.PreviousButtonEvent += Nav_PreviousButtonEvent;
+            //ctrl.Nav.Visibility = System.Windows.Visibility.Visible;
 
             ctrl.Visibility = System.Windows.Visibility.Visible;
             //elementHost1.BackColor = Color.Black;
-            List<String> l_Items = new List<String>() { "Try Me", "Try Me", "Try Me" };
-            ctrl.AddItemsToEnglishTab(l_Items);
+            //List<String> l_Items = new List<String>() { "Try Me", "Try Me", "Try Me" };
+            //ctrl.AddItemsToEnglishTab(l_Items);
 
-            //add event listener here
-            ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;
-            ctrl.EditButtonEvent += Ctrl_EditButtonEvent;
-            ctrl.NavigateButtonEvent += Ctrl_NavigateButtonEvent;
+            ////add event listener here
+            //ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;
+            //ctrl.EditButtonEvent += Ctrl_EditButtonEvent;
+            //ctrl.NavigateButtonEvent += Ctrl_NavigateButtonEvent;
 
-            //add event for resizing winform screen
-            ctrl.ExtendSliderHeightEvent += Ctrl_ExtendSliderHeightEvent;
-            ctrl.IsSliderVisibleEvent += Ctrl_IsSliderVisibleEvent;
-            ctrl.ShowMetaDataEvent += Ctrl_ShowMetaDataEvent;
+            ////add event for resizing winform screen
+            //ctrl.ExtendSliderHeightEvent += Ctrl_ExtendSliderHeightEvent;
+            //ctrl.IsSliderVisibleEvent += Ctrl_IsSliderVisibleEvent;
+            //ctrl.ShowMetaDataEvent += Ctrl_ShowMetaDataEvent;
 
             //add control to element host
+            ctrl.SetMediaFile("C:\\Users\\okwuo\\Videos\\OilPirate.MP4");
             elementHost1.Child = ctrl;
         }
 
@@ -103,7 +104,7 @@ namespace TestCDT
         private void Ctrl_DeleteButtonEvent(string p_FileName, Int32 p_Index)
         {
             MessageBox.Show("Delete clicked for " + p_FileName);
-            ctrl.RemoveItemFromEnglishTab(p_Index);
+          //  ctrl.RemoveItemFromEnglishTab(p_Index);
         }
 
         private void Form_Resized(object sender, EventArgs e)

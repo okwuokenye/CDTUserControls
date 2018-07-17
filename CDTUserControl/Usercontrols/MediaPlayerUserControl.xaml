@@ -7,6 +7,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="370" d:DesignWidth="500">
+    
     <Grid>
         <Grid.RowDefinitions>            
             <RowDefinition Height="*" />
@@ -43,14 +44,14 @@
     </StatusBar>
         
         <StackPanel Grid.Row="2" SnapsToDevicePixels="True" Orientation="Horizontal" >
-            
-            <Button Command="MediaCommands.Play" Width="25" BorderThickness="0">
+
+            <Button Click="Play_Executed" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="PlayCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Button Command="MediaCommands.Pause" Width="25" BorderThickness="0">
+            <Button Click="Pause_Executed" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="PauseCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Button Command="MediaCommands.Stop" Width="25" BorderThickness="0">
+            <Button Click="Stop_Executed" Width="25" BorderThickness="0">
                 <fa:ImageAwesome Icon="StopCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
 
@@ -58,9 +59,6 @@
             <Slider Name="VolumeControl" Width="150" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume, Mode=TwoWay}" Margin="10,5,2,2"/>
 
             <Separator />
-            <Button Command="ApplicationCommands.Open" Width="25" BorderThickness="0">
-                <fa:ImageAwesome Icon="FolderOpen" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Button>
             <Separator />
 
             <ToggleButton Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" IsChecked="{Binding IsLocked}" BorderThickness="1" BorderBrush="DarkGray">

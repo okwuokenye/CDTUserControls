@@ -13,7 +13,7 @@ namespace TestCDT
 {
     public partial class NavigationTest : Form
     {
-        NavigationUsercontrolView ctrl;
+        NavigationUserControl ctrl;
         public NavigationTest()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace TestCDT
 
         private void Form_Load(object sender, EventArgs e)
         {
-            ctrl = new NavigationUsercontrolView();
+            ctrl = new NavigationUserControl();
 
             //navigation control and event listener
             ctrl.PreviousButtonEvent += Nav_PreviousButtonEvent;
