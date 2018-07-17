@@ -61,8 +61,8 @@
             <Separator />
             <Separator />
 
-            <ToggleButton Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" IsChecked="{Binding IsLocked}" BorderThickness="1" BorderBrush="DarkGray">
-                <Image x:Name="lockimage" Source="{Binding LockImage}"/>
+            <ToggleButton x:Name="Lock" Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" Click="LockImage_Click" BorderThickness="1" BorderBrush="DarkGray">
+                <Image x:Name="LockImage" Source="{Binding LockImage}"/>
             </ToggleButton>
 
         </StackPanel>
