@@ -41,9 +41,10 @@ namespace CDTUserControl.Usercontrols
             e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
         }
 
-        private void Play_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Play_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Play();
+            MessageBox.Show("Play Clicked");
             mediaPlayerIsPlaying = true;
         }
 
@@ -52,7 +53,7 @@ namespace CDTUserControl.Usercontrols
             e.CanExecute = mediaPlayerIsPlaying;
         }
 
-        private void Pause_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Pause_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Pause();
         }
@@ -62,7 +63,7 @@ namespace CDTUserControl.Usercontrols
             e.CanExecute = mediaPlayerIsPlaying;
         }
 
-        private void Stop_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Stop_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Stop();
             mediaPlayerIsPlaying = false;
