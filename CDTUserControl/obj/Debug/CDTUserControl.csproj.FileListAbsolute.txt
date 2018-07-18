@@ -132,6 +132,31 @@ D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\C
 D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.dll
 D:\Dropbox\_CDT Projects GIT\CDT 2.0\CDTControlStudio\CDTUserControl\obj\Debug\CDTUserControl.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUsercontrolView.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\nCDT.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.pdb
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\MahApps.Metro.xml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll.config
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.pdb
@@ -176,26 +201,9 @@ C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserCont
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.DataGrid.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.pdb
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
@@ -229,48 +237,8 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ru\System.Windows.Inter
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\de\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\en\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\es\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\fr\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\it\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ja\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ko\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ru\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
