@@ -19,13 +19,17 @@ namespace CDTUserControl.Usercontrols
         private bool userIsDraggingSlider = false;
 
         #region events
+
         public delegate void LockEventHandler(bool p_IsLocked);
         public event LockEventHandler LockEvent;
+
         #endregion
 
         public MediaPlayerUserControl()
         {
             InitializeComponent();
+
+            LockImage.Source = null;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -47,6 +51,10 @@ namespace CDTUserControl.Usercontrols
         private void Play_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
+            if ((CDTPlayer.Source != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
+            {
+                lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
+            }
         }
 
         private void Play_Executed(object sender, RoutedEventArgs e)
@@ -100,8 +108,16 @@ namespace CDTUserControl.Usercontrols
         }
         
         public void SetMediaFile(string p_FileName)
-        {
-            CDTPlayer.Source = new Uri(p_FileName);
+        {         
+            if(p_FileName!="")
+            {
+                CDTPlayer.Source = new Uri(p_FileName);
+            }
+            else
+            {
+                CDTPlayer.Source = null;
+            }
+            
         }
 
         private void Open_File(object sender, RoutedEventArgs e)
@@ -116,6 +132,8 @@ namespace CDTUserControl.Usercontrols
 
         private void LockImage_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             if ((bool)Lock.IsChecked)
             {
                 //can't get this to work
@@ -128,6 +146,13 @@ namespace CDTUserControl.Usercontrols
             }
             
             LockEvent((bool)Lock.IsChecked);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
     }
 }

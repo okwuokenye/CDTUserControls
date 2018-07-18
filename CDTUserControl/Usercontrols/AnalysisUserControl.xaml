@@ -26,10 +26,10 @@
 
                 <ComboBox Grid.Row="0" Margin="2,2,2,2" ItemsSource="{Binding Sheets}" SelectedItem="{Binding Sheet}"/>
                 <CheckBox Grid.Row="1" Content="Analyse multiple sheets" Margin="2,2,2,2" IsChecked="{Binding AnalyzeMultipleSheets}"/>
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <RadioButton GroupName="chk" IsChecked="{Binding IsAll}" Content="All" Margin="2,2,2,2" />
-                    <RadioButton GroupName="chk" IsChecked="{Binding IsVisible}" Content="Visible" Margin="10,2,2,2" />
-                    <RadioButton GroupName="chk" IsChecked="{Binding IsSelected}" Content="Selected" Margin="10,2,2,2" />
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding MultipleOn}">
+                    <RadioButton GroupName="chk" IsChecked="True"  Content="All" Margin="2,2,2,2" Checked="{Binding MultiSheetChanged}" />
+                    <RadioButton GroupName="chk" Content="Visible" Margin="10,2,2,2" Checked="{Binding MultiSheetChanged}" />
+                    <RadioButton GroupName="chk" Content="Selected" Margin="10,2,2,2" Checked="{Binding MultiSheetChanged}" />
                 </StackPanel>        
             </Grid>
        </GroupBox>
@@ -50,15 +50,15 @@
 
                 <Label Content="Character" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
                 <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Character}"/>
-                <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+                <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4"  Text="{Binding CharacterC}"  />
 
                 <Label Content="Text" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                 <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Text}"/>
-                <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+                <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextC}" />
                 
                 <CheckBox Content="Scene" Grid.Row="2" Grid.Column="0" Margin="2 4 2 4" IsChecked="{Binding IsScene}" VerticalContentAlignment="Center"/>
-                <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Text}"/>
-                <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+                <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Scene}" Visibility="{Binding SceneOn}"/>
+                <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Visibility="{Binding SceneOn}" Text="{Binding SceneC}" />
 
             </Grid>
 
@@ -86,7 +86,7 @@
                 <CheckBox Content="Include lines with no character" Margin="2,2,2,2" Grid.Row="3" IsChecked="{Binding IncludeLinesWithNoCharacter}"/>
                 <CheckBox Content="Close upon completion" Margin="2,2,2,2" Grid.Row="4" IsChecked="{Binding CloseUponCompletion}"/>
                 <CheckBox Content="Add to existing sheet" Margin="2,2,2,2" Grid.Row="5" IsChecked="{Binding AddToExistingSheet}"/>
-                <ComboBox Grid.Row="6" Margin="2,2,2,2" ItemsSource="{Binding UListItems}" SelectedItem="{Binding UListItem}"/>
+                <ComboBox Grid.Row="6" Margin="2,2,2,2" ItemsSource="{Binding UListItems}" SelectedItem="{Binding UListItem}" Visibility="{Binding AddToExistingOn}"/>
             </Grid>
 
         </Expander>

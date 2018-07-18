@@ -25,7 +25,7 @@ namespace CDTUserControl.Viewmodels
         string _Text = string.Empty;
         bool _IsScene = false;
         string _Scene = string.Empty;
-        ObservableCollection<string> _HeaderRows = new ObservableCollection<string>();
+        ObservableCollection<string> _HeaderRows = new ObservableCollection<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
         string _HeaderRow;
         bool _IncludeLinesWithNoText = false;
         bool _IgnoreStrikethroughText = false;

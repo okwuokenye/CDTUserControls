@@ -14,10 +14,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <MediaElement Name="CDTPlayer" Grid.Row="0" LoadedBehavior="Manual" Stretch="Fill" />
-        
-        <StatusBar Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="25" />
+        </Grid.ColumnDefinitions>
+        <MediaElement Name="CDTPlayer" Grid.Row="0" Grid.ColumnSpan="2" LoadedBehavior="Play"  Stretch="Fill" ScrubbingEnabled="True" />
+
+        <StatusBar Grid.Row="1" Grid.ColumnSpan="2">
         <StatusBar.ItemsPanel>
             <ItemsPanelTemplate>
                 <Grid>
@@ -45,30 +48,34 @@
         
         <StackPanel Grid.Row="2" SnapsToDevicePixels="True" Orientation="Horizontal" >
 
-            <Button Click="Play_Executed" Width="25" BorderThickness="0">
+            <Button Click="Play_Executed" Width="25" BorderThickness="0" Background="Transparent" Margin="5,2,2,2" >
                 <fa:ImageAwesome Icon="PlayCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Button Click="Pause_Executed" Width="25" BorderThickness="0">
+            <Button Click="Pause_Executed" Width="25" BorderThickness="0" Background="Transparent" Margin="5,2,2,2" >
                 <fa:ImageAwesome Icon="PauseCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-            <Button Click="Stop_Executed" Width="25" BorderThickness="0">
+            <Button Click="Stop_Executed" Width="25" BorderThickness="0" Background="Transparent" Margin="5,2,2,2" >
                 <fa:ImageAwesome Icon="StopCircle" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
-
-            <Separator />
-            <Slider Name="VolumeControl" Width="150" Maximum="1" Value="{Binding ElementName=CDTPlayer, Path=Volume, Mode=TwoWay}" Margin="10,5,2,2"/>
-
-            <Separator />
-            <Button Click="Open_File" Width="25" BorderThickness="0">
+            
+            <Button Click="Open_File" Width="25" BorderThickness="0" Background="Transparent" Margin="20,2,2,2" >
                 <fa:ImageAwesome Icon="FolderOpen" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Button>
+
+            <Label Content="Volume:" Margin="20,2,2,2"/>
+
+            <Slider Name="VolumeControl" Width="150" Maximum="1" Value="{Binding ElementName=CDTPlayer, Path=Volume, Mode=TwoWay}" Margin="2,5,2,2"/>
+
+            <Separator />
+            
             <Separator />
 
-            <ToggleButton x:Name="Lock" IsChecked="True" Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" Click="LockImage_Click" BorderThickness="1" BorderBrush="DarkGray">
-                <Image x:Name="LockImage" Source="../Resources/padlock.png"/>
-            </ToggleButton>
 
         </StackPanel>
-        
+
+        <ToggleButton x:Name="Lock" Grid.Column="1" Grid.Row="2" IsChecked="True" Margin="2,2,2,2" Height="20" Width="20" ToolTip="Lock current video" Click="LockImage_Click" BorderThickness="1" BorderBrush="DarkGray">
+            <Image x:Name="LockImage" Source="../Resources/padlock.png"/>
+        </ToggleButton>
+
     </Grid>
 </UserControl>
