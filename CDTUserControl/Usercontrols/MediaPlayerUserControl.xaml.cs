@@ -103,7 +103,7 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Source = new Uri(p_FileName);
         }
 
-        private void Open_File()
+        private void Open_File(object sender, RoutedEventArgs e)
         {
             string p_FileName = "";
 
