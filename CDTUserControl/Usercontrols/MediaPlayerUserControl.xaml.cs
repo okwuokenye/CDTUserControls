@@ -95,6 +95,7 @@ namespace CDTUserControl.Usercontrols
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             //this does not work - also the volume of the video playback should be linked to the VolumeControl slider.  
+            //this has been fixed
             CDTPlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
         
@@ -103,12 +104,13 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Source = new Uri(p_FileName);
         }
 
-        private void Open_File()
+        private void Open_File(object sender, RoutedEventArgs e)
         {
-            string p_FileName = "";
-
-            //This should enable someone to browse for a video file.
-            CDTPlayer.Source = new Uri(p_FileName);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            //define the file filter for your dialog
+            openFileDialog.Filter = "Media files (*.mp3;*.mpg;*.mpeg)|*.mp4;*.mov;*.mpeg|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+                CDTPlayer.Source = new Uri(openFileDialog.FileName);
         }
 
 
@@ -117,7 +119,8 @@ namespace CDTUserControl.Usercontrols
             if ((bool)Lock.IsChecked)
             {
                 //can't get this to work
-                LockImage.Source = new BitmapImage(new Uri("/Resources/padlock.png", UriKind.Relative));
+                //works now
+                LockImage.Source = new BitmapImage(new Uri("../Resources/padlock.png", UriKind.Relative));
             }
             else
             {
