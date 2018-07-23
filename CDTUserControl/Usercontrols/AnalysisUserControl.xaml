@@ -26,7 +26,7 @@
 
                 <ComboBox Grid.Row="0" Margin="2,2,2,2" ItemsSource="{Binding Sheets}" SelectedItem="{Binding Sheet}"/>
                 <CheckBox Grid.Row="1" Content="Analyse multiple sheets" Margin="2,2,2,2" IsChecked="{Binding AnalyzeMultipleSheets}"/>
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding AnalyzeRadioButtonsVisibility}">
                     <RadioButton GroupName="chk" IsChecked="{Binding IsAll}" Content="All" Margin="2,2,2,2" />
                     <RadioButton GroupName="chk" IsChecked="{Binding IsVisible}" Content="Visible" Margin="10,2,2,2" />
                     <RadioButton GroupName="chk" IsChecked="{Binding IsSelected}" Content="Selected" Margin="10,2,2,2" />
@@ -50,21 +50,21 @@
 
                 <Label Content="Character" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
                 <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Character}"/>
-                <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" />
+                <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharacterTxt}"/>
 
                 <Label Content="Text" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                 <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Text}"/>
-                <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" />
+                <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextTxt}"/>
                 
                 <CheckBox Content="Scene" Grid.Row="2" Grid.Column="0" Margin="2 4 2 4" IsChecked="{Binding IsScene}" VerticalContentAlignment="Center"/>
-                <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Text}"/>
-                <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" />
+                <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Scene}"/>
+                <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneTxt}"/>
 
             </Grid>
 
         </GroupBox>
 
-        <Expander Header="Settings" Grid.Row="2" Margin="0,0,0,10">
+        <Expander Header="Settings" Expanded="Expander_Expanded" Collapsed="Expander_Expanded" Grid.Row="2" Margin="0,0,0,10">
             <Grid Height="160">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

@@ -13,7 +13,7 @@ namespace TestCDT
 {
     public partial class Form1 : Form
     {
-        MediaPlayerUserControl ctrl;
+        AnalysisUserControl ctrl;
         public Form1()
         {
             InitializeComponent();
@@ -22,30 +22,38 @@ namespace TestCDT
        
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            ctrl = new MediaPlayerUserControl();
-
-            //navigation control and event listener
-            //ctrl.Nav.PreviousButtonEvent += Nav_PreviousButtonEvent;
-            //ctrl.Nav.Visibility = System.Windows.Visibility.Visible;
-
+            ctrl = new AnalysisUserControl();
             ctrl.Visibility = System.Windows.Visibility.Visible;
-            //elementHost1.BackColor = Color.Black;
-            //List<String> l_Items = new List<String>() { "Try Me", "Try Me", "Try Me" };
-            //ctrl.AddItemsToEnglishTab(l_Items);
+            
+            //get the viewmodel
+            var vm = ctrl.GetVM();
 
-            ////add event listener here
-            //ctrl.DeleteButtonEvent += Ctrl_DeleteButtonEvent;
-            //ctrl.EditButtonEvent += Ctrl_EditButtonEvent;
-            //ctrl.NavigateButtonEvent += Ctrl_NavigateButtonEvent;
+            //the view model has all the methods to set text in textboxes and refresh the view
 
-            ////add event for resizing winform screen
-            //ctrl.ExtendSliderHeightEvent += Ctrl_ExtendSliderHeightEvent;
-            //ctrl.IsSliderVisibleEvent += Ctrl_IsSliderVisibleEvent;
-            //ctrl.ShowMetaDataEvent += Ctrl_ShowMetaDataEvent;
+            //add item to the sheets combobox
+            vm.AddSheetToAnalyze("Test");
 
-            //add control to element host
-            ctrl.SetMediaFile("C:\\Users\\okwuo\\Videos\\OilPirate.MP4");
+            //add to the UIList item combo box
+            vm.AddUListItem("Test 2");
+
+            //methods to set textboxes
+            vm.SetText("Text");
+            vm.SetTextTxt("2");
+
+            vm.SetCharacter("Character");
+            vm.SetCharacterTxt("2");
+
+            vm.SetScene("Scene");
+            vm.SetSceneTxt("2");
+
+            //event handler for SettingsExpanderChange
+            ctrl.SettingsExpanderChangeEvent += Ctrl_SettingsExpanderChangeEvent;
             elementHost1.Child = ctrl;
+        }
+
+        private void Ctrl_SettingsExpanderChangeEvent(bool IsExpanded)
+        {
+            MessageBox.Show("Settings has changed: " + IsExpanded.ToString());
         }
 
         private void Ctrl_ShowMetaDataEvent(bool p_bool, int p_Value)

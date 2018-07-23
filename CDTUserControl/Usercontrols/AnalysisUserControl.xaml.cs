@@ -38,6 +38,9 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void AnalyzeClickEvent();
         public event AnalyzeClickEvent Analyze;
+
+        public delegate void SettingsExpanderChangeEventHandler(bool IsExpanded);
+        public event SettingsExpanderChangeEventHandler SettingsExpanderChangeEvent;
         #endregion
 
         #region view event handlers
@@ -72,5 +75,13 @@ namespace CDTUserControl.Usercontrols
             return vm;
         }
         #endregion
+
+        private void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+            var obj = (Expander)sender;
+
+            if(SettingsExpanderChangeEvent != null)
+            SettingsExpanderChangeEvent(obj.IsExpanded);
+        }
     }
 }
