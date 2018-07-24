@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CDTUserControl.Viewmodels
 {
@@ -25,7 +26,12 @@ namespace CDTUserControl.Viewmodels
         string _Text = string.Empty;
         bool _IsScene = false;
         string _Scene = string.Empty;
-        ObservableCollection<string> _HeaderRows = new ObservableCollection<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
+
+        string _CharacterTxt = string.Empty;
+        string _TextTxt = string.Empty;
+        string _SceneTxt = string.Empty;
+
+        ObservableCollection<string> _HeaderRows = new ObservableCollection<string>();
         string _HeaderRow;
         bool _IncludeLinesWithNoText = false;
         bool _IgnoreStrikethroughText = false;
@@ -59,8 +65,10 @@ namespace CDTUserControl.Viewmodels
                 {
                     _AnalyzeMultipleSheets = value;
                 }
+                RaisePropertyChanged("AnalyzeRadioButtonsVisibility");
             }
         }
+        public Visibility AnalyzeRadioButtonsVisibility { get { return _AnalyzeMultipleSheets ? Visibility.Visible : Visibility.Hidden; } }
         public bool IsAll
         {
             get { return _IsAll; }
@@ -138,6 +146,43 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public string CharacterTxt
+        {
+            get { return _CharacterTxt; }
+            set
+            {
+                if (_CharacterTxt != value)
+                {
+                    _CharacterTxt = value;
+                }
+            }
+        }
+
+        public string TextTxt
+        {
+            get { return _TextTxt; }
+            set
+            {
+                if (_TextTxt != value)
+                {
+                    _TextTxt = value;
+                }
+            }
+        }
+        
+        public string SceneTxt
+        {
+            get { return _SceneTxt; }
+            set
+            {
+                if (_SceneTxt != value)
+                {
+                    _SceneTxt = value;
+                }
+            }
+        }
+
         public ObservableCollection<string> HeaderRows { get { return _HeaderRows; } }
         public string HeaderRow
         {
@@ -266,6 +311,24 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("Scene");
         }
 
+        public void SetCharacterTxt(string p_Item)
+        {
+            _CharacterTxt = p_Item;
+            RaisePropertyChanged("CharacterTxt");
+        }
+
+        public void SetTextTxt(string p_Item)
+        {
+            _TextTxt = p_Item;
+            RaisePropertyChanged("TextTxt");
+        }
+
+        public void SetSceneTxt(string p_Item)
+        {
+            _SceneTxt = p_Item;
+            RaisePropertyChanged("SceneTxt");
+        }
+
         public void AddHeaderRowItem(string p_ItemToAdd)
         {
             _HeaderRows.Add(p_ItemToAdd);
@@ -277,7 +340,6 @@ namespace CDTUserControl.Viewmodels
             _HeaderRows.Remove(p_ItemToRemove);
             RaisePropertyChanged("HeaderRows");
         }
-
 
         public void AddUListItem(string p_ItemToAdd)
         {
