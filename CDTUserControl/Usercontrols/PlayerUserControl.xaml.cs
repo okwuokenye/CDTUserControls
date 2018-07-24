@@ -690,7 +690,23 @@ namespace CDTUserControl.Usercontrols
         {
             vm.ChangeSpkTextStatus(p_IsEnabled);
         }
-        
+
+        public void ChangeVideoStatus(bool p_IsEnabled)
+        {
+            vm.ChangeVideoStatus(p_IsEnabled);
+        }
+        public void ChangeCharacterStatus(bool p_IsEnabled)
+        {
+            vm.ChangeCharacterStatus(p_IsEnabled);
+        }
+        public void ChangeSceneStatus(bool p_IsEnabled)
+        {
+            vm.ChangeSceneStatus(p_IsEnabled);
+        }
+        public void ChangeItemStatus(bool p_IsEnabled)
+        {
+            vm.ChangeItemStatus(p_IsEnabled);
+        }
         #endregion
 
     }

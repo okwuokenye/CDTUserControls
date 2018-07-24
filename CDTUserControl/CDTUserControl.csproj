@@ -90,9 +90,6 @@
     <Compile Include="Usercontrols\AnalysisUserControl.xaml.cs">
       <DependentUpon>AnalysisUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Usercontrols\LicenseDialogueUserControl.xaml.cs">
-      <DependentUpon>LicenseDialogueUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Usercontrols\LicenseManagerUserControl.xaml.cs">
       <DependentUpon>LicenseManagerUserControl.xaml</DependentUpon>
     </Compile>
@@ -129,10 +126,6 @@
     <Page Include="Usercontrols\AnalysisUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Usercontrols\LicenseDialogueUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Usercontrols\LicenseManagerUserControl.xaml">
       <SubType>Designer</SubType>

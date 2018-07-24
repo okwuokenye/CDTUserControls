@@ -228,7 +228,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ko\System.Windows.Inter
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ru\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
 C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
 C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
 C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll

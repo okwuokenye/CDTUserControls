@@ -19,9 +19,9 @@ namespace CDTUserControl.Viewmodels
         Boolean _IsCheckBox1Checked = false;
         Boolean _IsCheckBox2Checked = false;
         Boolean _IsCheckBox3Checked = false;
-        Boolean _IsGoToFirst = false;
-        ObservableCollection<String> _ClearColourComboItems = new ObservableCollection<String>{ "All columns", "Selected columns", "Text column only" };
-        Int32 _ClearColourComboItemIndex = 0;
+        Boolean _IsGoToFirst = true;
+        ObservableCollection<String> _ClearColourComboItems = new ObservableCollection<String>{"All columns", "Selected columns", "Text column only" };
+        Int32 _ClearColourComboItemIndex = 2;
         String _SaveRowText1 = String.Empty;
         String _SaveRowText2 = String.Empty;
         String _Actor = "";

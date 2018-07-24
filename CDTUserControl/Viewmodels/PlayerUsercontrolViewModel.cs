@@ -228,6 +228,11 @@ namespace CDTUserControl.Viewmodels
         bool _IsLFXEnabled = false;
         bool _IsSpkTextEnabled = false;
 
+        bool _IsCharacterEnabled = false;
+        bool _IsSceneEnabled = false;
+        bool _IsItemEnabled = false;
+        bool _IsVideoEnabled = false;
+
         #endregion
 
         #region Properties
@@ -743,6 +748,11 @@ namespace CDTUserControl.Viewmodels
         public bool IsLFXEnabled { get { return _IsLFXEnabled; } } //property for side buttons
         public bool IsSpkTextEnabled { get { return _IsSpkTextEnabled; } } //property for side buttons
 
+        public bool IsCharacterEnabled { get { return _IsCharacterEnabled; } } //property for side buttons
+        public bool IsSceneEnabled { get { return _IsSceneEnabled; } } //property for side buttons
+        public bool IsItemEnabled { get { return _IsItemEnabled; } } //property for side buttons
+        public bool IsVideoEnabled { get { return _IsVideoEnabled; } } //property for side buttons
+
         #endregion
 
         #region Constructors
@@ -848,6 +858,27 @@ namespace CDTUserControl.Viewmodels
         private Boolean CheckSpkText()
         {
             return _IsSpkTextEnabled;
+        }
+
+
+        private Boolean CheckCharacter()
+        {
+            return _IsCharacterEnabled;
+        }
+
+        private Boolean CheckScene()
+        {
+            return _IsSceneEnabled;
+        }
+
+        private Boolean CheckItem()
+        {
+            return _IsItemEnabled;
+        }
+
+        private Boolean CheckVideo()
+        {
+            return _IsVideoEnabled;
         }
 
         public ICommand Voice { get { return new RelayCommand(VoiceExecute); } }
@@ -1341,6 +1372,30 @@ namespace CDTUserControl.Viewmodels
         {
             _IsSourceEnabled = p_IsEnabled;
             RaisePropertyChanged("IsSourceEnabled");
+        }
+
+        public void ChangeCharacterStatus(bool p_IsEnabled)
+        {
+            _IsCharacterEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsCharacterEnabled");
+        }
+
+        public void ChangeSceneStatus(bool p_IsEnabled)
+        {
+            _IsSceneEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsSceneEnabled");
+        }
+
+        public void ChangeItemStatus(bool p_IsEnabled)
+        {
+            _IsItemEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsItemEnabled");
+        }
+
+        public void ChangeVideoStatus(bool p_IsEnabled)
+        {
+            _IsVideoEnabled = p_IsEnabled;
+            RaisePropertyChanged("IsVideoEnabled");
         }
         #endregion
 

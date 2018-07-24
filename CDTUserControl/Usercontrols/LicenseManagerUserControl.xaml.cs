@@ -24,8 +24,15 @@ namespace CDTUserControl.Usercontrols
         LicenseManagerViewModel vm;
 
         #region event declarations
-        
 
+        public delegate void RecheckButtonEventHandler();
+        public event RecheckButtonEventHandler RecheckButtonEvent;
+        
+        public delegate void InstallButtonEventHandler();
+        public event InstallButtonEventHandler InstallButtonEvent;
+        
+        public delegate void UninstallButtonEventHandler();
+        public event UninstallButtonEventHandler UninstallButtonEvent;
 
         #endregion
 
@@ -36,8 +43,10 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new LicenseManagerViewModel();
 
+            vm.RecheckButtonEvent += Vm_RecheckButtonEvent;
+            vm.InstallButtonEvent += Vm_InstallButtonEvent;
+            vm.UninstallButtonEvent += Vm_UninstallButtonEvent;
             //add event listeners
-
 
             base.DataContext = vm;
         }
@@ -46,20 +55,57 @@ namespace CDTUserControl.Usercontrols
 
         #region event handlers
 
+        private void Vm_RecheckButtonEvent()
+        {
+            RecheckButtonEvent();
+        }
 
+        private void Vm_InstallButtonEvent()
+        {
+            InstallButtonEvent();
+        }
+
+        private void Vm_UninstallButtonEvent()
+        {
+            UninstallButtonEvent();
+        }
 
 
         #endregion
 
         #region public set methods
 
+        public void SetProductName(string p_Value)
+        {
+            vm.SetProductName(p_Value);
+        }
 
+        public void SetComputerID(string p_Value)
+        {
+            vm.SetComputerID(p_Value);
+        }
+        public void SetLicenseKey(string p_Value)
+        {
+            vm.SetLicenseKey(p_Value);
+        }
+        public void SetLicenseState(string p_Value)
+        {
+            vm.SetLicenseState(p_Value);
+        }
+        public void SetSerialNumber(string p_Value)
+        {
+            vm.SetSerialNumber(p_Value);
+        }
+        public void SetFirstAuth(string p_Value)
+        {
+            vm.SetFirstAuth(p_Value);
+        }
+        public void SetExpiryDate(string p_Value)
+        {
+            vm.SetExpiryDate(p_Value);
+        }
 
         #endregion
 
-        #region public send functions
-
-
-        #endregion
     }
 }

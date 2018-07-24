@@ -39,17 +39,17 @@
 
         <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Margin="0,12,0,0" VerticalAlignment="Top" Visibility="{Binding SliderVisibility}">
 
-            <Button ToolTip="Open TextBox form" Content="TextBox" Command="{Binding Text}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Open TextBox form" Content="TextBox" Command="{Binding Text}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsSpkTextEnabled}"/>
 
-            <Button ToolTip="Open Character Viewer form" Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50"/>
+            <Button ToolTip="Open Character Viewer form" Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50" IsEnabled="{Binding IsCharacterEnabled}"/>
 
-            <Button ToolTip="Open Scene Viewer form" Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Open Scene Viewer form" Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsSceneEnabled}"/>
 
-            <Button ToolTip="Open Item Viewer form" Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Open Item Viewer form" Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsItemEnabled}"/>
 
-            <Button ToolTip="Open Video Viewer form" Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Open Video Viewer form" Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsVideoEnabled}"/>
 
-            <Button ToolTip="Open Navigator form" Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button ToolTip="Open Navigator form" Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="True"/>
 
         </StackPanel>
 
