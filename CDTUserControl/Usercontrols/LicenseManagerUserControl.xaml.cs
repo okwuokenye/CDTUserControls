@@ -104,6 +104,10 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetExpiryDate(p_Value);
         }
+        public void SetStatusWarn(string p_Value)
+        {
+            vm.SetStatusWarn(p_Value);
+        }
 
         #endregion
 

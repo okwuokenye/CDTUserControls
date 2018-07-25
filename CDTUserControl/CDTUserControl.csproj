@@ -109,7 +109,6 @@
       <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Viewmodels\AnalysisViewModel.cs" />
-    <Compile Include="Viewmodels\LicenseDialogueViewModel.cs" />
     <Compile Include="Viewmodels\LicenseManagerViewModel.cs" />
     <Compile Include="Viewmodels\PlayerUsercontrolViewModel.cs" />
     <Compile Include="Viewmodels\OptionsUserControlViewModel.cs" />

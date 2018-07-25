@@ -21,6 +21,7 @@ namespace CDTUserControl.Viewmodels
         private string _SerialNumber;
         private string _FirstAuth;
         private string _ExpiryDate;
+        private string _StatusWarn;
 
         #endregion
 
@@ -145,8 +146,22 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
+        public String StatusWarn
+        {
+            get
+            {
+                return _StatusWarn;
+            }
+            set
+            {
+                if (_StatusWarn != value)
+                {
+                    _StatusWarn = value;
+                    RaisePropertyChanged("StatusWarn");
+                }
+            }
+        }
         #endregion
-
 
         #region constructor
 
@@ -205,6 +220,11 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("ExpiryDate");
         }
 
+        public void SetStatusWarn(string p_Value)
+        {
+            _StatusWarn = p_Value;
+            RaisePropertyChanged("StatusWarn");
+        }
         #endregion
 
         #region commands

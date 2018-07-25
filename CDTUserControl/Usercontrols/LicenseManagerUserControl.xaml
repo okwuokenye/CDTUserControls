@@ -27,17 +27,17 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Content="Product Name" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ProductName}"/>
+        <Label Content="License Status" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseState}"/>
 
-        <Label Content="Computer ID" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ComputerID}"/>
+        <Label Content="Product Name" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ProductName}"/>
 
-        <Label Content="License Key" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseKey}"/>
+        <Label Content="Computer ID" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ComputerID}"/>
 
-        <Label Content="License Status" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseState}"/>
+        <Label Content="License Key" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseKey}"/>
 
         <Label Content="Serial Number" Grid.Row="4" Grid.Column="0" Margin="2 2 2 2" />
         <TextBox Grid.Row="4" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding SerialNumber}"/>
