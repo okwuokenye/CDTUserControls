@@ -13,7 +13,7 @@ namespace TestCDT
 {
     public partial class Form1 : Form
     {
-        AnalysisUserControl ctrl;
+        MediaPlayerUserControl ctrl;
         public Form1()
         {
             InitializeComponent();
@@ -22,32 +22,32 @@ namespace TestCDT
        
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            ctrl = new AnalysisUserControl();
+            ctrl = new MediaPlayerUserControl();
             ctrl.Visibility = System.Windows.Visibility.Visible;
             
-            //get the viewmodel
-            var vm = ctrl.GetVM();
+            ////get the viewmodel
+            //var vm = ctrl.GetVM();
 
-            //the view model has all the methods to set text in textboxes and refresh the view
+            ////the view model has all the methods to set text in textboxes and refresh the view
 
-            //add item to the sheets combobox
-            vm.AddSheetToAnalyze("Test");
+            ////add item to the sheets combobox
+            //vm.AddSheetToAnalyze("Test");
 
-            //add to the UIList item combo box
-            vm.AddUListItem("Test 2");
+            ////add to the UIList item combo box
+            //vm.AddUListItem("Test 2");
 
-            //methods to set textboxes
-            vm.SetText("Text");
-            vm.SetTextTxt("2");
+            ////methods to set textboxes
+            //vm.SetText("Text");
+            //vm.SetTextTxt("2");
 
-            vm.SetCharacter("Character");
-            vm.SetCharacterTxt("2");
+            //vm.SetCharacter("Character");
+            //vm.SetCharacterTxt("2");
 
-            vm.SetScene("Scene");
-            vm.SetSceneTxt("2");
+            //vm.SetScene("Scene");
+            //vm.SetSceneTxt("2");
 
-            //event handler for SettingsExpanderChange
-            ctrl.SettingsExpanderChangeEvent += Ctrl_SettingsExpanderChangeEvent;
+            ////event handler for SettingsExpanderChange
+            //ctrl.SettingsExpanderChangeEvent += Ctrl_SettingsExpanderChangeEvent;
             elementHost1.Child = ctrl;
         }
 

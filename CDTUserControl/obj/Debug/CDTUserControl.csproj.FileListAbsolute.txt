@@ -195,7 +195,6 @@ C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserCont
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
 C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
@@ -263,3 +262,4 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserC
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
