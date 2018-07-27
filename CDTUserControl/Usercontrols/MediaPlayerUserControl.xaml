@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="25" />
         </Grid.ColumnDefinitions>
-        <MediaElement Name="CDTPlayer" Grid.Row="0" Grid.ColumnSpan="2" LoadedBehavior="Play"  Stretch="Fill" ScrubbingEnabled="True" />
+        <MediaElement Name="CDTPlayer" Grid.Row="0" Grid.ColumnSpan="2" LoadedBehavior="Manual"  Stretch="Fill" ScrubbingEnabled="True" />
 
         <StatusBar Grid.Row="1" Grid.ColumnSpan="2">
         <StatusBar.ItemsPanel>

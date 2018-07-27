@@ -179,38 +179,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlaye
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.cache
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CoreCompileInputs.cache
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CopyComplete
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
-C:\Users\okwuo\Source\Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
@@ -228,11 +196,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ru\System.Windows.Inter
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.xml
-C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
-C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
-C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
-C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.baml
-C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
@@ -262,4 +225,40 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserC
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll.config
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
 C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.baml
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.cache
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CoreCompileInputs.cache
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.CopyComplete
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
+C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
