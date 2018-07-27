@@ -25,8 +25,8 @@
                 </Grid.RowDefinitions>
 
                 <ComboBox Grid.Row="0" Margin="2,2,2,2" ItemsSource="{Binding Sheets}" SelectedItem="{Binding Sheet}"/>
-                <CheckBox Grid.Row="1" Content="Analyse multiple sheets" Margin="2,2,2,2" IsChecked="{Binding AnalyzeMultipleSheets}"/>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding AnalyzeRadioButtonsVisibility}">
+                <CheckBox Grid.Row="1" Content="Analyse multiple sheets" Margin="2,5,2,2" IsChecked="{Binding AnalyzeMultipleSheets}"/>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding AnalyzeRadioButtonsVisibility}" Margin="2,5,2,2">
                     <RadioButton GroupName="chk" IsChecked="{Binding IsAll}" Content="All" Margin="2,2,2,2" />
                     <RadioButton GroupName="chk" IsChecked="{Binding IsVisible}" Content="Visible" Margin="10,2,2,2" />
                     <RadioButton GroupName="chk" IsChecked="{Binding IsSelected}" Content="Selected" Margin="10,2,2,2" />
@@ -57,8 +57,8 @@
                 <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextTxt}"/>
                 
                 <CheckBox Content="Scene" Grid.Row="2" Grid.Column="0" Margin="2 4 2 4" IsChecked="{Binding IsScene}" VerticalContentAlignment="Center"/>
-                <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Scene}"/>
-                <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneTxt}"/>
+                <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding Scene}" Visibility="{Binding SceneVisibility}" />
+                <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneTxt}" Visibility="{Binding SceneVisibility}"/>
 
             </Grid>
 
@@ -78,15 +78,15 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                         <TextBlock Text="Header Row" VerticalAlignment="Center" Margin="2,2,2,2"/>
-                    <ComboBox Width="60" Margin="10,4,2,4" ItemsSource="{Binding HeaderRows}" SelectedItem="{Binding HeaderRow}"/>
+                    <ComboBox Width="60" Margin="10,4,2,4" ItemsSource="{Binding HeaderRowItems}" SelectedIndex="{Binding HeadRowIndex}"/>
                 </StackPanel>
 
-                <CheckBox Content="Include lines with no text" Margin="2,2,2,2" Grid.Row="1" IsChecked="{Binding IncludeLinesWithNoText }"/>
-                <CheckBox Content="Ignore strikethrough text" Margin="2,2,2,2" Grid.Row="2" IsChecked="{Binding IgnoreStrikethroughText }"/>
-                <CheckBox Content="Include lines with no character" Margin="2,2,2,2" Grid.Row="3" IsChecked="{Binding IncludeLinesWithNoCharacter}"/>
-                <CheckBox Content="Close upon completion" Margin="2,2,2,2" Grid.Row="4" IsChecked="{Binding CloseUponCompletion}"/>
-                <CheckBox Content="Add to existing sheet" Margin="2,2,2,2" Grid.Row="5" IsChecked="{Binding AddToExistingSheet}"/>
-                <ComboBox Grid.Row="6" Margin="2,2,2,2" ItemsSource="{Binding UListItems}" SelectedItem="{Binding UListItem}"/>
+                <CheckBox Content="Include lines with no text" Margin="2,4,2,2" Grid.Row="1" IsChecked="{Binding IncludeLinesWithNoText }"/>
+                <CheckBox Content="Ignore strikethrough text" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding IgnoreStrikethroughText }"/>
+                <CheckBox Content="Include lines with no character" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding IncludeLinesWithNoCharacter}"/>
+                <CheckBox Content="Close upon completion" Margin="2,4,2,2" Grid.Row="4" IsChecked="{Binding CloseUponCompletion}"/>
+                <CheckBox Content="Add to existing sheet" Margin="2,4,2,2" Grid.Row="5" IsChecked="{Binding AddToExistingSheet}"/>
+                <ComboBox Grid.Row="6" Margin="2,4,2,2" ItemsSource="{Binding UListItems}" SelectedItem="{Binding UListItem}" Visibility="{Binding AddtoExistingVisibility}"/>
             </Grid>
 
         </Expander>

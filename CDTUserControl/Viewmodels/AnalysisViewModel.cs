@@ -31,7 +31,7 @@ namespace CDTUserControl.Viewmodels
         string _TextTxt = string.Empty;
         string _SceneTxt = string.Empty;
 
-        ObservableCollection<string> _HeaderRows = new ObservableCollection<string>();
+        ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
         string _HeaderRow;
         bool _IncludeLinesWithNoText = false;
         bool _IgnoreStrikethroughText = false;
@@ -40,10 +40,17 @@ namespace CDTUserControl.Viewmodels
         bool _AddToExistingSheet = false;
         ObservableCollection<string> _UListItems = new ObservableCollection<string>();
         string _UListItem;
+        string _StatusPane;
+        int _HeadRowIndex;
+        int _ExistingSheetsIndex;
+        int _SheetsIndex;
 
         #endregion
 
         #region properties
+
+        public String StatusPane { get { return _StatusPane; } }
+        
         public ObservableCollection<string> Sheets { get { return _Sheets; } }
         public string Sheet
         {
@@ -69,6 +76,10 @@ namespace CDTUserControl.Viewmodels
             }
         }
         public Visibility AnalyzeRadioButtonsVisibility { get { return _AnalyzeMultipleSheets ? Visibility.Visible : Visibility.Hidden; } }
+
+        public Visibility SceneVisibility { get { return _IsScene ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility AddtoExistingVisibility { get { return _AddToExistingSheet ? Visibility.Visible : Visibility.Collapsed; } }
+        
         public bool IsAll
         {
             get { return _IsAll; }
@@ -132,6 +143,7 @@ namespace CDTUserControl.Viewmodels
                 if (_IsScene != value)
                 {
                     _IsScene = value;
+                    RaisePropertyChanged("SceneVisibility");
                 }
             }
         }
@@ -183,7 +195,7 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
-        public ObservableCollection<string> HeaderRows { get { return _HeaderRows; } }
+        public ObservableCollection<string> HeaderRows { get { return _HeadRowItems; } }
         public string HeaderRow
         {
             get { return _HeaderRow; }
@@ -247,6 +259,7 @@ namespace CDTUserControl.Viewmodels
                 if (_AddToExistingSheet != value)
                 {
                     _AddToExistingSheet = value;
+                    RaisePropertyChanged("AddtoExistingVisibility");
                 }
             }
         }
@@ -262,7 +275,53 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+        
+        public int HeadRowIndex
+        {
+            get
+            {
+                return _HeadRowIndex;
+            }
+            set
+            {
+                if (_HeadRowIndex != value)
+                {
+                    _HeadRowIndex = value;
+                    RaisePropertyChanged("HeadRowIndex");
+                }
+            }
+        }
 
+        public int SheetIndex
+        {
+            get
+            {
+                return _SheetsIndex;
+            }
+            set
+            {
+                if (_SheetsIndex != value)
+                {
+                    _SheetsIndex = value;
+                    RaisePropertyChanged("SheetsIndex");
+                }
+            }
+        }
+        public int ExistingSheetsIndex
+        {
+            get
+            {
+                return _ExistingSheetsIndex;
+            }
+            set
+            {
+                if (_ExistingSheetsIndex != value)
+                {
+                    _ExistingSheetsIndex = value;
+                    RaisePropertyChanged("ExistingSheetsIndex");
+                }
+            }
+        }
         #endregion
 
         #region Constructor
@@ -328,19 +387,13 @@ namespace CDTUserControl.Viewmodels
             _SceneTxt = p_Item;
             RaisePropertyChanged("SceneTxt");
         }
-
-        public void AddHeaderRowItem(string p_ItemToAdd)
+        
+        public void SetHeadRowIndex(int p_Value)
         {
-            _HeaderRows.Add(p_ItemToAdd);
-            RaisePropertyChanged("HeaderRows");
+            _HeadRowIndex = p_Value;
+            RaisePropertyChanged("HeadRowIndex");
         }
-
-        public void RemoveFromHeaderRows(string p_ItemToRemove)
-        {
-            _HeaderRows.Remove(p_ItemToRemove);
-            RaisePropertyChanged("HeaderRows");
-        }
-
+        
         public void AddUListItem(string p_ItemToAdd)
         {
             _UListItems.Add(p_ItemToAdd);
@@ -352,6 +405,44 @@ namespace CDTUserControl.Viewmodels
             _UListItems.Remove(p_ItemToRemove);
             RaisePropertyChanged("UListItems");
         }
+
+        public void AddSheetsList(List<String> p_Sheets)
+        {
+            _Sheets.Clear();
+            foreach (var l_Sheets in p_Sheets)
+            {
+                _Sheets.Add(l_Sheets);
+            }
+            RaisePropertyChanged("Sheets");
+        }
+
+        public void AddExistingSheetsList(List<String> p_Sheets)
+        {
+            _UListItems.Clear();
+            foreach (var l_Sheets in p_Sheets)
+            {
+                _UListItems.Add(l_Sheets);
+            }
+            RaisePropertyChanged("UListItems");
+        }
+
+        public void SetExistingSheetsIndex(int p_Value)
+        {
+            _ExistingSheetsIndex = p_Value;
+            RaisePropertyChanged("ExistingSheetsIndex");
+        }
+        public void SetSheetsIndex(int p_Value)
+        {
+            _SheetsIndex = p_Value;
+            RaisePropertyChanged("SheetsIndex");
+        }
+
+        public void SetStatusPane(String p_Value)
+        {
+            _StatusPane = p_Value;
+            RaisePropertyChanged("StatusPane");
+        }
+        
         #endregion
     }
 }

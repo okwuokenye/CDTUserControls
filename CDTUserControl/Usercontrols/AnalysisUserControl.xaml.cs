@@ -74,6 +74,33 @@ namespace CDTUserControl.Usercontrols
         {
             return vm;
         }
+
+
+        public void AddExistingSheetsList(List<String> p_Sheets)
+        {
+            vm.AddExistingSheetsList(p_Sheets);
+        }
+
+        public void AddSheetsList(List<String> p_Sheets)
+        {
+            vm.AddSheetsList(p_Sheets);
+        }
+
+        public void SetStatusPane(string p_Value)
+        {
+            vm.SetStatusPane(p_Value);
+        }
+
+        public void SetSheetsIndex(int p_Value)
+        {
+            vm.SetSheetsIndex(p_Value);
+        }
+
+        public void SetExistingSheetsIndex(int p_Value)
+        {
+            vm.SetExistingSheetsIndex(p_Value);
+        }
+
         #endregion
 
         private void Expander_Expanded(object sender, RoutedEventArgs e)

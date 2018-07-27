@@ -136,8 +136,6 @@ namespace CDTUserControl.Usercontrols
             {
             if ((bool)Lock.IsChecked)
             {
-                //can't get this to work
-                //works now
                 LockImage.Source = new BitmapImage(new Uri("../Resources/padlock.png", UriKind.Relative));
             }
             else
