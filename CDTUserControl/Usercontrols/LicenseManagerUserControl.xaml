@@ -5,56 +5,63 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
              mc:Ignorable="d" 
-             d:DesignWidth="320">
+             d:DesignWidth="320" Height="280">
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="143" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Label Content="Product Name" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ProductName}"/>
+        <Label Content="License Status" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="2 2 2 2" />
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="2,6,2,7" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseState}" Height="18"/>
 
-        <Label Content="Computer ID" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ComputerID}"/>
+        <Label Content="Product Name" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="2 2 2 2" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="2,7,2,6" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ProductName}" Height="18"/>
 
-        <Label Content="License Key" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseKey}"/>
+        <Label Content="Computer ID" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="2 2 2 2" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="2,6,2,7" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ComputerID}" Height="18"/>
 
-        <Label Content="License Status" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseState}"/>
+        <Label Content="License Key" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="2 2 2 2" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="2,7,2,6" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding LicenseKey}" Height="18"/>
 
-        <Label Content="Serial Number" Grid.Row="4" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding SerialNumber}"/>
+        <Label Content="Serial Number" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="2 2 2 2" />
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="2,6,2,7" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding SerialNumber}" Height="18"/>
 
-        <Label Content="Date First Authenticated" Grid.Row="5" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Text="{Binding FirstAuth}"/>
+        <Label Content="Date First Authenticated" Grid.Row="5"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0" Margin="2 2 2 2" />
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="2,7,2,6" VerticalAlignment="Center"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Text="{Binding FirstAuth}" Height="18"/>
 
-        <Label Content="Expiry Date" Grid.Row="6" Grid.Column="0" Margin="2 2 2 2" />
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ExpiryDate}"/>
+        <Label Content="Expiry Date" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="2 2 2 2" />
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="2,6,2,7" VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Text="{Binding ExpiryDate}" Height="18"/>
 
-        <StackPanel Grid.Row="7" Margin="0 2 0 2" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Button Content="Recheck" HorizontalAlignment="right" Width="100" Height="22" Margin="4 2 2 2" Command="{Binding RecheckButton}"/>
-            <Button Content="Uninstall License" HorizontalAlignment="right" Width="100" Height="22" Margin="4 2 2 2" Command="{Binding UninstallButton}"/>
-            <Button Content="Install License" HorizontalAlignment="right" Width="100" Height="22" Margin="4 2 2 2" Command="{Binding InstallButton}"/>
-        </StackPanel>
+        <Grid Grid.Row="7" Margin="0 2 0 2" Grid.ColumnSpan="2" Width="300">
 
-        <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="2 2 2 2" VerticalAlignment="Center" Text="{Binding StatusWarn}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Content="Recheck" Height="22" Margin="10 2 10 2" Command="{Binding RecheckButton}"/>
+            <Button Grid.Column="1" Content="Uninstall"  Height="22" Margin="10 2 10 2" Command="{Binding UninstallButton}"/>
+            <Button Grid.Column="2" Content="Install" Height="22" Margin="10 2 10 2" Command="{Binding InstallButton}"/>
+        </Grid>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="2,7,2,8" VerticalAlignment="Top" Text="{Binding StatusWarn}" Height="16"/>
 
     </Grid>
 
