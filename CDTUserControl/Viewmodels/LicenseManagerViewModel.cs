@@ -230,7 +230,23 @@ namespace CDTUserControl.Viewmodels
         #region commands
 
 
-
+        private void UninstallExecute()
+        {
+            UninstallButtonEvent();
+        }
+        public ICommand Uninstall { get { return new RelayCommand(UninstallExecute); } }
+        
+        private void InstallExecute()
+        {
+            InstallButtonEvent();
+        }
+        public ICommand Install { get { return new RelayCommand(InstallExecute); } }
+        
+        private void RecheckExecute()
+        {
+            RecheckButtonEvent();
+        }
+        public ICommand Recheck { get { return new RelayCommand(RecheckExecute); } }
 
         #endregion
 
