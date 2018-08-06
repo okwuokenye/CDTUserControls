@@ -105,6 +105,9 @@
     <Compile Include="Usercontrols\PlayerUserControl.xaml.cs">
       <DependentUpon>PlayerUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usercontrols\QualityAssuranceUserControl.xaml.cs">
+      <DependentUpon>QualityAssuranceUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrols\TextBoxUserControl.xaml.cs">
       <DependentUpon>TextBoxUserControl.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Usercontrols\PlayerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usercontrols\QualityAssuranceUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
