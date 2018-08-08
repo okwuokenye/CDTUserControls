@@ -1,0 +1,308 @@
+﻿<UserControl x:Class="CDTUserControl.Usercontrols.QualityAssuranceUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <Grid>
+        <StackPanel>
+            <Expander Header="Mark Missing">
+                <StackPanel>
+                    <TabControl>
+                        <TabItem Header="Setup">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel>
+                                        <RadioButton Content="English" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Mark missing files" Background="RosyBrown"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Mark missing files" Background="MediumPurple"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Mark missing files" />
+                                        </StackPanel>
+
+                                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Mark missing files" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton Content="Audio" Margin="0 0 20 0" />
+                                            <RadioButton Content="Video" />
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                    <StackPanel Margin="40 0">
+                                        <RadioButton Content="Source" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Mark poss missedits" Background="LightGreen"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Find lost primaties" Background="Orange"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Reorder Alt Files" Background="SkyBlue" />
+                                        </StackPanel>
+
+                                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                                            <CheckBox />
+                                            <TextBlock Width="130" Text="Trim Spaces from File" Background="HotPink" />
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel>
+                                        <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                            <RadioButton Content="Column" Margin="0 0 20 0" />
+                                            <RadioButton Content="Selection" />
+                                        </StackPanel>
+
+                                        <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                            <Button Content="Close" Margin="0 0 20 0" Width="50" />
+                                            <Button Content="Reset" Width="50"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Margin="30 0">
+
+                                        <StackPanel Margin="0 35 0 0">
+                                            <CheckBox Content="Create Log Sheet"/>
+                                            <CheckBox Content="Mark Character when Missing" />
+                                        </StackPanel>
+
+                                        <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                                            <Button Content="Check Files" Width="100"/>
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </TabItem>
+                        <TabItem Header="Results">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Rows Checked" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0 5" Orientation="Horizontal">
+                                        <TextBlock Text="missing Files" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0 0" Orientation="Horizontal">
+                                        <TextBlock Text="Corrupted Files" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0 5" Orientation="Horizontal">
+                                        <TextBlock Text="Files Trimmed" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel Margin="50 0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Misedited Files" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0 5" Orientation="Horizontal">
+                                        <TextBlock Text="Primary Takes Found" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0 0" Orientation="Horizontal">
+                                        <TextBlock Text="Files Counted" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0 5" Orientation="Horizontal">
+                                        <TextBlock Text="Alts Reordered" Width="100"/>
+                                        <TextBox Width="80"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                
+                            </StackPanel>
+                                <TextBox HorizontalAlignment="Left" Width="410" />
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Expander>
+
+            <Expander Header="Compare Cols">
+                <StackPanel>
+                    <StackPanel Margin="0 10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Compare Column" Width="100" />
+                            <ComboBox IsEditable="True" Width="40" />
+
+                            <TextBlock Margin="50 0 0 0" Width="80" Text="With column" />
+                            <ComboBox IsEditable="True" Width="40" />
+                        </StackPanel>
+                        <GroupBox Header="Highlight" Width="500" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton Content="Column L" />
+                                <RadioButton Content="Column M"  Margin="50 0"/>
+                                <RadioButton Content="Both" />
+                            </StackPanel>
+                        </GroupBox>
+                        <CheckBox Content="Run on All Sheets" />
+
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                    <RadioButton Content="Column" Margin="0 0 20 0" />
+                                    <RadioButton Content="Selection" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                    <Button Content="Close" Margin="0 0 20 0" Width="50" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="30 0">
+
+                                <StackPanel Margin="0 35 0 0">
+                                    <CheckBox Content="Create Log Sheet"/>
+                                    <CheckBox Content="Mark Character when Missing" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                                    <Button Content="Compare Columns" Width="120"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+
+            <Expander Header="Missing Assets">
+                <StackPanel>
+                    <StackPanel Margin="0 10">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="Character Picture" Width="150" />
+                            <TextBox Text="Character" Width="200" />
+                            <TextBox Text="M" IsEnabled="False" Width="40" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                            <CheckBox Content="Scene Picture" Width="150" />
+                            <TextBox Text="Scene" Width="200" />
+                            <TextBox Text="D" IsEnabled="False" Width="40" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="Item Picture" Width="150" />
+                            <TextBox Text="Item" Width="200" />
+                            <TextBox Text="F" IsEnabled="False" Width="40" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                            <CheckBox Content="Video" Width="150" />
+                            <TextBox Text="Video" Width="200" />
+                            <TextBox Text="E" IsEnabled="False" Width="40" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="Spot FX Audio" Width="150" />
+                            <TextBox Text="SFX" Width="200" />
+                            <TextBox Text="G" IsEnabled="False" Width="40" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0 5" Orientation="Horizontal">
+                            <CheckBox Content="Ambient FX Audio" Width="150" />
+                            <TextBox Text="fx" Width="200" />
+                            <TextBox Text="H" IsEnabled="False" Width="40" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="Music Audio" Width="150" />
+                            <TextBox Text="music" Width="200" />
+                            <TextBox Text="I" IsEnabled="False" Width="40" />
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                    <RadioButton Content="Column" Margin="0 0 20 0" />
+                                    <RadioButton Content="Selection" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                    <Button Content="Close" Margin="0 0 20 0" Width="50" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="30 0">
+
+                                <StackPanel Margin="0 35 0 0">
+                                    <CheckBox Content="Create Log Sheet"/>
+                                    <CheckBox Content="Mark Character when Missing" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                                    <Button Content="Save Headers" Width="100" Margin="0 0 20 0"/>
+                                    <Button Content="Find Assets" Width="100"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+
+            <Expander Header="Mark Duplicates">
+                <StackPanel>
+                    <StackPanel Margin="0 10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Column to Analyze" Width="150" />
+                            <ComboBox IsEditable="True" Width="50" />
+                        </StackPanel>
+                        <CheckBox Content="Add suffix to duplicates" />
+
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                    <RadioButton Content="Column" Margin="0 0 20 0" />
+                                    <RadioButton Content="Selection" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
+                                    <Button Content="Close" Margin="0 0 20 0" Width="50" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="30 0">
+
+                                <StackPanel Margin="0 35 0 0">
+                                    <CheckBox Content="Create Log Sheet"/>
+                                    <CheckBox Content="Mark Character when Missing" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                                    <Button Content="Mark Duplicates" Width="120"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+        </StackPanel>  
+    </Grid>
+</UserControl>
