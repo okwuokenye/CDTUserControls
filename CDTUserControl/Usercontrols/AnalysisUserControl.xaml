@@ -24,7 +24,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <ComboBox Grid.Row="0" Margin="2,2,2,2" ItemsSource="{Binding Sheets}" SelectedItem="{Binding Sheet}"/>
+                <ComboBox Grid.Row="0" Margin="2,2,2,2" ItemsSource="{Binding Sheets}" SelectedItem="{Binding Sheet}" SelectedIndex="{Binding SheetsIndex}" Visibility="{Binding NotAnalyzeRadioButtonsVisibility}"/>
                 <CheckBox Grid.Row="1" Content="Analyse multiple sheets" Margin="2,5,2,2" IsChecked="{Binding AnalyzeMultipleSheets}"/>
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding AnalyzeRadioButtonsVisibility}" Margin="2,5,2,2">
                     <RadioButton GroupName="chk" IsChecked="{Binding IsAll}" Content="All" Margin="2,2,2,2" />
@@ -78,21 +78,20 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                         <TextBlock Text="Header Row" VerticalAlignment="Center" Margin="2,2,2,2"/>
-                    <ComboBox Width="60" Margin="10,4,2,4" ItemsSource="{Binding HeaderRowItems}" SelectedIndex="{Binding HeadRowIndex}"/>
+                    <ComboBox Width="60" Margin="10,4,2,4" ItemsSource="{Binding HeadRowItems}" SelectedIndex="{Binding HeadRowIndex}"/>
                 </StackPanel>
 
                 <CheckBox Content="Include lines with no text" Margin="2,4,2,2" Grid.Row="1" IsChecked="{Binding IncludeLinesWithNoText }"/>
                 <CheckBox Content="Ignore strikethrough text" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding IgnoreStrikethroughText }"/>
-                <CheckBox Content="Include lines with no character" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding IncludeLinesWithNoCharacter}"/>
+                <CheckBox Content="Include lines with no character (or scene)" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding IncludeLinesWithNoCharacter}"/>
                 <CheckBox Content="Close upon completion" Margin="2,4,2,2" Grid.Row="4" IsChecked="{Binding CloseUponCompletion}"/>
-                <CheckBox Content="Add to existing sheet" Margin="2,4,2,2" Grid.Row="5" IsChecked="{Binding AddToExistingSheet}"/>
-                <ComboBox Grid.Row="6" Margin="2,4,2,2" ItemsSource="{Binding UListItems}" SelectedItem="{Binding UListItem}" Visibility="{Binding AddtoExistingVisibility}"/>
+                <CheckBox Content="Add to existing analysis sheet" Margin="2,4,2,2" Grid.Row="5" IsChecked="{Binding AddToExistingSheet}" Visibility="{Binding ExistingVisibility}"/>
+                <ComboBox Grid.Row="6" Margin="2,4,2,2" ItemsSource="{Binding UListItems}" SelectedItem="{Binding UListItem}" Visibility="{Binding AddtoExistingVisibility}" SelectedIndex="{Binding ExistingSheetsIndex}"/>
             </Grid>
 
         </Expander>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,5">
-            <Button Click="CancelClick" Content="Cancel" Margin="2,2,2,2" Width="80"/>
             <Button Click="ReloadClick" Content="Reload" Margin="10,2,2,2" Width="80"/>
             <Button Click="AnalyzeClick" Content="Analyse" Margin="10,2,2,2" Width="80" />
         </StackPanel>

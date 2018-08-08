@@ -46,7 +46,7 @@
                     <Image x:Name="lockimage" Source="../Resources/padlock.png" />
                 </ToggleButton>
 
-                <ToggleButton Background="{Binding FilterBrush}" Grid.Row="2" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox3Checked}" VerticalAlignment="Center" ToolTip="Filter by selected colour (e.g. marked missing)" MouseRightButtonDown="MouseButtonDownHandler">
+                <ToggleButton Background="{Binding FilterBrush}" Grid.Row="2" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox3Checked}" VerticalAlignment="Center" ToolTip="Filter by selected colour (applies to colour of FileName column)" MouseRightButtonDown="MouseButtonDownHandler">
                     <Image x:Name="filtercolourimage" Source="../Resources/missing.png" />
                 </ToggleButton>
             </Grid>

@@ -27,6 +27,8 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new AnalysisViewModel();
             base.DataContext = vm;
+
+            vm.ActiveSheetChangeEvent += Vm_ActiveSheetChangeEvent;
         }
 
         #region events declaration
@@ -41,6 +43,10 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void SettingsExpanderChangeEventHandler(bool IsExpanded);
         public event SettingsExpanderChangeEventHandler SettingsExpanderChangeEvent;
+        
+        public delegate void ActiveSheetChangeEventHandler(string p_Value);
+        public event ActiveSheetChangeEventHandler ActiveSheetChangeEvent;
+
         #endregion
 
         #region view event handlers
@@ -101,6 +107,44 @@ namespace CDTUserControl.Usercontrols
             vm.SetExistingSheetsIndex(p_Value);
         }
 
+
+        public void SetCharacter(string p_Value)
+        {
+            vm.SetCharacter(p_Value);
+        }
+
+        public void SetText(string p_Value)
+        {
+            vm.SetText(p_Value);
+        }
+        public void SetScene(string p_Value)
+        {
+            vm.SetScene(p_Value);
+        }
+        public void SetSceneTxt(string p_Value)
+        {
+            vm.SetSceneTxt(p_Value);
+        }
+
+        public void SetTextTxt(string p_Value)
+        {
+            vm.SetTextTxt(p_Value);
+        }
+        public void SetCharacterTxt(string p_Value)
+        {
+            vm.SetCharacterTxt(p_Value);
+        }
+        
+        public void SetHeaderIndex(int p_Value)
+        {
+            vm.SetHeaderIndex(p_Value);
+        }
+
+        private void Vm_ActiveSheetChangeEvent(string p_Value)
+        {
+            ActiveSheetChangeEvent(p_Value);
+        }
+
         #endregion
 
         private void Expander_Expanded(object sender, RoutedEventArgs e)
@@ -110,5 +154,60 @@ namespace CDTUserControl.Usercontrols
             if(SettingsExpanderChangeEvent != null)
             SettingsExpanderChangeEvent(obj.IsExpanded);
         }
+
+        #region send methods
+        public int SendMultiAnalysis()
+        {
+            return vm.GetMultiAnalysis();
+        }
+        public string SendCharacter()
+        {
+            return vm.SendCharacter();
+        }
+        public string SendText()
+        {
+            return vm.SendText();
+        }
+        public string SendScene()
+        {
+            return vm.SendScene();
+        }
+        public bool SendIsScene()
+        {
+            return vm.SendIsScene();
+        }
+        public int SendHeadRow()
+        {
+            return vm.SendHeadRow();
+        }
+
+        public bool SendIncludeLinesWithNoText()
+        {
+            return vm.SendIncludeLinesWithNoText();
+        }
+        public bool SendIgnoreStrikethroughText()
+        {
+            return vm.SendIgnoreStrikethroughText();
+        }
+        public bool SendIncludeLinesWithNoCharacter()
+        {
+            return vm.SendIncludeLinesWithNoCharacter();
+        }
+        public bool SendCloseUponCompletion()
+        {
+            return vm.SendCloseUponCompletion();
+        }
+        public bool SendAddToExistingSheet()
+        {
+            return vm.SendAddToExistingSheet();
+        }
+        public string SendExistingSheet()
+        {
+            return vm.SendExistingSheet();
+        }
+
+
+#endregion
+
     }
 }

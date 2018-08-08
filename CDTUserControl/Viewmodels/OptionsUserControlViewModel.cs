@@ -77,10 +77,9 @@ namespace CDTUserControl.Viewmodels
         ObservableCollection<String> _VoiceItems = new ObservableCollection<String>();
         ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
         ObservableCollection<String> _TCDirectionItems = new ObservableCollection<String> {"Between -/+", "Shorter than +", "Longer than -"};
-        ObservableCollection<String> _TabItems = new ObservableCollection<String> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        ObservableCollection<String> _TabItems = new ObservableCollection<String> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         ObservableCollection<String> _DelayItems = new ObservableCollection<String> {"20ms", "40ms", "60ms", "80ms", "100ms", "120ms", "140ms", "160ms", "180ms", "200ms"};
         ObservableCollection<String> _EditorItems = new ObservableCollection<String> { "Adobe Audition 3.0", "Adobe Audition CC"};
-
 
         public Visibility DeviceVisibility { get { return _DefaultDeviceChecked ? Visibility.Collapsed: Visibility.Visible; } }
         public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
@@ -102,6 +101,9 @@ namespace CDTUserControl.Viewmodels
         
         public delegate void SaveButtonEventHandler();
         public event SaveButtonEventHandler SaveButtonEvent;
+
+        public delegate void EditorChangedEventHandler();
+        public event EditorChangedEventHandler EditorChangedEvent;
 
         #endregion
 
@@ -943,6 +945,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _EditorIndex = value;
                     RaisePropertyChanged("EditorIndex");
+                    EditorChangedEvent();
                 }
             }
         }

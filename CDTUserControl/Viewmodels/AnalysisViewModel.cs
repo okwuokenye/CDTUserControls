@@ -12,6 +12,9 @@ namespace CDTUserControl.Viewmodels
     {
         #region Events
 
+        public delegate void ActiveSheetChangeEventHandler(string p_Value);
+        public event ActiveSheetChangeEventHandler ActiveSheetChangeEvent;
+
         #endregion
 
         #region private variables
@@ -30,21 +33,22 @@ namespace CDTUserControl.Viewmodels
         string _CharacterTxt = string.Empty;
         string _TextTxt = string.Empty;
         string _SceneTxt = string.Empty;
-
+        
         ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
         string _HeaderRow;
         bool _IncludeLinesWithNoText = false;
         bool _IgnoreStrikethroughText = false;
         bool _IncludeLinesWithNoCharacter = false;
-        bool _CloseUponCompletion = false;
+        bool _CloseUponCompletion = true;
         bool _AddToExistingSheet = false;
+        bool _SheetsExist = false;
         ObservableCollection<string> _UListItems = new ObservableCollection<string>();
         string _UListItem;
         string _StatusPane;
         int _HeadRowIndex;
         int _ExistingSheetsIndex;
         int _SheetsIndex;
-
+        int _MultiAnalysisInt = 0;
         #endregion
 
         #region properties
@@ -52,6 +56,7 @@ namespace CDTUserControl.Viewmodels
         public String StatusPane { get { return _StatusPane; } }
         
         public ObservableCollection<string> Sheets { get { return _Sheets; } }
+
         public string Sheet
         {
             get { return _Sheet; }
@@ -60,6 +65,7 @@ namespace CDTUserControl.Viewmodels
                 if (_Sheet != value)
                 {
                     _Sheet = value;
+                    ActiveSheetChangeEvent(Sheet);
                 }
             }
         }
@@ -73,13 +79,16 @@ namespace CDTUserControl.Viewmodels
                     _AnalyzeMultipleSheets = value;
                 }
                 RaisePropertyChanged("AnalyzeRadioButtonsVisibility");
+                RaisePropertyChanged("NotAnalyzeRadioButtonsVisibility");
             }
         }
         public Visibility AnalyzeRadioButtonsVisibility { get { return _AnalyzeMultipleSheets ? Visibility.Visible : Visibility.Hidden; } }
+        public Visibility NotAnalyzeRadioButtonsVisibility { get { return !_AnalyzeMultipleSheets ? Visibility.Visible : Visibility.Hidden; } }
 
         public Visibility SceneVisibility { get { return _IsScene ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility AddtoExistingVisibility { get { return _AddToExistingSheet ? Visibility.Visible : Visibility.Collapsed; } }
-        
+        public Visibility ExistingVisibility { get { return _SheetsExist ? Visibility.Visible : Visibility.Collapsed; } }
+
         public bool IsAll
         {
             get { return _IsAll; }
@@ -194,8 +203,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-        public ObservableCollection<string> HeaderRows { get { return _HeadRowItems; } }
+        
         public string HeaderRow
         {
             get { return _HeaderRow; }
@@ -263,6 +271,24 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
+        public bool SheetsExist
+        {
+            get { return _SheetsExist; }
+            set
+            {
+                if (_SheetsExist != value)
+                {
+                    _SheetsExist = value;
+                    RaisePropertyChanged("ExistingVisibility");
+                    if(!value)
+                    {
+                        AddToExistingSheet = false;
+                    }
+                }
+            }
+        }
+
         public ObservableCollection<string> UListItems { get { return _UListItems; } }
         public string UListItem
         {
@@ -292,7 +318,23 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
-        public int SheetIndex
+        public ObservableCollection<string> HeadRowItems
+        {
+            get
+            {
+                return _HeadRowItems;
+            }
+            set
+            {
+                if (_HeadRowItems != value)
+                {
+                    _HeadRowItems = value;
+                    RaisePropertyChanged("HeadRowItems");
+                }
+            }
+        }
+
+        public int SheetsIndex
         {
             get
             {
@@ -304,6 +346,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _SheetsIndex = value;
                     RaisePropertyChanged("SheetsIndex");
+                    RaisePropertyChanged("Sheet");
                 }
             }
         }
@@ -322,6 +365,23 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+        
+        public int MultiAnalysisInt
+        {
+            get
+            {
+                return _MultiAnalysisInt;
+            }
+            set
+            {
+                if (_MultiAnalysisInt != value)
+                {
+                    _MultiAnalysisInt = value;
+                    RaisePropertyChanged("MultiAnalysisInt");
+                }
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -387,7 +447,13 @@ namespace CDTUserControl.Viewmodels
             _SceneTxt = p_Item;
             RaisePropertyChanged("SceneTxt");
         }
-        
+
+        public void SetSheetsExist(bool p_Value)
+        {
+            _SheetsExist = p_Value;
+            RaisePropertyChanged("SheetsExist");
+        }
+
         public void SetHeadRowIndex(int p_Value)
         {
             _HeadRowIndex = p_Value;
@@ -419,22 +485,38 @@ namespace CDTUserControl.Viewmodels
         public void AddExistingSheetsList(List<String> p_Sheets)
         {
             _UListItems.Clear();
-            foreach (var l_Sheets in p_Sheets)
+            if(p_Sheets.Count>0)
+            {
+                SheetsExist = true;
+                foreach (var l_Sheets in p_Sheets)
             {
                 _UListItems.Add(l_Sheets);
             }
+            }
+            else
+            {
+                SheetsExist = false;
+            }
+            
             RaisePropertyChanged("UListItems");
         }
 
         public void SetExistingSheetsIndex(int p_Value)
         {
+            if(UListItems.Count>0)
+            {
             _ExistingSheetsIndex = p_Value;
             RaisePropertyChanged("ExistingSheetsIndex");
+            }            
         }
+
         public void SetSheetsIndex(int p_Value)
         {
+            if(Sheets.Count>0)
+            {
             _SheetsIndex = p_Value;
             RaisePropertyChanged("SheetsIndex");
+            }            
         }
 
         public void SetStatusPane(String p_Value)
@@ -442,7 +524,85 @@ namespace CDTUserControl.Viewmodels
             _StatusPane = p_Value;
             RaisePropertyChanged("StatusPane");
         }
+
+        public void SetHeaderIndex(int p_Value)
+        {
+            _HeadRowIndex = p_Value;
+            RaisePropertyChanged("HeadRowIndex");
+        }
         
+        public int GetMultiAnalysis()
+        {
+            if(!AnalyzeMultipleSheets)
+            {
+                MultiAnalysisInt = 0;
+            }
+            else if(IsSelected)
+            {
+                MultiAnalysisInt = 1;
+            }
+            else if (IsVisible)
+            {
+                MultiAnalysisInt = 2;
+            }
+            else if (IsAll)
+            {
+                MultiAnalysisInt = 3;
+            }
+            return MultiAnalysisInt;
+        }
+
+        #endregion
+
+        #region send methods
+
+        public string SendCharacter()
+        {
+            return Character;
+        }
+        public string SendText()
+        {
+            return Text;
+        }
+        public string SendScene()
+        {
+            return Scene;
+        }
+        public bool SendIsScene()
+        {
+            return IsScene;
+        }
+        public int SendHeadRow()
+        {
+            return HeadRowIndex + 1;
+        }
+
+        public bool SendIncludeLinesWithNoText()
+        {
+            return IncludeLinesWithNoText;
+        }
+        public bool SendIgnoreStrikethroughText()
+        {
+            return IgnoreStrikethroughText;
+        }
+        public bool SendIncludeLinesWithNoCharacter()
+        {
+            return IncludeLinesWithNoCharacter;
+        }
+        public bool SendCloseUponCompletion()
+        {
+            return CloseUponCompletion;
+        }
+        public bool SendAddToExistingSheet()
+        {
+            return AddToExistingSheet;
+        }
+        public string SendExistingSheet()
+        {
+            return UListItem;
+        }
+
+
         #endregion
     }
 }

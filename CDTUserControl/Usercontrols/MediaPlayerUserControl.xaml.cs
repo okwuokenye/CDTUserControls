@@ -112,6 +112,7 @@ namespace CDTUserControl.Usercontrols
             if(p_FileName!="")
             {
                 CDTPlayer.Source = new Uri(p_FileName);
+                CDTPlayer.Play();
             }
             else
             {
@@ -127,6 +128,7 @@ namespace CDTUserControl.Usercontrols
             openFileDialog.Filter = "Media files (*.mp3;*.mpg;*.mpeg)|*.mp4;*.mov;*.mpeg|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
                 CDTPlayer.Source = new Uri(openFileDialog.FileName);
+                CDTPlayer.Play();
         }
 
 

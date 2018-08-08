@@ -37,6 +37,12 @@ namespace CDTUserControl.Usercontrols
         
         public delegate void SaveButtonEventHandler();
         public event SaveButtonEventHandler SaveButtonEvent;
+        
+        public delegate void EditorChangedEventHandler();
+        public event EditorChangedEventHandler EditorChangedEvent;
+
+        
+
         #endregion
 
         #region constructor
@@ -52,6 +58,9 @@ namespace CDTUserControl.Usercontrols
             vm.TCChangeEvent += Vm_TCChangeEvent;
 
             vm.SaveButtonEvent += Vm_SaveButtonEvent;
+
+            vm.EditorChangedEvent += Vm_EditorChangedEvent;
+
 
             base.DataContext = vm;
         }
@@ -94,6 +103,11 @@ namespace CDTUserControl.Usercontrols
         private void Vm_SaveButtonEvent()
         {
             SaveButtonEvent();
+        }
+        
+        private void Vm_EditorChangedEvent()
+        {
+            EditorChangedEvent();
         }
 
         #endregion
