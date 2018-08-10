@@ -21,7 +21,7 @@ namespace CDTUserControl.Viewmodels
 
         #region private variables
 
-        private ColorPickerWindow _colorPicker;
+        //private ColorPickerWindow _colorPicker;
 
         #endregion
 
@@ -33,13 +33,13 @@ namespace CDTUserControl.Viewmodels
         #region Constructor
         public QualityAssuranceViewModel()
         {
-            ShowColorPicker = new DelegateCommand(ShowColorPickerExecute, () => true);
-            Ok = new DelegateCommand(OkExecuted, () => true);
-            Cancel = new DelegateCommand(CancelExecuted, () => true);
+            //ShowColorPicker = new DelegateCommand(ShowColorPickerExecute, () => true);
+            //Ok = new DelegateCommand(OkExecuted, () => true);
+            //Cancel = new DelegateCommand(CancelExecuted, () => true);
 
-            // Create windows instance and set the DataContext to MainViewModel
-            _colorPicker = new ColorPickerWindow();
-            _colorPicker.DataContext = this;
+            //// Create windows instance and set the DataContext to MainViewModel
+            //_colorPicker = new ColorPickerWindow();
+            //_colorPicker.DataContext = this;
         }
         
 
@@ -50,17 +50,17 @@ namespace CDTUserControl.Viewmodels
         public ICommand Ok { get; set; }
         public ICommand Cancel { get; set; }
 
-        private void CancelExecuted()
-        {
-            _colorPicker.DialogResult = false;
-            _colorPicker.Close();
-        }
+        //private void CancelExecuted()
+        //{
+        //    _colorPicker.DialogResult = false;
+        //    _colorPicker.Close();
+        //}
 
-        private void OkExecuted()
-        {
-            _colorPicker.DialogResult = true;
-            _colorPicker.Close();
-        }
+        //private void OkExecuted()
+        //{
+        //    _colorPicker.DialogResult = true;
+        //    _colorPicker.Close();
+        //}
 
 
         #endregion

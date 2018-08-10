@@ -24,5 +24,22 @@ namespace CDTUserControl.Usercontrols
         {
             InitializeComponent();
         }
+
+
+        void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+            if (e.Source is Expander)
+            {
+                var exp1 = (Expander)sender;
+                foreach (Expander exp in ExpanderGrid.Children)
+                {
+                    if (exp != exp1)
+                    {
+                        exp.IsExpanded = false;
+                    }
+                }
+            }
+        }
+
     }
 }

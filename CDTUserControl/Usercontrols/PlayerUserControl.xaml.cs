@@ -39,19 +39,19 @@ namespace CDTUserControl.Usercontrols
         public delegate void DeleteButtonEventHandler(String p_FileName, Int32 p_Index);
         public event DeleteButtonEventHandler DeleteButtonEvent;
         
-        public delegate void VoiceClickEventHandler();
+        public delegate void VoiceClickEventHandler(String p_Item);
         public event VoiceClickEventHandler VoiceClickEvent;
 
         public delegate void VoiceDblClickEventHandler();
         public event VoiceDblClickEventHandler VoiceDblClickEvent;
         
-        public delegate void SourceClickEventHandler();
+        public delegate void SourceClickEventHandler(String p_Item);
         public event SourceClickEventHandler SourceClickEvent;
 
         public delegate void SourceDblClickEventHandler();
         public event SourceDblClickEventHandler SourceDblClickEvent;
 
-        public delegate void GlossaryClickEventHandler();
+        public delegate void GlossaryClickEventHandler(String p_Item);
         public event GlossaryClickEventHandler GlossaryClickEvent;
 
         public delegate void GlossaryDblClickEventHandler();
@@ -214,6 +214,9 @@ namespace CDTUserControl.Usercontrols
             vm.Volume6Event += Vm_Volume6Event;
             vm.Volume7Event += Vm_Volume7Event;
 
+            vm.VoiceClickEvent += Vm_VoiceClickEvent;
+            vm.GlossaryClickEvent += Vm_GlossaryClickEvent;
+            vm.SourceClickEvent += Vm_SourceClickEvent;
         }
 
         #endregion
@@ -491,17 +494,48 @@ namespace CDTUserControl.Usercontrols
 
         private void Voice_MouseClick(object sender, MouseEventArgs e)
         {
-            VoiceClickEvent();
+
+            if (e.Source is ListBox)
+            {
+                var lb = (ListBox)sender;
+                string selectedText = (string)lb.SelectedItem;
+                VoiceClickEvent(selectedText);
+            }
+        }
+
+        private void Vm_VoiceClickEvent(string p_Item)
+        {
+            VoiceClickEvent(p_Item);
+        }
+
+        private void Vm_SourceClickEvent(string p_Item)
+        {
+            SourceClickEvent(p_Item);
+        }
+
+        private void Vm_GlossaryClickEvent(string p_Item)
+        {
+            GlossaryClickEvent(p_Item);
         }
 
         private void Source_MouseClick(object sender, MouseEventArgs e)
         {
-            SourceClickEvent();
+            if (e.Source is ListBox)
+            {
+                var lb = (ListBox)sender;
+                string selectedText = (string)lb.SelectedItem;
+                SourceClickEvent(selectedText);
+            }
         }
 
         private void Glossary_MouseClick(object sender, MouseEventArgs e)
         {
-            GlossaryClickEvent();
+            if (e.Source is ListBox)
+            {
+                var lb = (ListBox)sender;
+                string selectedText = (string)lb.SelectedItem;
+                GlossaryClickEvent(selectedText);
+            }
         }
 
         void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
