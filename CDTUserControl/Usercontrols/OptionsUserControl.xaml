@@ -417,8 +417,9 @@
         
     </Grid>
 
-        <StackPanel Grid.Row="1" Margin="0 2 0 2">
-            <Button Content="Save and Update" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding SaveButton}"/>
+        <StackPanel Grid.Row="1" Margin="0 2 0 2" Orientation="Horizontal">
+            <Button Content="Update Headers" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding UpdateButton}"/>
+            <Button Content="Save Changes" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding SaveButton}"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
             <TextBlock Margin="2 0 2 0" FontWeight="Bold" VerticalAlignment="Center" Text="CDT Beta" />

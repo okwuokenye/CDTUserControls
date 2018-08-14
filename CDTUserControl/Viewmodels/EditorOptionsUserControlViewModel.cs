@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace CDTUserControl.Viewmodels
 {
-    class OptionsUserControlViewModel : ObservableObject
+    class EditorOptionsUserControlViewModel : ObservableObject
     {
         #region private variables
 
@@ -101,8 +101,6 @@ namespace CDTUserControl.Viewmodels
         
         public delegate void SaveButtonEventHandler();
         public event SaveButtonEventHandler SaveButtonEvent;
-        public delegate void UpdateButtonEventHandler();
-        public event UpdateButtonEventHandler UpdateButtonEvent;
 
         public delegate void EditorChangedEventHandler();
         public event EditorChangedEventHandler EditorChangedEvent;
@@ -1029,7 +1027,7 @@ namespace CDTUserControl.Viewmodels
 
         #region constructor
 
-        public OptionsUserControlViewModel()
+        public EditorOptionsUserControlViewModel()
         {
 
         }
@@ -1434,11 +1432,6 @@ namespace CDTUserControl.Viewmodels
         }
         public ICommand SaveButton { get { return new RelayCommand(SaveExecute); } }
 
-        private void UpdateExecute()
-        {
-            UpdateButtonEvent();
-        }
-        public ICommand UpdateButton { get { return new RelayCommand(UpdateExecute); } }
         #endregion
 
         #region public send functions
