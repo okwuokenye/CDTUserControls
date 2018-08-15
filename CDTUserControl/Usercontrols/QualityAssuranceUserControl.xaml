@@ -48,33 +48,33 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Row="0" Grid.Column="0">
-                                <CheckBox Width="140" Content="Mark missing files"  Margin="4 2 2 2" HorizontalAlignment="Left" MouseRightButtonUp="{Binding ShowColorPicker}" Background="{Binding Colour1}" />
-                                <CheckBox Width="140" Content="Mark corrupted files" Background="MediumPurple" Margin="4 2 2 2" HorizontalAlignment="Left"/>
-                                <CheckBox Width="140" Content="Count files" Margin="4 2 2 2" HorizontalAlignment="Left"/>
-                                <CheckBox Width="140" Content="Add result column" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding MarkMissingFiles}" Width="140" Content="Mark missing files"  Margin="4 2 2 2" HorizontalAlignment="Left" MouseRightButtonUp="{Binding ShowColorPicker}" Background="{Binding Colour1}" />
+                                <CheckBox IsChecked="{Binding MarkCorruptedFiles}" Width="140" Content="Mark corrupted files" Background="MediumPurple" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding CountFiles}" Width="140" Content="Count files" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding AddResultColumn}" Width="140" Content="Add result column" Margin="4 2 2 2" HorizontalAlignment="Left"/>
                             </StackPanel>
                             <StackPanel Grid.Row="0" Grid.Column="1">
-                                <CheckBox Width="140" Content="Mark poss missedits" Background="LightGreen" Margin="4 2 2 2" HorizontalAlignment="Left"/>
-                                <CheckBox Width="140" Content="Find lost primaries" Background="Orange" Margin="4 2 2 2" HorizontalAlignment="Left"/>
-                                <CheckBox Width="140" Content="Reorder Alt Files" Background="SkyBlue" Margin="4 2 2 2" HorizontalAlignment="Left"/>
-                                <CheckBox Width="140" Content="Trim Spaces from File" Background="HotPink" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding MarkPossMissedits}" Width="140" Content="Mark poss missedits" Background="LightGreen" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding FindLostPrimaries}" Width="140" Content="Find lost primaries" Background="Orange" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding ReorderAltFiles}" Width="140" Content="Reorder Alt Files" Background="SkyBlue" Margin="4 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding TrimSpacesFromFile}" Width="140" Content="Trim Spaces from File" Background="HotPink" Margin="4 2 2 2" HorizontalAlignment="Left"/>
                             </StackPanel>
 
                             <StackPanel Margin="2 5 2 2" Orientation="Horizontal "  Grid.Row="2" Grid.Column="0">
-                                <RadioButton Content="{Binding PrimarySource}" Margin="2 2 2 2" Width="80" />
-                                <RadioButton Content="{Binding SecondarySource}" Margin="2 2 2 2" Width="80" />
+                                <RadioButton IsChecked="{Binding IsPrimaryChecked}" GroupName="Source" Content="Primary" Margin="2 2 2 2" Width="80" />
+                                <RadioButton IsChecked="{Binding IsSecondaryChecked}" GroupName="Source" Content="Secondary" Margin="2 2 2 2" Width="80" />
                             </StackPanel>
 
                             <StackPanel Margin="2 5 2 2" Orientation="Horizontal "  Grid.Row="2" Grid.Column="1">
-                                <RadioButton Content="Audio"  Margin="2 2 2 2" Width="80" />
-                                <RadioButton Content="Video"  Margin="2 2 2 2" Width="80"/>
+                                <RadioButton IsChecked="{Binding IsAudioChecked}" GroupName="AudioVideo" Content="Audio" Margin="2 2 2 2" Width="80" />
+                                <RadioButton IsChecked="{Binding IsVideoChecked}" GroupName="AudioVideo" Content="Video"  Margin="2 2 2 2" Width="80"/>
                             </StackPanel>
 
                             <StackPanel Margin="2 5 2 2" Orientation="Horizontal "  Grid.Row="3" Grid.Column="0">
-                                <RadioButton Content="All"  Margin="2 2 2 2" Width="80"/>
-                                <RadioButton Content="Selection"  Margin="2 2 2 2" Width="80"/>
+                                <RadioButton IsChecked="{Binding IsAllChecked}" GroupName="AllSelection" Content="All"  Margin="2 2 2 2" Width="80"/>
+                                <RadioButton IsChecked="{Binding IsSelectionChecked}" GroupName="AllSelection" Content="Selection"  Margin="2 2 2 2" Width="80"/>
                             </StackPanel>
-                            <CheckBox Content="Create Log Sheet"  Margin="4 7 2 2"  Grid.Row="3" Grid.Column="1"/>
+                            <CheckBox IsChecked="{Binding IsCreateLogSheet}" Content="Create Log Sheet"  Margin="4 7 2 2"  Grid.Row="3" Grid.Column="1"/>
 
                         </Grid>
                     </TabItem>
@@ -98,21 +98,21 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="Rows Checked" Margin="2 2 2 2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-                            <TextBox Margin="2 2 2 2"  Grid.Column="2" Grid.Row="0"/>
+                            <TextBox Text="{Binding RowsChecked}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="0"/>
                             <TextBlock Text="missing Files" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
-                            <TextBox Margin="2 2 2 2"  Grid.Column="2" Grid.Row="1"/>
+                            <TextBox Text="{Binding MissingFiles}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="1"/>
                             <TextBlock Text="Corrupted Files" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
-                            <TextBox  Margin="2 2 2 2"  Grid.Column="2" Grid.Row="2"/>
+                            <TextBox Text="{Binding CorruptedFiles}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="2"/>
                             <TextBlock Text="Files Trimmed" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"/>
-                            <TextBox  Margin="2 2 2 2"  Grid.Column="2" Grid.Row="3"/>
+                            <TextBox Text="{Binding FilesTrimmed}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="3"/>
                             <TextBlock Text="Misedited Files" Margin="2 2 2 2"  Grid.Column="3" Grid.Row="0"/>
-                            <TextBox  Margin="2 2 2 2"  Grid.Column="4" Grid.Row="0"/>
+                            <TextBox Text="{Binding MisseditedFiles}" Margin="2 2 2 2"  Grid.Column="4" Grid.Row="0"/>
                             <TextBlock Text="Primary Takes Found"  Margin="2 2 2 2"  Grid.Column="3" Grid.Row="1"/>
-                            <TextBox  Margin="2 2 2 2"  Grid.Column="4" Grid.Row="1"/>
+                            <TextBox Text="{Binding PrimaryTakesFound}" Margin="2 2 2 2"  Grid.Column="4" Grid.Row="1"/>
                             <TextBlock Text="Files Counted"  Margin="2 2 2 2"  Grid.Column="3" Grid.Row="2"/>
-                            <TextBox  Margin="2 2 2 2"  Grid.Column="4" Grid.Row="2"/>
+                            <TextBox Text="{Binding FilesCounted}" Margin="2 2 2 2"  Grid.Column="4" Grid.Row="2"/>
                             <TextBlock Text="Alts Reordered" Margin="2 2 2 2"   Grid.Column="3" Grid.Row="3"/>
-                            <TextBox  Margin="2 2 2 2"  Grid.Column="4" Grid.Row="3"/>
+                            <TextBox Text="{Binding AltsReordered}" Margin="2 2 2 2"  Grid.Column="4" Grid.Row="3"/>
                             <TextBox HorizontalAlignment="Stretch" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5" />
 
                         </Grid>
@@ -127,8 +127,8 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Content="Reset" Margin="2 2 2 2" Width="100" Grid.Column="0"/>
-                    <Button Content="Check Files" Margin="16 2 2 2" Width="100"  Grid.Column="1"/>
+                    <Button Command="{Binding Reset}" Content="Reset" Margin="2 2 2 2" Width="100" Grid.Column="0"/>
+                    <Button Command="{Binding CheckFiles}" Content="Check Files" Margin="16 2 2 2" Width="100"  Grid.Column="1"/>
                 </Grid>
 
             </Grid>

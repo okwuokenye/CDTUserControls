@@ -20,52 +20,136 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region private variables
-
         private ColorPickerWindow _colorPicker;
+        private bool _MarkMissingFiles = false;
+        private bool _MarkCorruptedFiles = false;
+        private bool _CountFiles = false;
+        private bool _AddResultColumn = false;
+        private bool _MarkPossMissedits = false;
+        private bool _FindLostPrimaries = false;
+        private bool _ReorderAltFiles = false;
+        private bool _TrimSpacesFromFile = false;
+
+        private bool _IsPrimaryChecked = false;
+        private bool _IsSecondaryChecked = false;
+        private bool _IsAudioChecked = false;
+        private bool _IsVideoChecked = false;
+        private bool _IsAllChecked = false;
+        private bool _IsSelectionChecked = false;
+        private bool _IsCreateLogSheet = false;
 
         #endregion
 
         #region properties
-
-
+        public bool MarkMissingFiles
+        {
+            get { return _MarkMissingFiles; }
+            set
+            {
+                if (_MarkMissingFiles != value)
+                {
+                    _MarkMissingFiles = value;
+                }
+            }
+        }
+        public bool MarkCorruptedFiles
+        {
+            get { return _MarkCorruptedFiles; }
+            set
+            {
+                if (_MarkCorruptedFiles != value)
+                {
+                    _MarkCorruptedFiles = value;
+                }
+            }
+        }
+        public bool CountFiles
+        {
+            get { return _CountFiles; }
+            set
+            {
+                if (_CountFiles != value)
+                {
+                    _CountFiles = value;
+                }
+            }
+        }
+        public bool AddResultColumn
+        {
+            get { return _AddResultColumn; }
+            set
+            {
+                if (_AddResultColumn != value)
+                {
+                    _AddResultColumn = value;
+                }
+            }
+        }
+        public bool MarkPossMissedits
+        {
+            get { return _MarkPossMissedits; }
+            set
+            {
+                if (_MarkPossMissedits != value)
+                {
+                    _MarkPossMissedits = value;
+                }
+            }
+        }
+        public bool FindLostPrimaries
+        {
+            get { return _FindLostPrimaries; }
+            set
+            {
+                if (_FindLostPrimaries != value)
+                {
+                    _FindLostPrimaries = value;
+                }
+            }
+        }
+        public bool ReorderAltFiles
+        {
+            get { return _ReorderAltFiles; }
+            set
+            {
+                if (_ReorderAltFiles != value)
+                {
+                    _ReorderAltFiles = value;
+                }
+            }
+        }
+        public bool TrimSpacesFromFile
+        {
+            get { return _TrimSpacesFromFile; }
+            set
+            {
+                if (_TrimSpacesFromFile != value)
+                {
+                    _TrimSpacesFromFile = value;
+                }
+            }
+        }
         #endregion
 
         #region Constructor
         public QualityAssuranceViewModel()
         {
-            ShowColorPicker = new DelegateCommand(ShowColorPickerExecute, () => true);
-            Ok = new DelegateCommand(OkExecuted, () => true);
-            Cancel = new DelegateCommand(CancelExecuted, () => true);
 
-            // Create windows instance and set the DataContext to MainViewModel
-            _colorPicker = new ColorPickerWindow();
-            _colorPicker.DataContext = this;
         }
-        
-
-        public Color Color1 { get; set; }
-
-        public ICommand ShowColorPicker { get; set; }
-
-        public ICommand Ok { get; set; }
-        public ICommand Cancel { get; set; }
-
-        private void CancelExecuted()
-        {
-            _colorPicker.DialogResult = false;
-            _colorPicker.Close();
-        }
-
-        private void OkExecuted()
-        {
-            _colorPicker.DialogResult = true;
-            _colorPicker.Close();
-        }
-
-
         #endregion
-        #region Commands
 
+        #region Commands
+        private void ResetExecute()
+        {
+
+        }
+        public ICommand Reset { get { return new RelayCommand(ResetExecute); } }
+
+        private void CheckFilesExecute()
+        {
+
+        }
+        public ICommand CheckFiles { get { return new RelayCommand(CheckFilesExecute); } }
         #endregion
 
         #region private methods

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CDTUserControl.Viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace CDTUserControl.Usercontrols
     /// </summary>
     public partial class QualityAssuranceUserControl : UserControl
     {
+        QualityAssuranceViewModel vm;
         public QualityAssuranceUserControl()
         {
             InitializeComponent();
+            vm = new QualityAssuranceViewModel();
+            base.DataContext = vm;
         }
     }
 }
