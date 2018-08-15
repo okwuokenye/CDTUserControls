@@ -40,23 +40,14 @@ namespace CDTUserControl.Viewmodels
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
 
 
-        public delegate void VoiceClickEventHandler();
+        public delegate void VoiceClickEventHandler(String p_Item);
         public event VoiceClickEventHandler VoiceClickEvent;
 
-        public delegate void VoiceDblClickEventHandler();
-        public event VoiceDblClickEventHandler VoiceDblClickEvent;
-        
-        public delegate void SourceClickEventHandler();
+        public delegate void SourceClickEventHandler(String p_Item);
         public event SourceClickEventHandler SourceClickEvent;
 
-        public delegate void SourceDblClickEventHandler();
-        public event SourceDblClickEventHandler SourceDblClickEvent;
-
-        public delegate void GlossaryClickEventHandler();
+        public delegate void GlossaryClickEventHandler(String p_Item);
         public event GlossaryClickEventHandler GlossaryClickEvent;
-
-        public delegate void GlossaryDblClickEventHandler();
-        public event GlossaryDblClickEventHandler GlossaryDblClickEvent;
 
         //ignore small buttons 1 and 2
         public delegate void TextButtonEventHandler();
@@ -440,12 +431,13 @@ namespace CDTUserControl.Viewmodels
             }
             set
             {
+
                 if (_EnglishTabListBoxItem != value)
                 {
                     _EnglishTabListBoxItem = value;
-                    //raise Item selected event
                     Tab1ItemSelectedEvent(_EnglishTabListBoxItem, _EnglishTabListBoxItems.IndexOf(_EnglishTabListBoxItem));
                 }
+                //VoiceClickEvent(_EnglishTabListBoxItem);
             }
         }
         public ObservableCollection<String> SourceTabListBoxItems { get { return _SourceTabListBoxItems; } }
@@ -463,6 +455,7 @@ namespace CDTUserControl.Viewmodels
                     //raise Item selected event
                     Tab2ItemSelectedEvent(_SourceTabListBoxItem, _SourceTabListBoxItems.IndexOf(_SourceTabListBoxItem));
                 }
+                //SourceClickEvent(_SourceTabListBoxItem);
             }
         }
 
@@ -481,6 +474,7 @@ namespace CDTUserControl.Viewmodels
                     //raise Item selected event
                     Tab3ItemSelectedEvent(_GlossaryTabListBoxItem, _GlossaryTabListBoxItems.IndexOf(_GlossaryTabListBoxItem));
                 }
+                //GlossaryClickEvent(_GlossaryTabListBoxItem);
             }
         }
 

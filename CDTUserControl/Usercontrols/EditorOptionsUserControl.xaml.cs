@@ -18,11 +18,11 @@ using CDTUserControl.Viewmodels;
 namespace CDTUserControl.Usercontrols
 {
     /// <summary>
-    /// Interaction logic for OptionsUserControl.xaml
+    /// Interaction logic for EditorOptionsUserControl.xaml
     /// </summary>
-    public partial class OptionsUserControl : UserControl
+    public partial class EditorOptionsUserControl : UserControl
     {
-        OptionsUserControlViewModel vm;
+        EditorOptionsUserControlViewModel vm;
 
         #region event declarations
 
@@ -37,10 +37,7 @@ namespace CDTUserControl.Usercontrols
         
         public delegate void SaveButtonEventHandler();
         public event SaveButtonEventHandler SaveButtonEvent;
-
-        public delegate void UpdateButtonEventHandler();
-        public event UpdateButtonEventHandler UpdateButtonEvent;
-
+        
         public delegate void EditorChangedEventHandler();
         public event EditorChangedEventHandler EditorChangedEvent;
 
@@ -50,10 +47,10 @@ namespace CDTUserControl.Usercontrols
 
         #region constructor
 
-        public OptionsUserControl()
+        public EditorOptionsUserControl()
         {
             InitializeComponent();
-            vm = new OptionsUserControlViewModel();
+            vm = new EditorOptionsUserControlViewModel();
 
             //add event listeners
             vm.RootChangeButtonEvent += Vm_RootChangeButtonEvent;
@@ -61,7 +58,6 @@ namespace CDTUserControl.Usercontrols
             vm.TCChangeEvent += Vm_TCChangeEvent;
 
             vm.SaveButtonEvent += Vm_SaveButtonEvent;
-            vm.UpdateButtonEvent += Vm_UpdateButtonEvent;
 
             vm.EditorChangedEvent += Vm_EditorChangedEvent;
 
@@ -108,11 +104,7 @@ namespace CDTUserControl.Usercontrols
         {
             SaveButtonEvent();
         }
-        private void Vm_UpdateButtonEvent()
-        {
-            UpdateButtonEvent();
-        }
-
+        
         private void Vm_EditorChangedEvent()
         {
             EditorChangedEvent();
@@ -409,8 +401,7 @@ namespace CDTUserControl.Usercontrols
             vm.ClearStatusText();
         }
         #endregion
-
-
+        
         #region public send functions
 
         public string SendRootText()

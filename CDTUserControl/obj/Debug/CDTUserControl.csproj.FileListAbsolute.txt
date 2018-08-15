@@ -260,3 +260,10 @@ C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserCont
 C:\Users\okwuo\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.pdb
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.xml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.pdb
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.xml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
