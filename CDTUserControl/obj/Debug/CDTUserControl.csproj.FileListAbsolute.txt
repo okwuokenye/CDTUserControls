@@ -266,4 +266,11 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.xml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.xml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorOptionsUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorOptionsUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Styles\resourceDict.baml

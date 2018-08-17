@@ -5,9 +5,12 @@
              StartupUri="TestControl.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <!-- Believe it or not the next line fixes a bug MS acknowledges -->
+            <Style TargetType="{x:Type Rectangle}" />
             <ResourceDictionary.MergedDictionaries>
-                
+                <ResourceDictionary Source="/Styles/resourceDict.XAML" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+            </ResourceDictionary>
+
     </Application.Resources>
 </Application>

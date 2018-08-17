@@ -31,7 +31,7 @@
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="2 2 2 2" Height="20" ItemsSource="{Binding CurrentCharacters}" SelectedItem="{Binding CurrentCharacter}" IsEditable="True" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                <ComboBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="2 2 2 2" Height="20" ItemsSource="{Binding CurrentCharacters}" SelectedItem="{Binding CurrentCharacter}" IsEditable="True" VerticalAlignment="Center" HorizontalAlignment="Stretch" MouseDoubleClick="CharDblClick"/>
                 <ToggleButton Background="Transparent" Grid.Row="0" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox1Checked}" VerticalAlignment="Center" ToolTip="Filter the script by the current character">
                     <Image x:Name="filterimage" Source="../Resources/filter.png" />
                 </ToggleButton>
@@ -40,13 +40,17 @@
                 <Button Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" Grid.RowSpan="2" Command="{Binding Previous}" Content="Previous" />
 
                 <Button Grid.Row="1" Grid.Column="2" Margin="2 2 2 2" Command="{Binding FirstLine}" Content="First Line" />
-                <Button Grid.Row="2" Grid.Column="2" Margin="2 2 2 2" Command="{Binding LastLine}" Content="Last Line" />
+                <Button Grid.Row="2" Grid.Column="2" Margin="2,2,0,2" Command="{Binding LastLine}" Content="Last Line" HorizontalAlignment="Left" Width="76" />
 
-                <ToggleButton Grid.Row="1" Grid.Column="3"  Margin="4" IsChecked="{Binding IsCheckBox2Checked}" VerticalAlignment="Center" ToolTip="Lock navigator to the current character">
+                <!--<ToggleButton Grid.Row="1" Grid.Column="3"  Margin="4" IsChecked="{Binding IsCheckBox2Checked}" VerticalAlignment="Center" ToolTip="Lock navigator to the current character">
                     <Image x:Name="lockimage" Source="../Resources/padlock.png" />
-                </ToggleButton>
+                </ToggleButton>-->
 
-                <ToggleButton Background="{Binding FilterBrush}" Grid.Row="2" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox3Checked}" VerticalAlignment="Center" ToolTip="Filter by selected colour (applies to colour of FileName column)" MouseRightButtonDown="MouseButtonDownHandler">
+                <Button Grid.Row="3" Grid.Column="3" Margin="4 4 4 4" Command="{Binding PlayerOpen}" ToolTip="Open Player">
+                    <Image x:Name="playerimage" Source="../Resources/Player.png"/>
+                </Button>
+
+                <ToggleButton Background="{Binding FilterBrush}" Grid.Row="1" Grid.Column="3" Margin="4" IsChecked="{Binding IsCheckBox3Checked}" VerticalAlignment="Center" ToolTip="Filter by selected colour (applies to colour of FileName column)" MouseRightButtonDown="MouseButtonDownHandler">
                     <Image x:Name="filtercolourimage" Source="../Resources/missing.png" />
                 </ToggleButton>
             </Grid>

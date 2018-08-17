@@ -19,7 +19,7 @@ namespace CDTUserControl.Usercontrols
     /// <summary>
     /// Interaction logic for ColorPickerWindow.xaml
     /// </summary>
-    public partial class ColorPickerWindow : UserControl
+    public partial class ColorPickerWindow : Window
     {
         public ColorPickerWindow()
         {

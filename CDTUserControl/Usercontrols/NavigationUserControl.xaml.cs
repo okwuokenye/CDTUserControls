@@ -33,6 +33,9 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void FirstlineButtonEventHandler();
         public event FirstlineButtonEventHandler FirstlineButtonEvent;
+        
+        public delegate void PlayerOpenButtonEventHandler();
+        public event PlayerOpenButtonEventHandler PlayerOpenButtonEvent;
 
         public delegate void LastlineButtonEventHandler();
         public event LastlineButtonEventHandler LastlineButtonEvent;
@@ -127,6 +130,10 @@ namespace CDTUserControl.Usercontrols
         public delegate void ClearColourComboIndexEventHandler(Int32 p_Index);
         public event ClearColourComboIndexEventHandler ClearColourComboIndexEvent;
 
+
+        public delegate void CharDblClickEventHandler();
+        public event CharDblClickEventHandler CharDblClickEvent;
+
         #endregion
 
         #region constructor
@@ -139,6 +146,7 @@ namespace CDTUserControl.Usercontrols
             vm.NextButtonEvent += Vm_NextButtonEvent;
             vm.PreviousButtonEvent += Vm_PreviousButtonEvent;
             vm.FirstlineButtonEvent += Vm_FirstlineButtonEvent;
+            vm.PlayerOpenButtonEvent += Vm_PlayerOpenButtonEvent;
             vm.LastlineButtonEvent += Vm_LastlineButtonEvent;
             vm.ReadingFontButtonEvent += Vm_ReadingFontButtonEvent;
             vm.HighlightButtonEvent += Vm_HighlightButtonEvent;
@@ -284,6 +292,11 @@ namespace CDTUserControl.Usercontrols
             FirstlineButtonEvent();
         }
 
+        private void Vm_PlayerOpenButtonEvent()
+        {
+            PlayerOpenButtonEvent();
+        }
+
         private void Vm_PreviousButtonEvent()
         {
             PreviousButtonEvent();
@@ -294,6 +307,11 @@ namespace CDTUserControl.Usercontrols
             NextButtonEvent();
         }
 
+        private void Vm_CharDblClickEvent()
+        {
+            CharDblClickEvent();
+        }
+        
         private void Vm_CurrentCharacterSelectedEvent(Int32 p_Index)
         {
             CurrentCharacterSelectedEvent(p_Index);
@@ -362,6 +380,11 @@ namespace CDTUserControl.Usercontrols
         private void MouseButtonDownHandler(object sender, MouseButtonEventArgs e)
         {
             FilterColourChangedEvent();
+        }
+        
+        private void CharDblClick(object sender, RoutedEventArgs args)
+        {
+            CharDblClickEvent();
         }
 
         #endregion

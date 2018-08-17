@@ -8,7 +8,8 @@
              HorizontalAlignment="Stretch"
 	VerticalAlignment="Stretch"
 	HorizontalContentAlignment="Stretch"
-	VerticalContentAlignment="Stretch" 
+	VerticalContentAlignment="Stretch"
+    Style="{DynamicResource ControlStyle}"
     >
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   Margin="5,5,5,5">
@@ -150,7 +151,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
-                <Button Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
+                <Button Command="{Binding Voice}" Content="poo" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
 
                 <Button Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSourceEnabled}"/>
 
@@ -177,7 +178,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute1" ToolTip="{Binding Mute1Tooltip}" Source="{Binding Mute1Source}" />
                 </Button>
-                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" />
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider1DblClick" />
                 <TextBlock Text="{Binding SliderText1}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
             </StackPanel>
 
@@ -185,7 +186,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute2" ToolTip="{Binding Mute2Tooltip}" Source="{Binding Mute2Source}" />
                 </Button>
-                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" />
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider2DblClick"/>
                 <TextBlock Text="{Binding SliderText2}" HorizontalAlignment="Center"  Width="30" TextAlignment="Center"/>
             </StackPanel>
 
@@ -193,7 +194,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute3" ToolTip="{Binding Mute3Tooltip}" Source="{Binding Mute3Source}" />
                 </Button>
-                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" />
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider3DblClick"/>
                 <TextBlock Text="{Binding SliderText3}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
             </StackPanel>
 
@@ -207,7 +208,7 @@
                     </Button>
                 </StackPanel>
 
-                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="200" Orientation="Vertical" />
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider4}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider4DblClick"/>
                 <TextBlock Text="{Binding SliderText4}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
             </StackPanel>
 
@@ -220,7 +221,7 @@
                         <Image x:Name="loop5"  ToolTip="{Binding Loop5Tooltip}" Source="{Binding Loop5Source}" />
                     </Button>
                 </StackPanel>
-                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="200" Orientation="Vertical" />
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider5}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider5DblClick" />
                 <TextBlock Text="{Binding SliderText5}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
             </StackPanel>
 
@@ -235,8 +236,8 @@
             <!--This is a master volume control which was missing. It goes under the stop button-->
 
             <StackPanel Width="50" Margin="4,2,0,4">
-
-                <Slider Margin="0 20 0 0" Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
+                <TextBlock Text="sys" HorizontalAlignment="Center" Width="24" Height="20" TextAlignment="Center" VerticalAlignment="Bottom"  Margin="0 0 0 2"/>
+                <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider7}" Maximum="100" Orientation="Vertical" VerticalAlignment="Bottom"/>
                 <TextBlock Text="{Binding Slider7}" HorizontalAlignment="Center" Width="30" TextAlignment="Center"/>
             </StackPanel>
 

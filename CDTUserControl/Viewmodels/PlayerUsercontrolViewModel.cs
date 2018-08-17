@@ -148,11 +148,11 @@ namespace CDTUserControl.Viewmodels
         Int32 _Slider6 = 100;
         Int32 _Slider7;
 
-        String _SliderText1 = "100";
-        String _SliderText2 = "100";
-        String _SliderText3 = "100";
-        String _SliderText4 = "100";
-        String _SliderText5 = "100";
+        String _SliderText1 = "0";
+        String _SliderText2 = "0";
+        String _SliderText3 = "0";
+        String _SliderText4 = "0";
+        String _SliderText5 = "0";
 
         Boolean _CompareSource = false;
 
@@ -239,14 +239,31 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider1 != value)
                 {
                     _Slider1 = value;
+                    string temp = "0";
                     if (value > 100)
                     {
-                        SliderText1 = "+" + value.ToString();
+                        int val = (int)Math.Abs(Math.Round((double)(value-100) / 10, 0));
+                        temp = "+" + val.ToString();
                     }
-                    else
+                    else if (value == 100)
                     {
-                        SliderText1 = value.ToString();
+                        temp = "0";
                     }
+                    else if (value == 0)
+                    {
+                        temp = "-";
+                    }
+                    else if (value < 100)
+                    {
+                        int val = (int)Math.Abs(Math.Round((double)(100-value) / 10, 0));
+                        if(val==0)
+                        {
+                            val = 1;
+                        }
+                        temp = "-" + val.ToString();
+                    }
+                    SliderText1 = temp;
+
                     Volume1Event(value);
                     RaisePropertyChanged("Slider1");
                 }
@@ -260,14 +277,30 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider2 != value)
                 {
                     _Slider2 = value;
+                    string temp = "0";
                     if (value > 100)
                     {
-                        SliderText2 = "+" + value.ToString();
+                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
+                        temp = "+" + val.ToString();
                     }
-                    else
+                    else if (value == 100)
                     {
-                        SliderText2 = value.ToString();
+                        temp = "0";
                     }
+                    else if (value == 0)
+                    {
+                        temp = "-";
+                    }
+                    else if (value < 100)
+                    {
+                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
+                        if (val == 0)
+                        {
+                            val = 1;
+                        }
+                        temp = "-" + val.ToString();
+                    }
+                    SliderText2 = temp;
                     Volume2Event(value);
                     RaisePropertyChanged("Slider2");
                 }
@@ -281,14 +314,30 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider3 != value)
                 {
                     _Slider3 = value;
+                    string temp = "0";
                     if (value > 100)
                     {
-                        SliderText3 = "+" + value.ToString();
+                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
+                        temp = "+" + val.ToString();
                     }
-                    else
+                    else if (value == 100)
                     {
-                        SliderText3 = value.ToString();
+                        temp = "0";
                     }
+                    else if (value == 0)
+                    {
+                        temp = "-";
+                    }
+                    else if (value < 100)
+                    {
+                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
+                        if (val == 0)
+                        {
+                            val = 1;
+                        }
+                        temp = "-" + val.ToString();
+                    }
+                    SliderText3 = temp;
                     Volume3Event(value);
                     RaisePropertyChanged("Slider3");
                 }
@@ -302,14 +351,30 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider4 != value)
                 {
                     _Slider4 = value;
+                    string temp = "0";
                     if (value > 100)
                     {
-                        SliderText4 = "+" + value.ToString();
+                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
+                        temp = "+" + val.ToString();
                     }
-                    else
+                    else if (value == 100)
                     {
-                        SliderText4 = value.ToString();
+                        temp = "0";
                     }
+                    else if (value == 0)
+                    {
+                        temp = "-";
+                    }
+                    else if (value < 100)
+                    {
+                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
+                        if (val == 0)
+                        {
+                            val = 1;
+                        }
+                        temp = "-" + val.ToString();
+                    }
+                    SliderText4 = temp;
                     Volume4Event(value);
                     RaisePropertyChanged("Slider4");
                 }
@@ -323,14 +388,30 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider5 != value)
                 {
                     _Slider5 = value;
+                    string temp = "0";
                     if (value > 100)
                     {
-                        SliderText5 = "+" + value.ToString();
+                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
+                        temp = "+" + val.ToString();
                     }
-                    else
+                    else if (value == 100)
                     {
-                        SliderText5 = value.ToString();
+                        temp = "0";
                     }
+                    else if (value == 0)
+                    {
+                        temp = "-";
+                    }
+                    else if (value < 100)
+                    {
+                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
+                        if (val == 0)
+                        {
+                            val = 1;
+                        }
+                        temp = "-" + val.ToString();
+                    }
+                    SliderText5 = temp;
                     Volume5Event(value);
                     RaisePropertyChanged("Slider5");
                 }

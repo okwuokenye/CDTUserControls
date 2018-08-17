@@ -17,7 +17,7 @@ namespace CDTUserControl.Viewmodels
         String _CurrentCharacter;
         String _StatusPane = "";
         Boolean _IsCheckBox1Checked = false;
-        Boolean _IsCheckBox2Checked = false;
+        Boolean _IsCheckBox2Checked = true;
         Boolean _IsCheckBox3Checked = false;
         Boolean _IsGoToFirst = true;
         ObservableCollection<String> _ClearColourComboItems = new ObservableCollection<String>{"All columns", "Selected columns", "Text column only" };
@@ -37,6 +37,7 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region event declarations
+
         public delegate void NextButtonEventHandler();
         public event NextButtonEventHandler NextButtonEvent;
 
@@ -45,6 +46,9 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void FirstlineButtonEventHandler();
         public event FirstlineButtonEventHandler FirstlineButtonEvent;
+
+        public delegate void PlayerOpenButtonEventHandler();
+        public event PlayerOpenButtonEventHandler PlayerOpenButtonEvent;
 
         public delegate void LastlineButtonEventHandler();
         public event LastlineButtonEventHandler LastlineButtonEvent;
@@ -453,6 +457,12 @@ namespace CDTUserControl.Viewmodels
             FirstlineButtonEvent();
         }
         public ICommand FirstLine { get { return new RelayCommand(FirstLineExecute); } }
+
+        private void PlayerOpenExecute()
+        {
+            PlayerOpenButtonEvent();
+        }
+        public ICommand PlayerOpen { get { return new RelayCommand(PlayerOpenExecute); } }
 
         private void LastLineExecute()
         {
