@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="338" Width="302">
 
-    <Grid>
+    <Grid Background="{Binding BackgroungColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="94" />
             <RowDefinition Height="116" />

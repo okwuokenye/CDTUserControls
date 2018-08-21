@@ -33,7 +33,7 @@ namespace CDTUserControl.Viewmodels
         Brush _FilterBrush;
         Boolean _StartOn = false;
         Boolean _PauseOn = false;
-
+        string _BackgroundColor = "Black";
         #endregion
 
         #region event declarations
@@ -358,6 +358,10 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+        public string BackgroundColor
+        {
+            get { return _BackgroundColor; }
+        }
         #endregion
 
         #region constructor
@@ -437,6 +441,11 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("HighlightColor");
         }
 
+        public void SetBackgroundColor(string p_Color)
+        {
+            _BackgroundColor = p_Color;
+            RaisePropertyChanged("BackgroundColor");
+        }
         #endregion
 
         #region commands
