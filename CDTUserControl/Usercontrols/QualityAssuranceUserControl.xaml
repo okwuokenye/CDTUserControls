@@ -135,50 +135,76 @@
         </Expander>
 
         <Expander Header="Compare Cols" Grid.Row="1" Expanded="Expander_Expanded">
-            <StackPanel>
-                <StackPanel Margin="0 10">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Compare Column" Width="100" />
-                        <ComboBox IsEditable="True" Width="40" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
 
-                        <TextBlock Margin="50 0 0 0" Width="80" Text="With column" />
-                        <ComboBox IsEditable="True" Width="40" />
-                    </StackPanel>
-                    <GroupBox Header="Highlight" Width="500" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton Content="Column L" />
-                            <RadioButton Content="Column M"  Margin="50 0"/>
-                            <RadioButton Content="Both" />
-                        </StackPanel>
-                    </GroupBox>
-                    <CheckBox Content="Run on All Sheets" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel>
-                            <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
-                                <RadioButton Content="Column" Margin="0 0 20 0" />
-                                <RadioButton Content="Selection" />
-                            </StackPanel>
+                <TextBlock Text="Compare Column" Width="100" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <ComboBox IsEditable="True" Width="40" Grid.Row="0" Grid.Column="1"  Margin="2 2 2 2"/>
 
-                            <StackPanel Margin="0 30 0 0" Orientation="Horizontal">
-                                <Button Content="Close" Margin="0 0 20 0" Width="50" />
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel Margin="30 0">
+                <TextBlock Width="80" Text="With column" Grid.Row="0" Grid.Column="2"  Margin="20 2 2 2"  VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <ComboBox IsEditable="True" Width="40" Grid.Row="0" Grid.Column="3"  Margin="2 2 2 2"/>
 
-                            <StackPanel Margin="0 35 0 0">
-                                <CheckBox Content="Create Log Sheet"/>
-                                <CheckBox Content="Mark Character when Missing" />
-                            </StackPanel>
+                <GroupBox Header="Highlight" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+                <Grid Margin="2 2 2 2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                            <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                                <Button Content="Compare Columns" Width="120"/>
-                            </StackPanel>
+                        <RadioButton Content="Column L" Grid.Column="0" HorizontalAlignment="Left"   />
+                        <RadioButton Content="Column M"  Grid.Column="1" HorizontalAlignment="Left" />
+                        <RadioButton Content="Both" Grid.Column="2"  HorizontalAlignment="Left"/>
+                        </Grid>
+                </GroupBox>
 
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
+                <GroupBox Header="Applies to" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid  Margin="2 2 2 2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="Whole Column" Grid.Column="0" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                        <RadioButton Content="Selection" Grid.Column="2" HorizontalAlignment="Left"/>
+                        
+                        </Grid>
+
+                </GroupBox>
+
+                <GroupBox Header="Settings" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid  Margin="2 2 2 2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Content="Create Log Sheet" Grid.Column="2" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                        <CheckBox Content="Run on All Sheets"  Grid.Column="0" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>                       
+
+                    </Grid>
+
+                </GroupBox>
+
+                <Button Content="Compare Columns" Grid.Row="4" Grid.Column="2" Margin="16 2 2 2" Width="120"  Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                            
+            </Grid>
         </Expander>
 
         <Expander Header="Missing Assets"  Grid.Row="2" Expanded="Expander_Expanded">

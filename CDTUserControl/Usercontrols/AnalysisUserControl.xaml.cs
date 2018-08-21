@@ -22,8 +22,19 @@ namespace CDTUserControl.Usercontrols
     public partial class AnalysisUserControl : UserControl
     {
         AnalysisViewModel vm;
+
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
+
         public AnalysisUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new AnalysisViewModel();
             base.DataContext = vm;

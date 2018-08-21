@@ -44,14 +44,23 @@ namespace CDTUserControl.Usercontrols
         public delegate void EditorChangedEventHandler();
         public event EditorChangedEventHandler EditorChangedEvent;
 
-        
+
 
         #endregion
 
         #region constructor
 
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
         public OptionsUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new OptionsUserControlViewModel();
 

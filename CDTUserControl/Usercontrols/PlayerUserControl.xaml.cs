@@ -161,8 +161,19 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region Constructor
+
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
+
         public PlayerUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new PlayerUsercontrolViewModel();
             base.DataContext = vm;
@@ -217,8 +228,7 @@ namespace CDTUserControl.Usercontrols
             vm.VoiceClickEvent += Vm_VoiceClickEvent;
             vm.GlossaryClickEvent += Vm_GlossaryClickEvent;
             vm.SourceClickEvent += Vm_SourceClickEvent;
-        }
-        
+        }        
 
         #endregion
 
@@ -767,6 +777,8 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetBackgroundColor(p_Color);
         }
+        
+
         #endregion
 
     }

@@ -828,6 +828,7 @@ namespace CDTUserControl.Viewmodels
         public bool IsItemEnabled { get { return _IsItemEnabled; } } //property for side buttons
         public bool IsVideoEnabled { get { return _IsVideoEnabled; } } //property for side buttons
         public string BackgroundColor { get { return _BackgroundColor; } }
+        
         #endregion
 
         #region Constructors
@@ -1478,6 +1479,7 @@ namespace CDTUserControl.Viewmodels
             _BackgroundColor = p_Color;
             RaisePropertyChanged("BackgroundColor");
         }
+        
         #endregion
 
         #region Private Functions

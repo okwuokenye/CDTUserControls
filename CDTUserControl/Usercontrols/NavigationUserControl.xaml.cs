@@ -137,8 +137,18 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region constructor
+
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
         public NavigationUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new NavigationUserControlViewModel();
 

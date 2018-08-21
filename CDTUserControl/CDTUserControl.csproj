@@ -82,15 +82,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="App.xaml" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObservableObject.cs" />
     <Compile Include="PropertySupport.cs" />
     <Compile Include="RelayCommand.cs" />
-    <Compile Include="TestControl.xaml.cs">
-      <DependentUpon>TestControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Usercontrols\AnalysisUserControl.xaml.cs">
       <DependentUpon>AnalysisUserControl.xaml</DependentUpon>
     </Compile>
@@ -133,15 +131,7 @@
     <Compile Include="Viewmodels\QualityAssuranceViewModel.cs" />
     <Compile Include="Viewmodels\TextBoxViewModel.cs" />
     <Compile Include="Viewmodels\VisualViewerViewModel.cs" />
-    <Page Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\resourceDict.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

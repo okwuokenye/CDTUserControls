@@ -1,16 +1,39 @@
 ﻿<Application x:Class="CDTUserControl.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CDTUserControl"
-             StartupUri="TestControl.xaml">
+             xmlns:local="clr-namespace:CDTUserControl">
     <Application.Resources>
-        <ResourceDictionary>
-            <!-- Believe it or not the next line fixes a bug MS acknowledges -->
-            <Style TargetType="{x:Type Rectangle}" />
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Styles/resourceDict.XAML" />
-            </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
+
+        <LinearGradientBrush x:Key="controlGradientBackground" StartPoint="0,0"
+        EndPoint="0,1" >
+            <GradientStop Color= "White" Offset="0" />
+            <GradientStop Color= "BlanchedAlmond" Offset="1" />
+        </LinearGradientBrush>
+
+        <Style x:Key="ControlStyle"  TargetType="UserControl">
+            <Setter Property="Background" Value="{DynamicResource controlGradientBackground}"  />
+        </Style>
+
+        <Style x:Key="PlayerButtonStyle"  TargetType="Button">
+            
+            <Setter Property="Foreground"  Value="Black"/>
+            <Setter Property="Background"  Value="Goldenrod"/>
+            <Setter Property="BorderBrush" Value="DarkOliveGreen"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background"  Value="MistyRose"/>
+                    <Setter Property="BorderBrush" Value="Salmon"/>
+                </Trigger>
+            </Style.Triggers>
+            
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Foreground"  Value="Black"/>
+            <Setter Property="Background"  Value="Goldenrod"/>
+        </Style>
+
 
     </Application.Resources>
 </Application>

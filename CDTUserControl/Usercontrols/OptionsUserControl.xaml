@@ -6,7 +6,8 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
              mc:Ignorable="d" 
-            Width="320">
+            Width="320"
+    Style="{StaticResource ControlStyle}">
     <Grid>
         
         <Grid.RowDefinitions>
