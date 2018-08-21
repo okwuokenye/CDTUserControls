@@ -451,8 +451,11 @@ namespace CDTUserControl.Usercontrols
         {
             AnalysisDataGrid.DataContext = p_Tbl.DefaultView;
         }
-        
 
+        public void SetBackgroundColor(string p_Color)
+        {
+            vm.SetBackgroundColor(p_Color);
+        }
         #endregion
     }
 }

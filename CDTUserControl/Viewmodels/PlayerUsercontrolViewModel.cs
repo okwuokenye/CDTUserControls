@@ -223,7 +223,7 @@ namespace CDTUserControl.Viewmodels
         bool _IsSceneEnabled = false;
         bool _IsItemEnabled = false;
         bool _IsVideoEnabled = false;
-
+        private string _BackgroundColor = "Black";
         #endregion
 
         #region Properties
@@ -827,7 +827,7 @@ namespace CDTUserControl.Viewmodels
         public bool IsSceneEnabled { get { return _IsSceneEnabled; } } //property for side buttons
         public bool IsItemEnabled { get { return _IsItemEnabled; } } //property for side buttons
         public bool IsVideoEnabled { get { return _IsVideoEnabled; } } //property for side buttons
-
+        public string BackgroundColor { get { return _BackgroundColor; } }
         #endregion
 
         #region Constructors
@@ -1471,6 +1471,12 @@ namespace CDTUserControl.Viewmodels
         {
             _IsVideoEnabled = p_IsEnabled;
             RaisePropertyChanged("IsVideoEnabled");
+        }
+
+        public void SetBackgroundColor(string p_Color)
+        {
+            _BackgroundColor = p_Color;
+            RaisePropertyChanged("BackgroundColor");
         }
         #endregion
 

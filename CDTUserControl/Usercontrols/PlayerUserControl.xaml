@@ -9,10 +9,10 @@
 	VerticalAlignment="Stretch"
 	HorizontalContentAlignment="Stretch"
 	VerticalContentAlignment="Stretch"
-    Style="{DynamicResource ControlStyle}"
+    
     >
-
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   Margin="5,5,5,5">
+    <!--Style="{DynamicResource ControlStyle}"-->
+    <Grid Background="{Binding BackgroundColor}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   Margin="5,5,5,5">
 
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="115" Height="*"/>

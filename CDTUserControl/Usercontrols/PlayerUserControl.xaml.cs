@@ -762,6 +762,11 @@ namespace CDTUserControl.Usercontrols
         {
             vm.ChangeItemStatus(p_IsEnabled);
         }
+
+        public void SetBackgroundColor(string p_Color)
+        {
+            vm.SetBackgroundColor(p_Color);
+        }
         #endregion
 
     }
