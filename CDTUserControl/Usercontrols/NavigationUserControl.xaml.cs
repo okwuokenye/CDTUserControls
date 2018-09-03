@@ -140,9 +140,12 @@ namespace CDTUserControl.Usercontrols
 
         public static void EnsureApplicationResources()
         {
-            if (Application.Current == null)
+            if (System.Windows.Application.Current == null)
             {
-                new App();
+                new System.Windows.Application
+                {
+                    ShutdownMode = ShutdownMode.OnExplicitShutdown
+                };
             }
         }
 
