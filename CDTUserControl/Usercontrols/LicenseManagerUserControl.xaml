@@ -58,9 +58,9 @@
                 <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" Content="Recheck" Height="22" Margin="10 2 10 2" Command="{Binding RecheckButton}"/>
-            <Button Grid.Column="1" Content="Uninstall"  Height="22" Margin="10 2 10 2" Command="{Binding UninstallButton}"/>
-            <Button Grid.Column="2" Content="Install" Height="22" Margin="10 2 10 2" Command="{Binding InstallButton}"/>
+            <Button Grid.Column="0" Content="Recheck" Height="22" Margin="10 2 10 2" Command="{Binding Recheck}"/>
+            <Button Grid.Column="1" Content="Uninstall"  Height="22" Margin="10 2 10 2" Command="{Binding Uninstall}"/>
+            <Button Grid.Column="2" Content="Install" Height="22" Margin="10 2 10 2" Command="{Binding Install}"/>
         </Grid>
 
         <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="2,7,2,8" VerticalAlignment="Top" Text="{Binding StatusWarn}" Height="16"/>

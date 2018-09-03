@@ -21,9 +21,19 @@ namespace CDTUserControl.Usercontrols
     /// </summary>
     public partial class QualityAssuranceUserControl : UserControl
     {
+
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
         QualityAssuranceViewModel vm;
         public QualityAssuranceUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new QualityAssuranceViewModel();
             base.DataContext = vm;

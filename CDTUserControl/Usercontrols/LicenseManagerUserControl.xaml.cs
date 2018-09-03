@@ -38,8 +38,17 @@ namespace CDTUserControl.Usercontrols
 
         #region constructor
 
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
         public LicenseManagerUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new LicenseManagerViewModel();
 

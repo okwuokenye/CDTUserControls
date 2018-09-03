@@ -25,8 +25,17 @@ namespace CDTUserControl.Usercontrols
 
         #endregion
 
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
         public MediaPlayerUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
 
             LockImage.Source = null;

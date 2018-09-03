@@ -239,7 +239,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ko\System.Windows.Inter
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ru\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
@@ -257,7 +256,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCo
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\App.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Styles\resourceDict.baml
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\TestControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
@@ -273,3 +271,4 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.Properti
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.pdb
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache

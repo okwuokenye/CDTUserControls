@@ -26,8 +26,17 @@ namespace CDTUserControl.Usercontrols
         public delegate void LockEventHandler(Boolean p_Value);
         public event LockEventHandler LockEvent;
 
+        public static void EnsureApplicationResources()
+        {
+            if (Application.Current == null)
+            {
+                new App();
+            }
+        }
+
         public VisualViewerUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new VisualViewerViewModel();
             base.DataContext = vm;
