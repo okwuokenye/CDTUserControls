@@ -137,18 +137,15 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\CDTUserControl.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\App.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\TestControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.g.resources
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties.Resources.resources
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ControlzEx.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
@@ -163,7 +160,6 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\ru\System.Windows.Interac
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
@@ -171,7 +167,6 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseDialogueUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.baml
@@ -272,3 +267,13 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csproj.G
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorOptionsUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Styles\resourceDict.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorOptionsUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache

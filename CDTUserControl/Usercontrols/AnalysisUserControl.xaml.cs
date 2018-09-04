@@ -55,6 +55,9 @@ namespace CDTUserControl.Usercontrols
         public delegate void AnalyzeClickEvent();
         public event AnalyzeClickEvent Analyze;
 
+        public delegate void RecountClickEvent();
+        public event RecountClickEvent Recount;
+
         public delegate void SettingsExpanderChangeEventHandler(bool IsExpanded);
         public event SettingsExpanderChangeEventHandler SettingsExpanderChangeEvent;
         
@@ -77,6 +80,14 @@ namespace CDTUserControl.Usercontrols
             if (Reload != null)
             {
                 Reload();
+            }
+        }
+
+        private void RecountClick(object sender, RoutedEventArgs args)
+        {
+            if (Analyze != null)
+            {
+                Recount();
             }
         }
 
@@ -161,7 +172,22 @@ namespace CDTUserControl.Usercontrols
 
         #endregion
 
-        private void Expander_Expanded(object sender, RoutedEventArgs e)
+        void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+            if (e.Source is Expander)
+            {
+                var exp1 = (Expander)sender;
+                foreach (Expander exp in ExpanderGrid.Children)
+                {
+                    if (exp != exp1)
+                    {
+                        exp.IsExpanded = false;
+                    }
+                }
+            }
+        }
+
+        private void Settings_Expanded(object sender, RoutedEventArgs e)
         {
             var obj = (Expander)sender;
 

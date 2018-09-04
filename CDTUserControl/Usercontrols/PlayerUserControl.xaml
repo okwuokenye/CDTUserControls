@@ -11,7 +11,7 @@
 	VerticalContentAlignment="Stretch"
     Style="{StaticResource ControlStyle}"
     >
-    
+
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
         <Grid.RowDefinitions>
@@ -54,8 +54,8 @@
 
         </StackPanel>
 
-        <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl" SelectionChanged="TabControl_SelectionChanged" SelectedIndex="{Binding PlayerIndex}" Margin="2 2 2 2">
-            
+        <TabControl Grid.Row="0" Grid.Column="1" x:Name="TCtrl" SelectionChanged="TabControl_SelectionChanged" SelectedIndex="{Binding TabIndex}" Margin="2 2 2 2">
+
             <TabItem Name="MyTabItem0" Header="{Binding Tab1HeaderText}" HorizontalAlignment="Left">
                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
@@ -75,12 +75,12 @@
                                     <Trigger Property="IsSelected" Value="True" >
                                         <Setter Property="FontWeight" Value="Bold" />
                                     </Trigger>
-                                </Style.Triggers>                                
+                                </Style.Triggers>
                             </Style>
                         </ListBox.ItemContainerStyle>
 
                     </ListBox>
-                        
+
 
                 </Grid>
             </TabItem>
@@ -93,20 +93,21 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="29*" />
+                        <ColumnDefinition Width="66*"/>
                     </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" PreviewMouseLeftButtonUp="Source_MouseClick" MouseDoubleClick="Source_MouseDoubleClick" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding SourceTabIndex}">
+                    <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding SourceTabListBoxItems}" PreviewMouseLeftButtonUp="Source_MouseClick" MouseDoubleClick="Source_MouseDoubleClick" SelectedItem="{Binding SourceTabListBoxItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding SourceTabIndex}" Grid.ColumnSpan="2">
 
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True" >
-                                    <Setter Property="FontWeight" Value="Bold" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
 
                     </ListBox>
 
@@ -127,18 +128,18 @@
 
                     <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding GlossaryListBoxItems}" PreviewMouseLeftButtonUp="Glossary_MouseClick" SelectedItem="{Binding GlossaryTabListBoxItem}" MouseDoubleClick="Glossary_MouseDoubleClick" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding GlossaryTabIndex}">
 
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True" >
-                                    <Setter Property="FontWeight" Value="Bold" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
 
                     </ListBox>
-                </Grid>                
+                </Grid>
             </TabItem>
 
         </TabControl>
@@ -315,7 +316,7 @@
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" >
             <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent" ToolTip="{Binding MetaDataTT}" Command="{Binding CloseMetaData}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
-            <Image x:Name="metaimage" Source="../Resources/metadata.png" />
+                <Image x:Name="metaimage" Source="../Resources/metadata.png" />
             </Button>
             <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="{Binding CloseSliderTT}" Command="{Binding CloseSlider}" HorizontalAlignment="Left" Width="20"  Height="20" Margin="5 1 0 1">
                 <Image x:Name="closesliderimage" Source="../Resources/mixerpanelsmall.png" />

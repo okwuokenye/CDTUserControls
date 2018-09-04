@@ -233,5 +233,8 @@
   <ItemGroup>
     <Resource Include="Resources\Player.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CopytoClipBoard.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

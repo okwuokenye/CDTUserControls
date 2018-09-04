@@ -63,7 +63,7 @@ namespace CDTUserControl.Usercontrols
         public delegate void RenameButtonEventHandler(String p_FileName);
         public event RenameButtonEventHandler RenameButtonEvent;
 
-        public delegate void PrimaryButtonEventHandler(String p_FileName);
+        public delegate void PrimaryButtonEventHandler(String p_FileName, Int32 p_Index);
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
 
         public delegate void TextButtonEventHandler();
@@ -388,9 +388,9 @@ namespace CDTUserControl.Usercontrols
             ShowFilePathEvent();
         }
 
-        private void Vm_PrimaryButtonEvent(string p_FileName)
+        private void Vm_PrimaryButtonEvent(string p_FileName, Int32 p_Value)
         {
-            PrimaryButtonEvent(p_FileName);
+            PrimaryButtonEvent(p_FileName, p_Value);
         }
 
         private void Vm_RenameButtonEvent(string p_FileName)
@@ -613,6 +613,16 @@ namespace CDTUserControl.Usercontrols
         public void AddItemsToEnglishTab(List<String> p_Items)
         {
             vm.AddItemsToEnglishTab(p_Items);
+        }
+
+        public void SetIndexEnglish(Int32 p_Value)
+        {
+            vm.SetIndexEnglish(p_Value);
+        }
+
+        public void SetIndexSource(Int32 p_Value)
+        {
+            vm.SetIndexSource(p_Value);
         }
 
         public void AddItemsToSourceTab(List<String> p_Items)

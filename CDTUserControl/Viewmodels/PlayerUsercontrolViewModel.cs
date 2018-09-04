@@ -36,7 +36,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void RenameButtonEventHandler(String p_FileName);
         public event RenameButtonEventHandler RenameButtonEvent;
 
-        public delegate void PrimaryButtonEventHandler(String p_FileName);
+        public delegate void PrimaryButtonEventHandler(String p_FileName, Int32 p_Index);
         public event PrimaryButtonEventHandler PrimaryButtonEvent;
 
 
@@ -176,7 +176,7 @@ namespace CDTUserControl.Viewmodels
         ObservableCollection<String> _GlossaryTabListBoxItems = new ObservableCollection<String>();
         String _GlossaryTabListBoxItem;
         Int32 _GlossaryTabIndex = 0;
-
+        
         String _FileSize;
         String _DateMod;
         String _AudioType;
@@ -587,7 +587,7 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
-        public Int32 SourceTabIndex
+                public Int32 SourceTabIndex
         {
             get { return _SourceTabIndex; }
             set
@@ -866,7 +866,7 @@ namespace CDTUserControl.Viewmodels
 
         private void PrimaryExecute()
         {
-            PrimaryButtonEvent(_EnglishTabListBoxItem);
+            PrimaryButtonEvent(_EnglishTabListBoxItem, _TabIndex);
         }
         public ICommand Primary { get { return new RelayCommand(PrimaryExecute); } }
 
@@ -1323,7 +1323,20 @@ namespace CDTUserControl.Viewmodels
             _GlossaryTabListBoxItems.Clear();
             RaisePropertyChanged("GlossaryTabListBoxItems");
         }
+
+        public void SetIndexEnglish(Int32 p_Value)
+        {
+            _EnglishTabIndex = p_Value;
+            RaisePropertyChanged("EnglishTabIndex");
+        }
+
+        public void SetIndexSource(Int32 p_Value)
+        {
+            _SourceTabIndex = p_Value;
+            RaisePropertyChanged("SourceTabIndex");
+        }
         
+
         public void SetTabIndex(Int32 p_Value)
         {
             TabIndex = p_Value;
