@@ -14,12 +14,12 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void ActiveSheetChangeEventHandler(string p_Value);
         public event ActiveSheetChangeEventHandler ActiveSheetChangeEvent;
-
+        
         #endregion
 
         #region private variables
 
-        ObservableCollection<string> _Sheets = new ObservableCollection<string>();
+        ObservableCollection<string> _ListofSheets = new ObservableCollection<string>();
         string _Sheet;
         bool _AnalyzeMultipleSheets = false;
         bool _IsAll = true;
@@ -49,13 +49,22 @@ namespace CDTUserControl.Viewmodels
         int _ExistingSheetsIndex;
         int _SheetsIndex;
         int _MultiAnalysisInt = 0;
+
+
+        bool _AutoRecount = false;
+        bool _ExcludeHeader = false;
+        bool _VisibleOnly  = false;
+        bool _IgnoreStrikeThrough = false;
+        bool _IgnoreItalics = false;
+
+
         #endregion
 
         #region properties
 
         public String StatusPane { get { return _StatusPane; } }
         
-        public ObservableCollection<string> Sheets { get { return _Sheets; } }
+        public ObservableCollection<string> ListofSheets { get { return _ListofSheets; } }
 
         public string Sheet
         {
@@ -382,6 +391,71 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
+
+
+
+        public bool AutoRecount
+        {
+            get { return _AutoRecount; }
+            set
+            {
+                if (_AutoRecount != value)
+                {
+                    _AutoRecount = value;
+                }
+            }
+        }
+
+        public bool ExcludeHeader
+        {
+            get { return _ExcludeHeader; }
+            set
+            {
+                if (_ExcludeHeader != value)
+                {
+                    _ExcludeHeader = value;
+                }
+            }
+        }
+
+        public bool VisibleOnly
+        {
+            get { return _VisibleOnly; }
+            set
+            {
+                if (_VisibleOnly != value)
+                {
+                    _VisibleOnly = value;
+                }
+            }
+        }
+
+        public bool IgnoreStrikeThrough
+        {
+            get { return _IgnoreStrikeThrough; }
+            set
+            {
+                if (_IgnoreStrikeThrough != value)
+                {
+                    _IgnoreStrikeThrough = value;
+                }
+            }
+        }
+
+        public bool IgnoreItalics
+        {
+            get { return _IgnoreItalics; }
+            set
+            {
+                if (_IgnoreItalics != value)
+                {
+                    _IgnoreItalics = value;
+                }
+            }
+        }
+
+
+
         #endregion
 
         #region Constructor
@@ -402,14 +476,14 @@ namespace CDTUserControl.Viewmodels
         #region public methods
         public void AddSheetToAnalyze(string p_ItemToAdd)
         {
-            _Sheets.Add(p_ItemToAdd);
-            RaisePropertyChanged("Sheets");
+            _ListofSheets.Add(p_ItemToAdd);
+            RaisePropertyChanged("ListofSheets");
         }
 
         public void RemoveFromSheetToAnalyze(string p_ItemToRemove)
         {
-            _Sheets.Remove(p_ItemToRemove);
-            RaisePropertyChanged("Sheets");
+            _ListofSheets.Remove(p_ItemToRemove);
+            RaisePropertyChanged("ListofSheets");
         }
 
         public void SetCharacter(string p_Item)
@@ -474,17 +548,26 @@ namespace CDTUserControl.Viewmodels
 
         public void AddSheetsList(List<String> p_Sheets)
         {
-            _Sheets.Clear();
+            RemoveAllItemsFromSheetsList();
             foreach (var l_Sheets in p_Sheets)
             {
-                _Sheets.Add(l_Sheets);
+                if(_ListofSheets.Count < p_Sheets.Count )
+                {
+                    _ListofSheets.Add(l_Sheets);
+                }                
             }
-            RaisePropertyChanged("Sheets");
+            RaisePropertyChanged("ListofSheets");
+        }
+
+        public void RemoveAllItemsFromSheetsList()
+        {
+            _ListofSheets.Clear();
+            RaisePropertyChanged("ListofSheets");
         }
 
         public void AddExistingSheetsList(List<String> p_Sheets)
         {
-            _UListItems.Clear();
+            RemoveAllItemsFromExistingSheetsList();
             if(p_Sheets.Count>0)
             {
                 SheetsExist = true;
@@ -501,6 +584,11 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("UListItems");
         }
 
+        public void RemoveAllItemsFromExistingSheetsList()
+        {
+            _UListItems.Clear();
+            RaisePropertyChanged("UListItems");
+        }
         public void SetExistingSheetsIndex(int p_Value)
         {
             if(UListItems.Count>0)
@@ -512,7 +600,7 @@ namespace CDTUserControl.Viewmodels
 
         public void SetSheetsIndex(int p_Value)
         {
-            if(Sheets.Count>0)
+            if(ListofSheets.Count>0)
             {
             _SheetsIndex = p_Value;
             RaisePropertyChanged("SheetsIndex");
@@ -602,7 +690,26 @@ namespace CDTUserControl.Viewmodels
             return UListItem;
         }
 
-
+        public bool SendAutoRecount()
+        {
+            return AutoRecount;
+        }
+        public bool SendExcludeHeader()
+        {
+            return ExcludeHeader;
+        }
+        public bool SendVisibleOnly()
+        {
+            return VisibleOnly;
+        }
+        public bool SendIgnoreStrikeThrough()
+        {
+            return IgnoreStrikeThrough;
+        }
+        public bool SendIgnoreItalics()
+        {
+            return IgnoreItalics;
+        }
         #endregion
     }
 }

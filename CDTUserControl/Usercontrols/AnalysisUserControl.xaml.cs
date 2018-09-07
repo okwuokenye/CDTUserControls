@@ -22,7 +22,7 @@ namespace CDTUserControl.Usercontrols
     public partial class AnalysisUserControl : UserControl
     {
         AnalysisViewModel vm;
-
+        bool ControlIsLoaded = false;
         public static void EnsureApplicationResources()
         {
             if (System.Windows.Application.Current == null)
@@ -43,6 +43,7 @@ namespace CDTUserControl.Usercontrols
             base.DataContext = vm;
 
             vm.ActiveSheetChangeEvent += Vm_ActiveSheetChangeEvent;
+            ControlIsLoaded = true;
         }
 
         #region events declaration
@@ -55,15 +56,21 @@ namespace CDTUserControl.Usercontrols
         public delegate void AnalyzeClickEvent();
         public event AnalyzeClickEvent Analyze;
 
-        public delegate void RecountClickEvent();
-        public event RecountClickEvent Recount;
 
-        public delegate void SettingsExpanderChangeEventHandler(bool IsExpanded);
-        public event SettingsExpanderChangeEventHandler SettingsExpanderChangeEvent;
+        public delegate void ExpanderChangeEventHandler(int WhichExpanded);
+        public event ExpanderChangeEventHandler ExpanderChangeEvent;
         
         public delegate void ActiveSheetChangeEventHandler(string p_Value);
         public event ActiveSheetChangeEventHandler ActiveSheetChangeEvent;
 
+        public delegate void RecountClickEvent();
+        public event RecountClickEvent Recount;
+
+        public delegate void CopyEATClickEvent();
+        public event CopyEATClickEvent CopyEAT;
+
+        public delegate void CopyWCClickEvent();
+        public event CopyWCClickEvent CopyWC;
         #endregion
 
         #region view event handlers
@@ -85,7 +92,7 @@ namespace CDTUserControl.Usercontrols
 
         private void RecountClick(object sender, RoutedEventArgs args)
         {
-            if (Analyze != null)
+            if (Recount != null)
             {
                 Recount();
             }
@@ -96,6 +103,22 @@ namespace CDTUserControl.Usercontrols
             if (Analyze != null)
             {
                 Analyze();
+            }
+        }
+
+        private void CopyWCClick(object sender, RoutedEventArgs args)
+        {
+            if (CopyWC != null)
+            {
+                CopyWC();
+            }
+        }
+        
+        private void CopyEATClick(object sender, RoutedEventArgs args)
+        {
+            if (CopyEAT != null)
+            {
+                CopyEAT();
             }
         }
         #endregion
@@ -169,7 +192,7 @@ namespace CDTUserControl.Usercontrols
         {
             ActiveSheetChangeEvent(p_Value);
         }
-
+        
         #endregion
 
         void Expander_Expanded(object sender, RoutedEventArgs e)
@@ -177,6 +200,7 @@ namespace CDTUserControl.Usercontrols
             if (e.Source is Expander)
             {
                 var exp1 = (Expander)sender;
+                
                 foreach (Expander exp in ExpanderGrid.Children)
                 {
                     if (exp != exp1)
@@ -184,16 +208,23 @@ namespace CDTUserControl.Usercontrols
                         exp.IsExpanded = false;
                     }
                 }
+                if(ControlIsLoaded)
+                {
+                    string head = exp1.Header.ToString();
+                    if (head == "Production Analysis")
+                    {
+                        ExpanderChangeEvent(0);
+                    }
+                    else if (head == "Word Count")
+                    {
+                        ExpanderChangeEvent(1);
+                    }
+                }
+                
+
             }
         }
-
-        private void Settings_Expanded(object sender, RoutedEventArgs e)
-        {
-            var obj = (Expander)sender;
-
-            if(SettingsExpanderChangeEvent != null)
-            SettingsExpanderChangeEvent(obj.IsExpanded);
-        }
+        
 
         #region send methods
         public int SendMultiAnalysis()
@@ -247,7 +278,31 @@ namespace CDTUserControl.Usercontrols
         }
 
 
-#endregion
+        public bool SendAutoRecount()
+        {
+            return vm.SendAutoRecount();
+        }
+        public bool SendExcludeHeader()
+        {
+            return vm.SendExcludeHeader();
+        }
+        public bool SendVisibleOnly()
+        {
+            return vm.SendVisibleOnly();
+        }
+        public bool SendIgnoreStrikeThrough()
+        {
+            return vm.SendIgnoreStrikeThrough();
+        }
+        public bool SendIgnoreItalics()
+        {
+            return vm.SendIgnoreItalics();
+        }
+
+
+
+
+        #endregion
 
     }
 }
