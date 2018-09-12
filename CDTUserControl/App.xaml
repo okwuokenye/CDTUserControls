@@ -27,11 +27,13 @@
                 </Trigger>
             </Style.Triggers>
             
+            
+
         </Style>
 
         <Style TargetType="Button">
             <Setter Property="Foreground"  Value="Black"/>
-            <Setter Property="Background"  Value="Goldenrod"/>
+            <Setter Property="Background"  Value="Goldenrod"/>           
         </Style>
 
 

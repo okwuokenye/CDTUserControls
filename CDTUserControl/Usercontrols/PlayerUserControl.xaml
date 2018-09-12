@@ -28,29 +28,29 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Height="125" Margin="0,0,0,0" VerticalAlignment="Top">
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Delete current file" Content="Delete" Command="{Binding Delete}" IsEnabled="{Binding IsSideButtonsEnabled}" Width="50" Height="20" Margin="0 5 0 5" FontSize="9"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}"  ToolTip="Delete current file" Content="Delete" Command="{Binding Delete}" IsEnabled="{Binding IsSideButtonsEnabled}" Width="50" Height="20" Margin="0 5 0 5" FontSize="9"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Edit current file (opens audition)" Content="Edit" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}"  ToolTip="Edit current file (opens audition)" Content="Edit" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Edit}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Rename current file" Content="Rename" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}"  ToolTip="Rename current file" Content="Rename" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Rename}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Make current file primary" Content="Primary" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Make current file primary" Content="Primary" IsEnabled="{Binding IsSideButtonsEnabled}" Command="{Binding Primary}" Width="50" Height="40" Margin="0 0 0 5" FontSize="9"/>
 
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Margin="0,12,0,0" VerticalAlignment="Top" Visibility="{Binding SliderVisibility}">
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open TextBox form" Content="TextBox" Command="{Binding Text}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsSpkTextEnabled}"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open TextBox form" Content="TextBox" Command="{Binding Text}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsSpkTextEnabled}"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Character Viewer form" Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50" IsEnabled="{Binding IsCharacterEnabled}"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Character Viewer form" Content="Character" Command="{Binding Character}" Height="20" Margin="0,0,0,5" FontSize="9" Width="50" IsEnabled="{Binding IsCharacterEnabled}"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Scene Viewer form" Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsSceneEnabled}"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Scene Viewer form" Content="Scene"  Command="{Binding Scene}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsSceneEnabled}"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Item Viewer form" Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsItemEnabled}"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Item Viewer form" Content="Item" Command="{Binding Item}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsItemEnabled}"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Video Viewer form" Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsVideoEnabled}"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Video Viewer form" Content="Video"  Command="{Binding Video}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="{Binding IsVideoEnabled}"/>
 
-            <Button Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Navigator form" Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="True"/>
+            <Button  Style="{DynamicResource PlayerButtonStyle}" ToolTip="Open Navigator form" Content="Navigate" Command="{Binding Navigate}" Width="50" Height="20" Margin="0 0 0 5" FontSize="9" IsEnabled="True"/>
 
         </StackPanel>
 
@@ -152,19 +152,19 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 5" Width="380" HorizontalAlignment="Left">
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Voice}" Content="Voice" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsVoiceEnabled}" />
 
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSourceEnabled}"/>
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Source}" Content="Source" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSourceEnabled}"/>
 
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSFXEnabled}"/>
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Spot}" Content="Spot" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsSFXEnabled}"/>
 
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsLFXEnabled}"/>
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Ambient}" Content="Ambient" Width="50" Height="20" Margin="2 0" FontSize="9"  IsEnabled="{Binding IsLFXEnabled}"/>
 
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9" IsEnabled="{Binding IsMusicEnabled}"/>
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Music}" Content="Music" Width="50" Height="20" Margin="2 0" FontSize="9" IsEnabled="{Binding IsMusicEnabled}"/>
 
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"   IsEnabled="{Binding IsSpkTextEnabled}"/>
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Spk}"  Content="Speak Txt" Width="50" Height="20" Margin="2 0" FontSize="9"   IsEnabled="{Binding IsSpkTextEnabled}"/>
 
-                <Button Style="{DynamicResource PlayerButtonStyle}" Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
+                <Button  Style="{DynamicResource PlayerButtonStyle}"  Command="{Binding Stop}"  Content="Stop All" Width="50" Height="20" Margin="2 0" FontSize="9"/>
 
             </StackPanel>
 
@@ -176,7 +176,7 @@
 
                 <!--There should be mute buttons above each slider, and mute and loop buttons above the Ambient and Music sliders-->
 
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider1}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute1" ToolTip="{Binding Mute1Tooltip}" Source="{Binding Mute1Source}" />
                 </Button>
                 <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider1, UpdateSourceTrigger=PropertyChanged}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider1DblClick" />
@@ -184,7 +184,7 @@
             </StackPanel>
 
             <StackPanel  Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider2}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute2" ToolTip="{Binding Mute2Tooltip}" Source="{Binding Mute2Source}" />
                 </Button>
                 <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider2}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider2DblClick"/>
@@ -192,7 +192,7 @@
             </StackPanel>
 
             <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider3}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute3" ToolTip="{Binding Mute3Tooltip}" Source="{Binding Mute3Source}" />
                 </Button>
                 <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider3}" Maximum="200" Orientation="Vertical" MouseDoubleClick="Slider3DblClick"/>
@@ -201,10 +201,10 @@
 
             <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal">
-                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider4}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="4 0 1 2 ">
+                    <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider4}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="4 0 1 2 ">
                         <Image x:Name="mute4" ToolTip="{Binding Mute4Tooltip}" Source="{Binding Mute4Source}" />
                     </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding LoopSlider4}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="1 0 4 2 ">
+                    <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding LoopSlider4}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="1 0 4 2 ">
                         <Image x:Name="loop4" ToolTip="{Binding Loop4Tooltip}" Source="{Binding Loop4Source}" />
                     </Button>
                 </StackPanel>
@@ -215,10 +215,10 @@
 
             <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal">
-                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider5}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="4 0 1 2 " >
+                    <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider5}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="4 0 1 2 " >
                         <Image x:Name="mute5" ToolTip="{Binding Mute5Tooltip}" Source="{Binding Mute5Source}" />
                     </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding LoopSlider5}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="1 0 4 2 ">
+                    <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding LoopSlider5}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="left" Margin="1 0 4 2 ">
                         <Image x:Name="loop5"  ToolTip="{Binding Loop5Tooltip}" Source="{Binding Loop5Source}" />
                     </Button>
                 </StackPanel>
@@ -227,7 +227,7 @@
             </StackPanel>
 
             <StackPanel Width="50" Margin="4,2,0,4" VerticalAlignment="Stretch">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider6}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
+                <Button  Style="{DynamicResource PlayerButtonStyle}" Background="Transparent" BorderBrush="Transparent" Command="{Binding MuteSlider6}" Foreground="Transparent" Height="20" Width="20" HorizontalAlignment="Center" Margin="0 0 0 2">
                     <Image x:Name="mute6" Height="15" Width="15" ToolTip="{Binding Mute6Tooltip}" Source="{Binding Mute6Source}" />
                 </Button>
                 <Slider Width="30"  Height="{Binding SliderHeight}" TickPlacement="Both" TickFrequency="5" Value="{Binding Slider6}" Maximum="100" Orientation="Vertical" />

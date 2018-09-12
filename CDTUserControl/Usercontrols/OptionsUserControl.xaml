@@ -36,7 +36,7 @@
                 </Grid.RowDefinitions>
 
 
-                <GroupBox Header="Project Folder" Height="50" BorderThickness="2" Grid.Row="0">
+                <GroupBox Header="Project Folder" Height="50" BorderThickness="1" Grid.Row="0">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -53,7 +53,7 @@
                     </Grid>
                 </GroupBox>
 
-                <GroupBox Header="Player Settings" Height="80" BorderThickness="2" Grid.Row="1">
+                <GroupBox Header="Player Settings" Height="80" BorderThickness="1" Grid.Row="1">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -75,7 +75,7 @@
                         </Grid>
                 </GroupBox>
 
-                <GroupBox Header="Output Device" Height="50" BorderThickness="2" Grid.Row="2">
+                <GroupBox Header="Output Device" Height="50" BorderThickness="1" Grid.Row="2">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -100,7 +100,7 @@
                         </Grid>
                 </GroupBox>
 
-                <GroupBox Header="Glossary" Height="50" BorderThickness="2" Grid.Row="3">
+                <GroupBox Header="Glossary" Height="50" BorderThickness="1" Grid.Row="3">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -128,7 +128,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <GroupBox Header="Primary language" Height="140" BorderThickness="2" Grid.Row="0">
+                <GroupBox Header="Primary language" Height="140" BorderThickness="1" Grid.Row="0">
                     
                     <Grid>
                         <Grid.RowDefinitions>
@@ -162,7 +162,7 @@
                     
                 </GroupBox>
 
-                <GroupBox Header="Secondary language (source)" Height="140" BorderThickness="2" Grid.Row="1">
+                <GroupBox Header="Secondary language (source)" Height="140" BorderThickness="1" Grid.Row="1">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -210,7 +210,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <GroupBox Header="Visual Assets" BorderThickness="2" Grid.Row="0">
+                <GroupBox Header="Visual Assets" BorderThickness="1" Grid.Row="0">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -245,7 +245,7 @@
 
                 </GroupBox>
 
-                <GroupBox Header="Audio Assets" BorderThickness="2" Grid.Row="1">
+                <GroupBox Header="Audio Assets" BorderThickness="1" Grid.Row="1">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -292,7 +292,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <GroupBox Header="Time Constraint Setup" Height="90" BorderThickness="2" Grid.Row="0">
+                <GroupBox Header="Time Constraint Setup" Height="90" BorderThickness="1" Grid.Row="0">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -320,7 +320,7 @@
 
                 </GroupBox>
 
-                <GroupBox Header="Text Analysis" Height="75" BorderThickness="2" Grid.Row="1">
+                <GroupBox Header="Text Analysis" Height="75" BorderThickness="1" Grid.Row="1">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -359,7 +359,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <GroupBox Header="Edit Program" Height="140" BorderThickness="2" Grid.Row="0">
+                <GroupBox Header="Edit Program" Height="140" BorderThickness="1" Grid.Row="0">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -391,7 +391,7 @@
 
                 </GroupBox>
 
-                <GroupBox Header="Synthetic Speech" Height="Auto" BorderThickness="2" Grid.Row="1">
+                <GroupBox Header="Synthetic Speech" Height="Auto" BorderThickness="1" Grid.Row="1">
 
                     <Grid>
                         <Grid.RowDefinitions>

@@ -33,7 +33,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <GroupBox Grid.Row="0" Header="Sheet to analyse" BorderThickness="2" Height="Auto">
+                <GroupBox Grid.Row="0" Header="Sheet to analyse" BorderThickness="1" Height="Auto">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -51,7 +51,7 @@
                     </Grid>
                 </GroupBox>
 
-                <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="2" Height="Auto">
+                <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="1" Height="Auto">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -81,7 +81,7 @@
 
                 </GroupBox>
 
-                    <GroupBox Header="Settings" Grid.Row="2"  BorderThickness="2" Height="Auto">
+                    <GroupBox Header="Settings" Grid.Row="2"  BorderThickness="1" Height="Auto">
                     <Grid Height="Auto">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -117,7 +117,7 @@
 
         </Expander>
 
-        <Expander Header="Word Count" Grid.Row="1" Expanded="Expander_Expanded" Visibility="Hidden">
+        <Expander Header="Word Count" Grid.Row="1" Expanded="Expander_Expanded">
 
             <Grid>                
                                 <Grid.RowDefinitions>
@@ -136,14 +136,14 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Content="Word Count" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                                <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding FileHeader1}" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="0" Grid.Column="2" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="Copy estimated audio time value" Click="CopyEATClick" HorizontalAlignment="Left" Width="20"  Height="20">
+                    <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding WordCountResult}" VerticalContentAlignment="Center"/>
+                    <Button Grid.Row="0" Grid.Column="2" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="Copy word count value" Click="CopyWCClick" HorizontalAlignment="Left" Width="20"  Height="20">
                                     <Image Source="../Resources/CopytoClipBoard.png" />
                                 </Button>
 
                                 <Label Content="Esimated Audio Time" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                                <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding TextHeader1}" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="1" Grid.Column="2" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="Copy word count value" Click="CopyWCClick" HorizontalAlignment="Left" Width="20"  Height="20">
+                    <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding EATResult}" VerticalContentAlignment="Center"/>
+                    <Button Grid.Row="1" Grid.Column="2" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent"  ToolTip="Copy estimated audio time value" Click="CopyEATClick" HorizontalAlignment="Left" Width="20"  Height="20">
                                     <Image Source="../Resources/CopytoClipBoard.png" />
                                 </Button>
                 

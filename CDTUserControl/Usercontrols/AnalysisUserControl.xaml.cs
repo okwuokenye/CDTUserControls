@@ -193,6 +193,16 @@ namespace CDTUserControl.Usercontrols
             ActiveSheetChangeEvent(p_Value);
         }
         
+        public void SetWCResult(string p_Value)
+        {
+            vm.SetWCResult(p_Value);
+        }
+
+        public void SetEATResult(string p_Value)
+        {
+            vm.SetEATResult(p_Value);
+        }
+
         #endregion
 
         void Expander_Expanded(object sender, RoutedEventArgs e)

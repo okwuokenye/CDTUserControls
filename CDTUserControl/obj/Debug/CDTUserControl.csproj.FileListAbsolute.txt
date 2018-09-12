@@ -276,3 +276,4 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorOption
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.g.cs

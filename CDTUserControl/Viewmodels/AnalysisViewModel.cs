@@ -49,14 +49,15 @@ namespace CDTUserControl.Viewmodels
         int _ExistingSheetsIndex;
         int _SheetsIndex;
         int _MultiAnalysisInt = 0;
-
-
+        
         bool _AutoRecount = false;
         bool _ExcludeHeader = false;
         bool _VisibleOnly  = false;
         bool _IgnoreStrikeThrough = false;
         bool _IgnoreItalics = false;
-
+        
+        string _WordCountResult = string.Empty;
+        string _EATResult = string.Empty;
 
         #endregion
 
@@ -455,6 +456,29 @@ namespace CDTUserControl.Viewmodels
         }
 
 
+        public string WordCountResult
+        {
+            get { return _WordCountResult; }
+            set
+            {
+                if (_WordCountResult != value)
+                {
+                    _WordCountResult = value;
+                }
+            }
+        }
+
+        public string EATResult
+        {
+            get { return _EATResult; }
+            set
+            {
+                if (_EATResult != value)
+                {
+                    _EATResult = value;
+                }
+            }
+        }
 
         #endregion
 
@@ -638,6 +662,19 @@ namespace CDTUserControl.Viewmodels
                 MultiAnalysisInt = 3;
             }
             return MultiAnalysisInt;
+        }
+
+
+        public void SetWCResult(string p_Item)
+        {
+            _WordCountResult = p_Item;
+            RaisePropertyChanged("WordCountResult");
+        }
+
+        public void SetEATResult(string p_Item)
+        {
+            _EATResult = p_Item;
+            RaisePropertyChanged("EATResult");
         }
 
         #endregion

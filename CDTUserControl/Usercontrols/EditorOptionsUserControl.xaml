@@ -35,7 +35,7 @@
                     </Grid.RowDefinitions>
 
 
-                    <GroupBox Header="Project Folder" Height="50" BorderThickness="2" Grid.Row="0">
+                    <GroupBox Header="Project Folder" Height="50" BorderThickness="1" Grid.Row="0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -52,7 +52,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="Player Settings" Height="80" BorderThickness="2" Grid.Row="1">
+                    <GroupBox Header="Player Settings" Height="80" BorderThickness="1" Grid.Row="1">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -74,7 +74,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="Output Device" Height="50" BorderThickness="2" Grid.Row="2">
+                    <GroupBox Header="Output Device" Height="50" BorderThickness="1" Grid.Row="2">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -116,7 +116,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <GroupBox Header="Edit Headers" Height="190" BorderThickness="2" Grid.Row="0" Grid.ColumnSpan="2">
+                    <GroupBox Header="Edit Headers" Height="190" BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="2">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -171,7 +171,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <GroupBox Header="Edit Program" Height="140" BorderThickness="2" Grid.Row="0">
+                    <GroupBox Header="Edit Program" Height="140" BorderThickness="1" Grid.Row="0">
 
                         <Grid>
                             <Grid.RowDefinitions>

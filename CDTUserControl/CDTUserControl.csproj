@@ -95,6 +95,12 @@
     <Compile Include="Usercontrols\ColorPickerWindow.xaml.cs">
       <DependentUpon>ColorPickerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usercontrols\EditorLoadUserControl.xaml.cs">
+      <DependentUpon>EditorLoadUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\EditorUserControl.xaml.cs">
+      <DependentUpon>EditorUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrols\LicenseManagerUserControl.xaml.cs">
       <DependentUpon>LicenseManagerUserControl.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,14 @@
     <Page Include="Usercontrols\ColorPickerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Usercontrols\EditorLoadUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usercontrols\EditorUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Usercontrols\LicenseManagerUserControl.xaml">
       <SubType>Designer</SubType>
