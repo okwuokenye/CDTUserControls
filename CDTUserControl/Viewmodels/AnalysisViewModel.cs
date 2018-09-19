@@ -748,5 +748,7 @@ namespace CDTUserControl.Viewmodels
             return IgnoreItalics;
         }
         #endregion
+
+
     }
 }

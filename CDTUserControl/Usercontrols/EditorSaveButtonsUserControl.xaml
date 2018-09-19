@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="CDTUserControl.Usercontrols.EditorSaveButtonsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+	VerticalAlignment="Stretch"
+	HorizontalContentAlignment="Stretch"
+	VerticalContentAlignment="Stretch"
+    Style="{StaticResource ControlStyle}"
+    >
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="2 2 2 2" MinHeight="80" MinWidth="120">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Command="{Binding TwoUpSave}" Margin="2 2 2 2" Grid.Column="0" Grid.Row="0" FontSize="9">
+            <TextBlock Text="2 up and Save" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+
+        <Button Command="{Binding UpSave}" Margin="2 2 2 2" Grid.Column="0" Grid.Row="1" FontSize="9">
+            <TextBlock Text="Up and Save" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+
+        <Button  Content="Save" Command="{Binding Save}" Margin="2 2 2 2" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="9"/>
+
+    </Grid>
+
+</UserControl>
+

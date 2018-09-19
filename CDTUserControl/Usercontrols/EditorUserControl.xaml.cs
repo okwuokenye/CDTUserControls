@@ -172,7 +172,7 @@ namespace CDTUserControl.Usercontrols
         }
 
 
-        public PlayerUserControl()
+        public EditorUserControl()
         {
             EnsureApplicationResources();
             InitializeComponent();
@@ -549,29 +549,7 @@ namespace CDTUserControl.Usercontrols
                 GlossaryClickEvent(selectedText);
             }
         }
-
-        void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.Source is TabControl)
-            {
-                var l_Tab = (TabControl)sender;
-                if (l_Tab != null && l_Tab.SelectedContent != null)
-                {
-                    if (MyTabItem0.IsSelected)
-                    {
-                        TabIndexChangedEvent(0);
-                    }
-                    else if (MyTabItem1.IsSelected)
-                    {
-                        TabIndexChangedEvent(1);
-                    }
-                    else if (MyTabItem2.IsSelected)
-                    {
-                        TabIndexChangedEvent(2);
-                    }
-                }
-            }
-        }
+        
 
         private void Slider1DblClick(object sender, RoutedEventArgs args)
         {
@@ -653,22 +631,7 @@ namespace CDTUserControl.Usercontrols
             vm.RemoveAllItemsFromSourceTab();
         }
 
-        public void SetTabIndex(Int32 p_Value)
-        {
-            vm.SetTabIndex(p_Value);
-            if (p_Value == 0)
-            {
-                MyTabItem0.IsSelected = true;
-            }
-            else if (p_Value == 1)
-            {
-                MyTabItem1.IsSelected = true;
-            }
-            else if (p_Value == 2)
-            {
-                MyTabItem2.IsSelected = true;
-            }
-        }
+       
 
         public void SetTab1HeaderText(String p_Text)
         {

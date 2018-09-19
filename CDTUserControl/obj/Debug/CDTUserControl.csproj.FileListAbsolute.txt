@@ -275,5 +275,12 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Styles\resourceDict.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorOptionsUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.baml
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.baml
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorLoadUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorLoadUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache

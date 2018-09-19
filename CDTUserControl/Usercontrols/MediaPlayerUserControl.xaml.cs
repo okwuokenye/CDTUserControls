@@ -18,11 +18,15 @@ namespace CDTUserControl.Usercontrols
         private bool mediaPlayerIsPlaying = false;
         private bool userIsDraggingSlider = false;
 
+        private bool IsLooped = false;
+        
         #region events
 
         public delegate void LockEventHandler(bool p_IsLocked);
         public event LockEventHandler LockEvent;
 
+        public delegate void LoopEventHandler(bool p_IsLooped);
+        public event LoopEventHandler LoopEvent;
         #endregion
 
         public static void EnsureApplicationResources()
@@ -42,6 +46,7 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
 
             LockImage.Source = null;
+            LoopImage.Source = null;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -107,6 +112,17 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
         }
 
+        private void sliProgress_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            userIsDraggingSlider = true;
+        }
+
+        private void sliProgress_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            userIsDraggingSlider = false;
+            CDTPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
+        }
+
         private void sliProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lblProgressStatus.Text = TimeSpan.FromSeconds(sliProgress.Value).ToString(@"hh\:mm\:ss");
@@ -132,11 +148,12 @@ namespace CDTUserControl.Usercontrols
             }
             
         }
-
+                
         private void Open_File(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             //define the file filter for your dialog
+            
             openFileDialog.Filter = "Media files (*.mp3;*.mpg;*.mpeg)|*.mp4;*.mov;*.mpeg|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
                 CDTPlayer.Source = new Uri(openFileDialog.FileName);
@@ -165,6 +182,40 @@ namespace CDTUserControl.Usercontrols
 
             }
             
+        }
+
+        private void LoopImage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((bool)Loop.IsChecked)
+                {
+                    LoopImage.Source = new BitmapImage(new Uri("../Resources/loop.png", UriKind.Relative));
+                    IsLooped = true;
+                }
+                else
+                {
+                    LoopImage.Source = null;
+                    IsLooped = false;
+                }
+
+                LoopEvent((bool)Loop.IsChecked);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        private void CDTPlayer_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            if (IsLooped)
+            {
+                CDTPlayer.Position = TimeSpan.Zero;
+                CDTPlayer.Play();
+            }
         }
     }
 }

@@ -10,16 +10,16 @@ using System.Windows.Media;
 
 namespace CDTUserControl.Viewmodels
 {
-    class EditorOptionsUserControlViewModel : ObservableObject
+    class EditorLoadUserControlViewModel : ObservableObject
     {
         #region private variables
 
         private string _RootText;
         private string _EditorExe;
         private string _StatusWarn;
-        private string _VersionNumber;
-        private string _AltSuffix;
-        private string _DeviceName;
+        private int _EditorIndex;
+        private bool _UsesDir1Checked = true;
+
         private string _AssetFolder1;
         private string _DirHeader1;
         private string _FileHeader1;
@@ -33,25 +33,10 @@ namespace CDTUserControl.Viewmodels
         private string _CharHeaderC;
         private string _SceneHeaderC;
 
-        private int _HeadRowIndex;
-        private int _EditorIndex;
-        private int _TabIndex;
-        private int _DelayIndex;
-        private int _DeviceIndex;
-        private bool _AutoPlayChecked;
-        private bool _AutoStopChecked;
-        private bool _DefaultDeviceChecked;
-        private bool _UsesDir1Checked = true;
-
-        ObservableCollection<String> _DeviceItems = new ObservableCollection<String>();
-                ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
-        ObservableCollection<String> _TabItems = new ObservableCollection<String> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        ObservableCollection<String> _DelayItems = new ObservableCollection<String> {"20ms", "40ms", "60ms", "80ms", "100ms", "120ms", "140ms", "160ms", "180ms", "200ms"};
         ObservableCollection<String> _EditorItems = new ObservableCollection<String> { "Adobe Audition 3.0", "Adobe Audition CC"};
-
-        public Visibility DeviceVisibility { get { return _DefaultDeviceChecked ? Visibility.Collapsed: Visibility.Visible; } }
-        public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }        
-
+        
+        public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
+        
         #endregion
 
         #region event declarations
@@ -68,12 +53,14 @@ namespace CDTUserControl.Viewmodels
         public delegate void SaveButtonEventHandler();
         public event SaveButtonEventHandler SaveButtonEvent;
 
-        public delegate void UpdateButtonEventHandler();
-        public event UpdateButtonEventHandler UpdateButtonEvent;
-
         public delegate void EditorChangedEventHandler();
         public event EditorChangedEventHandler EditorChangedEvent;
 
+        public delegate void ExitButtonEventHandler();
+        public event ExitButtonEventHandler ExitButtonEvent;
+
+        public delegate void LoadButtonEventHandler();
+        public event LoadButtonEventHandler LoadButtonEvent;
         #endregion
 
 
@@ -95,22 +82,6 @@ namespace CDTUserControl.Viewmodels
             }
         }
         
-        public String VersionNumber
-        {
-            get
-            {
-                return _VersionNumber;
-            }
-            set
-            {
-                if (_VersionNumber != value)
-                {
-                    _VersionNumber = value;
-                    RaisePropertyChanged("VersionNumber");
-                }
-            }
-        }
-
         public String RootText
         {
             get
@@ -143,38 +114,6 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
-        public String AltSuffix
-        {
-            get
-            {
-                return _AltSuffix;
-            }
-            set
-            {
-                if (_AltSuffix != value)
-                {
-                    _AltSuffix = value;
-                    RaisePropertyChanged("AltSuffix");
-                }
-            }
-        }
-
-        public String DeviceName
-        {
-            get
-            {
-                return _DeviceName;
-            }
-            set
-            {
-                if (_DeviceName != value)
-                {
-                    _DeviceName = value;
-                    RaisePropertyChanged("DeviceName");
-                }
-            }
-        }
-        
         public String AssetFolder1
         {
             get
@@ -238,8 +177,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-
+        
         public String DirHeader1C
         {
             get
@@ -287,7 +225,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-                
+        
         public String CharHeader
         {
             get
@@ -319,7 +257,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        
+                
         public String CharHeaderC
         {
             get
@@ -352,54 +290,6 @@ namespace CDTUserControl.Viewmodels
             }
         }
         
-        public bool AutoPlayChecked
-        {
-            get
-            {
-                return _AutoPlayChecked;
-            }
-            set
-            {
-                if (_AutoPlayChecked != value)
-                {
-                    _AutoPlayChecked = value;
-                    RaisePropertyChanged("AutoPlayChecked");
-                }
-            }
-        }
-
-        public bool AutoStopChecked
-        {
-            get
-            {
-                return _AutoStopChecked;
-            }
-            set
-            {
-                if (_AutoStopChecked != value)
-                {
-                    _AutoStopChecked = value;
-                    RaisePropertyChanged("AutoStopChecked");
-                }
-            }
-        }
-
-        public bool DefaultDeviceChecked
-        {
-            get
-            {
-                return _DefaultDeviceChecked;
-            }
-            set
-            {
-                if (_DefaultDeviceChecked != value)
-                {
-                    _DefaultDeviceChecked = value;
-                    RaisePropertyChanged("DefaultDeviceChecked");
-                    RaisePropertyChanged("DeviceVisibility");
-                }
-            }
-        }
         public bool UsesDir1Checked
         {
             get
@@ -413,22 +303,6 @@ namespace CDTUserControl.Viewmodels
                     _UsesDir1Checked = value;
                     RaisePropertyChanged("UsesDir1Checked");
                     RaisePropertyChanged("Dir1Visibility");
-                }
-            }
-        }
-        
-        public int HeadRowIndex
-        {
-            get
-            {
-                return _HeadRowIndex;
-            }
-            set
-            {
-                if (_HeadRowIndex != value)
-                {
-                    _HeadRowIndex = value;
-                    RaisePropertyChanged("HeadRowIndex");
                 }
             }
         }
@@ -449,59 +323,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-        public int TabIndex
-        {
-            get
-            {
-                return _TabIndex;
-            }
-            set
-            {
-                if (_TabIndex != value)
-                {
-                    _TabIndex = value;
-                    RaisePropertyChanged("TabIndex");
-                }
-            }
-        }
-
-        public int DelayIndex
-        {
-            get
-            {
-                return _DelayIndex;
-            }
-            set
-            {
-                if (_DelayIndex != value)
-                {
-                    _DelayIndex = value;
-                    RaisePropertyChanged("DelayIndex");
-                }
-            }
-        }
-
-        public int DeviceIndex
-        {
-            get
-            {
-                return _DeviceIndex;
-            }
-            set
-            {
-                if (_DeviceIndex != value)
-                {
-                    _DeviceIndex = value;
-                    RaisePropertyChanged("DeviceIndex");
-                }
-            }
-        }
-        
-        public ObservableCollection<String> DeviceItems { get { return _DeviceItems; } }
-        public ObservableCollection<String> HeadRowItems { get { return _HeadRowItems; } }
-        public ObservableCollection<String> TabItems { get { return _TabItems; } }
-        public ObservableCollection<String> DelayItems { get { return _DelayItems; } }
+                
         public ObservableCollection<String> EditorItems { get { return _EditorItems; } }
 
         #endregion
@@ -509,7 +331,7 @@ namespace CDTUserControl.Viewmodels
 
         #region constructor
 
-        public EditorOptionsUserControlViewModel()
+        public EditorLoadUserControlViewModel()
         {
 
         }
@@ -521,16 +343,6 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region public set methods
-
-        public void SetDeviceList(List<String> p_Devices)
-        {
-            _DeviceItems.Clear();
-            foreach (var l_Device in p_Devices)
-            {
-                _DeviceItems.Add(l_Device);
-            }
-            RaisePropertyChanged("DeviceItems");
-        }
         
         public void SetRootText(string p_Value)
         {
@@ -548,23 +360,6 @@ namespace CDTUserControl.Viewmodels
         {
             _StatusWarn = p_Value;
             RaisePropertyChanged("StatusWarn");
-        }
-
-        public void SetVersionNumber(string p_Value)
-        {
-            _VersionNumber = p_Value;
-            RaisePropertyChanged("VersionNumber");
-        }
-        public void SetAltSuffix(string p_Value)
-        {
-            _AltSuffix = p_Value;
-            RaisePropertyChanged("AltSuffix");
-        }
-
-        public void SetDeviceName(string p_Value)
-        {
-            _DeviceName = p_Value;
-            RaisePropertyChanged("DeviceName");
         }
         
         public void SetAssetFolder1(string p_Value)
@@ -608,8 +403,7 @@ namespace CDTUserControl.Viewmodels
             _TextHeader1C = p_Value;
             RaisePropertyChanged("TextHeader1C");
         }
-                
-
+        
         public void SetCharHeader(string p_Value)
         {
             _CharHeader = p_Value;
@@ -622,7 +416,6 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("SceneHeader");
         }
         
-
         public void SetCharHeaderC(string p_Value)
         {
             _CharHeaderC = p_Value;
@@ -634,56 +427,13 @@ namespace CDTUserControl.Viewmodels
             _SceneHeaderC = p_Value;
             RaisePropertyChanged("SceneHeaderC");
         }
-        
-        
-        public void SetHeadRowIndex(int p_Value)
-        {
-            _HeadRowIndex = p_Value;
-            RaisePropertyChanged("HeadRowIndex");
-        }
-        
+                
         public void SetEditorIndex(int p_Value)
         {
             _EditorIndex = p_Value;
             RaisePropertyChanged("EditorIndex");
         }
-
-        public void SetTabIndex(int p_Value)
-        {
-            _TabIndex = p_Value;
-            RaisePropertyChanged("TabIndex");
-        }
-
-        public void SetDelayIndex(int p_Value)
-        {
-            _DelayIndex = p_Value;
-            RaisePropertyChanged("DelayIndex");
-        }
         
-        public void SetDeviceIndex(int p_Value)
-        {
-            _DeviceIndex = p_Value;
-            RaisePropertyChanged("DeviceIndex");
-        }
-        
-        public void SetAutoPlayChecked(bool p_Value)
-        {
-            _AutoPlayChecked = p_Value;
-            RaisePropertyChanged("AutoPlayChecked");
-        }
-
-        public void SetAutoStopChecked(bool p_Value)
-        {
-            _AutoStopChecked = p_Value;
-            RaisePropertyChanged("AutoStopChecked");
-        }
-
-        public void SetDefaultDeviceChecked(bool p_Value)
-        {
-            _DefaultDeviceChecked = p_Value;
-            RaisePropertyChanged("DefaultDeviceChecked");
-        }
-
         public void SetUsesDir1Checked(bool p_Value)
         {
             _UsesDir1Checked = p_Value;
@@ -718,12 +468,20 @@ namespace CDTUserControl.Viewmodels
             SaveButtonEvent();
         }
         public ICommand SaveButton { get { return new RelayCommand(SaveExecute); } }
-
-        private void UpdateExecute()
+        
+        private void LoadExecute()
         {
-            UpdateButtonEvent();
+            LoadButtonEvent();
         }
-        public ICommand UpdateButton { get { return new RelayCommand(UpdateExecute); } }
+        public ICommand LoadButton { get { return new RelayCommand(LoadExecute); } }
+
+
+        private void ExitExecute()
+        {
+            ExitButtonEvent();
+        }
+        public ICommand ExitButton { get { return new RelayCommand(ExitExecute); } }
+
         #endregion
 
         #region public send functions
@@ -736,16 +494,6 @@ namespace CDTUserControl.Viewmodels
         public string SendEditorExe()
         {
             return EditorExe;
-        }
-
-        public string SendAltSuffix()
-        {
-            return AltSuffix;
-        }
-
-        public string SendDeviceName()
-        {
-            return DeviceName;
         }
         
         public string SendAssetFolder1()
@@ -778,42 +526,11 @@ namespace CDTUserControl.Viewmodels
             return SceneHeader;
         }
         
-        
-        public int SendHeadRowIndex()
-        {
-            return HeadRowIndex;
-        }
-        
         public int SendEditorIndex()
         {
             return EditorIndex;
         }
-
-        public int SendTabIndex()
-        {
-            return TabIndex;
-        }
-
-        public int SendDelayIndex()
-        {
-            return DelayIndex;
-        }
-
-        public bool SendAutoPlayChecked()
-        {
-            return AutoPlayChecked;
-        }
-
-        public bool SendAutoStopChecked()
-        {
-            return AutoStopChecked;
-        }
-
-        public bool SendDefaultDeviceChecked()
-        {
-            return DefaultDeviceChecked;
-        }
-
+        
         public bool SendUsesDir1Checked()
         {
             return UsesDir1Checked;

@@ -58,5 +58,11 @@ namespace CDTUserControl.Usercontrols
             }
         }
 
+        public void SetStatusPane(string p_Value)
+        {
+            vm.SetStatusPane(p_Value);
+        }
+
+
     }
 }

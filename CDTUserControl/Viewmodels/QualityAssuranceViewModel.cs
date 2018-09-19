@@ -20,6 +20,7 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region private variables
+        string _StatusPane;
         private ColorPickerWindow _colorPicker;
         private bool _MarkMissingFiles = false;
         private bool _MarkCorruptedFiles = false;
@@ -41,6 +42,9 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region properties
+        
+        public String StatusPane { get { return _StatusPane; } }
+
         public bool MarkMissingFiles
         {
             get { return _MarkMissingFiles; }
@@ -157,7 +161,11 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region public methods
-
+        public void SetStatusPane(String p_Value)
+        {
+            _StatusPane = p_Value;
+            RaisePropertyChanged("StatusPane");
+        }
         #endregion
     }
 }

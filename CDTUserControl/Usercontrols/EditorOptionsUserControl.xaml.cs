@@ -31,36 +31,45 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void EditorExeChangeButtonEventHandler();
         public event EditorExeChangeButtonEventHandler EditorExeChangeButtonEvent;
-
-        public delegate void TCChangeEventHandler();
-        public event TCChangeEventHandler TCChangeEvent;
-        
+                
         public delegate void SaveButtonEventHandler();
         public event SaveButtonEventHandler SaveButtonEvent;
-        
+
+        public delegate void UpdateButtonEventHandler();
+        public event UpdateButtonEventHandler UpdateButtonEvent;
+
         public delegate void EditorChangedEventHandler();
         public event EditorChangedEventHandler EditorChangedEvent;
 
-        
 
         #endregion
 
         #region constructor
+        public static void EnsureApplicationResources()
+        {
+            if (System.Windows.Application.Current == null)
+            {
+                new System.Windows.Application
+                {
+                    ShutdownMode = ShutdownMode.OnExplicitShutdown
+                };
+            }
+        }
 
         public EditorOptionsUserControl()
         {
+            EnsureApplicationResources();
             InitializeComponent();
             vm = new EditorOptionsUserControlViewModel();
 
             //add event listeners
             vm.RootChangeButtonEvent += Vm_RootChangeButtonEvent;
             vm.EditorExeChangeButtonEvent += Vm_EditorExeChangeButtonEvent;
-            vm.TCChangeEvent += Vm_TCChangeEvent;
 
             vm.SaveButtonEvent += Vm_SaveButtonEvent;
+            vm.UpdateButtonEvent += Vm_UpdateButtonEvent;
 
             vm.EditorChangedEvent += Vm_EditorChangedEvent;
-
 
             base.DataContext = vm;
         }
@@ -94,17 +103,16 @@ namespace CDTUserControl.Usercontrols
             EditorExeChangeButtonEvent();
         }
         
-        private void Vm_TCChangeEvent()
-        {
-            TCChangeEvent();
-        }
-
-
         private void Vm_SaveButtonEvent()
         {
             SaveButtonEvent();
         }
-        
+
+        private void Vm_UpdateButtonEvent()
+        {
+            UpdateButtonEvent();
+        }
+
         private void Vm_EditorChangedEvent()
         {
             EditorChangedEvent();
@@ -117,10 +125,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetDeviceList(p_Devices);
         }
-        public void SetVoiceList(List<String> p_Voices)
-        {
-            vm.SetVoiceList(p_Voices);
-        }
+        
         public void SetRootText(string p_Value)
         {
             vm.SetRootText(p_Value);
@@ -149,12 +154,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetDeviceName(p_Value);
         }
-
-        public void SetGlossaryFolder(string p_Value)
-        {
-            vm.SetGlossaryFolder(p_Value);
-        }
-
+        
         public void SetAssetFolder1(string p_Value)
         {
             vm.SetAssetFolder1(p_Value);
@@ -174,8 +174,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetTextHeader1(p_Value);
         }
-
-
+        
         public void SetDirHeader1C(string p_Value)
         {
             vm.SetDirHeader1C(p_Value);
@@ -190,41 +189,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetTextHeader1C(p_Value);
         }
-
-        public void SetAssetFolder2(string p_Value)
-        {
-            vm.SetAssetFolder2(p_Value);
-        }
-
-        public void SetDirHeader2(string p_Value)
-        {
-            vm.SetDirHeader2(p_Value);
-        }
-
-        public void SetFileHeader2(string p_Value)
-        {
-            vm.SetFileHeader2(p_Value);
-        }
-
-        public void SetTextHeader2(string p_Value)
-        {
-            vm.SetTextHeader2(p_Value);
-        }
-
-        public void SetDirHeader2C(string p_Value)
-        {
-            vm.SetDirHeader2C(p_Value);
-        }
-
-        public void SetFileHeader2C(string p_Value)
-        {
-            vm.SetFileHeader2C(p_Value);
-        }
-
-        public void SetTextHeader2C(string p_Value)
-        {
-            vm.SetTextHeader2C(p_Value);
-        }
+                
         public void SetCharHeader(string p_Value)
         {
             vm.SetCharHeader(p_Value);
@@ -234,31 +199,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetSceneHeader(p_Value);
         }
-
-        public void SetItemHeader(string p_Value)
-        {
-            vm.SetItemHeader(p_Value);
-        }
-
-        public void SetVideoHeader(string p_Value)
-        {
-            vm.SetVideoHeader(p_Value);
-        }
-
-        public void SetMusicHeader(string p_Value)
-        {
-            vm.SetMusicHeader(p_Value);
-        }
-
-        public void SetSFXHeader(string p_Value)
-        {
-            vm.SetSFXHeader(p_Value);
-        }
-
-        public void SetLFXHeader(string p_Value)
-        {
-            vm.SetLFXHeader(p_Value);
-        }
+        
         public void SetCharHeaderC(string p_Value)
         {
             vm.SetCharHeaderC(p_Value);
@@ -268,76 +209,12 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetSceneHeaderC(p_Value);
         }
-
-        public void SetItemHeaderC(string p_Value)
-        {
-            vm.SetItemHeaderC(p_Value);
-        }
-
-        public void SetVideoHeaderC(string p_Value)
-        {
-            vm.SetVideoHeaderC(p_Value);
-        }
-
-        public void SetMusicHeaderC(string p_Value)
-        {
-            vm.SetMusicHeaderC(p_Value);
-        }
-
-        public void SetSFXHeaderC(string p_Value)
-        {
-            vm.SetSFXHeaderC(p_Value);
-        }
-
-        public void SetLFXHeaderC(string p_Value)
-        {
-            vm.SetLFXHeaderC(p_Value);
-        }
-        public void SetTCValue(string p_Value)
-        {
-            vm.SetTCValue(p_Value);
-        }
-
-        public void SetTCRule(string p_Value)
-        {
-            vm.SetTCRule(p_Value);
-        }
-
-        public void SetDiffRangeText(string p_Value)
-        {
-            vm.SetDiffRangeText(p_Value);
-        }
-
-        public void SetWPSText(string p_Value)
-        {
-            vm.SetWPSText(p_Value);
-        }
-
-        public void SetSynthVoice(string p_Value)
-        {
-            vm.SetSynthVoice(p_Value);
-        }
-
+        
         public void SetHeadRowIndex(int p_Value)
         {
             vm.SetHeadRowIndex(p_Value);
         }
-
-        public void SetTCDirection(int p_Value)
-        {
-            vm.SetTCDirection(p_Value);
-        }
-
-        public void SetDiffRange(int p_Value)
-        {
-            vm.SetDiffRange(p_Value);
-        }
-
-        public void SetWPS(int p_Value)
-        {
-            vm.SetWPS(p_Value);
-        }
-
+        
         public void SetEditorIndex(int p_Value)
         {
             vm.SetEditorIndex(p_Value);
@@ -352,11 +229,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetDelayIndex(p_Value);
         }
-
-        public void SetVoiceIndex(int p_Value)
-        {
-            vm.SetVoiceIndex(p_Value);
-        }
+        
         public void SetDeviceIndex(int p_Value)
         {
             vm.SetDeviceIndex(p_Value);
@@ -380,22 +253,7 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetUsesDir1Checked(p_Value);
         }
-
-        public void SetUsesDir2Checked(bool p_Value)
-        {
-            vm.SetUsesDir2Checked(p_Value);
-        }
-
-        public void SetTCPerCent(bool p_Value)
-        {
-            vm.SetTCPerCent(p_Value);
-        }
-
-        public void SetTCMS(bool p_Value)
-        {
-            vm.SetTCMS(p_Value);
-        }
-
+        
         public void ClearStatusText()
         {
             vm.ClearStatusText();
@@ -423,12 +281,7 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendDeviceName();
         }
-
-        public string SendGlossaryFolder()
-        {
-            return vm.SendGlossaryFolder();
-        }
-
+        
         public string SendAssetFolder1()
         {
             return vm.SendAssetFolder1();
@@ -448,27 +301,7 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendTextHeader1();
         }
-
-        public string SendAssetFolder2()
-        {
-            return vm.SendAssetFolder2();
-        }
-
-        public string SendDirHeader2()
-        {
-            return vm.SendDirHeader2();
-        }
-
-        public string SendFileHeader2()
-        {
-            return vm.SendFileHeader2();
-        }
-
-        public string SendTextHeader2()
-        {
-            return vm.SendTextHeader2();
-        }
-
+        
         public string SendCharHeader()
         {
             return vm.SendCharHeader();
@@ -478,72 +311,12 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendSceneHeader();
         }
-
-        public string SendItemHeader()
-        {
-            return vm.SendItemHeader();
-        }
-
-        public string SendVideoHeader()
-        {
-            return vm.SendVideoHeader();
-        }
-
-        public string SendMusicHeader()
-        {
-            return vm.SendMusicHeader();
-        }
-
-        public string SendSFXHeader()
-        {
-            return vm.SendSFXHeader();
-        }
-
-        public string SendLFXHeader()
-        {
-            return vm.SendLFXHeader();
-        }
-
-        public string SendTCValue()
-        {
-            return vm.SendTCValue();
-        }
-
-        public string SendDiffRangeText()
-        {
-            return vm.SendDiffRangeText();
-        }
-
-        public string SendWPSText()
-        {
-            return vm.SendWPSText();
-        }
-
-        public string SendSynthVoice()
-        {
-            return vm.SendSynthVoice();
-        }
-
+                
         public int SendHeadRowIndex()
         {
             return vm.SendHeadRowIndex();
         }
-
-        public int SendTCDirection()
-        {
-            return vm.SendTCDirection();
-        }
-
-        public int SendDiffRange()
-        {
-            return vm.SendDiffRange();
-        }
-
-        public int SendWPS()
-        {
-            return vm.SendWPS();
-        }
-
+        
         public int SendEditorIndex()
         {
             return vm.SendEditorIndex();
@@ -578,17 +351,7 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendUsesDir1Checked();
         }
-
-        public bool SendUsesDir2Checked()
-        {
-            return vm.SendUsesDir2Checked();
-        }
-
-        public bool SendTCMS()
-        {
-            return vm.SendTCMS();
-        }
-
+        
         #endregion
     }
 }
