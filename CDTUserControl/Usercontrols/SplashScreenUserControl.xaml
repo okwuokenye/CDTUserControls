@@ -35,7 +35,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" Content="Cancel" Margin="2 2 2 2" Width="100" FontSize="11" FontWeight="Bold" Background="DarkGray" Foreground="black" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" Click="CancelClick"/>
+            <Button Grid.Column="0" Content="Cancel" Margin="2 2 2 2" Width="100" FontSize="11" FontWeight="Bold" Background="Wheat" Foreground="black" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" Click="CancelClick"/>
             <Button Grid.Column="1" Content="Minimize Excel" Margin="2 2 2 2" Width="100" FontSize="11" FontWeight="Bold" Background="DarkGray" Foreground="black" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" Click="MinClick" Visibility="Hidden"/>
         </Grid>
         

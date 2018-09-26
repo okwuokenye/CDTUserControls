@@ -151,13 +151,18 @@
                         <CheckBox Content="Exclude header row" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding ExcludeHeader}"/>
                         <CheckBox Content="Visible cells only" Margin="2,4,2,2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" IsChecked="{Binding VisibleOnly}"/>
                         <CheckBox Content="Ignore strikethrough" Margin="2,4,2,2" Grid.Row="4" IsChecked="{Binding IgnoreStrikeThrough}"/>
-                    <CheckBox Content="IgnoreItalics" Margin="2,4,2,2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" IsChecked="{Binding IgnoreItalics}"/>
-                    
-                <StackPanel Grid.Row="5" Orientation="Horizontal" Grid.ColumnSpan="2">
-                        <Button Click="RecountClick" Content="Count" Margin="10,2,2,2" Width="80" />
-                </StackPanel>
+                    <CheckBox Content="Ignore italics" Margin="2,4,2,2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" IsChecked="{Binding IgnoreItalics}"/>
 
-            </Grid>
+                    <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal"  >
+                        <Button Click="RecountClick" Content="Count" Margin="2,2,4,2" Width="70"/>
+                        <Button Click="CancelWCClick" Content="Cancel" Margin="2,2,2,2" Width="70"/>
+                    </StackPanel>
+                
+                    <ProgressBar Grid.Column="1" Grid.Row="5" Name="progBar" Margin="2 5 2 5" Minimum="0" Background="White" Foreground="Goldenrod" BorderThickness="1" Value="{Binding ProgressValue}" Maximum="{Binding ProgressMax}"/>
+
+
+
+                </Grid>
 
         </Expander>
 

@@ -71,6 +71,10 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void CopyWCClickEvent();
         public event CopyWCClickEvent CopyWC;
+
+        public delegate void CancelWCClickEvent();
+        public event CancelWCClickEvent CancelWC;
+
         #endregion
 
         #region view event handlers
@@ -121,6 +125,16 @@ namespace CDTUserControl.Usercontrols
                 CopyEAT();
             }
         }
+
+
+        private void CancelWCClick(object sender, RoutedEventArgs args)
+        {
+            if (CancelWC != null)
+            {
+                CancelWC();
+            }
+        }
+
         #endregion
 
         #region public methods
@@ -310,6 +324,16 @@ namespace CDTUserControl.Usercontrols
         }
 
 
+        public void SetProgressValue(int p_Value)
+        {
+            vm.SetProgressValue(p_Value);
+        }
+
+        public void SetProgressMax(int p_Value)
+        {
+            vm.SetProgressMax(p_Value);
+        }
+        
 
 
         #endregion

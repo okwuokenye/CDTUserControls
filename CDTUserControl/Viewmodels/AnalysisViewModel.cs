@@ -59,6 +59,10 @@ namespace CDTUserControl.Viewmodels
         string _WordCountResult = string.Empty;
         string _EATResult = string.Empty;
 
+
+        int _ProgressValue = 1;
+        int _ProgressMax = 100;
+
         #endregion
 
         #region properties
@@ -92,6 +96,7 @@ namespace CDTUserControl.Viewmodels
                 RaisePropertyChanged("NotAnalyzeRadioButtonsVisibility");
             }
         }
+
         public Visibility AnalyzeRadioButtonsVisibility { get { return _AnalyzeMultipleSheets ? Visibility.Visible : Visibility.Hidden; } }
         public Visibility NotAnalyzeRadioButtonsVisibility { get { return !_AnalyzeMultipleSheets ? Visibility.Visible : Visibility.Hidden; } }
 
@@ -480,6 +485,31 @@ namespace CDTUserControl.Viewmodels
             }
         }
 
+
+        public int ProgressValue
+        {
+            get { return _ProgressValue; }
+            set
+            {
+                if (_ProgressValue != value)
+                {
+                    _ProgressValue = value;
+                }
+            }
+        }
+
+        public int ProgressMax
+        {
+            get { return _ProgressMax; }
+            set
+            {
+                if (_ProgressMax != value)
+                {
+                    _ProgressMax = value;
+                }
+            }
+        }
+        
         #endregion
 
         #region Constructor
@@ -677,6 +707,19 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("EATResult");
         }
 
+
+        public void SetProgressValue(int p_Value)
+        {
+            _ProgressValue = p_Value;
+            RaisePropertyChanged("ProgressValue");
+        }
+
+        public void SetProgressMax(int p_Value)
+        {
+            _ProgressMax = p_Value;
+            RaisePropertyChanged("ProgressMax");
+        }
+        
         #endregion
 
         #region send methods
