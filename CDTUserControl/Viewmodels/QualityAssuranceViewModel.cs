@@ -192,6 +192,15 @@ namespace CDTUserControl.Viewmodels
         ObservableCollection<String> _TargetItems = new ObservableCollection<String> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ", "BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BK", "BL", "BM", "BN", "BO", "BP", "BQ", "BR", "BS", "BT", "BU", "BV", "BW", "BX", "BY", "BZ", "CA", "CB", "CC", "CD", "CE", "CF", "CG", "CH", "CI", "CJ", "CK", "CL", "CM", "CN", "CO", "CP", "CQ", "CR", "CS", "CT", "CU", "CV", "CW", "CX", "CY", "CZ", "DA", "DB", "DC", "DD", "DE", "DF", "DG", "DH", "DI", "DJ", "DK", "DL", "DM", "DN", "DO", "DP", "DQ", "DR", "DS", "DT", "DU", "DV", "DW", "DX", "DY", "DZ", "EA", "EB", "EC", "ED", "EE", "EF", "EG", "EH", "EI", "EJ", "EK", "EL", "EM", "EN", "EO", "EP", "EQ", "ER", "ES", "ET", "EU", "EV", "EW", "EX", "EY", "EZ" };
         public ObservableCollection<string> TargetItems { get { return _TargetItems; } }
 
+
+        private bool _PL_Text_Enabled = false;
+        private bool _PL_File_Enabled = false;
+        private bool _Compare_Enabled = false;
+        private bool _SL_Text_Enabled = false;
+        private bool _SL_File_Enabled = false;
+        private bool _SL_TextFile_Enabled = false;
+        private bool _PL_TextFile_Enabled = false;
+
         private bool _PL_WordCount = false;
         private bool _PL_EAT = false;
         private bool _PL_AAT = false;
@@ -208,12 +217,93 @@ namespace CDTUserControl.Viewmodels
         
         private bool _AD_Visible = false;
         
-        private bool _IW_TargetColumn = false;
+        private bool _IW_TargetColumn = true;
         
         private int _TargetIndex =0;
 
-        private bool _S_ColourCode = false;
-        
+        private bool _S_ColourCode = true;
+
+        public bool PL_Text_Enabled
+        {
+            get { return _PL_Text_Enabled; }
+            set
+            {
+                if (_PL_Text_Enabled != value)
+                {
+                    _PL_Text_Enabled = value;
+                }
+            }
+        }
+
+        public bool PL_TextFile_Enabled
+        {
+            get { return _PL_TextFile_Enabled; }
+            set
+            {
+                if (_PL_TextFile_Enabled != value)
+                {
+                    _PL_TextFile_Enabled = value;
+                }
+            }
+        }
+        public bool SL_TextFile_Enabled
+        {
+            get { return _SL_TextFile_Enabled; }
+            set
+            {
+                if (_SL_TextFile_Enabled != value)
+                {
+                    _SL_TextFile_Enabled = value;
+                }
+            }
+        }
+        public bool PL_File_Enabled
+        {
+            get { return _PL_File_Enabled; }
+            set
+            {
+                if (_PL_File_Enabled != value)
+                {
+                    _PL_File_Enabled = value;
+                }
+            }
+        }
+        public bool SL_File_Enabled
+        {
+            get { return _SL_File_Enabled; }
+            set
+            {
+                if (_SL_File_Enabled != value)
+                {
+                    _SL_File_Enabled = value;
+                }
+            }
+        }
+
+        public bool SL_Text_Enabled
+        {
+            get { return _SL_Text_Enabled; }
+            set
+            {
+                if (_SL_Text_Enabled != value)
+                {
+                    _SL_Text_Enabled = value;
+                }
+            }
+        }
+
+        public bool Compare_Enabled
+        {
+            get { return _Compare_Enabled; }
+            set
+            {
+                if (_Compare_Enabled != value)
+                {
+                    _Compare_Enabled = value;
+                }
+            }
+        }
+
         public bool PL_WordCount
         {
             get { return _PL_WordCount; }
@@ -486,7 +576,84 @@ namespace CDTUserControl.Viewmodels
             return TargetIndex;
         }
 
+        public void Set_TargetIndex(int p_Value)
+        {
+            TargetIndex = p_Value;
+            RaisePropertyChanged("TargetIndex");
+        }
 
+
+        public void SetPLText(bool p_Value)
+        {
+            PL_Text_Enabled = p_Value;
+            RaisePropertyChanged("PL_Text_Enabled");
+            SetPLFileText();
+        }
+
+        public void SetSLText(bool p_Value)
+        {
+            SL_Text_Enabled = p_Value;
+            RaisePropertyChanged("SL_Text_Enabled");
+            SetSLFileText();
+        }
+
+        public void SetPLFile(bool p_Value)
+        {
+            PL_File_Enabled = p_Value;
+            RaisePropertyChanged("PL_File_Enabled");
+            SetPLFileText();
+            SetCompare();
+        }
+
+        public void SetSLFile(bool p_Value)
+        {
+            SL_File_Enabled = p_Value;
+            RaisePropertyChanged("SL_File_Enabled");
+            SetSLFileText();
+            SetCompare();
+        }
+
+        public void SetCompare()
+        {
+            if(!SL_File_Enabled | !PL_File_Enabled)
+            {
+                Compare_Enabled = false;
+            }
+            else
+            {
+                Compare_Enabled = true;
+            }
+            
+            RaisePropertyChanged("Compare_Enabled");
+        }
+
+        public void SetPLFileText()
+        {
+            if (!PL_Text_Enabled | !PL_File_Enabled)
+            {
+                PL_TextFile_Enabled = false;
+            }
+            else
+            {
+                PL_TextFile_Enabled = true;
+            }
+
+            RaisePropertyChanged("PL_TextFile_Enabled");
+        }
+
+        public void SetSLFileText()
+        {
+            if (!SL_Text_Enabled | !SL_File_Enabled)
+            {
+                SL_TextFile_Enabled = false;
+            }
+            else
+            {
+                SL_TextFile_Enabled = true;
+            }
+
+            RaisePropertyChanged("SL_TextFile_Enabled");
+        }
         #endregion
 
     }

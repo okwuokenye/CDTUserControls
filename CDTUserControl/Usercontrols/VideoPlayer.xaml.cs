@@ -16,6 +16,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using WPFMediaKit.DirectShow.Controls;
+using System.Runtime.InteropServices;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -28,9 +29,16 @@ namespace CDTUserControl.Usercontrols
         private bool userIsDraggingSlider = false;
 
         private bool IsLooped = false;
-        
-        
+
+        private DispatcherTimer DoubleClickTimer = new DispatcherTimer();
+
+        [DllImport("user32.dll")]
+        private static extern uint GetDoubleClickTime();
+
         #region events
+
+        public delegate void DblClickEventHandler();
+        public event DblClickEventHandler DblClickEvent;
 
         public delegate void LockEventHandler(bool p_IsLocked);
         public event LockEventHandler LockEvent;
@@ -64,33 +72,35 @@ namespace CDTUserControl.Usercontrols
             timer.Start();
 
             this.mediaUriElement.VideoRenderer = WPFMediaKit.DirectShow.MediaPlayers.VideoRendererType.EnhancedVideoRenderer;
-
-
+            
+            DoubleClickTimer.Interval = TimeSpan.FromMilliseconds(GetDoubleClickTime());
+            DoubleClickTimer.Tick += (s, e) => DoubleClickTimer.Stop();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            //if ((CDTPlayer..Source != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
-            //{
-            //    sliProgress.Minimum = 0;
-            //    sliProgress.Maximum = CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-            //    sliProgress.Value = CDTPlayer.Position.TotalSeconds;
-            //    lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
-            //}
+            if ((CDTPlayer.Source != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
+            {
+                sliProgress.Minimum = 0;
+                sliProgress.Maximum = CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                sliProgress.Value = CDTPlayer.Position.TotalSeconds;
+                lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
+            }
         }
 
         private void Play_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            //e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
-            //if ((CDTPlayer.AddTarget != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
-            //{
-            //    lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
-            //}
+            e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
+            if ((CDTPlayer.Source != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
+            {
+                lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
+            }
         }
 
         private void Play_Executed(object sender, RoutedEventArgs e)
         {
             mediaUriElement.Play();
+            CDTPlayer.Play();
             mediaPlayerIsPlaying = true;
         }
 
@@ -102,6 +112,7 @@ namespace CDTUserControl.Usercontrols
         private void Pause_Executed(object sender, RoutedEventArgs e)
         {
             mediaUriElement.Pause();
+            CDTPlayer.Pause();
         }
 
         private void Stop_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -112,6 +123,11 @@ namespace CDTUserControl.Usercontrols
         private void Stop_Executed(object sender, RoutedEventArgs e)
         {
             mediaUriElement.Stop();
+            CDTPlayer.Stop();
+
+            mediaUriElement.MediaPosition = 0;
+            CDTPlayer.Position = TimeSpan.Zero;
+            
             mediaPlayerIsPlaying = false;
         }
 
@@ -123,7 +139,12 @@ namespace CDTUserControl.Usercontrols
         private void sliProgress_DragCompleted(object sender, DragCompletedEventArgs e)
         {
             userIsDraggingSlider = false;
-            mediaUriElement.MediaPosition = (long)sliProgress.Value;
+
+            double perc = sliProgress.Value / sliProgress.Maximum;
+            mediaUriElement.MediaPosition = (long)(mediaUriElement.MediaDuration * perc);
+
+            CDTPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
+
         }
 
         private void sliProgress_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -134,7 +155,11 @@ namespace CDTUserControl.Usercontrols
         private void sliProgress_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             userIsDraggingSlider = false;
-            mediaUriElement.MediaPosition = (long)sliProgress.Value;
+
+            double perc = sliProgress.Value / sliProgress.Maximum;
+            mediaUriElement.MediaPosition = (long)(mediaUriElement.MediaDuration * perc);
+
+            CDTPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
         }
 
         private void sliProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -144,9 +169,7 @@ namespace CDTUserControl.Usercontrols
 
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            //this does not work - also the volume of the video playback should be linked to the VolumeControl slider.  
-            //this has been fixed
-            mediaUriElement.Volume += (e.Delta > 0) ? 0.1 : -0.1;
+            mediaUriElement.Volume += (e.Delta > 0) ? 0.05 : -0.05;
         }
 
         public void SetMediaFile(string p_FileName)
@@ -154,13 +177,15 @@ namespace CDTUserControl.Usercontrols
             if (p_FileName != "")
             {
                 mediaUriElement.Source = new Uri(p_FileName);
+                CDTPlayer.Source = new Uri(p_FileName);
+                CDTPlayer.Play();
                 mediaUriElement.Play();
             }
             else
             {
                 mediaUriElement.Source = null;
-            }
-
+                CDTPlayer.Source = null;
+            }            
         }
 
         private void Open_File(object sender, RoutedEventArgs e)
@@ -173,11 +198,12 @@ namespace CDTUserControl.Usercontrols
             if (result == true)
             {
                 mediaUriElement.Source = new Uri(openFileDialog.FileName);
+                CDTPlayer.Source = new Uri(openFileDialog.FileName);
                 mediaUriElement.Play();
+                CDTPlayer.Play();
             }               
         }
-
-
+        
         private void LockImage_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -231,11 +257,25 @@ namespace CDTUserControl.Usercontrols
             if (IsLooped)
             {
                 mediaUriElement.MediaPosition = 0;
+                CDTPlayer.Position = TimeSpan.Zero;
+
                 mediaUriElement.Play();
+                CDTPlayer.Play();
             }
         }
 
+        private void MediaPlayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!DoubleClickTimer.IsEnabled)
+            {
+                DoubleClickTimer.Start();
+            }
+            else
+            {
+                DblClickEvent();
+            }
 
+        }
 
     }
 }

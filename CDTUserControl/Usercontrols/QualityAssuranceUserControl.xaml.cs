@@ -22,6 +22,11 @@ namespace CDTUserControl.Usercontrols
     public partial class QualityAssuranceUserControl : UserControl
     {
 
+        public delegate void ExpanderChangeEventHandler(int WhichExpanded);
+        public event ExpanderChangeEventHandler ExpanderChangeEvent;
+
+        bool ControlIsLoaded = false;
+
         public static void EnsureApplicationResources()
         {
             if (System.Windows.Application.Current == null)
@@ -40,6 +45,7 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new QualityAssuranceViewModel();
             base.DataContext = vm;
+            ControlIsLoaded = true;
         }
 
 
@@ -53,6 +59,30 @@ namespace CDTUserControl.Usercontrols
                     if (exp != exp1)
                     {
                         exp.IsExpanded = false;
+                    }
+                }
+                if (ControlIsLoaded)
+                {
+                    string head = exp1.Header.ToString();
+                    if (head == "File Checks (mark missing)")
+                    {
+                        ExpanderChangeEvent(0);
+                    }
+                    else if (head == "Compare Columns")
+                    {
+                        ExpanderChangeEvent(1);
+                    }
+                    else if (head == "Find Missing Assets")
+                    {
+                        ExpanderChangeEvent(2);
+                    }
+                    else if (head == "Mark Duplicates")
+                    {
+                        ExpanderChangeEvent(3);
+                    }
+                    else if (head == "Insert Audio Data")
+                    {
+                        ExpanderChangeEvent(4);
                     }
                 }
             }
@@ -69,11 +99,14 @@ namespace CDTUserControl.Usercontrols
         public delegate void InsertClickEvent();
         public event InsertClickEvent InsertClick;
 
-        private void InsertDataClick(object sender, RoutedEventArgs args)
+        public delegate void ResetInsertClickEvent();
+        public event ResetInsertClickEvent ResetInsertClick;
+
+        private void ResetInsertDataClick(object sender, RoutedEventArgs args)
         {
-            if (InsertClick != null)
+            if (ResetInsertClick != null)
             {
-                InsertClick();
+                ResetInsertClick();
             }
         }
         
@@ -157,6 +190,29 @@ namespace CDTUserControl.Usercontrols
             return vm.Send_TargetIndex();
         }
 
+
+
+        public void SetPLText(bool p_Value)
+        {
+            vm.SetPLText(p_Value);
+        }
+        public void SetSLText(bool p_Value)
+        {
+            vm.SetSLText(p_Value);
+        }
+        public void SetPLFile(bool p_Value)
+        {
+            vm.SetPLFile(p_Value);
+        }
+        public void SetSLFile(bool p_Value)
+        {
+            vm.SetSLFile(p_Value);
+        }
+
+        public void Set_TargetIndex(int p_Value)
+        {
+            vm.Set_TargetIndex(p_Value);
+        }
         #endregion
 
 

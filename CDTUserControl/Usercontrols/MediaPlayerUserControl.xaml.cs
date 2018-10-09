@@ -7,6 +7,7 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Runtime.InteropServices;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -20,7 +21,15 @@ namespace CDTUserControl.Usercontrols
 
         private bool IsLooped = false;
         
+        private DispatcherTimer DoubleClickTimer = new DispatcherTimer();
+
+        [DllImport("user32.dll")]
+        private static extern uint GetDoubleClickTime();
+
         #region events
+
+        public delegate void DblClickEventHandler();
+        public event DblClickEventHandler DblClickEvent;
 
         public delegate void LockEventHandler(bool p_IsLocked);
         public event LockEventHandler LockEvent;
@@ -52,6 +61,9 @@ namespace CDTUserControl.Usercontrols
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
+
+            DoubleClickTimer.Interval = TimeSpan.FromMilliseconds(GetDoubleClickTime());
+            DoubleClickTimer.Tick += (s, e) => DoubleClickTimer.Stop();
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -98,7 +110,10 @@ namespace CDTUserControl.Usercontrols
         private void Stop_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Stop();
+
+            CDTPlayer.Position = TimeSpan.Zero;
             mediaPlayerIsPlaying = false;
+
         }
 
         private void sliProgress_DragStarted(object sender, DragStartedEventArgs e)
@@ -132,7 +147,7 @@ namespace CDTUserControl.Usercontrols
         {
             //this does not work - also the volume of the video playback should be linked to the VolumeControl slider.  
             //this has been fixed
-            CDTPlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
+            CDTPlayer.Volume += (e.Delta > 0) ? 0.05 : -0.05;
         }
         
         public void SetMediaFile(string p_FileName)
@@ -216,6 +231,19 @@ namespace CDTUserControl.Usercontrols
                 CDTPlayer.Position = TimeSpan.Zero;
                 CDTPlayer.Play();
             }
+        }
+
+        private void MediaPlayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!DoubleClickTimer.IsEnabled)
+            {
+                DoubleClickTimer.Start();
+            }
+            else
+            {
+                DblClickEvent();
+            }
+            
         }
     }
 }
