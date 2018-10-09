@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace CDTUserControl
 {
@@ -16,7 +17,17 @@ namespace CDTUserControl
         public App()
         {
             InitializeComponent();
-        }       
+        }
 
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            try
+            {
+                RenderOptions.ProcessRenderMode = System.Windows.Interop.RenderMode.SoftwareOnly;
+            }
+            catch { }
+
+
+        }
     }
 }

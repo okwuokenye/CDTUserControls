@@ -64,5 +64,101 @@ namespace CDTUserControl.Usercontrols
         }
 
 
+        #region InsertData
+
+        public delegate void InsertClickEvent();
+        public event InsertClickEvent InsertClick;
+
+        private void InsertDataClick(object sender, RoutedEventArgs args)
+        {
+            if (InsertClick != null)
+            {
+                InsertClick();
+            }
+        }
+        
+        public bool Send_PL_WordCount()
+        {
+            return vm.Send_PL_WordCount();
+        }
+
+        public bool Send_PL_EAT()
+        {
+            return vm.Send_PL_EAT();
+        }
+
+        public bool Send_PL_AAT()
+        {
+            return vm.Send_PL_AAT();
+        }
+
+        public bool Send_PL_DiffToEAT()
+        {
+            return vm.Send_PL_DiffToEAT();
+        }
+
+        public bool Send_PL_AATDiffMS()
+        {
+            return vm.Send_PL_AATDiffMS();
+        }
+
+        public bool Send_PL_AATDiffPercent()
+        {
+            return vm.Send_PL_AATDiffPercent();
+        }
+
+        public bool Send_SL_WordCount()
+        {
+            return vm.Send_SL_WordCount();
+        }
+
+        public bool Send_SL_EAT()
+        {
+            return vm.Send_SL_EAT();
+        }
+
+        public bool Send_SL_AAT()
+        {
+            return vm.Send_SL_AAT();
+        }
+
+        public bool Send_SL_DiffToEAT()
+        {
+            return vm.Send_SL_DiffToEAT();
+        }
+        
+        public bool Send_SL_Min()
+        {
+            return vm.Send_SL_Min();
+        }
+
+        public bool Send_SL_Max()
+        {
+            return vm.Send_SL_Max();
+        }
+
+        public bool Send_AD_Visible()
+        {
+            return vm.Send_AD_Visible();
+        }
+
+        public bool Send_IW_TargetColumn()
+        {
+            return vm.Send_IW_TargetColumn();
+        }
+
+        public bool Send_S_ColourCode()
+        {
+            return vm.Send_S_ColourCode();
+        }
+
+        public int Send_TargetIndex()
+        {
+            return vm.Send_TargetIndex();
+        }
+
+        #endregion
+
+
     }
 }

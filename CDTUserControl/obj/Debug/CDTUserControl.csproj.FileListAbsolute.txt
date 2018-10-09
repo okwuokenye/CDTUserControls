@@ -175,14 +175,8 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\CDTUserControl.pdb
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\ControlzEx.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\FontAwesome.WPF.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Infralution.Licensing.WPF.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Toolkit.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\System.Windows.Interactivity.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.pdb
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Microsoft.Windows.Shell.xml
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.pdb
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\RibbonControlsLibrary.xml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\de\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\en\System.Windows.Interactivity.resources.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\es\System.Windows.Interactivity.resources.dll
@@ -284,3 +278,16 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.Gen
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorLoadUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorLoadUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\DirectShowLib-2005.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\WPFMediaKit.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\EVRPresenter32.dll
