@@ -178,7 +178,7 @@
                         </Grid.ColumnDefinitions>
                         <CheckBox IsChecked="{Binding CompareCols_Settings_CreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" HorizontalAlignment="Left"/>
 
-                        <CheckBox IsChecked="{Binding CompareCols_AppliesTo_Selection}" Content="Run only on selection"  Grid.Column="1" HorizontalAlignment="Left"/>
+                        <CheckBox IsChecked="{Binding CompareCols_AppliesTo_Selection}" Content="Run on selection only"  Grid.Column="1" HorizontalAlignment="Left"/>
                         <CheckBox IsChecked="{Binding CompareCols_Settings_RunAllSheets}" Content="Run on All Sheets"  Grid.Column="1" HorizontalAlignment="Left" Visibility="Hidden"/>
 
                     </Grid>
@@ -319,7 +319,7 @@
                         </Grid.ColumnDefinitions>
                         <CheckBox IsChecked="{Binding MarkDuplicates_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2 2 2 2"/>
                         <CheckBox IsChecked="{Binding MarkDuplicates_SettingsAddSuffix}" Content="Add suffix to duplicates" Grid.Column="0" Grid.Row="1" Margin="2 2 2 2"/>
-                        <CheckBox IsChecked="{Binding MarkDuplicates_AppliesToSelection}" Content="Apply to selection only" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2 2 2 2"/>
+                        <CheckBox IsChecked="{Binding MarkDuplicates_AppliesToSelection}" Content="Run on selection only" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2 2 2 2"/>
                     </Grid>
 
                 </GroupBox>
