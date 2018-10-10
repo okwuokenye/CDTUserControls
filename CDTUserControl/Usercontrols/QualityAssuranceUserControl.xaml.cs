@@ -22,6 +22,31 @@ namespace CDTUserControl.Usercontrols
     public partial class QualityAssuranceUserControl : UserControl
     {
 
+        #region events
+
+        public delegate void ResetEventHandler();
+        public event ResetEventHandler ResetEvent;
+
+        public delegate void CheckFilesEventHandler(QualityAssuranceViewModel vm);
+        public event CheckFilesEventHandler CheckFilesEvent;
+
+        public delegate void CompareColumnsEventHandler();
+        public event CompareColumnsEventHandler CompareColumnsEvent;
+
+        public delegate void UpdateHeadersEventHandler();
+        public event UpdateHeadersEventHandler UpdateHeadersEvent;
+
+        public delegate void FindAssetsEventHandler();
+        public event FindAssetsEventHandler FindAssetsEvent;
+
+        public delegate void MarkDuplicatesEventHandler();
+        public event MarkDuplicatesEventHandler MarkDuplicatesEvent;
+
+        public delegate void InsertDataEventHandler();
+        public event InsertDataEventHandler InsertDataEvent;
+
+        #endregion
+
         public static void EnsureApplicationResources()
         {
             if (System.Windows.Application.Current == null)
@@ -64,6 +89,10 @@ namespace CDTUserControl.Usercontrols
         }
 
 
+        public QualityAssuranceViewModel getVM()
+        {
+            return vm.getVM();
+        }
         #region InsertData
 
         public delegate void InsertClickEvent();
@@ -77,85 +106,85 @@ namespace CDTUserControl.Usercontrols
             }
         }
         
-        public bool Send_PL_WordCount()
-        {
-            return vm.Send_PL_WordCount();
-        }
+        //public bool Send_PL_WordCount()
+        //{
+        //    return vm.Send_PL_WordCount();
+        //}
 
-        public bool Send_PL_EAT()
-        {
-            return vm.Send_PL_EAT();
-        }
+        //public bool Send_PL_EAT()
+        //{
+        //    return vm.Send_PL_EAT();
+        //}
 
-        public bool Send_PL_AAT()
-        {
-            return vm.Send_PL_AAT();
-        }
+        //public bool Send_PL_AAT()
+        //{
+        //    return vm.Send_PL_AAT();
+        //}
 
-        public bool Send_PL_DiffToEAT()
-        {
-            return vm.Send_PL_DiffToEAT();
-        }
+        //public bool Send_PL_DiffToEAT()
+        //{
+        //    return vm.Send_PL_DiffToEAT();
+        //}
 
-        public bool Send_PL_AATDiffMS()
-        {
-            return vm.Send_PL_AATDiffMS();
-        }
+        //public bool Send_PL_AATDiffMS()
+        //{
+        //    return vm.Send_PL_AATDiffMS();
+        //}
 
-        public bool Send_PL_AATDiffPercent()
-        {
-            return vm.Send_PL_AATDiffPercent();
-        }
+        //public bool Send_PL_AATDiffPercent()
+        //{
+        //    return vm.Send_PL_AATDiffPercent();
+        //}
 
-        public bool Send_SL_WordCount()
-        {
-            return vm.Send_SL_WordCount();
-        }
+        //public bool Send_SL_WordCount()
+        //{
+        //    return vm.Send_SL_WordCount();
+        //}
 
-        public bool Send_SL_EAT()
-        {
-            return vm.Send_SL_EAT();
-        }
+        //public bool Send_SL_EAT()
+        //{
+        //    return vm.Send_SL_EAT();
+        //}
 
-        public bool Send_SL_AAT()
-        {
-            return vm.Send_SL_AAT();
-        }
+        //public bool Send_SL_AAT()
+        //{
+        //    return vm.Send_SL_AAT();
+        //}
 
-        public bool Send_SL_DiffToEAT()
-        {
-            return vm.Send_SL_DiffToEAT();
-        }
+        //public bool Send_SL_DiffToEAT()
+        //{
+        //    return vm.Send_SL_DiffToEAT();
+        //}
         
-        public bool Send_SL_Min()
-        {
-            return vm.Send_SL_Min();
-        }
+        //public bool Send_SL_Min()
+        //{
+        //    return vm.Send_SL_Min();
+        //}
 
-        public bool Send_SL_Max()
-        {
-            return vm.Send_SL_Max();
-        }
+        //public bool Send_SL_Max()
+        //{
+        //    return vm.Send_SL_Max();
+        //}
 
-        public bool Send_AD_Visible()
-        {
-            return vm.Send_AD_Visible();
-        }
+        //public bool Send_AD_Visible()
+        //{
+        //    return vm.Send_AD_Visible();
+        //}
 
-        public bool Send_IW_TargetColumn()
-        {
-            return vm.Send_IW_TargetColumn();
-        }
+        //public bool Send_IW_TargetColumn()
+        //{
+        //    return vm.Send_IW_TargetColumn();
+        //}
 
-        public bool Send_S_ColourCode()
-        {
-            return vm.Send_S_ColourCode();
-        }
+        //public bool Send_S_ColourCode()
+        //{
+        //    return vm.Send_S_ColourCode();
+        //}
 
-        public int Send_TargetIndex()
-        {
-            return vm.Send_TargetIndex();
-        }
+        //public int Send_TargetIndex()
+        //{
+        //    return vm.Send_TargetIndex();
+        //}
 
         #endregion
 
