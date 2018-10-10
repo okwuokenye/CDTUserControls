@@ -521,6 +521,14 @@ namespace CDTUserControl.Viewmodels
             _MarkDuplicates_ColumnsToAnalyze.Clear();
             RaisePropertyChanged("MarkDuplicates_ColumnsToAnalyze");
         }
+
+        public void RefreshVM()
+        {
+            foreach (System.Reflection.PropertyInfo p in this.GetType().GetProperties())
+            {
+                RaisePropertyChanged(p.Name);
+            }
+        }
         #endregion
 
         #region Insert Data
