@@ -14,7 +14,9 @@ namespace CDTUserControl.Viewmodels
 
         public delegate void ActiveSheetChangeEventHandler(string p_Value);
         public event ActiveSheetChangeEventHandler ActiveSheetChangeEvent;
-        
+
+        public delegate void AutoRecountClickEvent(bool p_Value);
+        public event AutoRecountClickEvent AutoRecountClick;
         #endregion
 
         #region private variables
@@ -408,6 +410,7 @@ namespace CDTUserControl.Viewmodels
                 if (_AutoRecount != value)
                 {
                     _AutoRecount = value;
+                    AutoRecountClick(value);
                 }
             }
         }

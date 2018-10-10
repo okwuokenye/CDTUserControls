@@ -43,6 +43,8 @@ namespace CDTUserControl.Usercontrols
             base.DataContext = vm;
 
             vm.ActiveSheetChangeEvent += Vm_ActiveSheetChangeEvent;
+            vm.AutoRecountClick += Vm_AutoRecountClick;
+
             ControlIsLoaded = true;
         }
 
@@ -56,7 +58,9 @@ namespace CDTUserControl.Usercontrols
         public delegate void AnalyzeClickEvent();
         public event AnalyzeClickEvent Analyze;
 
-
+        public delegate void AutoRecountClickEvent(bool p_Value);
+        public event AutoRecountClickEvent AutoRecountClick;
+        
         public delegate void ExpanderChangeEventHandler(int WhichExpanded);
         public event ExpanderChangeEventHandler ExpanderChangeEvent;
         
@@ -78,6 +82,12 @@ namespace CDTUserControl.Usercontrols
         #endregion
 
         #region view event handlers
+
+        private void Vm_AutoRecountClick(bool p_Value)
+        {
+            AutoRecountClick(p_Value);
+        }
+
         private void CancelClick(object sender, RoutedEventArgs args)
         {
             if(Cancel != null)
@@ -141,6 +151,7 @@ namespace CDTUserControl.Usercontrols
         public AnalysisViewModel GetVM()
         {
             return vm;
+
         }
 
 
@@ -248,7 +259,24 @@ namespace CDTUserControl.Usercontrols
 
             }
         }
-        
+
+        public void Change_Expanded(int p_value)
+        {
+                foreach (Expander exp in ExpanderGrid.Children)
+                {
+                string head = exp.Header.ToString();
+
+                if (p_value == 0 && head == "Production Analysis")
+                {
+                    exp.IsExpanded = true;                    
+                }
+                else if(p_value == 1 && head == "Word Count")
+                {
+                    exp.IsExpanded = true;
+                }               
+
+            }
+        }
 
         #region send methods
         public int SendMultiAnalysis()

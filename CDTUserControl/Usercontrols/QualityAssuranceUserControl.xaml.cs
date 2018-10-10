@@ -109,7 +109,14 @@ namespace CDTUserControl.Usercontrols
                 ResetInsertClick();
             }
         }
-        
+
+        private void InsertDataClick(object sender, RoutedEventArgs args)
+        {
+            if (InsertClick != null)
+            {
+                InsertClick();
+            }
+        }
         public bool Send_PL_WordCount()
         {
             return vm.Send_PL_WordCount();
