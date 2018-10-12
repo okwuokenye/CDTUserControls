@@ -15,75 +15,76 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
-    <Grid Grid.Row="0" x:Name="ExpanderGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="ExpanderGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="8"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Expander Header="File Checks (mark missing)"  Grid.Row="0" Expanded="Expander_Expanded" IsExpanded="True">
-            <Grid>
+            <Expander Header="File Checks (mark missing)"  Grid.Row="0" Expanded="Expander_Expanded" IsExpanded="True">
+                <Grid>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-               <GroupBox Header="File Checks" Grid.Row="0">
-                                <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />                                    
-                                </Grid.RowDefinitions>
+                    <GroupBox Header="File Checks" Grid.Row="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                    
-                                <StackPanel Grid.Row="0" Grid.Column="0">
-                                    <CheckBox IsChecked="{Binding MarkMissingFiles}" Width="140" Content="Mark missing files"  Margin="2 2 2 2" HorizontalAlignment="Left" Background="{Binding Colour1}" />
-                                    <CheckBox IsChecked="{Binding MarkCorruptedFiles}" Width="140" Content="Mark corrupted files" Background="{Binding Colour2}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                    <CheckBox IsChecked="{Binding CountFiles}" Width="140" Content="Count files" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                    <CheckBox IsChecked="{Binding AddResultColumn}" Width="140" Content="Add result column" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                </StackPanel>
-                                <StackPanel Grid.Row="0" Grid.Column="1">
-                                    <CheckBox IsChecked="{Binding MarkPossMissedits}" Width="140" Content="Mark poss missedits" Background="{Binding Colour3}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                    <CheckBox IsChecked="{Binding FindLostPrimaries}" Width="140" Content="Find lost primaries" Background="{Binding Colour4}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                    <CheckBox IsChecked="{Binding ReorderAltFiles}" Width="140" Content="Reorder Alt Files" Background="{Binding Colour5}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                    <CheckBox IsChecked="{Binding TrimSpacesFromFile}" Width="140" Content="Trim Spaces from File" Background="{Binding Colour6}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
-                                </StackPanel>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <CheckBox IsChecked="{Binding MarkMissingFiles}" Width="140" Content="Mark missing files"  Margin="2 2 2 2" HorizontalAlignment="Left" Background="{Binding Color1}" />
+                                <CheckBox IsChecked="{Binding MarkCorruptedFiles}" Width="140" Content="Mark corrupted files" Background="{Binding Color2}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding CountFiles}" Width="140" Content="Count files" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding AddResultColumn}" Width="140" Content="Add result column" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1">
+                                <CheckBox IsChecked="{Binding MarkPossMissedits}" Width="140" Content="Mark possible missedits" Background="{Binding Color3}"  Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding FindLostPrimaries}" Width="140" Content="Find lost primaries" Background="{Binding Color4}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding ReorderAltFiles}" Width="140" Content="Reorder Alt Files" Background="{Binding Color5}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox IsChecked="{Binding TrimSpacesFromFile}" Width="140" Content="Trim Spaces from File" Background="{Binding Color6}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                            </StackPanel>
                         </Grid>
-                </GroupBox>
+                    </GroupBox>
 
-                <GroupBox Header="Settings" Grid.Row="1">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                    <GroupBox Header="Settings" Grid.Row="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                        <CheckBox IsChecked="{Binding IsSecondaryChecked}" Content="Run on source (secondary)" Margin="2 2 2 2" Grid.Row="0" Grid.Column="0"/>
+                            <CheckBox IsChecked="{Binding IsSecondaryChecked}" Content="Run on source (secondary)" Margin="2 2 2 2" Grid.Row="0" Grid.Column="0"/>
 
-                        <CheckBox IsChecked="{Binding IsVideoChecked}" Content="Run on video files"  Margin="2 2 2 2"  Grid.Row="0" Grid.Column="1"/>
+                            <CheckBox IsChecked="{Binding IsVideoChecked}" Content="Run on video files"  Margin="2 2 2 2"  Grid.Row="0" Grid.Column="1"/>
 
-                        <CheckBox IsChecked="{Binding IsSelectionChecked}" Content="Run on selection only"  Margin="2 2 2 2"  Grid.Row="1" Grid.Column="0"/>
+                            <CheckBox IsChecked="{Binding IsSelectionChecked}" Content="Run on selection only"  Margin="2 2 2 2"  Grid.Row="1" Grid.Column="0"/>
 
-                        <CheckBox IsChecked="{Binding IsCreateLogSheet}" Content="Create Log Sheet"  Margin="2 2 2 2"  Grid.Row="1" Grid.Column="1"/>
+                            <CheckBox IsChecked="{Binding IsCreateLogSheet}" Content="Create Log Sheet"  Margin="2 2 2 2"  Grid.Row="1" Grid.Column="1"/>
 
-                    </Grid>
-                </GroupBox>
+                        </Grid>
+                    </GroupBox>
 
-                <GroupBox Header="Results" Grid.Row="2" Visibility="{Binding ResultsVisibility}">
+                    <GroupBox Header="Results" Grid.Row="2" Visibility="{Binding ResultsVisibility}">
                         <Grid>
 
                             <Grid.RowDefinitions>
@@ -104,7 +105,7 @@
 
                             <TextBlock Text="Rows Checked" Margin="2 2 2 2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
                             <TextBox Text="{Binding RowsChecked}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="0"/>
-                            <TextBlock Text="missing Files" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                            <TextBlock Text="Missing Files" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
                             <TextBox Text="{Binding MissingFiles}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="1"/>
                             <TextBlock Text="Corrupted Files" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
                             <TextBox Text="{Binding CorruptedFiles}" Margin="2 2 2 2"  Grid.Column="2" Grid.Row="2"/>
@@ -118,334 +119,338 @@
                             <TextBox Text="{Binding FilesCounted}" Margin="2 2 2 2"  Grid.Column="4" Grid.Row="2"/>
                             <TextBlock Text="Alts Reordered" Margin="2 2 2 2"   Grid.Column="3" Grid.Row="3"/>
                             <TextBox Text="{Binding AltsReordered}" Margin="2 2 2 2"  Grid.Column="4" Grid.Row="3"/>
-                        <TextBox  Text="{Binding OverallResult}" HorizontalAlignment="Stretch" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5" />
+                            <TextBox  Text="{Binding OverallResult}" HorizontalAlignment="Stretch" Margin="2 2 2 2"  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5" />
 
                         </Grid>
                     </GroupBox>
 
-                <Grid  Grid.Column="0" Grid.ColumnSpan="2" Margin="2,2,2,2" Grid.Row="3">
+                    <Grid  Grid.Column="0" Grid.ColumnSpan="2" Margin="2,2,2,2" Grid.Row="3">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Click="ResetClick" Content="Reset" Margin="2 2 2 2" Width="100" Grid.Column="1"/>
+                        <Button Click="CheckFilesClick" Content="Check Files" Margin="16 2 2 2" Width="100"  Grid.Column="0"/>
+                    </Grid>
+
+                </Grid>
+            </Expander>
+
+            <Expander Header="Compare Columns" Grid.Row="1" Expanded="Expander_Expanded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Compare Column" Width="100" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <ComboBox ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_CompareIndex}" SelectedItem="{Binding CompareCols_CompareLetter}" IsEditable="True" Width="40" Grid.Row="0" Grid.Column="1"  Margin="2 2 2 2"/>
+
+                    <TextBlock Width="80" Text="With column" Grid.Row="0" Grid.Column="2"  Margin="20 2 2 2"  VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <ComboBox  ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_WithIndex}" SelectedItem="{Binding CompareCols_WithLetter}" IsEditable="True" Width="40" Grid.Row="0" Grid.Column="3"  Margin="2 2 2 2"/>
+
+                    <GroupBox Header="Highlight Columns" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+                        <Grid Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnL}" GroupName="Highlight" Content="{Binding CompareCols_CompareLetter}" Grid.Column="0" HorizontalAlignment="Left"   />
+                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnM}" GroupName="Highlight" Content="{Binding CompareCols_WithLetter}"  Grid.Column="1" HorizontalAlignment="Left" />
+                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnBoth}" GroupName="Highlight" Content="Both" Grid.Column="2"  HorizontalAlignment="Left"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Settings" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox IsChecked="{Binding CompareCols_Settings_CreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" HorizontalAlignment="Left"/>
+
+                            <CheckBox IsChecked="{Binding CompareCols_AppliesTo_Selection}" Content="Run on selection only"  Grid.Column="1" HorizontalAlignment="Left"/>
+                            <CheckBox IsChecked="{Binding CompareCols_Settings_RunAllSheets}" Content="Run on All Sheets"  Grid.Column="1" HorizontalAlignment="Left" Visibility="Hidden"/>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <Button Click="CompareColsClick" Content="Compare Columns" Grid.Row="3" Grid.Column="0" Margin="5 2 2 2" Width="120"  Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+
+                </Grid>
+            </Expander>
+
+            <Expander Header="Find Missing Assets"  Grid.Row="2" Expanded="Expander_Expanded">
+
+                <Grid Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Header="Visual Assets" BorderThickness="1" Grid.Row="0">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Character Picture Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CharHeader}" />
+                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharHeaderC}"  />
+
+                            <Label Content="Scene Picture Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}" />
+                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  />
+
+                            <Label Content="Item Picture Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding ItemHeader}" />
+                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding ItemHeaderC}"  />
+
+                            <Label Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
+                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding VideoHeader}" />
+                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding VideoHeaderC}"  />
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <GroupBox Header="Audio Assets" BorderThickness="1" Grid.Row="1">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Ambient Audio Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding LFXHeader}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding LFXHeaderC}" />
+
+                            <Label Content="Spot Audio Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding SFXHeader}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SFXHeaderC}" />
+
+                            <Label Content="Music Audio Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding MusicHeader}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding MusicHeaderC}" />
+
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox IsChecked="{Binding MissingAssets_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" HorizontalAlignment="Left"/>
+                            <CheckBox IsChecked="{Binding MissingAssets_AppliesToSelection}" Content="Apply to selection only" Grid.Column="1" HorizontalAlignment="Left"/>
+                        </Grid>
+
+                    </GroupBox>
+
+                    <Grid Grid.Row="3" Margin="0 2 0 2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Content="Update Headers" HorizontalAlignment="left" Width="110" Height="22" Margin="2 2 2 2" Click="UpdateHeadClick"/>
+                        <Button Grid.Column="0" Content="Find Assets" HorizontalAlignment="left" Width="110" Height="22" Margin="2 2 2 2" Click="FindAssetsClick"/>
+                    </Grid>
+
+                </Grid>
+
+
+            </Expander>
+
+            <Expander Header="Mark Duplicates"  Grid.Row="3" Expanded="Expander_Expanded" Grid.RowSpan="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Command="{Binding Reset}" Content="Reset" Margin="2 2 2 2" Width="100" Grid.Column="0"/>
-                    <Button Command="{Binding CheckFiles}" Content="Check Files" Margin="16 2 2 2" Width="100"  Grid.Column="1"/>
+                    <TextBlock Text="Column to Analyze" Width="150" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2 2 2 2"/>
+                    <ComboBox ItemsSource="{Binding MarkDuplicates_ColumnsToAnalyze}" SelectedIndex="{Binding MarkDuplicates_ColumnIndex}" SelectedItem="{Binding MarkDuplicates_ColumnToAnalyze}" IsEditable="True" Width="50" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  Margin="2 2 2 2" />
+
+                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="2">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox IsChecked="{Binding MarkDuplicates_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding MarkDuplicates_SettingsAddSuffix}" Content="Add suffix to duplicates" Grid.Column="0" Grid.Row="1" Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding MarkDuplicates_AppliesToSelection}" Content="Run on selection only" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2 2 2 2"/>
+                        </Grid>
+
+                    </GroupBox>
+
+                    <StackPanel Grid.Row="4" Margin="0 2 0 2" Orientation="Horizontal">
+                        <Button Content="Mark Duplicates" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Click="MarkDuplicatesClick"/>
+                    </StackPanel>
+
+
                 </Grid>
+            </Expander>
 
-            </Grid>
-        </Expander>
+            <Expander Header="Insert Audio Data"  Grid.Row="5" Expanded="Expander_Expanded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-        <Expander Header="Compare Columns" Grid.Row="1" Expanded="Expander_Expanded">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="25" />
-                </Grid.RowDefinitions>
+                    <GroupBox Header="Primary Language"  BorderThickness="1" Grid.Row="0">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                <TextBlock Text="Compare Column" Width="100" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalAlignment="Left" />
-                <ComboBox ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_CompareIndex}" SelectedItem="{Binding CompareCols_CompareLetter}" IsEditable="True" Width="40" Grid.Row="0" Grid.Column="1"  Margin="2 2 2 2"/>
-
-                <TextBlock Width="80" Text="With column" Grid.Row="0" Grid.Column="2"  Margin="20 2 2 2"  VerticalAlignment="Center" HorizontalAlignment="Left" />
-                <ComboBox ItemsSource="{Binding CompareCols_WithColumns}" SelectedIndex="{Binding CompareCols_WithIndex}" SelectedItem="{Binding CompareCols_WithLetter}" IsEditable="True" Width="40" Grid.Row="0" Grid.Column="3"  Margin="2 2 2 2"/>
-
-                <GroupBox Header="Highlight Columns" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
-                    <Grid Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnL}" GroupName="Highlight" Content="{Binding CompareCols_CompareLetter}" Grid.Column="0" HorizontalAlignment="Left"   />
-                        <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnM}" GroupName="Highlight" Content="{Binding CompareCols_WithLetter}"  Grid.Column="1" HorizontalAlignment="Left" />
-                        <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnBoth}" GroupName="Highlight" Content="Both" Grid.Column="2"  HorizontalAlignment="Left"/>
-                    </Grid>
-                </GroupBox>
-
-                <GroupBox Header="Settings" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox IsChecked="{Binding CompareCols_Settings_CreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" HorizontalAlignment="Left"/>
-
-                        <CheckBox IsChecked="{Binding CompareCols_AppliesTo_Selection}" Content="Run on selection only"  Grid.Column="1" HorizontalAlignment="Left"/>
-                        <CheckBox IsChecked="{Binding CompareCols_Settings_RunAllSheets}" Content="Run on All Sheets"  Grid.Column="1" HorizontalAlignment="Left" Visibility="Hidden"/>
-
-                    </Grid>
-
-                </GroupBox>
-
-                <Button Command="{Binding CompareCols}" Content="Compare Columns" Grid.Row="3" Grid.Column="2" Margin="5 2 2 2" Width="120"  Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
-
-            </Grid>
-        </Expander>
-
-        <Expander Header="Find Missing Assets"  Grid.Row="2" Expanded="Expander_Expanded">
-
-            <Grid Height="Auto">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <GroupBox Header="Visual Assets" BorderThickness="1" Grid.Row="0">
-
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="28" />
-                            <RowDefinition Height="28" />
-                            <RowDefinition Height="28" />
-                            <RowDefinition Height="28" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="40" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Content="Character Picture Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CharHeader}" />
-                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharHeaderC}"  />
-
-                        <Label Content="Scene Picture Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}" />
-                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  />
-
-                        <Label Content="Item Picture Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding ItemHeader}" />
-                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding ItemHeaderC}"  />
-
-                        <Label Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                        <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding VideoHeader}" />
-                        <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding VideoHeaderC}"  />
-
-                    </Grid>
-
-                </GroupBox>
-
-                <GroupBox Header="Audio Assets" BorderThickness="1" Grid.Row="1">
-
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="28" />
-                            <RowDefinition Height="28" />
-                            <RowDefinition Height="28" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="40" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Content="Ambient Audio Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding LFXHeader}"/>
-                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding LFXHeaderC}" />
-
-                        <Label Content="Spot Audio Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding SFXHeader}"/>
-                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SFXHeaderC}" />
-
-                        <Label Content="Music Audio Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                        <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding MusicHeader}"/>
-                        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding MusicHeaderC}" />
-
-
-                    </Grid>
-
-                </GroupBox>
-
-                <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2">
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox IsChecked="{Binding MissingAssets_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <CheckBox IsChecked="{Binding MissingAssets_AppliesToSelection}" Content="Apply to selection only" Grid.Column="1" HorizontalAlignment="Left"/>
-                    </Grid>
-
-                </GroupBox>
-
-                <StackPanel Grid.Row="3" Margin="0 2 0 2" Orientation="Horizontal">
-                    <Button Content="Update Headers" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding UpdateButton}"/>
-                    <Button Content="Find Assets" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding FindAssetsButton}"/>
-                </StackPanel>
-                
-            </Grid>
-
-
-        </Expander>
-
-        <Expander Header="Mark Duplicates"  Grid.Row="3" Expanded="Expander_Expanded">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Text="Column to Analyze" Width="150" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2 2 2 2"/>
-                <ComboBox ItemsSource="{Binding MarkDuplicates_ColumnsToAnalyze}" SelectedIndex="{Binding MarkDuplicates_ColumnIndex}" SelectedItem="{Binding MarkDuplicates_ColumnToAnalyze}" IsEditable="True" Width="50" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  Margin="2 2 2 2" />
-
-                <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="2">
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox IsChecked="{Binding MarkDuplicates_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2 2 2 2"/>
-                        <CheckBox IsChecked="{Binding MarkDuplicates_SettingsAddSuffix}" Content="Add suffix to duplicates" Grid.Column="0" Grid.Row="1" Margin="2 2 2 2"/>
-                        <CheckBox IsChecked="{Binding MarkDuplicates_AppliesToSelection}" Content="Run on selection only" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2 2 2 2"/>
-                    </Grid>
-
-                </GroupBox>
-
-                <StackPanel Grid.Row="4" Margin="0 2 0 2" Orientation="Horizontal">
-                    <Button Content="Mark Duplicates" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding MarkDuplicatesButton}"/>
-                </StackPanel>
-                
-                
-            </Grid>
-        </Expander>
-
-        <Expander Header="Insert Audio Data"  Grid.Row="4" Expanded="Expander_Expanded">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <GroupBox Header="Primary Language"  BorderThickness="1" Grid.Row="0">
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="90" />
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Label Content="Text:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
-                        <CheckBox IsEnabled="{Binding PL_Text_Enabled}" IsChecked="{Binding PL_WordCount}" Content="Word Count" Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Label Content="Text:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <CheckBox IsEnabled="{Binding PL_Text_Enabled}" IsChecked="{Binding PL_WordCount}" Content="Word Count" Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <CheckBox IsEnabled="{Binding PL_Text_Enabled}" IsChecked="{Binding PL_EAT}" Content="EAT" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Height="16"  VerticalAlignment="Center"/>
 
-                        <Label Content="Audio:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
+                            <Label Content="Audio:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
                             <CheckBox IsEnabled="{Binding PL_File_Enabled}" IsChecked="{Binding PL_AAT}" Content="AAT" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <CheckBox IsEnabled="{Binding PL_TextFile_Enabled}" IsChecked="{Binding PL_DiffToEAT}" Content="% difference to EAT"  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="16"  VerticalAlignment="Center"/>
 
-                        <Label Content="Diff to source:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
+                            <Label Content="Diff to source:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
                             <CheckBox IsEnabled="{Binding Compare_Enabled}" IsChecked="{Binding PL_AATDiffMS}" Content="AAT Diff MS" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <CheckBox IsEnabled="{Binding Compare_Enabled}" IsChecked="{Binding PL_AATDiffPercent}" Content="AAT Diff %" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Height="16"  VerticalAlignment="Center"/>
-                    </Grid>
+                        </Grid>
 
-                </GroupBox>
+                    </GroupBox>
 
-                <GroupBox Header="Secondary Language (source for TC)"  BorderThickness="1" Grid.Row="1">
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="90" />
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <GroupBox Header="Secondary Language (source for TC)"  BorderThickness="1" Grid.Row="1">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                        <Label Content="Text:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <Label Content="Text:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
                             <CheckBox IsEnabled="{Binding SL_Text_Enabled}" IsChecked="{Binding SL_WordCount}" Content="Word Count" Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <CheckBox IsEnabled="{Binding SL_Text_Enabled}" IsChecked="{Binding SL_EAT}" Content="EAT" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Height="16"  VerticalAlignment="Center"/>
 
-                        <Label Content="Audio:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
+                            <Label Content="Audio:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
                             <CheckBox IsEnabled="{Binding SL_File_Enabled}" IsChecked="{Binding SL_AAT}" Content="AAT" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <CheckBox IsEnabled="{Binding SL_TextFile_Enabled}" IsChecked="{Binding SL_DiffToEAT}" Content="% difference to EAT"  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="16"  VerticalAlignment="Center"/>
 
-                        <Label Content="TC Target:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
+                            <Label Content="TC Target:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
                             <CheckBox IsEnabled="{Binding SL_File_Enabled}" IsChecked="{Binding SL_Min}" Content="Min" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <CheckBox IsEnabled="{Binding SL_File_Enabled}" IsChecked="{Binding SL_Max}" Content="Max" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Height="16"  VerticalAlignment="Center"/>
-                    </Grid>
+                        </Grid>
 
-                </GroupBox>
+                    </GroupBox>
 
-                <GroupBox Header="Insert where?"  BorderThickness="1" Grid.Row="3">
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <GroupBox Header="Insert where?"  BorderThickness="1" Grid.Row="3">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
                             <RadioButton IsChecked="{Binding IW_EndOfScript}" GroupName="InsertWhere" Content="End of script" Grid.Column="0" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
                             <RadioButton IsChecked="{Binding IW_TargetColumn}" GroupName="InsertWhere" Content="Target column" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
                             <ComboBox Grid.Column="2" HorizontalAlignment="Left" Height="16" Width="50" ItemsSource="{Binding TargetItems}" SelectedIndex="{Binding TargetIndex}" VerticalContentAlignment="Center"/>
 
-                    </Grid>
+                        </Grid>
 
-                </GroupBox>
-                <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2" >
-                    <Grid  Margin="2 2 2 2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    </GroupBox>
+                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2" >
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
                             <CheckBox IsChecked="{Binding S_ColourCode}" Content="Colour Code" Grid.Column="0" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
                             <CheckBox IsChecked="{Binding AD_Visible}" Content="Analyse only visible data" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
                         </Grid>
 
-                </GroupBox>
+                    </GroupBox>
 
-                <Grid Grid.Row="4" Margin="0 2 0 2">
+                    <Grid Grid.Row="4" Margin="0 2 0 2">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                    
+
                         <Button Grid.Column="0" Click="InsertDataClick" Content="Insert Data" HorizontalAlignment="left" Width="110" Height="20" Margin="2 2 2 2"/>
                         <Button Grid.Column="1" Click="ResetInsertDataClick" Content="Reset" HorizontalAlignment="left" Width="110" Height="20" Margin="2 2 2 2"/>
                     </Grid>
 
 
-            </Grid>
-        </Expander>
-              
-    </Grid>
+                </Grid>
+            </Expander>
+
+        </Grid>
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="{Binding StatusPane}" Margin="2 0 2 0" VerticalAlignment="Center"/>

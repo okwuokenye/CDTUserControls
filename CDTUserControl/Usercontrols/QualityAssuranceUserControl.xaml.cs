@@ -21,13 +21,17 @@ namespace CDTUserControl.Usercontrols
     /// </summary>
     public partial class QualityAssuranceUserControl : UserControl
     {
+        bool ControlIsLoaded = false;
 
         #region events
 
-        public delegate void ResetEventHandler();
-        public event ResetEventHandler ResetEvent;
+        public delegate void ExpanderChangeEventHandler(int WhichExpanded);
+        public event ExpanderChangeEventHandler ExpanderChangeEvent;
 
-        public delegate void CheckFilesEventHandler(QualityAssuranceViewModel vm);
+        public delegate void ResetFilesEventHandler();
+        public event ResetFilesEventHandler ResetFilesEvent;
+
+        public delegate void CheckFilesEventHandler();
         public event CheckFilesEventHandler CheckFilesEvent;
 
         public delegate void CompareColumnsEventHandler();
@@ -42,10 +46,15 @@ namespace CDTUserControl.Usercontrols
         public delegate void MarkDuplicatesEventHandler();
         public event MarkDuplicatesEventHandler MarkDuplicatesEvent;
 
-        public delegate void InsertDataEventHandler();
-        public event InsertDataEventHandler InsertDataEvent;
+        public delegate void InsertClickEvent();
+        public event InsertClickEvent InsertEvent;
+
+        public delegate void ResetInsertClickEvent();
+        public event ResetInsertClickEvent ResetInsertEvent;
 
         #endregion
+
+        #region Constructor
 
         public static void EnsureApplicationResources()
         {
@@ -65,9 +74,10 @@ namespace CDTUserControl.Usercontrols
             InitializeComponent();
             vm = new QualityAssuranceViewModel();
             base.DataContext = vm;
+
+            ControlIsLoaded = true;
         }
-
-
+        
         void Expander_Expanded(object sender, RoutedEventArgs e)
         {
             if (e.Source is Expander)
@@ -80,8 +90,36 @@ namespace CDTUserControl.Usercontrols
                         exp.IsExpanded = false;
                     }
                 }
+                if (ControlIsLoaded)
+                {
+                    string head = exp1.Header.ToString();
+                    if (head == "File Checks (mark missing)")
+                    {
+                        ExpanderChangeEvent(0);
+                    }
+                    else if (head == "Compare Columns")
+                    {
+                        ExpanderChangeEvent(1);
+                    }
+                    else if (head == "Find Missing Assets")
+                    {
+                        ExpanderChangeEvent(2);
+                    }
+                    else if (head == "Mark Duplicates")
+                    {
+                        ExpanderChangeEvent(3);
+                    }
+                    else if (head == "Insert Audio Data")
+                    {
+                        ExpanderChangeEvent(4);
+                    }
+                }
             }
         }
+
+        #endregion
+
+        #region public methods
 
         public void SetStatusPane(string p_Value)
         {
@@ -93,99 +131,79 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.getVM();
         }
-        #region InsertData
 
-        public delegate void InsertClickEvent();
-        public event InsertClickEvent InsertClick;
 
-        private void InsertDataClick(object sender, RoutedEventArgs args)
+
+        #endregion
+
+        #region Button handlers
+        
+        private void CheckFilesClick(object sender, RoutedEventArgs args)
         {
-            if (InsertClick != null)
+            if (CheckFilesEvent != null)
             {
-                InsertClick();
+                CheckFilesEvent();
             }
         }
         
-        //public bool Send_PL_WordCount()
-        //{
-        //    return vm.Send_PL_WordCount();
-        //}
-
-        //public bool Send_PL_EAT()
-        //{
-        //    return vm.Send_PL_EAT();
-        //}
-
-        //public bool Send_PL_AAT()
-        //{
-        //    return vm.Send_PL_AAT();
-        //}
-
-        //public bool Send_PL_DiffToEAT()
-        //{
-        //    return vm.Send_PL_DiffToEAT();
-        //}
-
-        //public bool Send_PL_AATDiffMS()
-        //{
-        //    return vm.Send_PL_AATDiffMS();
-        //}
-
-        //public bool Send_PL_AATDiffPercent()
-        //{
-        //    return vm.Send_PL_AATDiffPercent();
-        //}
-
-        //public bool Send_SL_WordCount()
-        //{
-        //    return vm.Send_SL_WordCount();
-        //}
-
-        //public bool Send_SL_EAT()
-        //{
-        //    return vm.Send_SL_EAT();
-        //}
-
-        //public bool Send_SL_AAT()
-        //{
-        //    return vm.Send_SL_AAT();
-        //}
-
-        //public bool Send_SL_DiffToEAT()
-        //{
-        //    return vm.Send_SL_DiffToEAT();
-        //}
+        private void ResetClick(object sender, RoutedEventArgs args)
+        {
+            if (ResetFilesEvent != null)
+            {
+                ResetFilesEvent();
+            }
+        }
         
-        //public bool Send_SL_Min()
-        //{
-        //    return vm.Send_SL_Min();
-        //}
+        private void CompareColsClick(object sender, RoutedEventArgs args)
+        {
+            if (CompareColumnsEvent != null)
+            {
+                CompareColumnsEvent();
+            }
+        }
 
-        //public bool Send_SL_Max()
-        //{
-        //    return vm.Send_SL_Max();
-        //}
+        private void FindAssetsClick(object sender, RoutedEventArgs args)
+        {
+            if (FindAssetsEvent != null)
+            {
+                FindAssetsEvent();
+            }
+        }
 
-        //public bool Send_AD_Visible()
-        //{
-        //    return vm.Send_AD_Visible();
-        //}
+        private void UpdateHeadClick(object sender, RoutedEventArgs args)
+        {
+            if (UpdateHeadersEvent != null)
+            {
+                UpdateHeadersEvent();
+            }
+        }
 
-        //public bool Send_IW_TargetColumn()
-        //{
-        //    return vm.Send_IW_TargetColumn();
-        //}
+        private void MarkDuplicatesClick(object sender, RoutedEventArgs args)
+        {
+            if (MarkDuplicatesEvent != null)
+            {
+                MarkDuplicatesEvent();
+            }
+        }
+        
+        private void InsertDataClick(object sender, RoutedEventArgs args)
+        {
+            if (InsertEvent != null)
+            {
+                InsertEvent();
+            }
+        }
 
-        //public bool Send_S_ColourCode()
-        //{
-        //    return vm.Send_S_ColourCode();
-        //}
+        private void ResetInsertDataClick(object sender, RoutedEventArgs args)
+        {
+            if (ResetInsertEvent != null)
+            {
+                ResetInsertEvent();
+            }
+        }
 
-        //public int Send_TargetIndex()
-        //{
-        //    return vm.Send_TargetIndex();
-        //}
 
+        
         #endregion
 
 

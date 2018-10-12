@@ -46,7 +46,7 @@ namespace CDTUserControl.Viewmodels
         private ColorPickerWindow _colorPicker;
 
             #region Mark Missing
-                private bool _MarkMissingFiles = false;
+                private bool _MarkMissingFiles = true;
                 private bool _MarkCorruptedFiles = false;
                 private bool _CountFiles = false;
                 private bool _AddResultColumn = false;
@@ -54,17 +54,14 @@ namespace CDTUserControl.Viewmodels
                 private bool _FindLostPrimaries = false;
                 private bool _ReorderAltFiles = false;
                 private bool _TrimSpacesFromFile = false;
-
-                private bool _IsPrimaryChecked = false;
+        
                 private bool _IsSecondaryChecked = false;
-                private bool _IsAudioChecked = false;
                 private bool _IsVideoChecked = false;
-                private bool _IsAllChecked = false;
                 private bool _IsSelectionChecked = false;
-                private bool _IsCreateLogSheet = false;
+                private bool _IsCreateLogSheet = true;
 
                 string _RowsChecked = string.Empty;
-                string _MissingFIles = string.Empty;
+                string _MissingFiles = string.Empty;
                 string _CorruptedFiles = string.Empty;
                 string _FilesTrimmed = string.Empty;
                 string _MisEditedFiles = string.Empty;
@@ -72,16 +69,35 @@ namespace CDTUserControl.Viewmodels
                 string _FilesCounted = string.Empty;
                 string _AltsReordered = string.Empty;
                 string _OverallResult = string.Empty;
-            #endregion
 
-            #region Compare Cols
-                ObservableCollection<string> _CompareCols_CompareColumns = new ObservableCollection<string>();
+
+        //        clsQA.MMMissColor = QAvm.Color1;
+        //        clsQA.MMCorruptColor = QAvm.Color2;
+        //        clsQA.MMMiseditColor = QAvm.Color3;
+        //        clsQA.MMPrimaryColor = QAvm.Color4;
+        //        clsQA.MMReorderColor = QAvm.Color5;
+        //        clsQA.MMTrimColor = QAvm.Color6;
+
+                Color _Color1 = Color.Crimson;
+                Color _Color2 = Color.MediumPurple;
+                Color _Color3 = Color.LightGreen;
+                Color _Color4 = Color.LightSalmon;
+                Color _Color5 = Color.DeepSkyBlue;
+                Color _Color6 = Color.HotPink;
+
+        #endregion
+
+        #region Compare Cols
+        ObservableCollection<string> _CompareCols_CompareColumns = new ObservableCollection<string>();
                 int _CompareCols_CompareIndex = 0;
-                string _CompareCols_CompareLetter = string.Empty;
-                bool _CompareCols_Highlight_IsColumnL = false;
+        int _CompareCols_WithIndex = 0;
+
+        string _CompareCols_CompareLetter = string.Empty;
+        string _CompareCols_WithLetter = string.Empty;
+        bool _CompareCols_Highlight_IsColumnL = false;
                 bool _CompareCols_Highlight_IsColumnM = false;
-                bool _CompareCols_Highlight_IsColumnBoth = false;
-                bool _CompareCols_Settings_CreateLogSheet = false;
+                bool _CompareCols_Highlight_IsColumnBoth = true;
+                bool _CompareCols_Settings_CreateLogSheet = true;
                 bool _CompareCols_AppliesTo_Selection = false;
             #endregion
 
@@ -101,7 +117,7 @@ namespace CDTUserControl.Viewmodels
                 string _SFXHeaderC = string.Empty;
                 string _MusicHeader = string.Empty;
                 string _MusicHeaderC = string.Empty;
-                bool _MissingAssets_SettingsCreateLogSheet = false;
+                bool _MissingAssets_SettingsCreateLogSheet = true;
                 bool _MissingAssets_AppliesToSelection = false;
             #endregion
 
@@ -109,33 +125,131 @@ namespace CDTUserControl.Viewmodels
                 ObservableCollection<string> _MarkDuplicates_ColumnsToAnalyze = new ObservableCollection<string>();
                 int _MarkDuplicates_ColumnIndex = 0;
                 string _MarkDuplicates_ColumnToAnalyze = string.Empty;
-                bool _MarkDuplicates_SettingsCreateLogSheet = false;
+                bool _MarkDuplicates_SettingsCreateLogSheet = true;
                 bool _MarkDuplicates_SettingsAddSuffix = false;
                 bool _MarkDuplicates_AppliesToSelection = false;
-            #endregion
+        #endregion
 
-            #region Insert Audio Data
-                bool _PL_WordCount = false;
-                bool _SL_EAT = false;
-                bool _SL_AAT = false;
-                bool _SL_DiffToEAT = false;
-                bool _SL_Min = false;
-                bool _SL_Max = false;
+        #region Insert Audio Data
 
-                bool _AD_All = false;
-                bool _AD_Visible = false;
-                bool _IW_EndOfScript = false;
-                bool _IW_TargetColumn = false;
-                bool _S_ColourCode = false;
-            #endregion
+        private bool _PL_Text_Enabled = false;
+        private bool _PL_File_Enabled = false;
+        private bool _Compare_Enabled = false;
+        private bool _SL_Text_Enabled = false;
+        private bool _SL_File_Enabled = false;
+        private bool _SL_TextFile_Enabled = false;
+        private bool _PL_TextFile_Enabled = false;
+
+        private bool _PL_WordCount = false;
+        private bool _PL_EAT = false;
+        private bool _PL_AAT = false;
+        private bool _PL_DiffToEAT = false;
+        private bool _PL_AATDiffMS = false;
+        private bool _PL_AATDiffPercent = false;
+
+        private bool _SL_WordCount = false;
+        private bool _SL_EAT = false;
+        private bool _SL_AAT = false;
+        private bool _SL_DiffToEAT = false;
+        private bool _SL_Min = false;
+        private bool _SL_Max = false;
+
+        private bool _AD_Visible = false;
+
+        private bool _IW_TargetColumn = true;
+
+        private int _TargetIndex = 0;
+
+        private bool _S_ColourCode = true;
+        #endregion
+
         #endregion
 
         #region properties
 
         public String StatusPane { get { return _StatusPane; } }
 
-            #region Mark Missing Properties
-                public bool MarkMissingFiles
+        #region Mark Missing Properties
+        
+        public Color Color1
+        {
+            get { return _Color1; }
+            set
+            {
+                if (_Color1 != value)
+                {
+                    _Color1 = value;
+                    RaisePropertyChanged("Color1");
+                }
+            }
+        }
+
+        public Color Color2
+        {
+            get { return _Color2; }
+            set
+            {
+                if (_Color2 != value)
+                {
+                    _Color2 = value;
+                    RaisePropertyChanged("Color2");
+                }
+            }
+        }
+
+        public Color Color3
+        {
+            get { return _Color3; }
+            set
+            {
+                if (_Color3 != value)
+                {
+                    _Color3 = value;
+                    RaisePropertyChanged("Color3");
+                }
+            }
+        }
+
+        public Color Color4
+        {
+            get { return _Color4; }
+            set
+            {
+                if (_Color4 != value)
+                {
+                    _Color4 = value;
+                    RaisePropertyChanged("Color4");
+                }
+            }
+        }
+
+        public Color Color5
+        {
+            get { return _Color5; }
+            set
+            {
+                if (_Color5 != value)
+                {
+                    _Color5 = value;
+                    RaisePropertyChanged("Color5");
+                }
+            }
+        }
+
+        public Color Color6
+        {
+            get { return _Color6; }
+            set
+            {
+                if (_Color6 != value)
+                {
+                    _Color6 = value;
+                    RaisePropertyChanged("Color6");
+                }
+            }
+        }
+
+        public bool MarkMissingFiles
                 {
                     get { return _MarkMissingFiles; }
                     set
@@ -223,19 +337,7 @@ namespace CDTUserControl.Viewmodels
                         }
                     }
                 }
-
-                public bool IsPrimaryChecked
-                {
-                    get { return _IsPrimaryChecked; }
-                    set
-                    {
-                        if (_IsPrimaryChecked != value)
-                        {
-                            _IsPrimaryChecked = value;
-                        }
-                    }
-                }
-
+        
                 public bool IsSecondaryChecked
                 {
                     get { return _IsSecondaryChecked; }
@@ -246,19 +348,7 @@ namespace CDTUserControl.Viewmodels
                             _IsSecondaryChecked = value;
                         }
                     }
-                }
-
-                public bool IsAudioChecked
-                {
-                    get { return _IsAudioChecked; }
-                    set
-                    {
-                        if (_IsAudioChecked != value)
-                        {
-                            _IsAudioChecked = value;
-                        }
-                    }
-                }
+                }        
                 public bool IsVideoChecked
                 {
                     get { return _IsVideoChecked; }
@@ -267,17 +357,6 @@ namespace CDTUserControl.Viewmodels
                         if (_IsVideoChecked != value)
                         {
                             _IsVideoChecked = value;
-                        }
-                    }
-                }
-                public bool IsAllChecked
-                {
-                    get { return _IsAllChecked; }
-                    set
-                    {
-                        if (_IsAllChecked != value)
-                        {
-                            _IsAllChecked = value;
                         }
                     }
                 }
@@ -316,14 +395,14 @@ namespace CDTUserControl.Viewmodels
                     }
                 }
 
-                public string MissingFIles
+                public string MissingFiles
                 {
-                    get { return _MissingFIles; }
+                    get { return _MissingFiles; }
                     set
                     {
-                        if (_MissingFIles != value)
+                        if (_MissingFiles != value)
                         {
-                            _MissingFIles = value;
+                            _MissingFiles = value;
                         }
                     }
                 }
@@ -399,13 +478,29 @@ namespace CDTUserControl.Viewmodels
                         }
                     }
                 }
+
+        public string OverallResult
+        {
+            get { return _OverallResult; }
+            set
+            {
+                if (_OverallResult != value)
+                {
+                    _OverallResult = value;
+                }
+            }
+        }
         #endregion
 
-            #region Compare Cols Properties
-                public ObservableCollection<string> CompareCols_CompareColumns { get { return _CompareCols_CompareColumns; } }
+        #region Compare Cols Properties
+        public ObservableCollection<string> CompareCols_CompareColumns { get { return _CompareCols_CompareColumns; } }
                 public int CompareCols_CompareIndex { get { return _CompareCols_CompareIndex; } set { if (_CompareCols_CompareIndex != value) { _CompareCols_CompareIndex = value; } } }
-                public string CompareCols_CompareLetter { get { return _CompareCols_CompareLetter; } set { if (_CompareCols_CompareLetter != value) { _CompareCols_CompareLetter = value; } } }
-                public bool CompareCols_Highlight_IsColumnL { get { return _CompareCols_Highlight_IsColumnL; } set { if (_CompareCols_Highlight_IsColumnL != value) { _CompareCols_Highlight_IsColumnL = value; } } }
+
+        public int CompareCols_WithIndex { get { return _CompareCols_WithIndex; } set { if (_CompareCols_WithIndex != value) { _CompareCols_WithIndex = value; } } }
+
+        public string CompareCols_CompareLetter { get { return _CompareCols_CompareLetter; } set { if (_CompareCols_CompareLetter != value) { _CompareCols_CompareLetter = value; RaisePropertyChanged("CompareCols_CompareLetter"); } } }
+        public string CompareCols_WithLetter { get { return _CompareCols_WithLetter; } set { if (_CompareCols_WithLetter != value) { _CompareCols_WithLetter = value; RaisePropertyChanged("CompareCols_WithLetter"); } } }
+        public bool CompareCols_Highlight_IsColumnL { get { return _CompareCols_Highlight_IsColumnL; } set { if (_CompareCols_Highlight_IsColumnL != value) { _CompareCols_Highlight_IsColumnL = value; } } }
                 public bool CompareCols_Highlight_IsColumnM { get { return _CompareCols_Highlight_IsColumnM; } set { if (_CompareCols_Highlight_IsColumnM != value) { _CompareCols_Highlight_IsColumnM = value; } } }
                 public bool CompareCols_Highlight_IsColumnBoth { get { return _CompareCols_Highlight_IsColumnBoth; } set { if (_CompareCols_Highlight_IsColumnBoth != value) { _CompareCols_Highlight_IsColumnBoth = value; } } }
                 public bool CompareCols_Settings_CreateLogSheet { get { return _CompareCols_Settings_CreateLogSheet; } set { if (_CompareCols_Settings_CreateLogSheet != value) { _CompareCols_Settings_CreateLogSheet = value; } } }
@@ -440,102 +535,427 @@ namespace CDTUserControl.Viewmodels
                 public bool MarkDuplicates_AppliesToSelection { get { return _MarkDuplicates_AppliesToSelection; } set { if (_MarkDuplicates_AppliesToSelection != value) { _MarkDuplicates_AppliesToSelection = value; } } }
         #endregion
 
-            #region
-                public bool PL_WordCount { get { return _PL_WordCount; } set { if (_PL_WordCount != value) { _PL_WordCount = value; } } }
-                public bool SL_EAT { get { return _SL_EAT; } set { if (_SL_EAT != value) { _SL_EAT = value; } } }
-                public bool SL_AAT { get { return _SL_AAT; } set { if (_SL_AAT != value) { _SL_AAT = value; } } }
-                public bool SL_DiffToEAT { get { return _SL_DiffToEAT; } set { if (_SL_DiffToEAT != value) { _SL_DiffToEAT = value; } } }
-                public bool SL_Min { get { return _SL_Min; } set { if (_SL_Min != value) { _SL_Min = value; } } }
-                public bool SL_Max { get { return _SL_Max; } set { if (_SL_Max != value) { _SL_Max = value; } } }
-                public bool AD_All { get { return _AD_All; } set { if (_AD_All != value) { _AD_All = value; } } }
-                public bool AD_Visible { get { return _AD_Visible; } set { if (_AD_Visible != value) { _AD_Visible = value; } } }
-                public bool IW_EndOfScript { get { return _IW_EndOfScript; } set { if (_IW_EndOfScript != value) { _IW_EndOfScript = value; } } }
-                public bool IW_TargetColumn { get { return _IW_TargetColumn; } set { if (_IW_TargetColumn != value) { _IW_TargetColumn = value; } } }
-                public bool S_ColourCode { get { return _S_ColourCode; } set { if (_S_ColourCode != value) { _S_ColourCode = value; } } }
-            #endregion
-        #endregion
-
-        #region Constructor
-        public QualityAssuranceViewModel()
-        {
-
-        }
-        #endregion
-
-        #region Commands
-        private void ResetExecute()
-        {
-
-        }
-        public ICommand Reset { get { return new RelayCommand(ResetExecute); } }
-
-        private void CheckFilesExecute()
-        {
-
-        }
-        public ICommand CheckFiles { get { return new RelayCommand(CheckFilesExecute); } }
-        #endregion
-
-        #region private methods
-
-        #endregion
-
-        #region public methods
-        public void SetStatusPane(String p_Value)
-        {
-            _StatusPane = p_Value;
-            RaisePropertyChanged("StatusPane");
-        }
-
-        public QualityAssuranceViewModel getVM()
-        {
-            return this;
-        }
-
-        public void AddTo_CompareCols_CompareColumns(List<string> p_List)
-        {
-            foreach(var l in p_List)
-            {
-                _CompareCols_CompareColumns.Add(l);
-            }
-            RaisePropertyChanged("CompareCols_CompareColumns");
-        }
-
-        public void Clear_CompareCols_CompareColumns()
-        {
-            _CompareCols_CompareColumns.Clear();
-            RaisePropertyChanged("CompareCols_CompareColumns");
-        }
-
-        public void AddTo_MarkDuplicates_ColumnsToAnalyze(List<string> p_List)
-        {
-            foreach(var l in p_List)
-            {
-                _MarkDuplicates_ColumnsToAnalyze.Add(l);
-            }
-            RaisePropertyChanged("MarkDuplicates_ColumnsToAnalyze");
-        }
-
-        public void Clear_MarkDuplicates_ColumnsToAnalyze()
-        {
-            _MarkDuplicates_ColumnsToAnalyze.Clear();
-            RaisePropertyChanged("MarkDuplicates_ColumnsToAnalyze");
-        }
-
-        public void RefreshVM()
-        {
-            foreach (System.Reflection.PropertyInfo p in this.GetType().GetProperties())
-            {
-                RaisePropertyChanged(p.Name);
-            }
-        }
-        #endregion
 
         #region Insert Data
 
-        ObservableCollection<String> _TargetItems = new ObservableCollection<String> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ", "BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BK", "BL", "BM", "BN", "BO", "BP", "BQ", "BR", "BS", "BT", "BU", "BV", "BW", "BX", "BY", "BZ", "CA", "CB", "CC", "CD", "CE", "CF", "CG", "CH", "CI", "CJ", "CK", "CL", "CM", "CN", "CO", "CP", "CQ", "CR", "CS", "CT", "CU", "CV", "CW", "CX", "CY", "CZ", "DA", "DB", "DC", "DD", "DE", "DF", "DG", "DH", "DI", "DJ", "DK", "DL", "DM", "DN", "DO", "DP", "DQ", "DR", "DS", "DT", "DU", "DV", "DW", "DX", "DY", "DZ", "EA", "EB", "EC", "ED", "EE", "EF", "EG", "EH", "EI", "EJ", "EK", "EL", "EM", "EN", "EO", "EP", "EQ", "ER", "ES", "ET", "EU", "EV", "EW", "EX", "EY", "EZ" };
+        ObservableCollection<String> _TargetItems = new ObservableCollection<string>();
         public ObservableCollection<string> TargetItems { get { return _TargetItems; } }
 
+
+        public bool PL_Text_Enabled
+        {
+            get { return _PL_Text_Enabled; }
+            set
+            {
+                if (_PL_Text_Enabled != value)
+                {
+                    _PL_Text_Enabled = value;
+                    SetPLFileText();
+                }
+            }
+        }
+
+        public bool PL_File_Enabled
+        {
+            get { return _PL_File_Enabled; }
+            set
+            {
+                if (_PL_File_Enabled != value)
+                {
+                    _PL_File_Enabled = value;
+                    SetPLFileText();
+                    SetCompare();
+                }
+            }
+        }
+
+        public bool PL_TextFile_Enabled
+        {
+            get { return _PL_TextFile_Enabled; }
+            set
+            {
+                if (_PL_TextFile_Enabled != value)
+                {
+                    _PL_TextFile_Enabled = value;
+                    
+                }
+            }
+        }
+
+        public bool SL_TextFile_Enabled
+        {
+            get { return _SL_TextFile_Enabled; }
+            set
+            {
+                if (_SL_TextFile_Enabled != value)
+                {
+                    _SL_TextFile_Enabled = value;
+                }
+            }
+        }
+
+        
+
+        public bool SL_File_Enabled
+        {
+            get { return _SL_File_Enabled; }
+            set
+            {
+                if (_SL_File_Enabled != value)
+                {
+                    _SL_File_Enabled = value;
+                    SetSLFileText();
+                    SetCompare();
+                }
+            }
+        }
+
+        public bool SL_Text_Enabled
+        {
+            get { return _SL_Text_Enabled; }
+            set
+            {
+                if (_SL_Text_Enabled != value)
+                {
+                    _SL_Text_Enabled = value;
+                    SetSLFileText();
+                }
+            }
+        }
+
+        public bool Compare_Enabled
+        {
+            get { return _Compare_Enabled; }
+            set
+            {
+                if (_Compare_Enabled != value)
+                {
+                    _Compare_Enabled = value;
+                }
+            }
+        }
+
+        public bool PL_WordCount
+        {
+            get { return _PL_WordCount; }
+            set
+            {
+                if (_PL_WordCount != value)
+                {
+                    _PL_WordCount = value;
+                }
+            }
+        }
+
+        public bool PL_EAT
+        {
+            get { return _PL_EAT; }
+            set
+            {
+                if (_PL_EAT != value)
+                {
+                    _PL_EAT = value;
+                }
+            }
+        }
+
+        public bool PL_AAT
+        {
+            get { return _PL_AAT; }
+            set
+            {
+                if (_PL_AAT != value)
+                {
+                    _PL_AAT = value;
+                }
+            }
+        }
+
+        public bool PL_DiffToEAT
+        {
+            get { return _PL_DiffToEAT; }
+            set
+            {
+                if (_PL_DiffToEAT != value)
+                {
+                    _PL_DiffToEAT = value;
+                }
+            }
+        }
+
+        public bool PL_AATDiffMS
+        {
+            get { return _PL_AATDiffMS; }
+            set
+            {
+                if (_PL_AATDiffMS != value)
+                {
+                    _PL_AATDiffMS = value;
+                }
+            }
+        }
+
+        public bool PL_AATDiffPercent
+        {
+            get { return _PL_AATDiffPercent; }
+            set
+            {
+                if (_PL_AATDiffPercent != value)
+                {
+                    _PL_AATDiffPercent = value;
+                }
+            }
+        }
+
+        public bool SL_WordCount
+        {
+            get { return _SL_WordCount; }
+            set
+            {
+                if (_SL_WordCount != value)
+                {
+                    _SL_WordCount = value;
+                }
+            }
+        }
+
+        public bool SL_EAT
+        {
+            get { return _SL_EAT; }
+            set
+            {
+                if (_SL_EAT != value)
+                {
+                    _SL_EAT = value;
+                }
+            }
+        }
+
+        public bool SL_AAT
+        {
+            get { return _SL_AAT; }
+            set
+            {
+                if (_SL_AAT != value)
+                {
+                    _SL_AAT = value;
+                }
+            }
+        }
+
+        public bool SL_DiffToEAT
+        {
+            get { return _SL_DiffToEAT; }
+            set
+            {
+                if (_SL_DiffToEAT != value)
+                {
+                    _SL_DiffToEAT = value;
+                }
+            }
+        }
+
+        public bool SL_Min
+        {
+            get { return _SL_Min; }
+            set
+            {
+                if (_SL_Min != value)
+                {
+                    _SL_Min = value;
+                }
+            }
+        }
+
+        public bool SL_Max
+        {
+            get { return _SL_Max; }
+            set
+            {
+                if (_SL_Max != value)
+                {
+                    _SL_Max = value;
+                }
+            }
+        }
+
+        public bool AD_Visible
+        {
+            get { return _AD_Visible; }
+            set
+            {
+                if (_AD_Visible != value)
+                {
+                    _AD_Visible = value;
+                }
+            }
+        }
+
+        public bool IW_TargetColumn
+        {
+            get { return _IW_TargetColumn; }
+            set
+            {
+                if (_IW_TargetColumn != value)
+                {
+                    _IW_TargetColumn = value;
+                }
+            }
+        }
+
+        public bool S_ColourCode
+        {
+            get { return _S_ColourCode; }
+            set
+            {
+                if (_S_ColourCode != value)
+                {
+                    _S_ColourCode = value;
+                }
+            }
+        }
+
+        public int TargetIndex
+        {
+            get { return _TargetIndex; }
+            set
+            {
+                if (_TargetIndex != value)
+                {
+                    _TargetIndex = value;
+                }
+            }
+        }
+
+        //public bool Send_PL_WordCount()
+        //{
+        //    return PL_WordCount;
+        //}
+
+        //public bool Send_PL_EAT()
+        //{
+        //    return PL_EAT;
+        //}
+
+        //public bool Send_PL_AAT()
+        //{
+        //    return PL_AAT;
+        //}
+
+        //public bool Send_PL_DiffToEAT()
+        //{
+        //    return PL_DiffToEAT;
+        //}
+
+        //public bool Send_PL_AATDiffMS()
+        //{
+        //    return PL_AATDiffMS;
+        //}
+
+        //public bool Send_PL_AATDiffPercent()
+        //{
+        //    return PL_AATDiffPercent;
+        //}
+
+        //public bool Send_SL_WordCount()
+        //{
+        //    return SL_WordCount;
+        //}
+
+        //public bool Send_SL_EAT()
+        //{
+        //    return SL_EAT;
+        //}
+
+        //public bool Send_SL_AAT()
+        //{
+        //    return SL_AAT;
+        //}
+
+        //public bool Send_SL_DiffToEAT()
+        //{
+        //    return SL_DiffToEAT;
+        //}
+
+        //public bool Send_SL_Min()
+        //{
+        //    return SL_Min;
+        //}
+
+        //public bool Send_SL_Max()
+        //{
+        //    return SL_Max;
+        //}
+
+        //public bool Send_AD_Visible()
+        //{
+        //    return AD_Visible;
+        //}
+
+        //public bool Send_IW_TargetColumn()
+        //{
+        //    return IW_TargetColumn;
+        //}
+
+        //public bool Send_S_ColourCode()
+        //{
+        //    return S_ColourCode;
+        //}
+
+        //public int Send_TargetIndex()
+        //{
+        //    return TargetIndex;
+        //}
+
+        //public void Set_TargetIndex(int p_Value)
+        //{
+        //    TargetIndex = p_Value;
+        //    RaisePropertyChanged("TargetIndex");
+        //}
+         
+
+        private void SetCompare()
+        {
+            if (!SL_File_Enabled | !PL_File_Enabled)
+            {
+                Compare_Enabled = false;
+            }
+            else
+            {
+                Compare_Enabled = true;
+            }
+
+            RaisePropertyChanged("Compare_Enabled");
+        }
+
+        private void SetPLFileText()
+        {
+            if (!PL_Text_Enabled | !PL_File_Enabled)
+            {
+                PL_TextFile_Enabled = false;
+            }
+            else
+            {
+                PL_TextFile_Enabled = true;
+            }
+
+            RaisePropertyChanged("PL_TextFile_Enabled");
+        }
+
+        private void SetSLFileText()
+        {
+            if (!SL_Text_Enabled | !SL_File_Enabled)
+            {
+                SL_TextFile_Enabled = false;
+            }
+            else
+            {
+                SL_TextFile_Enabled = true;
+            }
+
+            RaisePropertyChanged("SL_TextFile_Enabled");
+        }
+        
         //private bool _PL_WordCount = false;
         //private bool _PL_EAT = false;
         //private bool _PL_AAT = false;
@@ -549,15 +969,15 @@ namespace CDTUserControl.Viewmodels
         //private bool _SL_DiffToEAT = false;
         //private bool _SL_Min = false;
         //private bool _SL_Max = false;
-        
+
         //private bool _AD_Visible = false;
-        
+
         //private bool _IW_TargetColumn = false;
-        
+
         //private int _TargetIndex =0;
 
         //private bool _S_ColourCode = false;
-        
+
         //public bool PL_WordCount
         //{
         //    get { return _PL_WordCount; }
@@ -569,7 +989,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool PL_EAT
         //{
         //    get { return _PL_EAT; }
@@ -581,7 +1001,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool PL_AAT
         //{
         //    get { return _PL_AAT; }
@@ -593,7 +1013,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool PL_DiffToEAT
         //{
         //    get { return _PL_DiffToEAT; }
@@ -605,7 +1025,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool PL_AATDiffMS
         //{
         //    get { return _PL_AATDiffMS; }
@@ -617,7 +1037,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool PL_AATDiffPercent
         //{
         //    get { return _PL_AATDiffPercent; }
@@ -629,7 +1049,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool SL_WordCount
         //{
         //    get { return _SL_WordCount; }
@@ -641,7 +1061,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool SL_EAT
         //{
         //    get { return _SL_EAT; }
@@ -737,7 +1157,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public int TargetIndex
         //{
         //    get { return _TargetIndex; }
@@ -749,7 +1169,7 @@ namespace CDTUserControl.Viewmodels
         //        }
         //    }
         //}
-        
+
         //public bool Send_PL_WordCount()
         //{
         //    return PL_WordCount;
@@ -829,6 +1249,107 @@ namespace CDTUserControl.Viewmodels
         //{
         //    return TargetIndex;
         //}
+
+        //public bool PL_WordCount { get { return _PL_WordCount; } set { if (_PL_WordCount != value) { _PL_WordCount = value; } } }
+        //        public bool SL_EAT { get { return _SL_EAT; } set { if (_SL_EAT != value) { _SL_EAT = value; } } }
+        //        public bool SL_AAT { get { return _SL_AAT; } set { if (_SL_AAT != value) { _SL_AAT = value; } } }
+        //        public bool SL_DiffToEAT { get { return _SL_DiffToEAT; } set { if (_SL_DiffToEAT != value) { _SL_DiffToEAT = value; } } }
+        //        public bool SL_Min { get { return _SL_Min; } set { if (_SL_Min != value) { _SL_Min = value; } } }
+        //        public bool SL_Max { get { return _SL_Max; } set { if (_SL_Max != value) { _SL_Max = value; } } }
+        //        public bool AD_All { get { return _AD_All; } set { if (_AD_All != value) { _AD_All = value; } } }
+        //        public bool AD_Visible { get { return _AD_Visible; } set { if (_AD_Visible != value) { _AD_Visible = value; } } }
+        //        public bool IW_EndOfScript { get { return _IW_EndOfScript; } set { if (_IW_EndOfScript != value) { _IW_EndOfScript = value; } } }
+        //        public bool IW_TargetColumn { get { return _IW_TargetColumn; } set { if (_IW_TargetColumn != value) { _IW_TargetColumn = value; } } }
+        //        public bool S_ColourCode { get { return _S_ColourCode; } set { if (_S_ColourCode != value) { _S_ColourCode = value; } } }
+
+        #endregion
+            
+        #endregion
+
+        #region Constructor
+        public QualityAssuranceViewModel()
+        {
+
+        }
+        #endregion
+
+        #region Commands
+        private void ResetExecute()
+        {
+
+        }
+        public ICommand Reset { get { return new RelayCommand(ResetExecute); } }
+
+        private void CheckFilesExecute()
+        {
+
+        }
+        public ICommand CheckFiles { get { return new RelayCommand(CheckFilesExecute); } }
+        #endregion
+
+        #region private methods
+
+        #endregion
+
+        #region public methods
+        public void SetStatusPane(String p_Value)
+        {
+            _StatusPane = p_Value;
+            RaisePropertyChanged("StatusPane");
+        }
+
+        public QualityAssuranceViewModel getVM()
+        {
+            return this;
+        }
+
+        public void AddTo_CompareCols_CompareColumns(List<string> p_List)
+        {
+            foreach (var l in p_List)
+            {
+                _CompareCols_CompareColumns.Add(l);
+            }
+            RaisePropertyChanged("CompareCols_CompareColumns");
+        }
+
+        public void AddTo_TargetItems(List<string> p_List)
+        {
+            foreach(var l in p_List)
+            {
+                _TargetItems.Add(l);
+            }
+            RaisePropertyChanged("TargetItems");
+        }
+
+        public void Clear_CompareCols_CompareColumns()
+        {
+            _CompareCols_CompareColumns.Clear();
+            RaisePropertyChanged("CompareCols_CompareColumns");
+        }
+
+        public void AddTo_MarkDuplicates_ColumnsToAnalyze(List<string> p_List)
+        {
+            foreach(var l in p_List)
+            {
+                _MarkDuplicates_ColumnsToAnalyze.Add(l);
+            }
+            RaisePropertyChanged("MarkDuplicates_ColumnsToAnalyze");
+        }
+
+        public void Clear_MarkDuplicates_ColumnsToAnalyze()
+        {
+            _MarkDuplicates_ColumnsToAnalyze.Clear();
+            RaisePropertyChanged("MarkDuplicates_ColumnsToAnalyze");
+        }
+
+        public void RefreshVM()
+        {
+            foreach (System.Reflection.PropertyInfo p in this.GetType().GetProperties())
+            {
+                RaisePropertyChanged(p.Name);
+            }
+        }
+
 
 
         #endregion
