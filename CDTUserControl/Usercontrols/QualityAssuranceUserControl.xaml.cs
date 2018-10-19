@@ -202,7 +202,11 @@ namespace CDTUserControl.Usercontrols
             }
         }
 
-
+        private void OpenColor(object sender, RoutedEventArgs args)
+        {
+            ColorPickerWindow l_Color = new ColorPickerWindow();
+            l_Color.Show();
+        }
         
         #endregion
 
