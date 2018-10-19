@@ -346,6 +346,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
+
         public Brush FilterBrush
         {
             get { return _FilterBrush; }

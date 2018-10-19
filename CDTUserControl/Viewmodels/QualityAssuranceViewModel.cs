@@ -2,12 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xceed.Wpf.Toolkit;
+using System.Windows.Media;
 
 namespace CDTUserControl.Viewmodels
 {
@@ -71,20 +71,105 @@ namespace CDTUserControl.Viewmodels
                 string _OverallResult = string.Empty;
 
 
-        //        clsQA.MMMissColor = QAvm.Color1;
-        //        clsQA.MMCorruptColor = QAvm.Color2;
-        //        clsQA.MMMiseditColor = QAvm.Color3;
-        //        clsQA.MMPrimaryColor = QAvm.Color4;
-        //        clsQA.MMReorderColor = QAvm.Color5;
-        //        clsQA.MMTrimColor = QAvm.Color6;
+                Color? _Color1;
+                Color? _Color2;
+                Color? _Color3;
+                Color? _Color4;
+                Color? _Color5;
+                Color? _Color6;
 
-                Color _Color1 = Color.Crimson;
-                Color _Color2 = Color.MediumPurple;
-                Color _Color3 = Color.LightGreen;
-                Color _Color4 = Color.LightSalmon;
-                Color _Color5 = Color.DeepSkyBlue;
-                Color _Color6 = Color.HotPink;
+        private Brush _BrushColor1;
+        public Brush BrushColor1 {
+            get { return _BrushColor1; }
+            set
+            {
+                if (_BrushColor1 != value)
+                {
+                    _BrushColor1 = value;
+                    RaisePropertyChanged("BrushColor1");
+                }
+            }
+        }
 
+
+        private Brush _BrushColor2;
+        public Brush BrushColor2
+        {
+            get { return _BrushColor2; }
+            set
+            {
+                if (_BrushColor2 != value)
+                {
+                    _BrushColor2 = value;
+                    RaisePropertyChanged("BrushColor2");
+                }
+            }
+        }
+
+
+        private Brush _BrushColor3;
+        public Brush BrushColor3
+        {
+            get { return _BrushColor3; }
+            set
+            {
+                if (_BrushColor3 != value)
+                {
+                    _BrushColor3 = value;
+                    RaisePropertyChanged("BrushColor3");
+                }
+            }
+        }
+
+
+        private Brush _BrushColor4;
+        public Brush BrushColor4
+        {
+            get { return _BrushColor4; }
+            set
+            {
+                if (_BrushColor4 != value)
+                {
+                    _BrushColor4 = value;
+                    RaisePropertyChanged("BrushColor4");
+                }
+            }
+        }
+
+
+        private Brush _BrushColor5;
+        public Brush BrushColor5
+        {
+            get { return _BrushColor5; }
+            set
+            {
+                if (_BrushColor5 != value)
+                {
+                    _BrushColor5 = value;
+                    RaisePropertyChanged("BrushColor5");
+                }
+            }
+        }
+
+        private Brush _BrushColor6;
+        public Brush BrushColor6
+        {
+            get { return _BrushColor6; }
+            set
+            {
+                if (_BrushColor6 != value)
+                {
+                    _BrushColor6 = value;
+                    RaisePropertyChanged("BrushColor6");
+                }
+            }
+        }
+
+        private Color? ConvertColor(System.Drawing.Color cl)
+        {
+            Color? MediaCl = System.Windows.Media.Color.FromArgb(cl.A, cl.R, cl.G, cl.B);
+            return MediaCl;
+        }
         #endregion
 
         #region Compare Cols
@@ -171,7 +256,7 @@ namespace CDTUserControl.Viewmodels
 
         #region Mark Missing Properties
         
-        public Color Color1
+        public Color? Color1
         {
             get { return _Color1; }
             set
@@ -180,11 +265,13 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color1 = value;
                     RaisePropertyChanged("Color1");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    BrushColor1 = new SolidColorBrush(cl);
                 }
             }
         }
 
-        public Color Color2
+        public Color? Color2
         {
             get { return _Color2; }
             set
@@ -193,11 +280,13 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color2 = value;
                     RaisePropertyChanged("Color2");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    BrushColor2 = new SolidColorBrush(cl);
                 }
             }
         }
 
-        public Color Color3
+        public Color? Color3
         {
             get { return _Color3; }
             set
@@ -206,11 +295,13 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color3 = value;
                     RaisePropertyChanged("Color3");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    BrushColor3 = new SolidColorBrush(cl);
                 }
             }
         }
 
-        public Color Color4
+        public Color? Color4
         {
             get { return _Color4; }
             set
@@ -219,11 +310,14 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color4 = value;
                     RaisePropertyChanged("Color4");
+
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    BrushColor4 = new SolidColorBrush(cl);
                 }
             }
         }
 
-        public Color Color5
+        public Color? Color5
         {
             get { return _Color5; }
             set
@@ -232,11 +326,14 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color5 = value;
                     RaisePropertyChanged("Color5");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    BrushColor5 = new SolidColorBrush(cl);
+
                 }
             }
         }
 
-        public Color Color6
+        public Color? Color6
         {
             get { return _Color6; }
             set
@@ -245,6 +342,8 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color6 = value;
                     RaisePropertyChanged("Color6");
+                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
+                    BrushColor6 = new SolidColorBrush(cl);
                 }
             }
         }
@@ -1349,8 +1448,36 @@ namespace CDTUserControl.Viewmodels
                 RaisePropertyChanged(p.Name);
             }
         }
+        
+        public void ChangeColor1(System.Drawing.Color cl)
+        {
+            Color1 = ConvertColor(cl);
+        }
 
+        public void ChangeColor6(System.Drawing.Color cl)
+        {
+            Color6 = ConvertColor(cl);
+        }
 
+        public void ChangeColor5(System.Drawing.Color cl)
+        {
+            Color5 = ConvertColor(cl);
+        }
+
+        public void ChangeColor4(System.Drawing.Color cl)
+        {
+            Color4 = ConvertColor(cl);
+        }
+
+        public void ChangeColor3(System.Drawing.Color cl)
+        {
+            Color3 = ConvertColor(cl);
+        }
+
+        public void ChangeColor2(System.Drawing.Color cl)
+        {
+            Color2 = ConvertColor(cl);
+        }
 
         #endregion
 

@@ -286,8 +286,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorLoad
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.baml
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\DirectShowLib-2005.dll
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\WPFMediaKit.dll
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\EVRPresenter32.dll
@@ -296,3 +294,4 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\DirectShowLib-2005.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\WPFMediaKit.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache

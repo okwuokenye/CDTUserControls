@@ -44,14 +44,31 @@ namespace CDTUserControl.Viewmodels
         private bool _UsesDir1Checked = true;
 
         ObservableCollection<String> _DeviceItems = new ObservableCollection<String>();
-                ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
         ObservableCollection<String> _TabItems = new ObservableCollection<String> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         ObservableCollection<String> _DelayItems = new ObservableCollection<String> {"20ms", "40ms", "60ms", "80ms", "100ms", "120ms", "140ms", "160ms", "180ms", "200ms"};
         ObservableCollection<String> _EditorItems = new ObservableCollection<String> { "Adobe Audition 3.0", "Adobe Audition CC"};
 
         public Visibility DeviceVisibility { get { return _DefaultDeviceChecked ? Visibility.Collapsed: Visibility.Visible; } }
-        public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }        
+        public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
 
+        private int _HK11;
+        private int _HK12;
+        private int _HK21;
+        private int _HK22;
+        private int _HK31;
+        private int _HK32;
+
+        ObservableCollection<String> _HK1 = new ObservableCollection<String> { "None", "A", "B", "-", "D", "E", "-", "G", "H", "I", "J", "K", "L", "M", "N", "-", "P", "Q", "R", "T", "U", "-", "W", "X", "Y", "Z" };
+        ObservableCollection<String> _HK2 = new ObservableCollection<String> { "Alt", "Control" };
+
+        private bool _HK1On = true;
+        private bool _HK2On = true;
+        private bool _HK3On = true;
+
+        public Visibility HK1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility HK2Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility HK3Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
         #endregion
 
         #region event declarations
@@ -78,6 +95,174 @@ namespace CDTUserControl.Viewmodels
 
 
         #region properties
+
+        public ObservableCollection<String> HK1 { get { return _HK1; } }
+        public ObservableCollection<String> HK2 { get { return _HK2; } }
+
+        public bool HK1On
+        {
+            get
+            {
+                return _HK1On;
+            }
+            set
+            {
+                if (_HK1On != value)
+                {
+                    _HK1On = value;
+                    RaisePropertyChanged("HK1On");
+                    RaisePropertyChanged("HK1Visibility");
+                }
+            }
+        }
+        public bool HK2On
+        {
+            get
+            {
+                return _HK2On;
+            }
+            set
+            {
+                if (_HK2On != value)
+                {
+                    _HK2On = value;
+                    RaisePropertyChanged("HK2On");
+                    RaisePropertyChanged("HK2Visibility");
+                }
+            }
+        }
+        public bool HK3On
+        {
+            get
+            {
+                return _HK3On;
+            }
+            set
+            {
+                if (_HK3On != value)
+                {
+                    _HK3On = value;
+                    RaisePropertyChanged("HK3On");
+                    RaisePropertyChanged("HK3Visibility");
+                }
+            }
+        }
+
+        public int HK11
+        {
+            get
+            {
+                return _HK11;
+            }
+            set
+            {
+                if (_HK11 != value)
+                {
+                    _HK11 = value;
+                    RaisePropertyChanged("HK11");
+                    if(value==0)
+                    {
+                        HK1On = false;
+                    }
+                    else
+                    {
+                        HK1On = true;
+                    }
+                }
+            }
+        }
+        public int HK12
+        {
+            get
+            {
+                return _HK12;
+            }
+            set
+            {
+                if (_HK12 != value)
+                {
+                    _HK12 = value;
+                    RaisePropertyChanged("HK12");
+                }
+            }
+        }
+        public int HK21
+        {
+            get
+            {
+                return _HK21;
+            }
+            set
+            {
+                if (_HK21 != value)
+                {
+                    _HK21 = value;
+                    RaisePropertyChanged("HK21");
+                    if (value == 0)
+                    {
+                        HK2On = false;
+                    }
+                    else
+                    {
+                        HK2On = true;
+                    }
+                }
+            }
+        }
+        public int HK22
+        {
+            get
+            {
+                return _HK22;
+            }
+            set
+            {
+                if (_HK22 != value)
+                {
+                    _HK22 = value;
+                    RaisePropertyChanged("HK22");
+                }
+            }
+        }
+        public int HK31
+        {
+            get
+            {
+                return _HK31;
+            }
+            set
+            {
+                if (_HK31 != value)
+                {
+                    _HK31 = value;
+                    RaisePropertyChanged("HK31");
+                    if (value == 0)
+                    {
+                        HK3On = false;
+                    }
+                    else
+                    {
+                        HK3On = true;
+                    }
+                }
+            }
+        }
+        public int HK32
+        {
+            get
+            {
+                return _HK32;
+            }
+            set
+            {
+                if (_HK32 != value)
+                {
+                    _HK32 = value;
+                    RaisePropertyChanged("HK32");
+                }
+            }
+        }
+
 
         public String StatusWarn
         {
@@ -697,6 +882,37 @@ namespace CDTUserControl.Viewmodels
         }
 
 
+
+        public void SetHK11Index(int p_Value)
+        {
+            _HK11 = p_Value;
+            RaisePropertyChanged("HK11");
+        }
+        public void SetHK12Index(int p_Value)
+        {
+            _HK12 = p_Value;
+            RaisePropertyChanged("HK12");
+        }
+        public void SetHK21Index(int p_Value)
+        {
+            _HK21 = p_Value;
+            RaisePropertyChanged("HK21");
+        }
+        public void SetHK22Index(int p_Value)
+        {
+            _HK22 = p_Value;
+            RaisePropertyChanged("HK22");
+        }
+        public void SetHK31Index(int p_Value)
+        {
+            _HK31 = p_Value;
+            RaisePropertyChanged("HK31");
+        }
+        public void SetHK32Index(int p_Value)
+        {
+            _HK32 = p_Value;
+            RaisePropertyChanged("HK32");
+        }
         #endregion
 
         #region commands
@@ -819,6 +1035,30 @@ namespace CDTUserControl.Viewmodels
             return UsesDir1Checked;
         }
         
+        public int SendHK11Index()
+        {
+            return HK11;
+        }
+        public int SendHK12Index()
+        {
+            return HK12;
+        }
+        public int SendHK21Index()
+        {
+            return HK21;
+        }
+        public int SendHK22Index()
+        {
+            return HK22;
+        }
+        public int SendHK31Index()
+        {
+            return HK31;
+        }
+        public int SendHK32Index()
+        {
+            return HK32;
+        }
         #endregion
 
 

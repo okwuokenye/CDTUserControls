@@ -47,8 +47,8 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Row="0" Grid.Column="0">
-                                <CheckBox Click="OpenColor" IsChecked="{Binding MarkMissingFiles}" Width="140" Content="Mark missing files"  Margin="2 2 2 2" HorizontalAlignment="Left" Background="{Binding Color1}" />
-                                <CheckBox Click="OpenColor" IsChecked="{Binding MarkCorruptedFiles}" Width="140" Content="Mark corrupted files" Background="{Binding Color2}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
+                                <CheckBox MouseRightButtonDown="OpenColor" IsChecked="{Binding MarkMissingFiles}" Width="140" Content="Mark missing files"  Margin="2 2 2 2" HorizontalAlignment="Left" Background="{Binding Color1}" />
+                                <CheckBox MouseRightButtonDown="OpenColor" IsChecked="{Binding MarkCorruptedFiles}" Width="140" Content="Mark corrupted files" Background="{Binding Color2}" Margin="2 2 2 2" HorizontalAlignment="Left"/>
                                 <CheckBox IsChecked="{Binding CountFiles}" Width="140" Content="Count files" Margin="2 2 2 2" HorizontalAlignment="Left"/>
                                 <CheckBox IsChecked="{Binding AddResultColumn}" Width="140" Content="Add result column" Margin="2 2 2 2" HorizontalAlignment="Left"/>
                             </StackPanel>

@@ -24,6 +24,7 @@ namespace CDTUserControl.Usercontrols
     {
         EditorLoadUserControlViewModel vm;
 
+
         #region constructor
         public static void EnsureApplicationResources()
         {
@@ -45,11 +46,7 @@ namespace CDTUserControl.Usercontrols
             //add event listeners
             vm.RootChangeButtonEvent += Vm_RootChangeButtonEvent;
             vm.EditorExeChangeButtonEvent += Vm_EditorExeChangeButtonEvent;
-
-            vm.SaveButtonEvent += Vm_SaveButtonEvent;
-            vm.ExitButtonEvent += Vm_ExitButtonEvent;
-            vm.LoadButtonEvent += Vm_LoadButtonEvent;
-
+            
             vm.EditorChangedEvent += Vm_EditorChangedEvent;
 
 
@@ -65,24 +62,49 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void EditorExeChangeButtonEventHandler();
         public event EditorExeChangeButtonEventHandler EditorExeChangeButtonEvent;
-        
-        public delegate void SaveButtonEventHandler();
-        public event SaveButtonEventHandler SaveButtonEvent;
 
-        public delegate void ExitButtonEventHandler();
-        public event ExitButtonEventHandler ExitButtonEvent;
+        public delegate void ReloadHeadsClickEvent();
+        public event ReloadHeadsClickEvent ReloadHeadsEvent;
 
-        public delegate void LoadButtonEventHandler();
-        public event LoadButtonEventHandler LoadButtonEvent;
+        public delegate void OpenClickEvent();
+        public event OpenClickEvent OpenEvent;
+
+
+        public delegate void ExitClickEvent();
+        public event ExitClickEvent ExitEvent;
 
         public delegate void EditorChangedEventHandler();
         public event EditorChangedEventHandler EditorChangedEvent;
-        
+
+        private void OpenClick(object sender, RoutedEventArgs args)
+        {
+            if (OpenEvent != null)
+            {
+                OpenEvent();
+            }
+        }
+
+
+        private void ExitClick(object sender, RoutedEventArgs args)
+        {
+            if (ExitEvent != null)
+            {
+                ExitEvent();
+            }
+        }
+
+        private void ReloadHeadsClick(object sender, RoutedEventArgs args)
+        {
+            if (ReloadHeadsEvent != null)
+            {
+                ReloadHeadsEvent();
+            }
+        }
 
         #endregion
-        
+
         #region event handlers
-        
+
         private void Vm_RootChangeButtonEvent()
         {
             RootChangeButtonEvent();
@@ -92,23 +114,7 @@ namespace CDTUserControl.Usercontrols
         {
             EditorExeChangeButtonEvent();
         }
-
-
-        private void Vm_ExitButtonEvent()
-        {
-            ExitButtonEvent();
-        }
-
-        private void Vm_LoadButtonEvent()
-        {
-            LoadButtonEvent();
-        }
-
-        private void Vm_SaveButtonEvent()
-        {
-            SaveButtonEvent();
-        }
-
+        
         private void Vm_EditorChangedEvent()
         {
             EditorChangedEvent();
@@ -202,6 +208,29 @@ namespace CDTUserControl.Usercontrols
         {
             vm.ClearStatusText();
         }
+
+
+        public void SetExampleChar(string p_Value)
+        {
+            vm.SetExampleChar(p_Value);
+        }
+        public void SetExampleScene(string p_Value)
+        {
+            vm.SetExampleScene(p_Value);
+        }
+        public void SetExamplePath(string p_Value)
+        {
+            vm.SetExamplePath(p_Value);
+        }
+        public void SetExampleFilename(string p_Value)
+        {
+            vm.SetExampleFilename(p_Value);
+        }
+        public void SetExampleText(string p_Value)
+        {
+            vm.SetExampleText(p_Value);
+        }
+
         #endregion
 
         #region public send functions

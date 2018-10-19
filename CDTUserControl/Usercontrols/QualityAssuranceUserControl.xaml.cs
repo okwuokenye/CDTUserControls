@@ -202,12 +202,37 @@ namespace CDTUserControl.Usercontrols
             }
         }
 
-        private void OpenColor(object sender, RoutedEventArgs args)
+        private void OpenColor(object sender, MouseButtonEventArgs e)
         {
-            ColorPickerWindow l_Color = new ColorPickerWindow();
-            l_Color.Show();
+
+            //I need some way to identify which checkbox has sent the click. At the moment it only works on Color1 but that shoud change dependent on sender. Some kind of loop?
+
+            Color? cl = vm.Color1;
+
+            ColorPickerWindow l_Color = new ColorPickerWindow(cl);
+
+            //This is meant to open the window at the position of the mouse pointer but it does not work with dual screens. Any ideas?
+            var transform = PresentationSource.FromVisual(this).CompositionTarget.TransformFromDevice;
+            var mouse = transform.Transform(GetMousePosition());
+            l_Color.Left = mouse.X - this.ActualWidth;
+            l_Color.Top = mouse.Y - this.ActualHeight;
+
+            bool? result =  l_Color.ShowDialog();
+             
+                vm.Color1 = l_Color.ColorSelected;
+            
+            
+            
         }
         
+        public System.Windows.Point GetMousePosition()
+        {
+            System.Drawing.Point point = System.Windows.Forms.Control.MousePosition;
+            return new System.Windows.Point(point.X, point.Y);
+        }
+
+
+
         #endregion
 
 

@@ -36,7 +36,15 @@ namespace CDTUserControl.Viewmodels
         ObservableCollection<String> _EditorItems = new ObservableCollection<String> { "Adobe Audition 3.0", "Adobe Audition CC"};
         
         public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
-        
+
+
+        private string _ExampleChar;
+        private string _ExampleScene;
+        private string _ExampleFilename;
+        private string _ExampleText;
+        private string _ExamplePath;
+
+
         #endregion
 
         #region event declarations
@@ -66,6 +74,81 @@ namespace CDTUserControl.Viewmodels
 
         #region properties
 
+        public String ExampleChar
+        {
+            get
+            {
+                return _ExampleChar;
+            }
+            set
+            {
+                if (_ExampleChar != value)
+                {
+                    _ExampleChar = value;
+                    RaisePropertyChanged("ExampleChar");
+                }
+            }
+        }
+        public String ExampleText
+        {
+            get
+            {
+                return _ExampleText;
+            }
+            set
+            {
+                if (_ExampleText != value)
+                {
+                    _ExampleText = value;
+                    RaisePropertyChanged("ExampleText");
+                }
+            }
+        }
+        public String ExampleFilename
+        {
+            get
+            {
+                return _ExampleFilename;
+            }
+            set
+            {
+                if (_ExampleFilename != value)
+                {
+                    _ExampleFilename = value;
+                    RaisePropertyChanged("ExampleFilename");
+                }
+            }
+        }
+        public String ExamplePath
+        {
+            get
+            {
+                return _ExamplePath;
+            }
+            set
+            {
+                if (_ExamplePath != value)
+                {
+                    _ExamplePath = value;
+                    RaisePropertyChanged("ExamplePath");
+                }
+            }
+        }
+        public String ExampleScene
+        {
+            get
+            {
+                return _ExampleScene;
+            }
+            set
+            {
+                if (_ExampleScene != value)
+                {
+                    _ExampleScene = value;
+                    RaisePropertyChanged("ExampleScene");
+                }
+            }
+        }
         public String StatusWarn
         {
             get
@@ -446,7 +529,31 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("StatusWarn");
         }
 
-
+        public void SetExampleChar(string p_value)
+        {
+            _ExampleChar = p_value;
+            RaisePropertyChanged("ExampleChar");
+        }
+        public void SetExampleScene(string p_value)
+        {
+            _ExampleScene = p_value;
+            RaisePropertyChanged("ExampleScene");
+        }
+        public void SetExamplePath(string p_value)
+        {
+            _ExamplePath = p_value;
+            RaisePropertyChanged("ExamplePath");
+        }
+        public void SetExampleFilename(string p_value)
+        {
+            _ExampleFilename = p_value;
+            RaisePropertyChanged("ExampleFilename");
+        }
+        public void SetExampleText(string p_value)
+        {
+            _ExampleText = p_value;
+            RaisePropertyChanged("ExampleText");
+        }
         #endregion
 
         #region commands

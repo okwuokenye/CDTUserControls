@@ -20,13 +20,33 @@ namespace CDTUserControl.Usercontrols
     /// Interaction logic for ColorPickerWindow.xaml
     /// </summary>
     public partial class ColorPickerWindow : Window
-    {
-        public ColorPickerWindow()
+    {        
+        public ColorPickerWindow(Color? cl)
         {
             InitializeComponent();
+            
+            ColorSelected = cl;
+        }
 
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
         
+        Color? _ColorSelected;
 
+        //When the Selected Color is changed I need this to update on the ColorSelected Property. This would be RaisePropertyChanged on the MVVM but not sure how to do here? Maybe event on SelectedColorChanged?
+        public Color? ColorSelected
+        {
+            get { return _ColorSelected; }
+            set
+            {
+                if (_ColorSelected != value)
+                {
+                    _ColorSelected = value;
+                }
+            }
+        }
+        
     }
 }

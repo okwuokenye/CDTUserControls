@@ -164,7 +164,7 @@
 
             </Expander>
 
-            <Expander Header="Editing Software" Grid.Row="4" Expanded="Expander_Expanded">
+            <Expander Header="Editing Software" Grid.Row="2" Expanded="Expander_Expanded">
                 <Grid Height="Auto">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -198,6 +198,51 @@
 
                             <Label Content="Tab Count" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                             <ComboBox  Grid.Row="3" Grid.Column="1" Margin="2 4 80 4" SelectedIndex="{Binding TabIndex}"  ItemsSource="{Binding TabItems}"/>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                </Grid>
+
+            </Expander>
+
+            <Expander Header="Hotkeys" Grid.Row="3" Expanded="Expander_Expanded">
+                <Grid Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Header="Hotkeys" Height="110" BorderThickness="1" Grid.Row="5">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Save" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2"   VerticalContentAlignment="Center"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK11_Index}"/>
+                            <Label Content="+" Grid.Row="0" Grid.Column="2" Margin="2 1 2 5"   VerticalContentAlignment="top" Visibility="{Binding HK1Visibility}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK12_Index}" Visibility="{Binding HK1Visibility}"/>
+
+                            <Label Content="Up and Save" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK21_Index}"/>
+                            <Label Content="+" Grid.Row="1" Grid.Column="2" Margin="2 1 2 5" VerticalContentAlignment="Center" Visibility="{Binding HK2Visibility}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK22_Index}" Visibility="{Binding HK2Visibility}"/>
+
+                            <Label Content="2 Up and Save" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK31_Index}"/>
+                            <Label Content="+" Grid.Row="2" Grid.Column="2" Margin="2 1 2 5" VerticalContentAlignment="Center" Visibility="{Binding HK3Visibility}"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK32_Index}" Visibility="{Binding HK3Visibility}"/>
+
 
                         </Grid>
 

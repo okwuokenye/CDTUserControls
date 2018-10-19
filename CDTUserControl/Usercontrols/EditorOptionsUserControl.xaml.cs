@@ -351,7 +351,59 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendUsesDir1Checked();
         }
-        
+
+
+        public int SendHK11Index()
+        {
+            return vm.SendHK11Index();
+        }
+        public int SendHK12Index()
+        {
+            return vm.SendHK12Index();
+        }
+        public int SendHK21Index()
+        {
+            return vm.SendHK21Index();
+        }
+        public int SendHK22Index()
+        {
+            return vm.SendHK22Index();
+        }
+        public int SendHK31Index()
+        {
+            return vm.SendHK31Index();
+        }
+        public int SendHK32Index()
+        {
+            return vm.SendHK32Index();
+        }
+
+
+        public void SetHK11Index(int p_Value)
+        {
+            vm.SetHK11Index(p_Value);
+        }
+        public void SetHK12Index(int p_Value)
+        {
+            vm.SetHK12Index(p_Value);
+        }
+        public void SetHK21Index(int p_Value)
+        {
+            vm.SetHK21Index(p_Value);
+        }
+        public void SetHK22Index(int p_Value)
+        {
+            vm.SetHK22Index(p_Value);
+        }
+        public void SetHK31Index(int p_Value)
+        {
+            vm.SetHK31Index(p_Value);
+        }
+        public void SetHK32Index(int p_Value)
+        {
+            vm.SetHK32Index(p_Value);
+        }
+
         #endregion
     }
 }
