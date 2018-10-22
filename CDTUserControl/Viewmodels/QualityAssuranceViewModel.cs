@@ -90,8 +90,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-
+        
         private Brush _BrushColor2;
         public Brush BrushColor2
         {
@@ -105,8 +104,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-
+        
         private Brush _BrushColor3;
         public Brush BrushColor3
         {
@@ -120,8 +118,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-
+        
         private Brush _BrushColor4;
         public Brush BrushColor4
         {
@@ -135,8 +132,7 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-
-
+        
         private Brush _BrushColor5;
         public Brush BrushColor5
         {
@@ -170,6 +166,14 @@ namespace CDTUserControl.Viewmodels
             Color? MediaCl = System.Windows.Media.Color.FromArgb(cl.A, cl.R, cl.G, cl.B);
             return MediaCl;
         }
+
+        private Brush CreateBrush(Color? cl)
+        {
+        System.Windows.Media.Color clo = (System.Windows.Media.Color)cl;
+        Brush FBrush = new SolidColorBrush(clo);
+        return FBrush;
+        }
+        
         #endregion
 
         #region Compare Cols
@@ -208,8 +212,10 @@ namespace CDTUserControl.Viewmodels
 
             #region Mark Duplicates
                 ObservableCollection<string> _MarkDuplicates_ColumnsToAnalyze = new ObservableCollection<string>();
-                int _MarkDuplicates_ColumnIndex = 0;
-                string _MarkDuplicates_ColumnToAnalyze = string.Empty;
+        ObservableCollection<string> _MarkDuplicates_SuffixTypes = new ObservableCollection<string>{ "_1,_2,_3...", "_01,_02,_03...", "_001,_002,_003..."};
+        int _MarkDuplicates_ColumnIndex = 0;
+        int _MarkDuplicates_SuffixIndex = 0;
+        string _MarkDuplicates_ColumnToAnalyze = string.Empty;
                 bool _MarkDuplicates_SettingsCreateLogSheet = true;
                 bool _MarkDuplicates_SettingsAddSuffix = false;
                 bool _MarkDuplicates_AppliesToSelection = false;
@@ -265,8 +271,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color1 = value;
                     RaisePropertyChanged("Color1");
-                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
-                    BrushColor1 = new SolidColorBrush(cl);
+                    BrushColor1 = CreateBrush(value);
                 }
             }
         }
@@ -280,8 +285,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color2 = value;
                     RaisePropertyChanged("Color2");
-                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
-                    BrushColor2 = new SolidColorBrush(cl);
+                    BrushColor2 = CreateBrush(value);
                 }
             }
         }
@@ -295,8 +299,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color3 = value;
                     RaisePropertyChanged("Color3");
-                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
-                    BrushColor3 = new SolidColorBrush(cl);
+                    BrushColor3 = CreateBrush(value);
                 }
             }
         }
@@ -310,9 +313,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color4 = value;
                     RaisePropertyChanged("Color4");
-
-                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
-                    BrushColor4 = new SolidColorBrush(cl);
+                    BrushColor4 = CreateBrush(value);
                 }
             }
         }
@@ -326,8 +327,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color5 = value;
                     RaisePropertyChanged("Color5");
-                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
-                    BrushColor5 = new SolidColorBrush(cl);
+                    BrushColor5 = CreateBrush(value);
 
                 }
             }
@@ -342,8 +342,7 @@ namespace CDTUserControl.Viewmodels
                 {
                     _Color6 = value;
                     RaisePropertyChanged("Color6");
-                    System.Windows.Media.Color cl = (System.Windows.Media.Color)value;
-                    BrushColor6 = new SolidColorBrush(cl);
+                    BrushColor6 = CreateBrush(value);
                 }
             }
         }
@@ -627,8 +626,11 @@ namespace CDTUserControl.Viewmodels
 
             #region Mark Duplicates
                 public ObservableCollection<string> MarkDuplicates_ColumnsToAnalyze { get { return _MarkDuplicates_ColumnsToAnalyze; } }
-                public int MarkDuplicates_ColumnIndex { get { return _MarkDuplicates_ColumnIndex; } set { if (_MarkDuplicates_ColumnIndex != value) { _MarkDuplicates_ColumnIndex = value; } } }
-                public string MarkDuplicates_ColumnToAnalyze { get { return _MarkDuplicates_ColumnToAnalyze; } set { if (_MarkDuplicates_ColumnToAnalyze != value) { _MarkDuplicates_ColumnToAnalyze = value; } } }
+        public ObservableCollection<string> MarkDuplicates_SuffixTypes { get { return _MarkDuplicates_SuffixTypes; } }
+        public int MarkDuplicates_ColumnIndex { get { return _MarkDuplicates_ColumnIndex; } set { if (_MarkDuplicates_ColumnIndex != value) { _MarkDuplicates_ColumnIndex = value; } } }
+
+        public int MarkDuplicates_SuffixIndex { get { return _MarkDuplicates_SuffixIndex; } set { if (_MarkDuplicates_SuffixIndex != value) { _MarkDuplicates_SuffixIndex = value; } } }
+        public string MarkDuplicates_ColumnToAnalyze { get { return _MarkDuplicates_ColumnToAnalyze; } set { if (_MarkDuplicates_ColumnToAnalyze != value) { _MarkDuplicates_ColumnToAnalyze = value; } } }
                 public bool MarkDuplicates_SettingsCreateLogSheet { get { return _MarkDuplicates_SettingsCreateLogSheet; } set { if (_MarkDuplicates_SettingsCreateLogSheet != value) { _MarkDuplicates_SettingsCreateLogSheet = value; } } }
                 public bool MarkDuplicates_SettingsAddSuffix { get { return _MarkDuplicates_SettingsAddSuffix; } set { if (_MarkDuplicates_SettingsAddSuffix != value) { _MarkDuplicates_SettingsAddSuffix = value; } } }
                 public bool MarkDuplicates_AppliesToSelection { get { return _MarkDuplicates_AppliesToSelection; } set { if (_MarkDuplicates_AppliesToSelection != value) { _MarkDuplicates_AppliesToSelection = value; } } }
