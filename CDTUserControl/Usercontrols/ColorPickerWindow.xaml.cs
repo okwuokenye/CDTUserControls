@@ -24,7 +24,7 @@ namespace CDTUserControl.Usercontrols
         public ColorPickerWindow(Color? cl)
         {
             InitializeComponent();
-            
+            this.DataContext = this;
             ColorSelected = cl;
         }
 
