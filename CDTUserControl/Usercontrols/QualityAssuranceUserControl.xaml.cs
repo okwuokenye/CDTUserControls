@@ -204,10 +204,36 @@ namespace CDTUserControl.Usercontrols
 
         private void OpenColor(object sender, MouseButtonEventArgs e)
         {
-
-            //I need some way to identify which checkbox has sent the click. At the moment it only works on Color1 but that shoud change dependent on sender. Some kind of loop?
-
-            Color? cl = vm.Color1;
+            Color? cl = null;
+            
+                var cb1 = (CheckBox)sender;                
+                    string head = cb1.Content.ToString();
+                    if (head == "Mark missing files")
+                    {
+                    cl = vm.Color1;
+                }
+                    else if (head == "Mark corrupted files")
+                    {
+                    cl = vm.Color2;
+                }
+                    else if (head == "Mark possible missedits")
+                    {
+                    cl = vm.Color3;
+                }
+                    else if (head == "Find lost primaries")
+                    {
+                    cl = vm.Color4;
+                }
+                    else if (head == "Reorder Alt Files")
+                    {
+                    cl = vm.Color5;
+                }
+                    else if (head == "Trim Spaces from File")
+                    {
+                    cl = vm.Color6;
+                }
+                       
+                        
 
             ColorPickerWindow l_Color = new ColorPickerWindow(cl);
 
@@ -215,16 +241,38 @@ namespace CDTUserControl.Usercontrols
             var transform = PresentationSource.FromVisual(this).CompositionTarget.TransformFromDevice;
             var mouse = transform.Transform(GetMousePosition());
             l_Color.Left = mouse.X - this.ActualWidth;
-            l_Color.Top = mouse.Y - this.ActualHeight;
-
+            l_Color.Top = mouse.Y - this.ActualHeight;            
+            
             bool? result =  l_Color.ShowDialog();
-             
+
+            if (head == "Mark missing files")
+            {
                 vm.Color1 = l_Color.ColorSelected;
-            
-            
+            }
+            else if (head == "Mark corrupted files")
+            {
+                vm.Color2 = l_Color.ColorSelected;
+            }
+            else if (head == "Mark possible missedits")
+            {
+                vm.Color3 = l_Color.ColorSelected;
+            }
+            else if (head == "Find lost primaries")
+            {
+                vm.Color4 = l_Color.ColorSelected;
+            }
+            else if (head == "Reorder Alt Files")
+            {
+                vm.Color5 = l_Color.ColorSelected;
+            }
+            else if (head == "Trim Spaces from File")
+            {
+                vm.Color6 = l_Color.ColorSelected;
+            }                
             
         }
-        
+               
+
         public System.Windows.Point GetMousePosition()
         {
             System.Drawing.Point point = System.Windows.Forms.Control.MousePosition;

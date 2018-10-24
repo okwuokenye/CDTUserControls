@@ -13,7 +13,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="25" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" x:Name="ExpanderGrid">
             <Grid.RowDefinitions>
@@ -22,10 +22,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Expander Header="File Checks (mark missing)"  Grid.Row="0" Expanded="Expander_Expanded" IsExpanded="True">
+            <Expander Header="File Checks (mark missing)"  Grid.Row="0" Expanded="Expander_Expanded" IsExpanded="True" Margin="0 4 0 0">
                 <Grid>
 
                     <Grid.RowDefinitions>
@@ -35,7 +34,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <GroupBox Header="File Checks" Grid.Row="0">
+                    <GroupBox Header="File Checks" Grid.Row="0" Margin="0 4 0 0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -61,7 +60,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="Settings" Grid.Row="1">
+                    <GroupBox Header="Settings" Grid.Row="1" Margin="0 4 0 0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -84,7 +83,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="Results" Grid.Row="2" Visibility="{Binding ResultsVisibility}">
+                    <GroupBox Header="Results" Grid.Row="2" Visibility="{Binding ResultsVisibility}"  Margin="0 4 0 0">
                         <Grid>
 
                             <Grid.RowDefinitions>
@@ -124,44 +123,53 @@
                         </Grid>
                     </GroupBox>
 
-                    <Grid  Grid.Column="0" Grid.ColumnSpan="2" Margin="2,2,2,2" Grid.Row="3">
+                    <Grid  Grid.Column="0" Grid.ColumnSpan="2"  Margin="0 6 0 8" Grid.Row="3" Height="30">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Click="ResetClick" Content="Reset" Margin="2 2 2 2" Width="100" Grid.Column="1"/>
-                        <Button Click="CheckFilesClick" Content="Check Files" Margin="16 2 2 2" Width="100"  Grid.Column="0"/>
+                        <Button Click="ResetClick" Content="Reset" Margin="2 2 2 2" Width="120" Grid.Column="1"/>
+                        <Button Click="CheckFilesClick" Content="Check Files" Margin="16 2 2 2" Width="120"  Grid.Column="0"/>
                     </Grid>
 
                 </Grid>
             </Expander>
 
-            <Expander Header="Compare Columns" Grid.Row="1" Expanded="Expander_Expanded">
+            <Expander Header="Compare Columns" Grid.Row="1" Expanded="Expander_Expanded" Margin="0 4 0 4">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="25" />
-                        <RowDefinition Height="40" />
-                        <RowDefinition Height="40" />
-                        <RowDefinition Height="25" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="70"/>
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text="Compare Column" Width="100" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalAlignment="Left" />
-                    <ComboBox ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_CompareIndex}" SelectedItem="{Binding CompareCols_CompareLetter}" IsEditable="True" Width="40" Grid.Row="0" Grid.Column="1"  Margin="2 2 2 2"/>
-
-                    <TextBlock Width="80" Text="With column" Grid.Row="0" Grid.Column="2"  Margin="20 2 2 2"  VerticalAlignment="Center" HorizontalAlignment="Left" />
-                    <ComboBox  ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_WithIndex}" SelectedItem="{Binding CompareCols_WithLetter}" IsEditable="True" Width="40" Grid.Row="0" Grid.Column="3"  Margin="2 2 2 2"/>
-
-                    <GroupBox Header="Highlight Columns" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+                    <GroupBox Header="Columns" Grid.Row="0"   Margin="0 4 0 0" >
                         <Grid Margin="2 2 2 2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Compare Column" Width="100" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <ComboBox ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_CompareIndex}" SelectedItem="{Binding CompareCols_CompareLetter}" IsEditable="True" Width="50" Grid.Row="0" Grid.Column="1"  Margin="2 2 2 2"/>
+
+                            <TextBlock Width="80" Text="With column" Grid.Row="0" Grid.Column="2"  Margin="20 2 2 2"  VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <ComboBox  ItemsSource="{Binding CompareCols_CompareColumns}" SelectedIndex="{Binding CompareCols_WithIndex}" SelectedItem="{Binding CompareCols_WithLetter}" IsEditable="True" Width="50" Grid.Row="0" Grid.Column="3"  Margin="2 2 2 2"/>
+
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Highlight" Grid.Row="1"   Margin="0 4 0 0">
+                        <Grid Margin="2 4 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*"/>
@@ -169,14 +177,14 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnL}" GroupName="Highlight" Content="{Binding CompareCols_CompareLetter}" Grid.Column="0" HorizontalAlignment="Left"   />
-                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnM}" GroupName="Highlight" Content="{Binding CompareCols_WithLetter}"  Grid.Column="1" HorizontalAlignment="Left" />
-                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnBoth}" GroupName="Highlight" Content="Both" Grid.Column="2"  HorizontalAlignment="Left"/>
+                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnL}" GroupName="Highlight" Content="{Binding CompareCols_CompareLetter}" Grid.Column="0" HorizontalAlignment="Left"  Margin="2 2 2 2"   />
+                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnM}" GroupName="Highlight" Content="{Binding CompareCols_WithLetter}"  Grid.Column="1" HorizontalAlignment="Left" Margin="2 2 2 2"/>
+                            <RadioButton IsChecked="{Binding CompareCols_Highlight_IsColumnBoth}" GroupName="Highlight" Content="Both" Grid.Column="2"  HorizontalAlignment="Left" Margin="2 2 2 2"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox Header="Settings" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
-                        <Grid  Margin="2 2 2 2">
+                    <GroupBox Header="Settings" Grid.Row="2"  Margin="0 4 0 0">
+                        <Grid  Margin="2 4 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*"/>
@@ -190,12 +198,21 @@
 
                     </GroupBox>
 
-                    <Button Click="CompareColsClick" Content="Compare Columns" Grid.Row="3" Grid.Column="0" Margin="5 2 2 2" Width="120"  Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                    <Grid  Margin="0 6 0 8" Grid.Row="3"  Height="30">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Click="CompareColsClick" Content="Compare Columns" Margin="16 2 2 2" Width="120"/>
+                    </Grid>
+
 
                 </Grid>
             </Expander>
 
-            <Expander Header="Find Missing Assets"  Grid.Row="2" Expanded="Expander_Expanded">
+            <Expander Header="Find Missing Assets"  Grid.Row="2" Expanded="Expander_Expanded" Margin="0 4 0 4">
 
                 <Grid Height="Auto">
                     <Grid.RowDefinitions>
@@ -206,7 +223,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <GroupBox Header="Visual Assets" BorderThickness="1" Grid.Row="0">
+                    <GroupBox Header="Visual Asset Headers" BorderThickness="1" Grid.Row="0"   Margin="0 4 0 0">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -216,32 +233,32 @@
                                 <RowDefinition Height="28" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="170" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="40" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Content="Character Picture Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CharHeader}" />
-                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharHeaderC}"  />
+                            <CheckBox Content="Character Picture Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" IsChecked="{Binding FAFindCharacter}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CharHeader}" Visibility="{Binding VisibilityChar}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharHeaderC}" Visibility="{Binding VisibilityChar}" />
 
-                            <Label Content="Scene Picture Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}" />
-                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  />
+                            <CheckBox Content="Scene Picture Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center" IsChecked="{Binding FAFindScene}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}" Visibility="{Binding VisibilityScene}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}" Visibility="{Binding VisibilityScene}" />
 
-                            <Label Content="Item Picture Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding ItemHeader}" />
-                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding ItemHeaderC}"  />
+                            <CheckBox  Content="Item Picture Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center" IsChecked="{Binding FAFindItem}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding ItemHeader}" Visibility="{Binding VisibilityItem}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding ItemHeaderC}"  Visibility="{Binding VisibilityItem}"/>
 
-                            <Label Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding VideoHeader}" />
-                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding VideoHeaderC}"  />
+                            <CheckBox Content="Video Header" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" IsChecked="{Binding FAFindVideo}" />
+                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding VideoHeader}" Visibility="{Binding VisibilityVideo}"/>
+                            <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding VideoHeaderC}" Visibility="{Binding VisibilityVideo}" />
 
                         </Grid>
 
                     </GroupBox>
 
-                    <GroupBox Header="Audio Assets" BorderThickness="1" Grid.Row="1">
+                    <GroupBox Header="Audio Asset Headers" BorderThickness="1" Grid.Row="1"   Margin="0 4 0 0">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -250,29 +267,29 @@
                                 <RowDefinition Height="28" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="170" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="40" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Content="Ambient Audio Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding LFXHeader}"/>
-                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding LFXHeaderC}" />
+                            <CheckBox Content="Ambient Audio Header" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" IsChecked="{Binding FAFindLFX}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding LFXHeader}" Visibility="{Binding VisibilityLFX}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding LFXHeaderC}" Visibility="{Binding VisibilityLFX}"/>
 
-                            <Label Content="Spot Audio Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding SFXHeader}"/>
-                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SFXHeaderC}" />
+                            <CheckBox Content="Spot Audio Header" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center" IsChecked="{Binding FAFindSFX}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding SFXHeader}" Visibility="{Binding VisibilitySFX}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SFXHeaderC}" Visibility="{Binding VisibilitySFX}" />
 
-                            <Label Content="Music Audio Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding MusicHeader}"/>
-                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding MusicHeaderC}" />
+                            <CheckBox Content="Music Audio Header" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center" IsChecked="{Binding FAFindMusic}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding MusicHeader}"  Visibility="{Binding VisibilityMusic}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="2" Margin="2 4 2 4" Text="{Binding MusicHeaderC}" Visibility="{Binding VisibilityMusic}"/>
 
 
                         </Grid>
 
                     </GroupBox>
 
-                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2">
+                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2"   Margin="0 4 0 0">
                         <Grid  Margin="2 2 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -284,13 +301,13 @@
 
                     </GroupBox>
 
-                    <Grid Grid.Row="3" Margin="0 2 0 2" >
+                    <Grid Grid.Row="3" Margin="0 6 0 8" Height="30">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="1" Content="Update Headers" HorizontalAlignment="left" Width="110" Height="22" Margin="2 2 2 2" Click="UpdateHeadClick"/>
-                        <Button Grid.Column="0" Content="Find Assets" HorizontalAlignment="left" Width="110" Height="22" Margin="2 2 2 2" Click="FindAssetsClick"/>
+                        <Button Grid.Column="0" Content="Find Assets" Width="120" Margin="16 2 2 2" Click="FindAssetsClick" HorizontalAlignment="Left"/>
+                        <Button Grid.Column="1" Content="Update Headers" Width="120" Margin="2 2 2 2" Click="UpdateHeadClick" HorizontalAlignment="Left"/>
                     </Grid>
 
                 </Grid>
@@ -298,7 +315,7 @@
 
             </Expander>
 
-            <Expander Header="Mark Duplicates"  Grid.Row="3" Expanded="Expander_Expanded" Grid.RowSpan="2">
+            <Expander Header="Mark Duplicates"  Grid.Row="3" Expanded="Expander_Expanded" Margin="0 4 0 4">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -307,44 +324,49 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="7" />
-                        <ColumnDefinition Width="143"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Column"  BorderThickness="1"  Grid.Row="0" Margin="0 4 0 0">
+                        <Grid  Margin="2 2 2 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Column to Analyze" Width="150" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,5,0,5" Grid.ColumnSpan="3"/>
-                    <ComboBox ItemsSource="{Binding MarkDuplicates_ColumnsToAnalyze}" SelectedIndex="{Binding MarkDuplicates_ColumnIndex}" SelectedItem="{Binding MarkDuplicates_ColumnToAnalyze}" IsEditable="True" Width="50" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left"  Margin="2,2,0,2" />
+                            <TextBlock Text="Column to Analyze" Width="150" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,5,0,5"/>
+                            <ComboBox ItemsSource="{Binding MarkDuplicates_ColumnsToAnalyze}" SelectedIndex="{Binding MarkDuplicates_ColumnIndex}" SelectedItem="{Binding MarkDuplicates_ColumnToAnalyze}" IsEditable="True" Width="50" Grid.Column="1" HorizontalAlignment="Left"  Margin="2,2,0,2" />
 
-                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3">
+                        </Grid>
+
+                    </GroupBox>
+
+                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="1" Margin="0 4 0 0">
                         <Grid  Margin="2 2 2 2">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <CheckBox IsChecked="{Binding MarkDuplicates_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2 2 2 2"/>
-                            <CheckBox IsChecked="{Binding MarkDuplicates_SettingsAddSuffix}" Content="Add suffix to duplicates" Grid.Column="0" Grid.Row="1" Margin="2 2 2 2"/>
-                            <CheckBox IsChecked="{Binding MarkDuplicates_AppliesToSelection}" Content="Run on selection only" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2 2 2 2"/>
-                            <ComboBox ItemsSource="{Binding MarkDuplicates_SuffixTypes}" SelectedIndex="{Binding MarkDuplicates_SuffixIndex}" IsEditable="True" Height="16"  Width="50" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  Margin="2,2,0,2" />
+                            <CheckBox IsChecked="{Binding MarkDuplicates_SettingsCreateLogSheet}" Content="Create Log Sheet" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2 4 2 4"/>
+                            <CheckBox IsChecked="{Binding MarkDuplicates_SettingsAddSuffix}" Content="Add suffix to duplicates" Grid.Column="0" Grid.Row="1" Margin="2 4 2 4"/>
+                            <CheckBox IsChecked="{Binding MarkDuplicates_AppliesToSelection}" Content="Run on selection only" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2 4 2 4"/>
+                            <ComboBox ItemsSource="{Binding MarkDuplicates_SuffixTypes}" SelectedIndex="{Binding MarkDuplicates_SuffixIndex}" IsEditable="True" Height="16"  Width="50" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  Margin="2 4 2 4" />
 
                         </Grid>
 
                     </GroupBox>
 
-                    <StackPanel Grid.Row="3" Margin="0 2 0 2" Orientation="Horizontal" Grid.ColumnSpan="2">
-                        <Button Content="Mark Duplicates" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Click="MarkDuplicatesClick"/>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 6 0 8" Height="30">
+                        <Button Content="Mark Duplicates" HorizontalAlignment="Left" Width="120" Margin="16 2 2 2" Click="MarkDuplicatesClick"/>
                     </StackPanel>
 
 
                 </Grid>
             </Expander>
 
-            <Expander Header="Insert Audio Data"  Grid.Row="5" Expanded="Expander_Expanded">
+            <Expander Header="Insert Audio Data"  Grid.Row="4" Expanded="Expander_Expanded" Margin="0 4 0 4">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -354,7 +376,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <GroupBox Header="Primary Language"  BorderThickness="1" Grid.Row="0">
+                    <GroupBox Header="Primary Language"  BorderThickness="1" Grid.Row="0" Margin="0 4 0 0">
                         <Grid  Margin="2 2 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="90" />
@@ -383,7 +405,7 @@
 
                     </GroupBox>
 
-                    <GroupBox Header="Secondary Language (source for TC)"  BorderThickness="1" Grid.Row="1">
+                    <GroupBox Header="Secondary Language (source for TC)"  BorderThickness="1" Grid.Row="1"  Margin="0 4 0 0">
                         <Grid  Margin="2 2 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="90" />
@@ -412,7 +434,7 @@
 
                     </GroupBox>
 
-                    <GroupBox Header="Insert where?"  BorderThickness="1" Grid.Row="3">
+                    <GroupBox Header="Insert where?"  BorderThickness="1" Grid.Row="3" Margin="0 4 0 0">
                         <Grid  Margin="2 2 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
@@ -426,7 +448,8 @@
                         </Grid>
 
                     </GroupBox>
-                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2" >
+
+                    <GroupBox Header="Settings"  BorderThickness="1"  Grid.Row="2"  Margin="0 4 0 0">
                         <Grid  Margin="2 2 2 2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
@@ -438,15 +461,19 @@
 
                     </GroupBox>
 
-                    <Grid Grid.Row="4" Margin="0 2 0 2">
+                    <Grid Grid.Row="4" Margin="0 6 0 8">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" Click="InsertDataClick" Content="Insert Data" HorizontalAlignment="left" Width="110" Height="20" Margin="2 2 2 2"/>
-                        <Button Grid.Column="1" Click="ResetInsertDataClick" Content="Reset" HorizontalAlignment="left" Width="110" Height="20" Margin="2 2 2 2"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        
+                        <Button Grid.Column="0" Grid.Row="0" Click="InsertDataClick" Content="Insert Data" HorizontalAlignment="left" Width="120" Margin="16 2 2 2"/>
+                        <Button Grid.Column="1" Grid.Row="0" Click="ResetInsertDataClick" Content="Reset" HorizontalAlignment="left" Width="120"  Margin="2 2 2 2"/>
                     </Grid>
 
 
@@ -455,7 +482,7 @@
 
         </Grid>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Margin="0 4 0 4">
             <TextBlock Text="{Binding StatusPane}" Margin="2 0 2 0" VerticalAlignment="Center"/>
         </StackPanel>
 

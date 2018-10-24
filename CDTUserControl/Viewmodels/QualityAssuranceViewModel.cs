@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xceed.Wpf.Toolkit;
 using System.Windows.Media;
+using System.Windows;
 
 namespace CDTUserControl.Viewmodels
 {
@@ -206,15 +207,25 @@ namespace CDTUserControl.Viewmodels
                 string _SFXHeaderC = string.Empty;
                 string _MusicHeader = string.Empty;
                 string _MusicHeaderC = string.Empty;
+
                 bool _MissingAssets_SettingsCreateLogSheet = true;
                 bool _MissingAssets_AppliesToSelection = false;
-            #endregion
 
-            #region Mark Duplicates
-                ObservableCollection<string> _MarkDuplicates_ColumnsToAnalyze = new ObservableCollection<string>();
+            bool _FAFindCharacter = false;
+        bool _FAFindScene = false;
+        bool _FAFindItem = false;
+        bool _FAFindVideo = false;
+        bool _FAFindSFX = false;
+        bool _FAFindLFX = false;
+        bool _FAFindMusic = false;
+
+        #endregion
+
+        #region Mark Duplicates
+        ObservableCollection<string> _MarkDuplicates_ColumnsToAnalyze = new ObservableCollection<string>();
         ObservableCollection<string> _MarkDuplicates_SuffixTypes = new ObservableCollection<string>{ "_1,_2,_3...", "_01,_02,_03...", "_001,_002,_003..."};
         int _MarkDuplicates_ColumnIndex = 0;
-        int _MarkDuplicates_SuffixIndex = 0;
+        int _MarkDuplicates_SuffixIndex = 1;
         string _MarkDuplicates_ColumnToAnalyze = string.Empty;
                 bool _MarkDuplicates_SettingsCreateLogSheet = true;
                 bool _MarkDuplicates_SettingsAddSuffix = false;
@@ -261,7 +272,11 @@ namespace CDTUserControl.Viewmodels
         public String StatusPane { get { return _StatusPane; } }
 
         #region Mark Missing Properties
-        
+
+        bool _MMShowResults = false;
+        public bool MMShowResults { get { return _MMShowResults; } set { if (_MMShowResults != value) { _MMShowResults = value; RaisePropertyChanged("ResultsVisibility"); } } }
+        public Visibility ResultsVisibility { get { return _MMShowResults ? Visibility.Visible : Visibility.Collapsed; } }
+
         public Color? Color1
         {
             get { return _Color1; }
@@ -358,224 +373,224 @@ namespace CDTUserControl.Viewmodels
                         }
                     }
                 }
-                public bool MarkCorruptedFiles
+        public bool MarkCorruptedFiles
+        {
+            get { return _MarkCorruptedFiles; }
+            set
+            {
+                if (_MarkCorruptedFiles != value)
                 {
-                    get { return _MarkCorruptedFiles; }
-                    set
-                    {
-                        if (_MarkCorruptedFiles != value)
-                        {
-                            _MarkCorruptedFiles = value;
-                        }
-                    }
+                    _MarkCorruptedFiles = value;
                 }
-                public bool CountFiles
+            }
+        }
+        public bool CountFiles
+        {
+            get { return _CountFiles; }
+            set
+            {
+                if (_CountFiles != value)
                 {
-                    get { return _CountFiles; }
-                    set
-                    {
-                        if (_CountFiles != value)
-                        {
-                            _CountFiles = value;
-                        }
-                    }
+                    _CountFiles = value;
                 }
-                public bool AddResultColumn
+            }
+        }
+        public bool AddResultColumn
+        {
+            get { return _AddResultColumn; }
+            set
+            {
+                if (_AddResultColumn != value)
                 {
-                    get { return _AddResultColumn; }
-                    set
-                    {
-                        if (_AddResultColumn != value)
-                        {
-                            _AddResultColumn = value;
-                        }
-                    }
+                    _AddResultColumn = value;
                 }
-                public bool MarkPossMissedits
+            }
+        }
+        public bool MarkPossMissedits
+        {
+            get { return _MarkPossMissedits; }
+            set
+            {
+                if (_MarkPossMissedits != value)
                 {
-                    get { return _MarkPossMissedits; }
-                    set
-                    {
-                        if (_MarkPossMissedits != value)
-                        {
-                            _MarkPossMissedits = value;
-                        }
-                    }
+                    _MarkPossMissedits = value;
                 }
-                public bool FindLostPrimaries
+            }
+        }
+        public bool FindLostPrimaries
+        {
+            get { return _FindLostPrimaries; }
+            set
+            {
+                if (_FindLostPrimaries != value)
                 {
-                    get { return _FindLostPrimaries; }
-                    set
-                    {
-                        if (_FindLostPrimaries != value)
-                        {
-                            _FindLostPrimaries = value;
-                        }
-                    }
+                    _FindLostPrimaries = value;
                 }
-                public bool ReorderAltFiles
+            }
+        }
+        public bool ReorderAltFiles
+        {
+            get { return _ReorderAltFiles; }
+            set
+            {
+                if (_ReorderAltFiles != value)
                 {
-                    get { return _ReorderAltFiles; }
-                    set
-                    {
-                        if (_ReorderAltFiles != value)
-                        {
-                            _ReorderAltFiles = value;
-                        }
-                    }
+                    _ReorderAltFiles = value;
                 }
-                public bool TrimSpacesFromFile
+            }
+        }
+        public bool TrimSpacesFromFile
+        {
+            get { return _TrimSpacesFromFile; }
+            set
+            {
+                if (_TrimSpacesFromFile != value)
                 {
-                    get { return _TrimSpacesFromFile; }
-                    set
-                    {
-                        if (_TrimSpacesFromFile != value)
-                        {
-                            _TrimSpacesFromFile = value;
-                        }
-                    }
+                    _TrimSpacesFromFile = value;
                 }
+            }
+        }
         
-                public bool IsSecondaryChecked
+        public bool IsSecondaryChecked
+        {
+            get { return _IsSecondaryChecked; }
+            set
+            {
+                if (_IsSecondaryChecked != value)
                 {
-                    get { return _IsSecondaryChecked; }
-                    set
-                    {
-                        if (_IsSecondaryChecked != value)
-                        {
-                            _IsSecondaryChecked = value;
-                        }
-                    }
-                }        
-                public bool IsVideoChecked
-                {
-                    get { return _IsVideoChecked; }
-                    set
-                    {
-                        if (_IsVideoChecked != value)
-                        {
-                            _IsVideoChecked = value;
-                        }
-                    }
+                    _IsSecondaryChecked = value;
                 }
-                public bool IsSelectionChecked
+            }
+        }        
+        public bool IsVideoChecked
+        {
+            get { return _IsVideoChecked; }
+            set
+            {
+                if (_IsVideoChecked != value)
                 {
-                    get { return _IsSelectionChecked; }
-                    set
-                    {
-                        if (_IsSelectionChecked != value)
-                        {
-                            _IsSelectionChecked = value;
-                        }
-                    }
+                    _IsVideoChecked = value;
                 }
-                public bool IsCreateLogSheet
+            }
+        }
+        public bool IsSelectionChecked
+        {
+            get { return _IsSelectionChecked; }
+            set
+            {
+                if (_IsSelectionChecked != value)
                 {
-                    get { return _IsCreateLogSheet; }
-                    set
-                    {
-                        if (_IsCreateLogSheet != value)
-                        {
-                            _IsCreateLogSheet = value;
-                        }
-                    }
+                    _IsSelectionChecked = value;
                 }
+            }
+        }
+        public bool IsCreateLogSheet
+        {
+            get { return _IsCreateLogSheet; }
+            set
+            {
+                if (_IsCreateLogSheet != value)
+                {
+                    _IsCreateLogSheet = value;
+                }
+            }
+        }
 
-                public string RowsChecked
+        public string RowsChecked
+        {
+            get { return _RowsChecked; }
+            set
+            {
+                if (_RowsChecked != value)
                 {
-                    get { return _RowsChecked; }
-                    set
-                    {
-                        if (_RowsChecked != value)
-                        {
-                            _RowsChecked = value;
-                        }
-                    }
+                    _RowsChecked = value;
                 }
+            }
+        }
 
-                public string MissingFiles
+        public string MissingFiles
+        {
+            get { return _MissingFiles; }
+            set
+            {
+                if (_MissingFiles != value)
                 {
-                    get { return _MissingFiles; }
-                    set
-                    {
-                        if (_MissingFiles != value)
-                        {
-                            _MissingFiles = value;
-                        }
-                    }
+                    _MissingFiles = value;
                 }
+            }
+        }
 
-                public string CorruptedFiles
+        public string CorruptedFiles
+        {
+            get { return _CorruptedFiles; }
+            set
+            {
+                if (_CorruptedFiles != value)
                 {
-                    get { return _CorruptedFiles; }
-                    set
-                    {
-                        if (_CorruptedFiles != value)
-                        {
-                            _CorruptedFiles = value;
-                        }
-                    }
+                    _CorruptedFiles = value;
                 }
+            }
+        }
 
-                public string FilesTrimmed
+        public string FilesTrimmed
+        {
+            get { return _FilesTrimmed; }
+            set
+            {
+                if (_FilesTrimmed != value)
                 {
-                    get { return _FilesTrimmed; }
-                    set
-                    {
-                        if (_FilesTrimmed != value)
-                        {
-                            _FilesTrimmed = value;
-                        }
-                    }
+                    _FilesTrimmed = value;
                 }
+            }
+        }
 
-                public string MisEditedFiles
+        public string MisEditedFiles
+        {
+            get { return _MisEditedFiles; }
+            set
+            {
+                if (_MisEditedFiles != value)
                 {
-                    get { return _MisEditedFiles; }
-                    set
-                    {
-                        if (_MisEditedFiles != value)
-                        {
-                            _MisEditedFiles = value;
-                        }
-                    }
+                    _MisEditedFiles = value;
                 }
+            }
+        }
 
-                public string PrimaryTakesFound
+        public string PrimaryTakesFound
+        {
+            get { return _PrimaryTakesFound; }
+            set
+            {
+                if (_PrimaryTakesFound != value)
                 {
-                    get { return _PrimaryTakesFound; }
-                    set
-                    {
-                        if (_PrimaryTakesFound != value)
-                        {
-                            _PrimaryTakesFound = value;
-                        }
-                    }
+                    _PrimaryTakesFound = value;
                 }
+            }
+        }
 
-                public string FilesCounted
+        public string FilesCounted
+        {
+            get { return _FilesCounted; }
+            set
+            {
+                if (_FilesCounted != value)
                 {
-                    get { return _FilesCounted; }
-                    set
-                    {
-                        if (_FilesCounted != value)
-                        {
-                            _FilesCounted = value;
-                        }
-                    }
+                    _FilesCounted = value;
                 }
+            }
+        }
 
-                public string AltsReordered
+        public string AltsReordered
+        {
+            get { return _AltsReordered; }
+            set
+            {
+                if (_AltsReordered != value)
                 {
-                    get { return _AltsReordered; }
-                    set
-                    {
-                        if (_AltsReordered != value)
-                        {
-                            _AltsReordered = value;
-                        }
-                    }
+                    _AltsReordered = value;
                 }
+            }
+        }
 
         public string OverallResult
         {
@@ -605,7 +620,7 @@ namespace CDTUserControl.Viewmodels
                 public bool CompareCols_AppliesTo_Selection { get { return _CompareCols_AppliesTo_Selection; } set { if (_CompareCols_AppliesTo_Selection != value) { _CompareCols_AppliesTo_Selection = value; } } }
         #endregion
 
-            #region Missing Assets
+        #region Missing Assets
                 public string CharHeader { get { return _CharHeader; } set { if (_CharHeader != value) { _CharHeader = value; } } }
                 public string CharHeaderC { get { return _CharHeaderC; } set { if (_CharHeaderC != value) { _CharHeaderC = value; } } }
                 public string SceneHeader { get { return _SceneHeader; } set { if (_SceneHeader != value) { _SceneHeader = value; } } }
@@ -622,10 +637,27 @@ namespace CDTUserControl.Viewmodels
                 public string MusicHeaderC { get { return _MusicHeaderC; } set { if (_MusicHeaderC != value) { _MusicHeaderC = value; } } }
                 public bool MissingAssets_SettingsCreateLogSheet { get { return _MissingAssets_SettingsCreateLogSheet; } set { if (_MissingAssets_SettingsCreateLogSheet != value) { _MissingAssets_SettingsCreateLogSheet = value; } } }
                 public bool MissingAssets_AppliesToSelection { get { return _MissingAssets_AppliesToSelection; } set { if (_MissingAssets_AppliesToSelection != value) { _MissingAssets_AppliesToSelection = value; } } }
+
+        public bool FAFindCharacter { get { return _FAFindCharacter; } set { if (_FAFindCharacter != value) { _FAFindCharacter = value; RaisePropertyChanged("VisibilityChar"); } } }
+        public bool FAFindScene { get { return _FAFindScene; } set { if (_FAFindScene != value) { _FAFindScene = value; RaisePropertyChanged("VisibilityScene"); } } }
+        public bool FAFindItem { get { return _FAFindItem; } set { if (_FAFindItem != value) { _FAFindItem = value; RaisePropertyChanged("VisibilityItem"); } } }
+        public bool FAFindVideo { get { return _FAFindVideo; } set { if (_FAFindVideo != value) { _FAFindVideo = value; RaisePropertyChanged("VisibilityVideo"); } } }
+        public bool FAFindSFX { get { return _FAFindSFX; } set { if (_FAFindSFX != value) { _FAFindSFX = value; RaisePropertyChanged("VisibilitySFX"); } } }
+        public bool FAFindLFX { get { return _FAFindLFX; } set { if (_FAFindLFX != value) { _FAFindLFX = value; RaisePropertyChanged("VisibilityLFX"); } } }
+        public bool FAFindMusic { get { return _FAFindMusic; } set { if (_FAFindMusic != value) { _FAFindMusic = value; RaisePropertyChanged("VisibilityMusic"); } } }
+
+        public Visibility VisibilityChar { get { return _FAFindCharacter ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility VisibilityScene { get { return _FAFindScene ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility VisibilityItem { get { return _FAFindItem ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility VisibilityVideo { get { return _FAFindVideo ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility VisibilityLFX { get { return _FAFindLFX ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility VisibilitySFX { get { return _FAFindSFX ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility VisibilityMusic { get { return _FAFindMusic ? Visibility.Visible : Visibility.Collapsed; } }
+
         #endregion
 
-            #region Mark Duplicates
-                public ObservableCollection<string> MarkDuplicates_ColumnsToAnalyze { get { return _MarkDuplicates_ColumnsToAnalyze; } }
+        #region Mark Duplicates
+        public ObservableCollection<string> MarkDuplicates_ColumnsToAnalyze { get { return _MarkDuplicates_ColumnsToAnalyze; } }
         public ObservableCollection<string> MarkDuplicates_SuffixTypes { get { return _MarkDuplicates_SuffixTypes; } }
         public int MarkDuplicates_ColumnIndex { get { return _MarkDuplicates_ColumnIndex; } set { if (_MarkDuplicates_ColumnIndex != value) { _MarkDuplicates_ColumnIndex = value; } } }
 
@@ -635,8 +667,7 @@ namespace CDTUserControl.Viewmodels
                 public bool MarkDuplicates_SettingsAddSuffix { get { return _MarkDuplicates_SettingsAddSuffix; } set { if (_MarkDuplicates_SettingsAddSuffix != value) { _MarkDuplicates_SettingsAddSuffix = value; } } }
                 public bool MarkDuplicates_AppliesToSelection { get { return _MarkDuplicates_AppliesToSelection; } set { if (_MarkDuplicates_AppliesToSelection != value) { _MarkDuplicates_AppliesToSelection = value; } } }
         #endregion
-
-
+        
         #region Insert Data
 
         ObservableCollection<String> _TargetItems = new ObservableCollection<string>();
