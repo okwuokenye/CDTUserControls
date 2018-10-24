@@ -295,3 +295,23 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\WPFMediaKit.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.g.cs
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\AnalysisUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorLoadUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\LicenseManagerUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\MediaPlayerUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\EditorOptionsUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\OptionsUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\NavigationUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\PlayerUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\QualityAssuranceUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\TextBoxUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
+C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref

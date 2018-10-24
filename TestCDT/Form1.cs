@@ -13,7 +13,7 @@ namespace TestCDT
 {
     public partial class Form1 : Form
     {
-        MediaPlayerUserControl ctrl;
+        QualityAssuranceUserControl ctrl;
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace TestCDT
        
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            ctrl = new MediaPlayerUserControl();
+            ctrl = new QualityAssuranceUserControl();
             ctrl.Visibility = System.Windows.Visibility.Visible;
             
             ////get the viewmodel
