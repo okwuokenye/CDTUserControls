@@ -232,54 +232,42 @@ namespace CDTUserControl.Usercontrols
                     {
                     cl = vm.Color6;
                 }
-                       
-                        
-
-            ColorPickerWindow l_Color = new ColorPickerWindow(cl);
-
-            //This is meant to open the window at the position of the mouse pointer but it does not work with dual screens. Any ideas?
-            var transform = PresentationSource.FromVisual(this).CompositionTarget.TransformFromDevice;
-            var mouse = transform.Transform(GetMousePosition());
-            l_Color.Left = mouse.X - this.ActualWidth;
-            l_Color.Top = mouse.Y - this.ActualHeight;            
+             
+            ColorPickerWindow l_Color = new ColorPickerWindow(cl);                        
+            bool? result = l_Color.ShowDialog();
             
-            bool? result =  l_Color.ShowDialog();
+            if (l_Color.ColorOK)
+            {
 
-            if (head == "Mark missing files")
-            {
-                vm.Color1 = l_Color.ColorSelected;
+                if (head == "Mark missing files")
+                {
+                    vm.Color1 = l_Color.ColorSelected;
+                }
+                else if (head == "Mark corrupted files")
+                {
+                    vm.Color2 = l_Color.ColorSelected;
+                }
+                else if (head == "Mark possible missedits")
+                {
+                    vm.Color3 = l_Color.ColorSelected;
+                }
+                else if (head == "Find lost primaries")
+                {
+                    vm.Color4 = l_Color.ColorSelected;
+                }
+                else if (head == "Reorder Alt Files")
+                {
+                    vm.Color5 = l_Color.ColorSelected;
+                }
+                else if (head == "Trim Spaces from File")
+                {
+                    vm.Color6 = l_Color.ColorSelected;
+                }
+
             }
-            else if (head == "Mark corrupted files")
-            {
-                vm.Color2 = l_Color.ColorSelected;
-            }
-            else if (head == "Mark possible missedits")
-            {
-                vm.Color3 = l_Color.ColorSelected;
-            }
-            else if (head == "Find lost primaries")
-            {
-                vm.Color4 = l_Color.ColorSelected;
-            }
-            else if (head == "Reorder Alt Files")
-            {
-                vm.Color5 = l_Color.ColorSelected;
-            }
-            else if (head == "Trim Spaces from File")
-            {
-                vm.Color6 = l_Color.ColorSelected;
-            }                
+     
             
-        }
-               
-
-        public System.Windows.Point GetMousePosition()
-        {
-            System.Drawing.Point point = System.Windows.Forms.Control.MousePosition;
-            return new System.Windows.Point(point.X, point.Y);
-        }
-
-
+        }                             
 
         #endregion
 

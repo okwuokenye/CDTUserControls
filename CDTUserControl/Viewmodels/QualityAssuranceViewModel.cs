@@ -600,6 +600,15 @@ namespace CDTUserControl.Viewmodels
                 if (_OverallResult != value)
                 {
                     _OverallResult = value;
+                    if(value == "")
+                    {
+                        MMShowResults = false;
+                    }
+                    else
+                    {
+                        MMShowResults = true;
+                    }
+
                 }
             }
         }
@@ -664,10 +673,12 @@ namespace CDTUserControl.Viewmodels
         public int MarkDuplicates_SuffixIndex { get { return _MarkDuplicates_SuffixIndex; } set { if (_MarkDuplicates_SuffixIndex != value) { _MarkDuplicates_SuffixIndex = value; } } }
         public string MarkDuplicates_ColumnToAnalyze { get { return _MarkDuplicates_ColumnToAnalyze; } set { if (_MarkDuplicates_ColumnToAnalyze != value) { _MarkDuplicates_ColumnToAnalyze = value; } } }
                 public bool MarkDuplicates_SettingsCreateLogSheet { get { return _MarkDuplicates_SettingsCreateLogSheet; } set { if (_MarkDuplicates_SettingsCreateLogSheet != value) { _MarkDuplicates_SettingsCreateLogSheet = value; } } }
-                public bool MarkDuplicates_SettingsAddSuffix { get { return _MarkDuplicates_SettingsAddSuffix; } set { if (_MarkDuplicates_SettingsAddSuffix != value) { _MarkDuplicates_SettingsAddSuffix = value; } } }
-                public bool MarkDuplicates_AppliesToSelection { get { return _MarkDuplicates_AppliesToSelection; } set { if (_MarkDuplicates_AppliesToSelection != value) { _MarkDuplicates_AppliesToSelection = value; } } }
+                public bool MarkDuplicates_SettingsAddSuffix { get { return _MarkDuplicates_SettingsAddSuffix; } set { if (_MarkDuplicates_SettingsAddSuffix != value) { _MarkDuplicates_SettingsAddSuffix = value; RaisePropertyChanged("AltVisible"); } } }
+                public bool MarkDuplicates_AppliesToSelection { get { return _MarkDuplicates_AppliesToSelection; } set { if (_MarkDuplicates_AppliesToSelection != value) { _MarkDuplicates_AppliesToSelection = value;  } } }
+        public Visibility AltVisible { get { return _MarkDuplicates_SettingsAddSuffix ? Visibility.Visible : Visibility.Collapsed; } }
+
         #endregion
-        
+
         #region Insert Data
 
         ObservableCollection<String> _TargetItems = new ObservableCollection<string>();

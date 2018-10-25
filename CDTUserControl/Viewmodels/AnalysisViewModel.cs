@@ -793,6 +793,16 @@ namespace CDTUserControl.Viewmodels
         {
             return IgnoreItalics;
         }
+        
+        public string SendWCResult()
+        {
+            return WordCountResult;
+        }
+        public string SendEATResult()
+        {
+            return EATResult;
+        }
+
         #endregion
 
 

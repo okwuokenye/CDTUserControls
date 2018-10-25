@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace CDTUserControl.Usercontrols
 {
-    /// <summary>
-    /// Interaction logic for ColorPickerWindow.xaml
-    /// </summary>
+
     public partial class ColorPickerWindow : Window
     {        
         public ColorPickerWindow(Color? cl)
@@ -30,12 +28,19 @@ namespace CDTUserControl.Usercontrols
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
+            ColorOK = true;
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Drawing.Point point = System.Windows.Forms.Control.MousePosition;
+
+            this.Left = point.X;
+            this.Top = point.Y;
         }
         
         Color? _ColorSelected;
-
-        //When the Selected Color is changed I need this to update on the ColorSelected Property. This would be RaisePropertyChanged on the MVVM but not sure how to do here? Maybe event on SelectedColorChanged?
         public Color? ColorSelected
         {
             get { return _ColorSelected; }
@@ -47,6 +52,19 @@ namespace CDTUserControl.Usercontrols
                 }
             }
         }
-        
+
+        bool _ColorOK = false;
+        public bool ColorOK
+        {
+            get { return _ColorOK; }
+            set
+            {
+                if (_ColorOK != value)
+                {
+                    _ColorOK  = value;
+                }
+            }
+        }
+
     }
 }

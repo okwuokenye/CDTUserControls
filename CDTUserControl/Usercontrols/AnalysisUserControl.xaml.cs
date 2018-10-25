@@ -351,6 +351,14 @@ namespace CDTUserControl.Usercontrols
             return vm.SendIgnoreItalics();
         }
 
+        public string SendWCResult()
+        {
+            return vm.SendWCResult();
+        }
+        public string SendEATResult()
+        {
+            return vm.SendEATResult();
+        }
 
         public void SetProgressValue(int p_Value)
         {
