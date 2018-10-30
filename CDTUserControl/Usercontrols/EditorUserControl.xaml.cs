@@ -49,6 +49,27 @@ namespace CDTUserControl.Usercontrols
         public delegate void VoiceDblClickEventHandler();
         public event VoiceDblClickEventHandler VoiceDblClickEvent;
 
+        public delegate void File_ChangedEventHandler(string p_Value);
+        public event File_ChangedEventHandler File_ChangedEvent;
+        
+        public delegate void RowDblClickEventHandler();
+        public event RowDblClickEventHandler RowDblClickEvent;
+
+        public delegate void RowEnterHitEventHandler();
+        public event RowEnterHitEventHandler RowEnterHitEvent;               
+
+        public delegate void Filter_Main_SelectedEventHandler(string p_Value);
+        public event Filter_Main_SelectedEventHandler Filter_Main_SelectedEvent;
+
+        public delegate void Filter_Second_SelectedEventHandler(string p_Value);
+        public event Filter_Second_SelectedEventHandler Filter_Second_SelectedEvent;
+
+        public delegate void Filter_Second_OnEventHandler(bool p_Value);
+        public event Filter_Second_OnEventHandler Filter_Second_OnEvent;
+
+        public delegate void Filter_Main_OnEventHandler(bool p_Value);
+        public event Filter_Main_OnEventHandler Filter_Main_OnEvent;
+
         #endregion
 
         #region public properties
@@ -77,6 +98,11 @@ namespace CDTUserControl.Usercontrols
             vm = new EditorUserControlViewModel();
             base.DataContext = vm;
 
+            vm.RowEnterHitEvent += Vm_RowEnterHitEvent;
+            vm.Filter_Main_OnEvent += Vm_Filter_Main_OnEvent;
+            vm.Filter_Second_OnEvent += Vm_Filter_Second_OnEvent;
+            vm.Filter_Second_SelectedEvent += Vm_Filter_Second_SelectedEvent;
+            vm.Filter_Main_SelectedEvent += Vm_Filter_Main_SelectedEvent;
         }
 
         #endregion
@@ -93,11 +119,30 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.getVM();
         }
-        
+
 
         #endregion
 
         #region Button handlers
+
+        private void Vm_Filter_Main_SelectedEvent(string p_Value)
+        {
+            Filter_Main_SelectedEvent(p_Value);
+        }
+
+        private void Vm_Filter_Second_SelectedEvent(string p_Value)
+        {
+            Filter_Second_SelectedEvent(p_Value);
+        }
+        
+        private void Vm_Filter_Main_OnEvent(bool p_Value)
+        {
+            Filter_Main_OnEvent(p_Value);
+        }
+        private void Vm_Filter_Second_OnEvent(bool p_Value)
+        {
+            Filter_Second_OnEvent(p_Value);
+        }
 
         private void RenameClick(object sender, RoutedEventArgs args)
         {
@@ -148,6 +193,22 @@ namespace CDTUserControl.Usercontrols
         {
                 VoiceClickEvent();            
         }
+        
+        private void File_SelectionChanged(object sender, RoutedEventArgs args)
+        {
+            File_ChangedEvent(vm.Selected_File);
+        }
+        private void Row_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            RowDblClickEvent();
+        }
+
+        private void Vm_RowEnterHitEvent()
+        {
+            RowEnterHitEvent();           
+        }
+       
+
         #endregion
 
 

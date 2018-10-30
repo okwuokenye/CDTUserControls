@@ -8,8 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="370" d:DesignWidth="500"
              >
-    
-    <Grid>
+
+    <Grid MouseWheel="Grid_MouseWheel">
         <Grid.RowDefinitions>            
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -74,7 +74,7 @@
 
             <Label Grid.Column="4" Content="Volume:" Margin="2,2,2,2"/>
 
-            <Slider Grid.Column="5" MaxWidth="200" Name="VolumeControl" Minimum="0.5" Maximum="1" LargeChange="0.05" Value="{Binding ElementName=CDTPlayer, Path=Volume, Mode=TwoWay}" Margin="2,5,2,2" IsMoveToPointEnabled="True"/>
+            <Slider Grid.Column="5" MaxWidth="200" Name="VolumeControl" Minimum="0" Maximum="1" LargeChange="0.1" Value="0.5" Margin="2,5,2,2" IsMoveToPointEnabled="True" ValueChanged="ChangeMediaVolume"/>
 
         </Grid>
 

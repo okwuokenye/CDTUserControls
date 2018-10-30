@@ -89,6 +89,7 @@ namespace CDTUserControl.Usercontrols
         private void Play_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Play();
+            CDTPlayer.Volume = (double)VolumeControl.Value;
             mediaPlayerIsPlaying = true;
         }
 
@@ -145,11 +146,14 @@ namespace CDTUserControl.Usercontrols
 
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            //this does not work - also the volume of the video playback should be linked to the VolumeControl slider.  
-            //this has been fixed
-            CDTPlayer.Volume += (e.Delta > 0) ? 0.05 : -0.05;
+            VolumeControl.Value += (e.Delta > 0) ? 0.1 : -0.1;
         }
-        
+
+        private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)
+        {
+            CDTPlayer.Volume = (double)VolumeControl.Value;
+        }
+
         public void SetMediaFile(string p_FileName)
         {         
             if(p_FileName!="")

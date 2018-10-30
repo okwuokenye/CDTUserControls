@@ -63,12 +63,6 @@ namespace CDTUserControl.Usercontrols
             vm = new EditorOptionsUserControlViewModel();
 
             //add event listeners
-            vm.RootChangeButtonEvent += Vm_RootChangeButtonEvent;
-            vm.EditorExeChangeButtonEvent += Vm_EditorExeChangeButtonEvent;
-
-            vm.SaveButtonEvent += Vm_SaveButtonEvent;
-            vm.UpdateButtonEvent += Vm_UpdateButtonEvent;
-
             vm.EditorChangedEvent += Vm_EditorChangedEvent;
 
             base.DataContext = vm;
@@ -93,26 +87,26 @@ namespace CDTUserControl.Usercontrols
             }
         }
 
-        private void Vm_RootChangeButtonEvent()
+        private void RootClick(object sender, RoutedEventArgs args)
         {
             RootChangeButtonEvent();
         }
 
-        private void Vm_EditorExeChangeButtonEvent()
+        private void EditorExeClick(object sender, RoutedEventArgs args)
         {
             EditorExeChangeButtonEvent();
         }
         
-        private void Vm_SaveButtonEvent()
+        private void SaveClick(object sender, RoutedEventArgs args)
         {
             SaveButtonEvent();
         }
 
-        private void Vm_UpdateButtonEvent()
+        private void UpdateClick(object sender, RoutedEventArgs args)
         {
             UpdateButtonEvent();
         }
-
+        
         private void Vm_EditorChangedEvent()
         {
             EditorChangedEvent();
@@ -258,8 +252,9 @@ namespace CDTUserControl.Usercontrols
         {
             vm.ClearStatusText();
         }
+                
         #endregion
-        
+
         #region public send functions
 
         public string SendRootText()
@@ -377,8 +372,7 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendHK32Index();
         }
-
-
+        
         public void SetHK11Index(int p_Value)
         {
             vm.SetHK11Index(p_Value);

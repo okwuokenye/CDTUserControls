@@ -20,9 +20,42 @@ namespace CDTUserControl.Usercontrols
     /// </summary>
     public partial class EditorSaveButtonsUserControl : UserControl
     {
+        
+        public delegate void PreviousButtonEventHandler();
+        public event PreviousButtonEventHandler PreviousButtonEvent;
+        public delegate void NextButtonEventHandler();
+        public event NextButtonEventHandler NextButtonEvent;
+        public delegate void TwoUpSaveButtonEventHandler();
+        public event TwoUpSaveButtonEventHandler TwoUpSaveButtonEvent;
+        public delegate void UpSaveButtonEventHandler();
+        public event UpSaveButtonEventHandler UpSaveButtonEvent;
+        public delegate void SaveButtonEventHandler();
+        public event SaveButtonEventHandler SaveButtonEvent;
+
         public EditorSaveButtonsUserControl()
         {
             InitializeComponent();
+        }
+
+        private void PreviousMoveClick(object sender, RoutedEventArgs args)
+        {
+            PreviousButtonEvent();
+        }
+        private void NextMoveClick(object sender, RoutedEventArgs args)
+        {
+            NextButtonEvent();
+        }
+        private void TwoUpSaveClick(object sender, RoutedEventArgs args)
+        {
+            TwoUpSaveButtonEvent();
+        }
+        private void UpSaveClick(object sender, RoutedEventArgs args)
+        {
+            UpSaveButtonEvent();
+        }
+        private void SaveClick(object sender, RoutedEventArgs args)
+        {
+            SaveButtonEvent();
         }
     }
 }

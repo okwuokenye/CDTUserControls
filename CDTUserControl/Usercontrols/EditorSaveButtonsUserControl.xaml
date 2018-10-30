@@ -22,17 +22,26 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Button Command="{Binding TwoUpSave}" Margin="2 2 2 2" Grid.Column="0" Grid.Row="0" FontSize="9">
+        <Button Click="PreviousMoveClick" Margin="2 2 2 2" Grid.Column="0" Grid.Row="0" FontSize="9">
+            <TextBlock Text="Previous" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+
+        <Button Click="NextMoveClick" Margin="2 2 2 2" Grid.Column="0" Grid.Row="1" FontSize="9">
+            <TextBlock Text="Next" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        
+        <Button Click="TwoUpSaveClick" Margin="2 2 2 2" Grid.Column="1" Grid.Row="0" FontSize="9">
             <TextBlock Text="2 up and Save" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
 
-        <Button Command="{Binding UpSave}" Margin="2 2 2 2" Grid.Column="0" Grid.Row="1" FontSize="9">
+        <Button Click="UpSaveClick" Margin="2 2 2 2" Grid.Column="1" Grid.Row="1" FontSize="9">
             <TextBlock Text="Up and Save" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
 
-        <Button  Content="Save" Command="{Binding Save}" Margin="2 2 2 2" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="9"/>
+        <Button  Click="SaveClick" Content="Save" Margin="2 2 2 2" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" FontSize="9" MinWidth="50"/>
 
     </Grid>
 

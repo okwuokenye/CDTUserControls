@@ -6,6 +6,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
              mc:Ignorable="d" 
+              Style="{StaticResource ControlStyle}"
             Width="320">
     <Grid>
 
@@ -36,7 +37,7 @@
 
 
                     <GroupBox Header="Project Folder" Height="50" BorderThickness="1" Grid.Row="0">
-                        <Grid>
+                        <Grid HorizontalAlignment="Left" Width="306">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
@@ -48,7 +49,7 @@
 
                             <Label Content="Path" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" />
                             <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding RootText}"  VerticalContentAlignment="Center"/>
-                            <Button Content="..." Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Command="{Binding RootChange}"/>
+                            <Button Content="..." Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Click="RootClick"/>
                         </Grid>
                     </GroupBox>
 
@@ -191,7 +192,7 @@
 
                             <Label Content="EXE Location" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EditorExe}" />
-                            <Button Content=".."  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Command="{Binding EditorExeChange}" />
+                            <Button Content=".."  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Click="EditorExeClick" />
 
                             <Label Content="Automation delay" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                             <ComboBox  Grid.Row="2" Grid.Column="1" Margin="2 4 80 4"  SelectedIndex="{Binding DelayIndex}"  ItemsSource="{Binding DelayItems}"/>
@@ -229,19 +230,19 @@
                             </Grid.ColumnDefinitions>
 
                             <Label Content="Save" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2"   VerticalContentAlignment="Center"/>
-                            <ComboBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK11_Index}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK11}"/>
                             <Label Content="+" Grid.Row="0" Grid.Column="2" Margin="2 1 2 5"   VerticalContentAlignment="top" Visibility="{Binding HK1Visibility}"/>
-                            <ComboBox  Grid.Row="0" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK12_Index}" Visibility="{Binding HK1Visibility}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK12}" Visibility="{Binding HK1Visibility}"/>
 
                             <Label Content="Up and Save" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <ComboBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK21_Index}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK21}"/>
                             <Label Content="+" Grid.Row="1" Grid.Column="2" Margin="2 1 2 5" VerticalContentAlignment="Center" Visibility="{Binding HK2Visibility}"/>
-                            <ComboBox  Grid.Row="1" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK22_Index}" Visibility="{Binding HK2Visibility}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK22}" Visibility="{Binding HK2Visibility}"/>
 
                             <Label Content="2 Up and Save" Grid.Row="2" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <ComboBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK31_Index}"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" ItemsSource="{Binding HK1}" SelectedIndex="{Binding HK31}"/>
                             <Label Content="+" Grid.Row="2" Grid.Column="2" Margin="2 1 2 5" VerticalContentAlignment="Center" Visibility="{Binding HK3Visibility}"/>
-                            <ComboBox  Grid.Row="2" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK32_Index}" Visibility="{Binding HK3Visibility}"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="4" Margin="2 4 2 4" ItemsSource="{Binding HK2}" SelectedIndex="{Binding HK32}" Visibility="{Binding HK3Visibility}"/>
 
 
                         </Grid>
@@ -255,8 +256,8 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Margin="0 2 0 2"  Orientation="Horizontal">
-            <Button Content="Update Headers" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding UpdateButton}"/>
-            <Button Content="Save Changes" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Command="{Binding SaveButton}"/>
+            <Button Content="Update Headers" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Click="UpdateClick"/>
+            <Button Content="Save Changes" HorizontalAlignment="right" Width="110" Height="22" Margin="2 2 2 2" Click="SaveClick"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
             <TextBlock Margin="2 0 2 0" FontWeight="Bold" VerticalAlignment="Center" Text="CDT Editor" />

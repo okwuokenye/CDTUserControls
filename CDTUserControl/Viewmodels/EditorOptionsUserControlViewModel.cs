@@ -59,16 +59,17 @@ namespace CDTUserControl.Viewmodels
         private int _HK31;
         private int _HK32;
 
-        ObservableCollection<String> _HK1 = new ObservableCollection<String> { "None", "A", "B", "-", "D", "E", "-", "G", "H", "I", "J", "K", "L", "M", "N", "-", "P", "Q", "R", "T", "U", "-", "W", "X", "Y", "Z" };
+        ObservableCollection<String> _HK1 = new ObservableCollection<String> { "None", "A", "B", "-", "D", "E", "-", "G", "H", "I", "J", "K", "L", "M", "N", "-", "P", "Q", "R", "-", "T", "U", "-", "W", "X", "Y", "Z" };
         ObservableCollection<String> _HK2 = new ObservableCollection<String> { "Alt", "Control" };
 
         private bool _HK1On = true;
         private bool _HK2On = true;
         private bool _HK3On = true;
 
-        public Visibility HK1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
-        public Visibility HK2Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
-        public Visibility HK3Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility HK1Visibility { get { return _HK1On ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility HK2Visibility { get { return _HK2On ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility HK3Visibility { get { return _HK3On ? Visibility.Visible : Visibility.Collapsed; } }
+
         #endregion
 
         #region event declarations
@@ -163,11 +164,13 @@ namespace CDTUserControl.Viewmodels
                     if(value==0)
                     {
                         HK1On = false;
+                        
                     }
                     else
                     {
                         HK1On = true;
                     }
+                    RaisePropertyChanged("HK1Visibility");
                 }
             }
         }
@@ -206,6 +209,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         HK2On = true;
                     }
+                    RaisePropertyChanged("HK2Visibility");
                 }
             }
         }
@@ -244,6 +248,7 @@ namespace CDTUserControl.Viewmodels
                     {
                         HK3On = true;
                     }
+                    RaisePropertyChanged("HK3Visibility");
                 }
             }
         }
@@ -885,8 +890,18 @@ namespace CDTUserControl.Viewmodels
 
         public void SetHK11Index(int p_Value)
         {
-            _HK11 = p_Value;
+            HK11 = p_Value;
             RaisePropertyChanged("HK11");
+            if (p_Value == 0)
+            {
+                HK1On = false;
+
+            }
+            else
+            {
+                HK1On = true;
+            }
+            RaisePropertyChanged("HK1Visibility");
         }
         public void SetHK12Index(int p_Value)
         {
@@ -897,6 +912,16 @@ namespace CDTUserControl.Viewmodels
         {
             _HK21 = p_Value;
             RaisePropertyChanged("HK21");
+            if (p_Value == 0)
+            {
+                HK2On = false;
+
+            }
+            else
+            {
+                HK2On = true;
+            }
+            RaisePropertyChanged("HK2Visibility");
         }
         public void SetHK22Index(int p_Value)
         {
@@ -907,6 +932,17 @@ namespace CDTUserControl.Viewmodels
         {
             _HK31 = p_Value;
             RaisePropertyChanged("HK31");
+            if (p_Value == 0)
+            {
+                HK3On = false;
+
+            }
+            else
+            {
+                HK3On = true;
+            }
+            RaisePropertyChanged("HK2Visibility");
+            RaisePropertyChanged("HK3Visibility");
         }
         public void SetHK32Index(int p_Value)
         {
@@ -914,33 +950,7 @@ namespace CDTUserControl.Viewmodels
             RaisePropertyChanged("HK32");
         }
         #endregion
-
-        #region commands
-
-        private void RootChangeExecute()
-        {
-            RootChangeButtonEvent();
-        }
-        public ICommand RootChange { get { return new RelayCommand(RootChangeExecute); } }
-
-        private void EditorExeChangeExecute()
-        {
-            EditorExeChangeButtonEvent();
-        }
-        public ICommand EditorExeChange { get { return new RelayCommand(EditorExeChangeExecute); } }
-
-        private void SaveExecute()
-        {
-            SaveButtonEvent();
-        }
-        public ICommand SaveButton { get { return new RelayCommand(SaveExecute); } }
-
-        private void UpdateExecute()
-        {
-            UpdateButtonEvent();
-        }
-        public ICommand UpdateButton { get { return new RelayCommand(UpdateExecute); } }
-        #endregion
+        
 
         #region public send functions
 
