@@ -352,12 +352,13 @@
 
         </Expander>
 
-            <Expander Header="Editing Software/Synthetic Speech" Grid.Row="4" Expanded="Expander_Expanded">
+            <Expander Header="Editing Software/Synthetic Speech/Video Playback" Grid.Row="4" Expanded="Expander_Expanded">
             <Grid Height="Auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+                    <RowDefinition Height="1" />
+                    </Grid.RowDefinitions>
 
                 <GroupBox Header="Edit Program" Height="140" BorderThickness="1" Grid.Row="0">
 
@@ -409,10 +410,32 @@
 
                 </GroupBox>
 
+                    <GroupBox Header="Video Playback" BorderThickness="1" Grid.Row="2" Visibility="Hidden">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="56" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Video Device" Grid.Row="0" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
+                            <RadioButton Content="Basic" Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="1" Margin="2,2,2,2" IsChecked="{Binding VideoDeviceBasic}" />
+                            <RadioButton Content="Direct Show" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="2,2,2,2"  IsChecked="{Binding VideoDeviceDirect}"/>
+
+                            <TextBox TextWrapping="Wrap"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="2 2 2 2" VerticalContentAlignment="Center" Text="{Binding VideoWarning}" MouseDoubleClick="Video_MouseDoubleClick"/>
+                        </Grid>
+
+                    </GroupBox>
 
 
 
-            </Grid>
+
+                </Grid>
 
         </Expander>
         

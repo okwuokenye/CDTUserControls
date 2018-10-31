@@ -60,25 +60,34 @@ namespace CDTUserControl.Usercontrols
 
         public VideoPlayer()
         {
-            EnsureApplicationResources();
-            InitializeComponent();
-        
-            LockImage.Source = null;
-            LoopImage.Source = null;
+            try
+            {
+                EnsureApplicationResources();
+                InitializeComponent();
 
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
-            timer.Start();
+                LockImage.Source = null;
+                LoopImage.Source = null;
 
-            this.mediaUriElement.VideoRenderer = WPFMediaKit.DirectShow.MediaPlayers.VideoRendererType.EnhancedVideoRenderer;
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += timer_Tick;
+                timer.Start();
+                //this.mediaUriElement.VideoRenderer = WPFMediaKit.DirectShow.MediaPlayers.VideoRendererType.EnhancedVideoRenderer;
+
+                DoubleClickTimer.Interval = TimeSpan.FromMilliseconds(GetDoubleClickTime());
+                DoubleClickTimer.Tick += (s, e) => DoubleClickTimer.Stop();
+            }
+            catch( Exception ex)
+            {
+
+            }
             
-            DoubleClickTimer.Interval = TimeSpan.FromMilliseconds(GetDoubleClickTime());
-            DoubleClickTimer.Tick += (s, e) => DoubleClickTimer.Stop();
         }
 
         private void timer_Tick(object sender, EventArgs e)
-        {
+        {try
+            {
+                
             if ((CDTPlayer.Source != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
             {
                 sliProgress.Minimum = 0;
@@ -87,41 +96,89 @@ namespace CDTUserControl.Usercontrols
                 lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
             }
         }
+            catch( Exception ex)
+            {
+
+            }
+}
 
         private void Play_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
+            try
+            {
+
             e.CanExecute = (CDTPlayer != null) && (CDTPlayer.Source != null);
             if ((CDTPlayer.Source != null) && (CDTPlayer.NaturalDuration.HasTimeSpan) && (!userIsDraggingSlider))
             {
                 lblTotalStatus.Text = TimeSpan.FromSeconds(CDTPlayer.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
             }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void Play_Executed(object sender, RoutedEventArgs e)
         {
+
+            try
+            {
+
             mediaUriElement.Play();
             CDTPlayer.Play();
             mediaPlayerIsPlaying = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void Pause_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
+            try
+            {
+                
             e.CanExecute = mediaPlayerIsPlaying;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void Pause_Executed(object sender, RoutedEventArgs e)
         {
+            try
+            {            
             mediaUriElement.Pause();
             CDTPlayer.Pause();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void Stop_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
+            try
+            {
+                
             e.CanExecute = mediaPlayerIsPlaying;
         }
+            catch( Exception ex)
+            {
+
+            }
+}
 
         private void Stop_Executed(object sender, RoutedEventArgs e)
         {
+            try
+            { 
             mediaUriElement.Stop();
             CDTPlayer.Stop();
 
@@ -129,21 +186,39 @@ namespace CDTUserControl.Usercontrols
             CDTPlayer.Position = TimeSpan.Zero;
             
             mediaPlayerIsPlaying = false;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void sliProgress_DragStarted(object sender, DragStartedEventArgs e)
         {
+            try { 
             userIsDraggingSlider = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void sliProgress_DragCompleted(object sender, DragCompletedEventArgs e)
         {
+            try
+            { 
             userIsDraggingSlider = false;
 
             double perc = sliProgress.Value / sliProgress.Maximum;
             mediaUriElement.MediaPosition = (long)(mediaUriElement.MediaDuration * perc);
 
             CDTPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
+            }
+            catch (Exception ex)
+            {
+
+            }
 
         }
 
@@ -154,12 +229,19 @@ namespace CDTUserControl.Usercontrols
 
         private void sliProgress_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
+            try
+            { 
             userIsDraggingSlider = false;
 
             double perc = sliProgress.Value / sliProgress.Maximum;
             mediaUriElement.MediaPosition = (long)(mediaUriElement.MediaDuration * perc);
 
             CDTPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void sliProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -172,8 +254,10 @@ namespace CDTUserControl.Usercontrols
             mediaUriElement.Volume += (e.Delta > 0) ? 0.05 : -0.05;
         }
 
-        public void SetMediaFile(string p_FileName)
+        public bool SetMediaFile(string p_FileName)
         {
+            try
+            {
             if (p_FileName != "")
             {
                 mediaUriElement.Source = new Uri(p_FileName);
@@ -185,11 +269,19 @@ namespace CDTUserControl.Usercontrols
             {
                 mediaUriElement.Source = null;
                 CDTPlayer.Source = null;
-            }            
+            }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+                      
         }
 
         private void Open_File(object sender, RoutedEventArgs e)
         {
+            try { 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             //define the file filter for your dialog
 
@@ -201,7 +293,12 @@ namespace CDTUserControl.Usercontrols
                 CDTPlayer.Source = new Uri(openFileDialog.FileName);
                 mediaUriElement.Play();
                 CDTPlayer.Play();
-            }               
+            }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         
         private void LockImage_Click(object sender, RoutedEventArgs e)
@@ -254,6 +351,8 @@ namespace CDTUserControl.Usercontrols
 
         private void CDTPlayer_MediaEnded(object sender, RoutedEventArgs e)
         {
+            try
+            { 
             if (IsLooped)
             {
                 mediaUriElement.MediaPosition = 0;
@@ -262,10 +361,19 @@ namespace CDTUserControl.Usercontrols
                 mediaUriElement.Play();
                 CDTPlayer.Play();
             }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void MediaPlayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+
+            
             if (!DoubleClickTimer.IsEnabled)
             {
                 DoubleClickTimer.Start();
@@ -273,6 +381,11 @@ namespace CDTUserControl.Usercontrols
             else
             {
                 DblClickEvent();
+            }
+            }
+            catch (Exception ex)
+            {
+
             }
 
         }

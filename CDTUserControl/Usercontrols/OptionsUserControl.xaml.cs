@@ -130,6 +130,11 @@ namespace CDTUserControl.Usercontrols
             EditorChangedEvent();
         }
 
+        private void Video_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Clipboard.SetText("https://www.codecguide.com/download_kl.htm");
+        }
+
         #endregion
 
         #region public set functions
@@ -420,6 +425,12 @@ namespace CDTUserControl.Usercontrols
         {
             vm.ClearStatusText();
         }
+
+
+        public void SetVideoDeviceBasic(bool p_Value)
+        {
+            vm.SetVideoDeviceBasic(p_Value);
+        }
         #endregion
 
 
@@ -610,6 +621,10 @@ namespace CDTUserControl.Usercontrols
             return vm.SendTCMS();
         }
 
+        public bool SendVideoDeviceBasic()
+        {
+           return vm.SendVideoDeviceBasic();
+        }
         #endregion
     }
 }

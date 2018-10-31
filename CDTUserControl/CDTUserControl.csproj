@@ -48,9 +48,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External DLLs\ControlzEx.dll</HintPath>
     </Reference>
-    <Reference Include="DirectShowLib-2005">
-      <HintPath>..\..\CDT\CDT\External DLLs\DirectShowLib-2005.dll</HintPath>
-    </Reference>
     <Reference Include="FontAwesome.WPF, Version=4.7.0.16903, Culture=neutral, PublicKeyToken=26114e0a2da6b8e3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External DLLs\FontAwesome.WPF.dll</HintPath>
@@ -78,9 +75,6 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
-    <Reference Include="WPFMediaKit">
-      <HintPath>..\..\CDT\CDT\External DLLs\WPFMediaKit.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External DLLs\Xceed.Wpf.Toolkit.dll</HintPath>
@@ -138,9 +132,6 @@
     </Compile>
     <Compile Include="Usercontrols\VisualViewerUserControl.xaml.cs">
       <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Usercontrols\VideoPlayer.xaml.cs">
-      <DependentUpon>VideoPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Viewmodels\AnalysisViewModel.cs" />
     <Compile Include="Viewmodels\EditorLoadUserControlViewModel.cs" />
@@ -217,10 +208,6 @@
     <Page Include="Usercontrols\VisualViewerUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Usercontrols\VideoPlayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

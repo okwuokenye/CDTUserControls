@@ -84,7 +84,12 @@ namespace CDTUserControl.Viewmodels
         public Visibility DeviceVisibility { get { return _DefaultDeviceChecked ? Visibility.Collapsed: Visibility.Visible; } }
         public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility Dir2Visibility { get { return _UsesDir2Checked ? Visibility.Visible : Visibility.Collapsed; } }
-        
+
+
+        private bool _VideoDeviceBasic = true;
+        private bool _VideoDeviceDirect = false;
+
+        private string _VideoWarning = "For small video files and SD playback use Basic. Direct Show will support HD and larger files with better quality but requires additional codecs. These can be downloaded here:https://www.codecguide.com/download_kl.htm. Double click on this box to copy to clipboard.";
 
         #endregion
 
@@ -109,8 +114,57 @@ namespace CDTUserControl.Viewmodels
 
         #endregion
 
-
         #region properties
+
+        public bool VideoDeviceBasic
+        {
+            get
+            {
+                return _VideoDeviceBasic;
+            }
+            set
+            {
+                if (_VideoDeviceBasic != value)
+                {
+                    _VideoDeviceBasic = value;
+                    _VideoDeviceDirect = !value;
+                    RaisePropertyChanged("VideoDeviceBasic");
+                }
+            }
+        }
+
+        public bool VideoDeviceDirect
+        {
+            get
+            {
+                return _VideoDeviceDirect;
+            }
+            set
+            {
+                if (_VideoDeviceDirect != value)
+                {
+                    _VideoDeviceDirect = value;
+                    _VideoDeviceBasic = !value;
+                    RaisePropertyChanged("VideoDeviceDirect");
+                }
+            }
+        }
+
+        public String VideoWarning
+        {
+            get
+            {
+                return _VideoWarning;
+            }
+            set
+            {
+                if (_VideoWarning != value)
+                {
+                    _VideoWarning = value;
+                    RaisePropertyChanged("VideoWarning");
+                }
+            }
+        }
 
         public String StatusWarn
         {
@@ -1025,8 +1079,7 @@ namespace CDTUserControl.Viewmodels
         public ObservableCollection<String> EditorItems { get { return _EditorItems; } }
 
         #endregion
-
-
+        
         #region constructor
 
         public OptionsUserControlViewModel()
@@ -1412,6 +1465,12 @@ namespace CDTUserControl.Viewmodels
         }
 
 
+        public void SetVideoDeviceBasic(bool p_Value)
+        {
+            _VideoDeviceBasic = p_Value;
+            RaisePropertyChanged("VideoDeviceBasic");
+            RaisePropertyChanged("VideoDeviceDirect");
+        }
         #endregion
 
         #region commands
@@ -1443,6 +1502,10 @@ namespace CDTUserControl.Viewmodels
 
         #region public send functions
 
+        public bool SendVideoDeviceBasic()
+        {
+            return VideoDeviceBasic;
+        }
         public string SendRootText()
         {
             return RootText;

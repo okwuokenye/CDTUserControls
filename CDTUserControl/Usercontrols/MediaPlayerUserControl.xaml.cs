@@ -111,7 +111,7 @@ namespace CDTUserControl.Usercontrols
         private void Stop_Executed(object sender, RoutedEventArgs e)
         {
             CDTPlayer.Stop();
-
+            
             CDTPlayer.Position = TimeSpan.Zero;
             mediaPlayerIsPlaying = false;
 
