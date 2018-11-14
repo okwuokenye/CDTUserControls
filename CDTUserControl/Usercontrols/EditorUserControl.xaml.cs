@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CDTUserControl.Viewmodels;
+using System.Windows.Threading;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -70,6 +71,8 @@ namespace CDTUserControl.Usercontrols
         public delegate void Filter_Main_OnEventHandler(bool p_Value);
         public event Filter_Main_OnEventHandler Filter_Main_OnEvent;
 
+        private DispatcherTimer DoubleClickTimer = new DispatcherTimer();
+
         #endregion
 
         #region public properties
@@ -103,6 +106,9 @@ namespace CDTUserControl.Usercontrols
             vm.Filter_Second_OnEvent += Vm_Filter_Second_OnEvent;
             vm.Filter_Second_SelectedEvent += Vm_Filter_Second_SelectedEvent;
             vm.Filter_Main_SelectedEvent += Vm_Filter_Main_SelectedEvent;
+            
+            DoubleClickTimer.Interval = TimeSpan.FromSeconds(0.2);
+            DoubleClickTimer.Tick += DoubleClickTimer_Tick;
         }
 
         #endregion
@@ -189,11 +195,26 @@ namespace CDTUserControl.Usercontrols
             VoiceDblClickEvent();
         }
         
-        private void Voice_MouseClick(object sender, MouseEventArgs e)
+        private void Voice_MouseClick(object sender, MouseButtonEventArgs e)
         {
-                VoiceClickEvent();            
+            if (e.ClickCount == 2)
+            {
+                DoubleClickTimer.Stop();
+                VoiceDblClickEvent();
+            }
+            else
+            {
+                DoubleClickTimer.Start();
+            }
+          
         }
-        
+
+        private void DoubleClickTimer_Tick(object sender, EventArgs e)
+        {
+            DoubleClickTimer.Stop();
+            VoiceClickEvent();
+        }
+
         private void File_SelectionChanged(object sender, RoutedEventArgs args)
         {
             File_ChangedEvent(vm.Selected_File);

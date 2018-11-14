@@ -140,11 +140,11 @@ namespace CDTUserControl.Viewmodels
 
         #region Private variables
         Visibility _LoaderVisibility = Visibility.Visible;
-        Int32 _Slider1 = 100;
-        Int32 _Slider2 = 100;
-        Int32 _Slider3 = 100;
-        Int32 _Slider4 = 100;
-        Int32 _Slider5 = 100;
+        Int32 _Slider1 = 160;
+        Int32 _Slider2 = 160;
+        Int32 _Slider3 = 160;
+        Int32 _Slider4 = 160;
+        Int32 _Slider5 = 160;
         Int32 _Slider6 = 100;
         Int32 _Slider7;
 
@@ -227,6 +227,62 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Properties
+        private string GetDBValuefromInt(Int32 P_value)
+        {
+            string temp = "0";
+
+            if (P_value == 0)
+            {
+                temp = "∞";
+            }          
+            else if (P_value >= 180)
+            {
+                temp = "+10";
+            }
+            else if (P_value < 180 & P_value > 165)
+            {
+                temp = "+5";
+            }
+            else if (P_value <=165 & P_value >=155)
+            {
+                temp = "0";
+            }
+            else if (P_value < 155 & P_value >= 140)
+            {
+                temp = "-5";
+            }
+            else if (P_value < 140 & P_value >= 120)
+            {
+                temp = "-10";
+            }
+            else if (P_value < 120 & P_value >= 100)
+            {
+                temp = "-15";
+            }
+            else if (P_value < 100 & P_value >= 80)
+            {
+                temp = "-20";
+            }
+            else if (P_value < 80 & P_value >= 60)
+            {
+                temp = "-30";
+            }
+            else if (P_value < 60 & P_value >= 40)
+            {
+                temp = "-40";
+            }
+            else if (P_value < 40 & P_value >= 20)
+            {
+                temp = "-50";
+            }
+            else if (P_value < 20)
+            {
+                temp = "-60";
+            }                    
+
+            return temp;
+        }
+
         public Visibility LoaderVisibility
         {
             get { return _LoaderVisibility; }
@@ -239,30 +295,8 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider1 != value)
                 {
                     _Slider1 = value;
-                    string temp = "0";
-                    if (value > 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(value-100) / 10, 0));
-                        temp = "+" + val.ToString();
-                    }
-                    else if (value == 100)
-                    {
-                        temp = "0";
-                    }
-                    else if (value == 0)
-                    {
-                        temp = "-";
-                    }
-                    else if (value < 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(100-value) / 10, 0));
-                        if(val==0)
-                        {
-                            val = 1;
-                        }
-                        temp = "-" + val.ToString();
-                    }
-                    SliderText1 = temp;
+
+                    SliderText1 = GetDBValuefromInt(value);
 
                     Volume1Event(value);
                     RaisePropertyChanged("Slider1");
@@ -277,30 +311,8 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider2 != value)
                 {
                     _Slider2 = value;
-                    string temp = "0";
-                    if (value > 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
-                        temp = "+" + val.ToString();
-                    }
-                    else if (value == 100)
-                    {
-                        temp = "0";
-                    }
-                    else if (value == 0)
-                    {
-                        temp = "-";
-                    }
-                    else if (value < 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
-                        if (val == 0)
-                        {
-                            val = 1;
-                        }
-                        temp = "-" + val.ToString();
-                    }
-                    SliderText2 = temp;
+                    
+                    SliderText2 = GetDBValuefromInt(value);
                     Volume2Event(value);
                     RaisePropertyChanged("Slider2");
                 }
@@ -314,30 +326,8 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider3 != value)
                 {
                     _Slider3 = value;
-                    string temp = "0";
-                    if (value > 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
-                        temp = "+" + val.ToString();
-                    }
-                    else if (value == 100)
-                    {
-                        temp = "0";
-                    }
-                    else if (value == 0)
-                    {
-                        temp = "-";
-                    }
-                    else if (value < 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
-                        if (val == 0)
-                        {
-                            val = 1;
-                        }
-                        temp = "-" + val.ToString();
-                    }
-                    SliderText3 = temp;
+
+                    SliderText3 = GetDBValuefromInt(value);
                     Volume3Event(value);
                     RaisePropertyChanged("Slider3");
                 }
@@ -351,30 +341,8 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider4 != value)
                 {
                     _Slider4 = value;
-                    string temp = "0";
-                    if (value > 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
-                        temp = "+" + val.ToString();
-                    }
-                    else if (value == 100)
-                    {
-                        temp = "0";
-                    }
-                    else if (value == 0)
-                    {
-                        temp = "-";
-                    }
-                    else if (value < 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
-                        if (val == 0)
-                        {
-                            val = 1;
-                        }
-                        temp = "-" + val.ToString();
-                    }
-                    SliderText4 = temp;
+
+                    SliderText4 = GetDBValuefromInt(value);
                     Volume4Event(value);
                     RaisePropertyChanged("Slider4");
                 }
@@ -388,30 +356,8 @@ namespace CDTUserControl.Viewmodels
                 if (_Slider5 != value)
                 {
                     _Slider5 = value;
-                    string temp = "0";
-                    if (value > 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(value - 100) / 10, 0));
-                        temp = "+" + val.ToString();
-                    }
-                    else if (value == 100)
-                    {
-                        temp = "0";
-                    }
-                    else if (value == 0)
-                    {
-                        temp = "-";
-                    }
-                    else if (value < 100)
-                    {
-                        int val = (int)Math.Abs(Math.Round((double)(100 - value) / 10, 0));
-                        if (val == 0)
-                        {
-                            val = 1;
-                        }
-                        temp = "-" + val.ToString();
-                    }
-                    SliderText5 = temp;
+
+                    SliderText5 = GetDBValuefromInt(value);
                     Volume5Event(value);
                     RaisePropertyChanged("Slider5");
                 }

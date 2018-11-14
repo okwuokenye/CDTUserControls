@@ -1,0 +1,655 @@
+﻿<UserControl x:Class="CDTUserControl.Usercontrols.DataPrepUserControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="400"
+                          
+    Style="{StaticResource ControlStyle}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" x:Name="ExpanderGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Expander Header="Functions"  Grid.Row="0" IsExpanded="False" Expanded="Expander_Expanded">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>                  
+                    
+                    <GroupBox Grid.Row="0" Header="Delete blanks rows" BorderThickness="1" Height="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex1}"/>
+
+                            <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="2" Grid.Row="0"/>
+                            <ComboBox Grid.Column="3" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex2}"/>
+
+                            <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="1"/>
+                            <ComboBox Grid.Column="1" Grid.Row="1" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex3}"/>
+
+                            <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="2" Grid.Row="1"/>
+                            <ComboBox Grid.Column="3" Grid.Row="1" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex4}"/>
+
+                            <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="2"/>
+                            <ComboBox Grid.Column="1" Grid.Row="2" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex5}"/>
+
+                            <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="2" Grid.Row="2"/>
+                            <ComboBox Grid.Column="3" Grid.Row="2" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex6}"/>
+
+                            <Button Click="DeleteRows_Click" Content="Delete Blank Rows" Margin="2,2,2,2" Width="120" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                            <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
+                            
+
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="1" Header="Jumble text"  BorderThickness="1" Height="Auto">
+                        <Grid>
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton GroupName="JT" Content="Selected columns" Margin="2,2,2,2" Grid.Column="0" />
+                        <RadioButton GroupName="JT" IsChecked="{Binding JT_TextCol}" Content="Text column" Margin="2,2,2,2" Grid.Column="1"/>
+
+                        <Button Click="Jumble_Click" Content="Jumble Text" Margin="2,2,2,2" Width="120" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                        <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
+                            
+                        </Grid>
+
+                    </GroupBox>
+                    
+                    <GroupBox  Grid.Row="2" Header="Fill from above"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Click="Jumble_Click" Content="Jumble Text" Margin="2,6,2,4" Width="120" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                            <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
+
+                        </Grid>
+
+
+                    </GroupBox>
+                    
+                    <GroupBox  Grid.Row="3" Header="Other functions"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Click="ResetLast_Click" Content="Reset Last Cell" Margin="2,6,2,4" Width="120" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <Button Click="AddRowNo_Click" Content="Add Row Numbers" Margin="2,6,2,4" Width="120" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"/>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                </Grid>
+
+            </Expander>
+
+            <Expander Header="Cleaning/Formatting" Grid.Row="1" Expanded="Expander_Expanded">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <GroupBox  Grid.Row="0" Header="Trim/Convert Text"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Trim Text:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="2"/>
+                            <ComboBox Margin="2,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" Grid.Column="1" Grid.Row="2" />
+
+                            <TextBlock Text="Remove Characters:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="3"/>
+                            <TextBox  Margin="2 4 2 4" Text="{Binding EF_Origin_Root}" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" />
+
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Formula to Value"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Tables to Range"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="2 2 2 2" />
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Remove Error Values"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Replace XML Characters"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1"  Margin="2 2 2 2"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="1" Header="Clean Worksheet/book"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Remove Hyperlinks"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Delete Blank Sheets"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="2 2 2 2" />
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Remove Names"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Unhide all sheets"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Reset Used Cell"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="2"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Delete Objects"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="2"  Margin="2 2 2 2"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="2" Header="Font"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="145" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Family:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Margin="2,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" Grid.Column="1" Grid.Row="0" />
+
+                            <TextBlock Text="Size:" VerticalAlignment="Center" Margin="20,2,2,2" Grid.Column="2" Grid.Row="0"/>
+                            <TextBox  Margin="2 4 2 4" Text="{Binding EF_Origin_Root}" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="3" />
+
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Clear Font Colour"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="2"  Margin="2 2 2 2" Grid.ColumnSpan="2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Clear Bold/Italic"  VerticalContentAlignment="Center" Grid.Column="2" Grid.Row="2"  Margin="2 2 2 2" Grid.ColumnSpan="2"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="3" Header="Cells"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Text Case:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Margin="2,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" Grid.Column="1" Grid.Row="0" />
+
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Clear Cell Colour"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1"  Margin="2 2 2 2" Grid.ColumnSpan="2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Autosize Columns"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1"  Margin="2 2 2 2" Grid.ColumnSpan="2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Unmerge All"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="2"  Margin="2 2 2 2" Grid.ColumnSpan="2"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="4" Header="Worksheet Appearance"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Add Autofilter"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Remove Autofilter"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="2 2 2 2" />
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Wrap Text"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Unwrap Text"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Add Borders"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="2"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Remove Borders"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="2"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Freeze Top Row"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="3"  Margin="2 2 2 2"/>
+                            <CheckBox IsChecked="{Binding CF_Formula}" Content="Unfreeze Cells"  VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="3"  Margin="2 2 2 2"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <Grid Grid.Row="5">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                        <Button Click="Jumble_Click" Content="Extract Brackets" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalContentAlignment="Center"/>
+
+                    </Grid>
+
+                </Grid>
+
+            </Expander>
+
+            <Expander Header="Brackets" Grid.Row="2" Expanded="Expander_Expanded">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox  Grid.Row="0" Header="Input column"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="2">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Original Text Column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="1" Header="Bracket type"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="2">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Bracket Type Used:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding BracketItems}" SelectedIndex="{Binding Bracket_TypeIndex}"/>
+
+                            <TextBlock Text="Bracket Order:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="1"/>
+                            <ComboBox Grid.Column="1" Grid.Row="1" Width="60" Margin="10,4,2,4" ItemsSource="{Binding BracketOrderItems}" SelectedIndex="{Binding Bracket_OrderIndex}"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="2" Header="Output"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="2">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Content="Brackets Column" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex2}"/>
+
+                            <RadioButton Content="New Text Column" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="1"/>
+                            <ComboBox Grid.Column="1" Grid.Row="1" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex3}"/>
+
+                            <RadioButton Content="Remove from original" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="2"/>
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <Button Click="Jumble_Click" Content="Extract Brackets" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"/>
+                    <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalContentAlignment="Center"/>
+                    
+                </Grid>
+
+            </Expander>
+
+            <Expander Header="FileName Creator" Grid.Row="3" Expanded="Expander_Expanded">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox  Grid.Row="0" Header="Add Element"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <RadioButton GroupName="FN" Content="Custom String" Margin="2,4,2,2" Grid.Column="0" />
+                            <RadioButton GroupName="FN" IsChecked="{Binding JT_TextCol}" Content="Cell Value" Margin="2,4,2,2" Grid.Column="1"/>
+                            <RadioButton GroupName="FN" IsChecked="{Binding JT_TextCol}" Content="Numbering" Margin="2,4,2,2" Grid.Column="2"/>
+
+                            <TextBox  Grid.Row="1" Grid.Column="0" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="3" Visibility="Visible"/>
+
+                            <Grid Grid.Row="2" Grid.Column="0" Margin="2 4 2 4" Grid.ColumnSpan="3" Visibility="Visible">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="140" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                                <ComboBox Grid.Column="1" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
+                                <TextBlock Text="What Text:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="1"/>
+                                <ComboBox Grid.Column="1" Grid.Row="1" Width="120" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="Number of Char to take:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="2"/>
+                                <ComboBox Grid.Column="1" Grid.Row="2" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
+
+
+
+                            </Grid>
+
+                            <Grid Grid.Row="3" Grid.Column="0" Margin="2 4 2 4" Grid.ColumnSpan="3" Visibility="Visible">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="140" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Type of Numbering:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                                <ComboBox Grid.Column="1" Grid.Row="0" Width="120" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="Padding:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="1"/>
+                                <ComboBox Grid.Column="1" Grid.Row="1" Width="120" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="Start from:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="2"/>
+                                <ComboBox Grid.Column="1" Grid.Row="2" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="3"/>
+                                <ComboBox Grid.Column="1" Grid.Row="3" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
+
+
+
+                            </Grid>
+
+                            <Button Content="Add Element" Grid.Row="4" Grid.Column="0" Margin="2 4 4 4" Click="CS_Reload_Click" Width="120" HorizontalAlignment="Left"/>
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="1" Header="Current Configuration"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox  Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="3" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="4" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="0" Grid.Column="5" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
+
+                            <Button Content="Move Left" Grid.Row="1" Grid.Column="0" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Move Right" Grid.Row="1" Grid.Column="1" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Remove" Grid.Row="1" Grid.Column="2" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Reset" Grid.Row="1" Grid.Column="3" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
+                        </Grid>
+
+
+                    </GroupBox>
+                    
+                    <GroupBox  Grid.Row="2" Header="Preview"  BorderThickness="1" Height="Auto">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox  Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}" VerticalContentAlignment="Center"/>
+                            
+                            
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <GroupBox  Grid.Row="3" Header="Create"  BorderThickness="1" Height="Auto" >
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Target Column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="1" Grid.Row="0"/>
+                            <ComboBox Grid.Column="2" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
+                            <Button Content="Insert Names" Grid.Row="0" Grid.Column="0" Margin="2 4 4 4" Click="CS_Reload_Click" Width="120" HorizontalAlignment="Left"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                </Grid>
+
+            </Expander>
+
+            <Expander Header="Character/Scene Manager" Grid.Row="4" Expanded="Expander_Expanded">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox  Grid.Row="0" Header="Analyse column"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="2">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Character/Scene Column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="0" Grid.Row="0"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
+                            <Button Content="Reload" Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Click="CS_Reload_Click"/>
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+                    <DataGrid Grid.Row="1" MinHeight="150" x:Name="PreviewDataGrid" Margin="2 2 2 2" CanUserAddRows="True" CanUserDeleteRows="True" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="All" Visibility="{Binding EF_Preview_Visible}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Current Name" Width="*" Binding="{Binding Path=PreviewOld}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Replace With" Width="*" Binding="{Binding Path=PreviewNew}" IsReadOnly="False"/>
+                            <DataGridCheckBoxColumn Header="Delete" Width="50" Binding="{Binding Path=PreviewResult}" IsReadOnly="False"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Click="Character_Click" Content="Apply Changes" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
+
+
+                </Grid>
+
+            </Expander>
+
+        </Grid>
+
+        
+        
+        
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding StatusPane}" Margin="2 0 2 0" VerticalAlignment="Center"/>
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

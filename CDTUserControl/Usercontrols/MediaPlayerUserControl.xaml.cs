@@ -54,6 +54,11 @@ namespace CDTUserControl.Usercontrols
             EnsureApplicationResources();
             InitializeComponent();
 
+            this.DataContext = this;
+
+            muteVideo.Source = new BitmapImage(new Uri("../Resources/unmute.png", UriKind.Relative));
+            muteVideo.ToolTip = "Mute Video";
+
             LockImage.Source = null;
             LoopImage.Source = null;
 
@@ -249,5 +254,53 @@ namespace CDTUserControl.Usercontrols
             }
             
         }
+
+
+        private void Mute_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+            VideoIsMute = !VideoIsMute;
+            if(VideoIsMute)
+            {
+                CDTPlayer.IsMuted = true;
+                muteVideo.Source = new BitmapImage(new Uri("../Resources/mute.png", UriKind.Relative));
+                muteVideo.ToolTip = "Unmute Video";
+            }
+            else
+            {
+                CDTPlayer.IsMuted = false;
+                muteVideo.Source = new BitmapImage(new Uri("../Resources/unmute.png", UriKind.Relative));
+                muteVideo.ToolTip = "Unmute Video";
+            }
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        bool _VideoIsMute = false;
+        public bool VideoIsMute
+        {
+            get { return _VideoIsMute; }
+            set
+            {
+                if (_VideoIsMute != value)
+                {
+                    _VideoIsMute = value;
+                    if(value)
+                    {
+                        CDTPlayer.IsMuted = true;
+                    }
+                    else
+                    {
+                        CDTPlayer.IsMuted = false;
+                    }
+                }
+            }
+        }
+        
     }
 }

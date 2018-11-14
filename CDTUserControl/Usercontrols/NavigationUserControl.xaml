@@ -219,6 +219,7 @@
                                 <DataGridTextColumn Header="Script" Width="50" Binding="{Binding Path=LogScript}" IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>
+                   
                     </Grid>
                 </GroupBox>
             </TabItem>

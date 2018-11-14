@@ -277,7 +277,6 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.Properties
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.GenerateResource.Cache
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorLoadUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.g.cs
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.g.cs
@@ -288,10 +287,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUser
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\EVRPresenter32.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\EVRPresenter32.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\DirectShowLib-2005.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\WPFMediaKit.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.g.cs
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VideoPlayer.baml
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
@@ -312,3 +307,4 @@ C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\T
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache

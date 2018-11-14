@@ -56,6 +56,7 @@
                 <ColumnDefinition Width="65" />
                 <ColumnDefinition Width="65" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="35" />
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Click="Play_Executed" Width="25" BorderThickness="0" Background="Transparent" Margin="5,2,2,2" >
@@ -73,9 +74,13 @@
             </Button>
 
             <Label Grid.Column="4" Content="Volume:" Margin="2,2,2,2"/>
-
+           
             <Slider Grid.Column="5" MaxWidth="200" Name="VolumeControl" Minimum="0" Maximum="1" LargeChange="0.1" Value="0.5" Margin="2,5,2,2" IsMoveToPointEnabled="True" ValueChanged="ChangeMediaVolume"/>
 
+            <ToggleButton x:Name="MuteBt" Grid.Column="6" IsChecked="False" Margin="2,2,2,2" Height="20" Width="20" Click="Mute_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image x:Name="muteVideo" Source="../Resources/unmute.png"/>
+            </ToggleButton>
+            
         </Grid>
 
         <ToggleButton x:Name="Loop" Grid.Column="1" Grid.Row="2" IsChecked="False" Margin="2,2,2,2" Height="20" Width="20" ToolTip="Loop current video" Click="LoopImage_Click" BorderThickness="1" BorderBrush="DarkGray">

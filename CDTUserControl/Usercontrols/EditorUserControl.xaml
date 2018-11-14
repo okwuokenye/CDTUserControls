@@ -16,9 +16,9 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition MinHeight="30" MaxHeight="150" Height="*" />
+            <RowDefinition MinHeight="22" MaxHeight="150" Height="*" />
             <RowDefinition Height="20" />
-            <RowDefinition Height="*" />
+            <RowDefinition MinHeight="20" Height="*" />
             <RowDefinition Height="21" />
             <RowDefinition MinHeight="21" MaxHeight="150" Height="*" />
             <RowDefinition Height="15" />
@@ -33,16 +33,23 @@
             <ColumnDefinition MinWidth="40" MaxWidth="120" Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+        <Grid Grid.Row="0" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="125"  Width="*"/>
                 <ColumnDefinition Width="24"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox Grid.Column="0" Height="20" FontSize="11" Margin="2 2 2 2" ItemsSource="{Binding Filter_Main}" SelectedItem="{Binding Selected_Filter_Main}" SelectedIndex="{Binding Selected_Filter_Main_Index}" IsEnabled="{Binding ButtonsEnabled}"/>
-            <CheckBox Grid.Column="1" Height="16" Margin="2 2 2 2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsChecked="{Binding Filter_Main_On}" IsEnabled="{Binding ButtonsEnabled}"  />
-        </Grid>
-
+            <ComboBox Grid.Row="0" Grid.Column="0" Height="20" FontSize="11" Margin="2 2 2 2" ItemsSource="{Binding Filter_Main}" SelectedItem="{Binding Selected_Filter_Main}" SelectedIndex="{Binding Selected_Filter_Main_Index}" IsEnabled="{Binding ButtonsEnabled}"/>
+            <CheckBox Grid.Row="0" Grid.Column="1" Height="16" Margin="2 2 2 2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsChecked="{Binding Filter_Main_On}" IsEnabled="{Binding ButtonsEnabled}"  />
+        
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  VerticalAlignment="Top" Visibility="{Binding Filter_Second_Visibility}"  HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="125"  Width="*"/>
@@ -53,7 +60,9 @@
             <CheckBox  Grid.Column="1" Height="16" Margin="2 2 2 2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsChecked="{Binding Filter_Second_On}" IsEnabled="{Binding ButtonsEnabled}"/>
         </Grid>
 
-        <ListBox Grid.Row="2" FontSize="10" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" ItemsSource="{Binding FileList}" PreviewMouseLeftButtonUp="Voice_MouseClick" MouseDoubleClick="Voice_MouseDoubleClick" SelectedItem="{Binding Selected_File}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding Selected_File_Index}" MinHeight="40" Margin="2 2 2 2" SelectionChanged="File_SelectionChanged">
+            <ScrollViewer Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                   
+        <ListBox  FontSize="9"  ItemsSource="{Binding FileList}" PreviewMouseLeftButtonDown="Voice_MouseClick" SelectedItem="{Binding Selected_File}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding Selected_File_Index}" MinHeight="40" Margin="2 2 2 2" SelectionChanged="File_SelectionChanged">
 
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
@@ -67,36 +76,40 @@
 
         </ListBox>
 
+</ScrollViewer>
+         
         <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="21" />
-                <RowDefinition Height="21" />
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="21" />
+                    <RowDefinition Height="21" />
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="49"/>
-                <ColumnDefinition Width="49"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="49"/>
+                    <ColumnDefinition Width="49"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0"  ToolTip="Rename current file" Content="Rename" Click="RenameClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
+                <Button Grid.Row="0" Grid.Column="0"  ToolTip="Rename current file" Content="Rename" Click="RenameClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
 
-            <Button Grid.Row="0" Grid.Column="1" ToolTip="Delete current file" Content="Delete" Click="DeleteClick"  Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
+                <Button Grid.Row="0" Grid.Column="1" ToolTip="Delete current file" Content="Delete" Click="DeleteClick"  Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
 
-            <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" ToolTip="Edit current file (opens audition)" Content="Edit" Click="EditClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
+                <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" ToolTip="Edit current file (opens audition)" Content="Edit" Click="EditClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
 
-            <Button Grid.Row="1" Grid.Column="0" ToolTip="Make current file primary" Content="Primary" Click="PrimaryClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
+                <Button Grid.Row="1" Grid.Column="0" ToolTip="Make current file primary" Content="Primary" Click="PrimaryClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
 
-            <Button Grid.Row="1" Grid.Column="1" ToolTip="Sort alt files" Content="Sort Alts" Click="SortAltsClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
+                <Button Grid.Row="1" Grid.Column="1" ToolTip="Sort alt files" Content="Sort Alts" Click="SortAltsClick" Width="45" Height="17" Margin="2 2 2 2" FontSize="9" IsEnabled="{Binding ButtonsEnabled}"/>
 
-            <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="45" Height="17" Margin="2 2 2 2" FontSize="9"  Text="{Binding SavedRow, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ButtonsEnabled}" MouseDoubleClick="Row_MouseDoubleClick">
-                <TextBox.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding RowEnterHit}"/>
-                    <KeyBinding Key="Return" Command="{Binding RowEnterHit}"/>
-                </TextBox.InputBindings>
-            </TextBox>
-            
+                <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="45" Height="17" Margin="2 2 2 2" FontSize="9"  Text="{Binding SavedRow, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ButtonsEnabled}" MouseDoubleClick="Row_MouseDoubleClick">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding RowEnterHit}"/>
+                        <KeyBinding Key="Return" Command="{Binding RowEnterHit}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+
+            </Grid>
+
         </Grid>
 
         <TextBox Text="{Binding PreviousText}" FontSize="{Binding FontSize}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="2 2 2 2" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap"  />

@@ -577,23 +577,23 @@ namespace CDTUserControl.Usercontrols
 
         private void Slider1DblClick(object sender, RoutedEventArgs args)
         {
-            vm.SetSlider1Value(100);
+            vm.SetSlider1Value(160);
         }
         private void Slider2DblClick(object sender, RoutedEventArgs args)
         {
-            vm.SetSlider2Value(100);
+            vm.SetSlider2Value(160);
         }
         private void Slider3DblClick(object sender, RoutedEventArgs args)
         {
-            vm.SetSlider3Value(100);
+            vm.SetSlider3Value(160);
         }
         private void Slider4DblClick(object sender, RoutedEventArgs args)
         {
-            vm.SetSlider4Value(100);
+            vm.SetSlider4Value(160);
         }
         private void Slider5DblClick(object sender, RoutedEventArgs args)
         {
-            vm.SetSlider5Value(100);
+            vm.SetSlider5Value(160);
         }
         #endregion
 

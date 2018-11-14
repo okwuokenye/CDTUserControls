@@ -150,12 +150,12 @@
                             <TextBox  Grid.Row="3" Grid.Column="2" Margin="2 4 2 4" Text="{Binding TextHeader1C}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                             <Label Content="Character Header" Grid.Row="4" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="4" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CharHeader}" />
-                            <TextBox  Grid.Row="4" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharHeaderC}"  />
+                            <TextBox  Grid.Row="4" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CharHeader}" VerticalContentAlignment="Center" />
+                            <TextBox  Grid.Row="4" Grid.Column="2" Margin="2 4 2 4" Text="{Binding CharHeaderC}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
 
                             <Label Content="Scene Header" Grid.Row="5" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
-                            <TextBox  Grid.Row="5" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}" />
-                            <TextBox  Grid.Row="5" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  />
+                            <TextBox  Grid.Row="5" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}"  VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="5" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                         </Grid>
 
