@@ -8,7 +8,10 @@
              mc:Ignorable="d" 
               Style="{StaticResource ControlStyle}"
             Width="320">
-    <Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -117,10 +120,11 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <GroupBox Header="Edit Headers" Height="190" BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="2">
+                    <GroupBox Header="Edit Headers" Height="218" BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="2">
 
                         <Grid>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
                                 <RowDefinition Height="28" />
                                 <RowDefinition Height="28" />
                                 <RowDefinition Height="28" />
@@ -156,6 +160,10 @@
                             <Label Content="Scene Header" Grid.Row="5" Grid.Column="0" Margin="2 2 2 2"  VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="5" Grid.Column="1" Margin="2 4 2 4" Text="{Binding SceneHeader}"  VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="5" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                            <CheckBox Content="Add MetaData String" Grid.Row="6" Grid.Column="0" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AddMetaDataChecked}"/>
+                            <TextBox  Grid.Row="6" Grid.Column="1" Margin="2 4 2 4" Text="{Binding MetaHeader}"  VerticalContentAlignment="Center" Visibility="{Binding MetaVisibility}"/>
+                            <TextBox  Grid.Row="6" Grid.Column="2" Margin="2 4 2 4" Text="{Binding MetaHeaderC}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="{Binding MetaVisibility}"/>
 
                         </Grid>
 
@@ -273,4 +281,6 @@
             <TextBlock Margin="2 0 2 0" VerticalAlignment="Center" Text="{Binding StatusWarn}" />
         </StackPanel>
     </Grid>
+
+    </ScrollViewer>
 </UserControl>

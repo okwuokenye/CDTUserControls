@@ -6,11 +6,14 @@
       xmlns:local="clr-namespace:CDTUserControl.Usercontrols"
       xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="400"
+      d:DesignWidth="400"
              
     Style="{StaticResource ControlStyle}">
 
-    <Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="24" />
@@ -24,57 +27,51 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Expander Header="File List"  Grid.Row="0" IsExpanded="True" Expanded="Expander_Expanded">
+            <Expander Header="File List"  Grid.Row="0" IsExpanded="False" Expanded="Expander_Expanded">
 
                 <Grid>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-
-
 
                     <GroupBox Grid.Row="0" Header="Load Files (or drag and drop)" BorderThickness="1" Height="Auto">
                         <Grid Margin="2 4 2 2">
 
-
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="170" />
+                                <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="30" />
                                 <ColumnDefinition Width="60" />
                                 <ColumnDefinition Width="60" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBox  Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" Text="{Binding FL_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                            <TextBox Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" Text="{Binding FL_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
                             <Button Content="..." Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Click="FL_Root_Click"/>
                             <Button Content="Load" Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="FL_Load_Click"/>
                             <Button Content="Clear" Grid.Row="0" Grid.Column="4" Margin="2 4 4 4" Click="FL_Clear_Click"/>
 
-                            <ListBox MinHeight="100" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5">
+                            <ListBox MinHeight="100" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding FL_FileList}"/>
 
-                            </ListBox>
+                            <CheckBox Content="Include only extension:" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding FL_IncExt}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_IncExtStr}"  VerticalContentAlignment="Center" Visibility="{Binding FL_Ext_Visible}"/>
 
-                            <CheckBox Content="Include only files with ext:" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding FL_IncExt}"/>
-                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_IncExtStr}"  VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Exclude files including:" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding FL_ExcText}" VerticalContentAlignment="Center"/>
+                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_ExcTextStr}"  VerticalContentAlignment="Center" Visibility="{Binding FL_Text_Visible}"/>
 
-                            <CheckBox Content="Exclude files including:" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding FL_ExcText}"/>
-                            <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_ExcTextStr}"  VerticalContentAlignment="Center"/>
-
-                            <CheckBox Content="Include all sub folders" Margin="8,4,2,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Sub}"/>
-                            <CheckBox Content="Add to existing" Margin="8,4,2,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Add}"/>
+                            <CheckBox Content="Include all sub folders" Margin="8,4,2,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Sub}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Add to existing" Margin="8,4,2,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Add}" VerticalContentAlignment="Center"/>
 
                         </Grid>
                     </GroupBox>
@@ -82,23 +79,28 @@
                     <GroupBox  Grid.Row="1" Header="Export Settings"  BorderThickness="1" Height="Auto">
 
                         <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22" />
+                            </Grid.RowDefinitions>
+                            
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <CheckBox Content="Audio metadata" Margin="8,4,2,2" Grid.Column="0" IsChecked="{Binding FL_Audio}"/>
-                            <CheckBox Content="File details" Margin="8,4,2,2" Grid.Column="1" IsChecked="{Binding FL_File}"/>
-                            <CheckBox Content="Corruption Indicators" Margin="8,4,2,2" Grid.Column="2" IsChecked="{Binding FL_Corrupt}"/>
+                            <CheckBox Content="Audio metadata" Margin="8,4,2,2" Grid.Column="0" IsChecked="{Binding FL_Audio}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="File details" Margin="8,4,2,2" Grid.Column="1" IsChecked="{Binding FL_File}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Corruption Indicators" Margin="8,4,2,2" Grid.Column="2" IsChecked="{Binding FL_Corrupt}" VerticalContentAlignment="Center"/>
 
 
                         </Grid>
 
                     </GroupBox>
 
-                    <StackPanel Grid.Row="3" Orientation="Horizontal">
-                        <Button Click="Export_Click" Content="Export List" Margin="10,2,2,2" Width="80"/>
+                    <StackPanel Height="28" Grid.Row="3" Orientation="Horizontal">
+                        <Button Click="FL_Export_Click" Content="Export List" Margin="10,2,2,2" Width="80"/>
                     </StackPanel>
 
                 </Grid>
@@ -110,23 +112,23 @@
                 <Grid>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="46" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <GroupBox Grid.Row="0" Header="Method of defining path" BorderThickness="1" Height="Auto" Grid.Column="0" >
-                        <Grid Margin="2 4 2 2">
+                        <Grid Margin="2 2 2 2">
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="200" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <RadioButton GroupName="EF" Content="Path, Directory and FileName" Margin="2,2,2,2" Grid.Column="0" />
-                            <RadioButton GroupName="EF" IsChecked="{Binding EF_FullPath}" Content="Full Path in Column" Margin="2,2,2,2" Grid.Column="1"/>
+                            <RadioButton GroupName="EF" IsChecked="{Binding EF_MakePath}" Content="Path, Directory and FileName" Margin="2,2,2,2" Grid.Column="0" />
+                            <RadioButton GroupName="EF" Content="Full Path in Column" Margin="2,2,2,2" Grid.Column="1"/>
 
                         </Grid>
                     </GroupBox>
@@ -135,10 +137,10 @@
                         <Grid Margin="2 4 2 2">
 
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
@@ -148,11 +150,11 @@
                                 <ColumnDefinition Width="25" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Content="Asset Path:" Grid.Row="0" Grid.Column="0"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-                            <Button Content="..." Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="EF_Root1_Click"/>
+                            <Label Content="Asset Path:" Grid.Row="0" Grid.Column="0" Visibility="{Binding EF_MakePath_Visible}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" Visibility="{Binding EF_MakePath_Visible}"/>
+                            <Button Content="..." Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="EF_Root1_Click" Visibility="{Binding EF_MakePath_Visible}"/>
 
-                            <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="4">
+                            <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="4" Visibility="{Binding EF_MakePath_Visible}">
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -177,14 +179,14 @@
 
                             </GroupBox>
 
-                            <Label Content="Extension:" Grid.Row="2" Grid.Column="0"  Margin="7 2 2 2"/>
-                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="28 4 40 4" Text="{Binding EF_ExtStr}"  VerticalContentAlignment="Center"/>
+                            <Label Content="Extension:" Grid.Row="2" Grid.Column="0"  Margin="7 2 2 2" Visibility="{Binding EF_MakePath_Visible}"/>
+                            <TextBox  Grid.Row="2" Grid.Column="1" Margin="28 4 40 4" Text="{Binding EF_ExtStr}"  VerticalContentAlignment="Center" Visibility="{Binding EF_MakePath_Visible}"/>
 
-                            <CheckBox Grid.Row="2" Content="Include alt files" Margin="10 6 2 2" Grid.Column="2" IsChecked="{Binding EF_Alts}"/>
+                            <CheckBox Grid.Row="2" Content="Include alt files" Margin="2 2 2 2" Grid.Column="2" IsChecked="{Binding EF_Alts}" Visibility="{Binding EF_MakePath_Visible}"  VerticalContentAlignment="Center"/>
 
-                            <StackPanel Grid.Row="3" Grid.ColumnSpan="4" Orientation="Horizontal">
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="4" Orientation="Horizontal" Visibility="{Binding EF_FullPath_Visible}">
                                 <TextBlock Text="FullPath Column:" VerticalAlignment="Center" Margin="2,2,2,2"/>
-                                <ComboBox Width="70" Margin="14,4,2,4" ItemsSource="{Binding HeadRowItems}" SelectedIndex="{Binding HeadRowIndex}"/>
+                                <ComboBox Width="70" Margin="14,4,2,4" ItemsSource="{Binding EF_ColumnItems}" SelectedIndex="{Binding EF_ColumnIndex1}"/>
                             </StackPanel>
                         </Grid>
                     </GroupBox>
@@ -193,9 +195,9 @@
                         <Grid Margin="2 4 2 2">
 
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
@@ -205,11 +207,11 @@
                                 <ColumnDefinition Width="25" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Content="Path:" Grid.Row="0" Grid.Column="0"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Dest_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-                            <Button Content="..." Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="EF_Root2_Click"/>
+                            <Label Content="Path:" Grid.Row="0" Grid.Column="0" Visibility="{Binding EF_MakePath_Visible}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Dest_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" Visibility="{Binding EF_MakePath_Visible}"/>
+                            <Button Content="..." Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="EF_Root2_Click" Visibility="{Binding EF_MakePath_Visible}"/>
 
-                            <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="4">
+                            <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="4" Visibility="{Binding EF_MakePath_Visible}">
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -227,16 +229,16 @@
                                     <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_Directory_Col2}" Visibility="{Binding EF_Directory2_Visible}"/>
 
                                     <Label Content="Filename" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                                    <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_FileName1}"/>
-                                    <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_FileName_Col1}"/>
+                                    <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_FileName2}"/>
+                                    <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_FileName_Col2}"/>
 
                                 </Grid>
 
                             </GroupBox>
 
-                            <StackPanel Grid.Row="2" Grid.ColumnSpan="4" Orientation="Horizontal">
+                            <StackPanel Grid.Row="2" Grid.ColumnSpan="4" Orientation="Horizontal" Visibility="{Binding EF_FullPath_Visible}">
                                 <TextBlock Text="FullPath Column:" VerticalAlignment="Center" Margin="2,2,2,2"/>
-                                <ComboBox Width="70" Margin="14,4,2,4" ItemsSource="{Binding HeadRowItems}" SelectedIndex="{Binding HeadRowIndex}"/>
+                                <ComboBox Width="70" Margin="14,4,2,4" ItemsSource="{Binding EF_ColumnItems}" SelectedIndex="{Binding EF_ColumnIndex2}"/>
                             </StackPanel>
                         </Grid>
                     </GroupBox>
@@ -249,9 +251,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Click="Export_Click" Content="{Binding EF_PreviewText}" Margin="10,2,2,2" Width="80" Grid.Column="0"/>
-                        <Button Click="Export_Click" Content="Export List" Margin="10,2,2,2" Width="80" Grid.Column="1" Visibility="{Binding EF_Export_Visible}"/>
-                        <CheckBox Content="Run on selection only" Grid.Column="2" Margin="2 4 2 4" IsChecked="{Binding EF_IsDir2}" VerticalContentAlignment="Center"/>
+                        <Button Click="EF_Preview_Click" Content="{Binding EF_PreviewText}" Margin="10,2,2,2" Width="80" Grid.Column="0"/>
+                        <Button Click="EF_Export_Click" Content="Export List" Margin="10,2,2,2" Width="80" Grid.Column="1" Visibility="{Binding EF_Export_Visible}"/>
+                        <CheckBox Content="Run on selection only" Grid.Column="2" Margin="2 4 2 4" IsChecked="{Binding EF_SelectionOnly}" VerticalContentAlignment="Center"/>
 
                     </Grid>
 
@@ -266,9 +268,9 @@
 
                 </Grid>
 
-            </Expander>            
-            
-            <Expander Header="Project Overview" Grid.Row="2" Expanded="Expander_Expanded" HorizontalAlignment="Right" Width="400">
+            </Expander>
+
+            <Expander Header="Project Overview" Grid.Row="2" Expanded="Expander_Expanded">
 
                 <Grid>
 
@@ -311,12 +313,12 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Button Content="Clear" Grid.Row="0" Grid.Column="0" Margin="2 4 4 4" Click="PO_Clear_Click" Width="80"/>
-                            <Button Content="Expand" Grid.Row="0" Grid.Column="1" Margin="2 4 4 4" Click="PO_Expand_Click" Width="80"/>
-                            <Button Content="Collapse" Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Click="PO_Collapse_Click" Width="80"/>
+                            <Button Content="Clear All" Grid.Row="0" Grid.Column="0" Margin="2 4 4 4" Click="PO_Clear_Click" Width="80"/>
+                            <Button Content="Expand All" Grid.Row="0" Grid.Column="1" Margin="2 4 4 4" Click="PO_Expand_Click" Width="80"/>
+                            <Button Content="Collapse All" Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Click="PO_Collapse_Click" Width="80"/>
 
                             <!-- Add a Xceed DataGridControl. -->
-                            <xcdg:DataGridControl x:Name="grid" ReadOnly="True" ItemsSourceChangeCompleted="DataGrid_ItemsSourceChangeCompleted" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                            <xcdg:DataGridControl x:Name="grid" ReadOnly="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
                                 <xcdg:DataGridControl.Columns>
                                     <xcdg:Column FieldName="Name" IsMainColumn="True" Width="200" />
@@ -392,13 +394,13 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <CheckBox Content="Include only files with ext:" Margin="2,4,2,2" Grid.Row="0" IsChecked="{Binding FL_IncExt}"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_IncExtStr}"  VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Include only files with ext:" Margin="2,4,2,2" Grid.Row="0" IsChecked="{Binding CF_IncExt}"/>
+                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CF_IncExtStr}"  VerticalContentAlignment="Center" Visibility="{Binding CF_Ext_Visible}"/>
 
-                            <CheckBox Content="Exclude files including:" Margin="2,4,2,2" Grid.Row="1" IsChecked="{Binding FL_ExcText}"/>
-                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_ExcTextStr}"  VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Exclude files including:" Margin="2,4,2,2" Grid.Row="1" IsChecked="{Binding CF_ExcText}"/>
+                            <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding CF_ExcTextStr}"  VerticalContentAlignment="Center" Visibility="{Binding CF_Text_Visible}"/>
 
-                            <CheckBox Content="Include all sub folders" Margin="2,4,2,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" IsChecked="{Binding FL_Sub}"/>
+                            <CheckBox Content="Include all sub folders" Margin="2,4,2,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" IsChecked="{Binding CF_Sub}"/>
 
                         </Grid>
                     </GroupBox>
@@ -411,7 +413,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Click="Compare_Click" Content="Compare" Margin="10,2,2,2" Width="80" Grid.Column="0"/>
+                        <Button Click="CF_Compare_Click" Content="Compare" Margin="10,2,2,2" Width="80" Grid.Column="0"/>
 
                     </Grid>
 
@@ -428,4 +430,6 @@
 
     </Grid>
 
+    </ScrollViewer>
+    
 </UserControl>

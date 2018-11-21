@@ -252,7 +252,22 @@ namespace CDTUserControl.Usercontrols
         {
             vm.ClearStatusText();
         }
-                
+
+        public void SetMetaHeaderC(string p_Value)
+        {
+            vm.SetMetaHeaderC(p_Value);
+        }
+
+        public void SetMetaHeader(string p_Value)
+        {
+            vm.SetMetaHeader(p_Value);
+        }
+
+        public void SetAddMetaDataChecked(bool p_Value)
+        {
+            vm.SetAddMetaDataChecked(p_Value);
+        }
+
         #endregion
 
         #region public send functions
@@ -398,6 +413,15 @@ namespace CDTUserControl.Usercontrols
             vm.SetHK32Index(p_Value);
         }
 
+        public string SendMetaHeader()
+        {
+            return vm.SendMetaHeader();
+        }
+
+        public bool SendAddMetaDataChecked()
+        {
+            return vm.SendAddMetaDataChecked();
+        }
         #endregion
     }
 }

@@ -286,7 +286,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorSave
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\EVRPresenter32.dll
-D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\EVRPresenter32.dll
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
@@ -307,4 +306,13 @@ C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\T
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\VisualViewerUserControl.g.cs
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.cache
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl_MarkupCompile.lref
-D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\DataPrepUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\FileManagerUserControl.g.cs
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.DataGrid.v6.6.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Controls.v6.6.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.DataGrid.v6.6.xml
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Controls.v6.6.xml
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.DataGrid.v6.6.XmlSerializers.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\bin\Debug\Xceed.Wpf.Controls.v6.6.XmlSerializers.dll
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\DataPrepUserControl.baml
+D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\FileManagerUserControl.baml

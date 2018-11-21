@@ -43,6 +43,10 @@ namespace CDTUserControl.Viewmodels
         private bool _DefaultDeviceChecked;
         private bool _UsesDir1Checked = true;
 
+        private bool _AddMetaDataChecked = true;
+        private string _MetaHeader;
+        private string _MetaHeaderC;
+
         ObservableCollection<String> _DeviceItems = new ObservableCollection<String>();
         ObservableCollection<String> _HeadRowItems = new ObservableCollection<String> {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
         ObservableCollection<String> _TabItems = new ObservableCollection<String> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -51,6 +55,7 @@ namespace CDTUserControl.Viewmodels
 
         public Visibility DeviceVisibility { get { return _DefaultDeviceChecked ? Visibility.Collapsed: Visibility.Visible; } }
         public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility MetaVisibility { get { return _AddMetaDataChecked ? Visibility.Visible : Visibility.Collapsed; } }
 
         private int _HK11;
         private int _HK12;
@@ -687,7 +692,59 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        
+
+
+        public String MetaHeader
+        {
+            get
+            {
+                return _MetaHeader;
+            }
+            set
+            {
+                if (_MetaHeader != value)
+                {
+                    _MetaHeader = value;
+                    RaisePropertyChanged("MetaHeader");
+                }
+            }
+        }
+
+
+        public String MetaHeaderC
+        {
+            get
+            {
+                return _MetaHeaderC;
+            }
+            set
+            {
+                if (_MetaHeaderC != value)
+                {
+                    _MetaHeaderC = value;
+                    RaisePropertyChanged("MetaHeaderC");
+                }
+            }
+        }
+
+
+        public bool AddMetaDataChecked
+        {
+            get
+            {
+                return _AddMetaDataChecked;
+            }
+            set
+            {
+                if (_AddMetaDataChecked != value)
+                {
+                    _AddMetaDataChecked = value;
+                    RaisePropertyChanged("AddMetaDataChecked");
+                    RaisePropertyChanged("MetaVisibility");
+                }
+            }
+        }
+
         public ObservableCollection<String> DeviceItems { get { return _DeviceItems; } }
         public ObservableCollection<String> HeadRowItems { get { return _HeadRowItems; } }
         public ObservableCollection<String> TabItems { get { return _TabItems; } }
@@ -949,8 +1006,26 @@ namespace CDTUserControl.Viewmodels
             _HK32 = p_Value;
             RaisePropertyChanged("HK32");
         }
-        #endregion
         
+        public void SetMetaHeaderC(string p_Value)
+        {
+            _MetaHeaderC = p_Value;
+            RaisePropertyChanged("MetaHeaderC");
+        }
+
+        public void SetMetaHeader(string p_Value)
+        {
+            _MetaHeader = p_Value;
+            RaisePropertyChanged("MetaHeader");
+        }
+
+        public void SetAddMetaDataChecked(bool p_Value)
+        {
+            _AddMetaDataChecked = p_Value;
+            RaisePropertyChanged("AddMetaDataChecked");
+        }
+        #endregion
+
 
         #region public send functions
 
@@ -1068,6 +1143,16 @@ namespace CDTUserControl.Viewmodels
         public int SendHK32Index()
         {
             return HK32;
+        }
+
+        public string SendMetaHeader()
+        {
+            return MetaHeader;
+        }
+
+        public bool SendAddMetaDataChecked()
+        {
+            return AddMetaDataChecked;
         }
         #endregion
 

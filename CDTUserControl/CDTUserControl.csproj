@@ -141,8 +141,10 @@
       <DependentUpon>VisualViewerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Viewmodels\AnalysisViewModel.cs" />
+    <Compile Include="Viewmodels\DataPrepViewModel.cs" />
     <Compile Include="Viewmodels\EditorLoadUserControlViewModel.cs" />
     <Compile Include="Viewmodels\EditorUserControlViewModel.cs" />
+    <Compile Include="Viewmodels\FileManagerViewModel.cs" />
     <Compile Include="Viewmodels\LicenseManagerViewModel.cs" />
     <Compile Include="Viewmodels\EditorOptionsUserControlViewModel.cs" />
     <Compile Include="Viewmodels\PlayerUsercontrolViewModel.cs" />

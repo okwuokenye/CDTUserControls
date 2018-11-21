@@ -231,6 +231,27 @@ namespace CDTUserControl.Usercontrols
             vm.SetExampleText(p_Value);
         }
 
+        public void SetMetaHeaderC(string p_Value)
+        {
+            vm.SetMetaHeaderC(p_Value);
+        }
+
+        public void SetMetaHeader(string p_Value)
+        {
+            vm.SetMetaHeader(p_Value);
+        }
+
+        public void SetAddMetaDataChecked(bool p_Value)
+        {
+            vm.SetAddMetaDataChecked(p_Value);
+        }
+
+
+        public void SetExampleMeta(string p_value)
+        {
+            vm.SetExampleMeta(p_value);
+        }
+
         #endregion
 
         #region public send functions
@@ -284,7 +305,18 @@ namespace CDTUserControl.Usercontrols
         {
             return vm.SendUsesDir1Checked();
         }
-        
+
+
+        public string SendMetaHeader()
+        {
+            return vm.SendMetaHeader();
+        }
+
+        public bool SendAddMetaDataChecked()
+        {
+            return vm.SendAddMetaDataChecked();
+        }
+
         #endregion
     }
 }

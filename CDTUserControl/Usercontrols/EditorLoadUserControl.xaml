@@ -9,6 +9,8 @@
              
     Style="{StaticResource ControlStyle}">
 
+    <ScrollViewer VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        
                 <Grid>
 
                     <Grid.RowDefinitions>
@@ -52,6 +54,7 @@
                     <RowDefinition Height="28" />
                     <RowDefinition Height="28" />
                     <RowDefinition Height="28" />
+                    <RowDefinition Height="28" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
@@ -80,7 +83,11 @@
                 <TextBox  Grid.Row="4" Grid.Column="1" Margin="2 4 2 4"  Text="{Binding SceneHeader}" VerticalContentAlignment="Center"/>
                 <TextBox  Grid.Row="4" Grid.Column="2" Margin="2 4 2 4" Text="{Binding SceneHeaderC}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
-                <Button Content="Reload Headers" Margin="2,2,2,2" Click="ReloadHeadsClick" Grid.Row="5" Grid.Column="1" />
+                <CheckBox Content="Add MetaData String" Grid.Row="5" Grid.Column="0" Margin="2 4 2 4" VerticalContentAlignment="Center" IsChecked="{Binding AddMetaDataChecked}"/>
+                <TextBox  Grid.Row="5" Grid.Column="1" Margin="2 4 2 4" Text="{Binding MetaHeader}"  VerticalContentAlignment="Center" Visibility="{Binding MetaVisibility}"/>
+                <TextBox  Grid.Row="5" Grid.Column="2" Margin="2 4 2 4" Text="{Binding MetaHeaderC}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="{Binding MetaVisibility}"/>
+                
+                <Button Content="Reload Headers" Margin="2,2,2,2" Click="ReloadHeadsClick" Grid.Row="6" Grid.Column="1" />
                 
             </Grid>
 
@@ -92,6 +99,7 @@
                     <RowDefinition Height="28" />
                     <RowDefinition Height="28" />
                     <RowDefinition Height="56" />
+                    <RowDefinition Height="28" />
                     <RowDefinition Height="28" />
                     <RowDefinition Height="56" />
                     <RowDefinition Height="56" />
@@ -114,10 +122,13 @@
                 <Label Content="FileName:" Grid.Row="3" Grid.Column="0" Margin="2 2 2 2" />
                 <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" VerticalContentAlignment="Center" Text="{Binding ExampleFilename}"/>
 
-                <Label Content="Text:" Grid.Row="4" Grid.Column="0" Margin="2 2 2 2" />
-                <TextBox  Grid.Row="4" Grid.Column="1" Margin="2 4 2 4" VerticalContentAlignment="Center" Text="{Binding ExampleText}" TextWrapping="Wrap"/>
+                <Label Content="MetaData:" Grid.Row="4" Grid.Column="0" Margin="2 2 2 2" />
+                <TextBox  Grid.Row="4" Grid.Column="1" Margin="2 4 2 4" VerticalContentAlignment="Center" Text="{Binding ExampleMeta}" TextWrapping="Wrap"/>
 
-                <TextBlock  Text="Please check the above values are right for your current row (you can change row and it will reload). Press Open Editor once you are happy with the setup." FontSize="10" TextWrapping="Wrap" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="2 4 2 4" />
+                <Label Content="Text:" Grid.Row="5" Grid.Column="0" Margin="2 2 2 2" />
+                <TextBox  Grid.Row="5" Grid.Column="1" Margin="2 4 2 4" VerticalContentAlignment="Center" Text="{Binding ExampleText}" TextWrapping="Wrap"/>
+
+                <TextBlock  Text="Please check the above values are right for your current row (you can change row and it will reload). Press Open Editor once you are happy with the setup." FontSize="10" TextWrapping="Wrap" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="2 4 2 4" />
 
             </Grid>
         </GroupBox>
@@ -158,6 +169,7 @@
         <TextBlock  Grid.Row="5" Margin="2 0 2 0" VerticalAlignment="Center" Text="{Binding StatusWarn}" />
         
     </Grid>
-    
-    
+
+    </ScrollViewer>
+
 </UserControl>

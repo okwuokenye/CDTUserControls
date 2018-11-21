@@ -19,6 +19,7 @@ namespace CDTUserControl.Viewmodels
         private string _StatusWarn;
         private int _EditorIndex;
         private bool _UsesDir1Checked = true;
+        private bool _AddMetaDataChecked = true;
 
         private string _AssetFolder1;
         private string _DirHeader1;
@@ -26,23 +27,27 @@ namespace CDTUserControl.Viewmodels
         private string _TextHeader1;
         private string _CharHeader;
         private string _SceneHeader;
+        private string _MetaHeader;
 
         private string _DirHeader1C;
         private string _FileHeader1C;
         private string _TextHeader1C;
         private string _CharHeaderC;
         private string _SceneHeaderC;
+        private string _MetaHeaderC;
 
         ObservableCollection<String> _EditorItems = new ObservableCollection<String> { "Adobe Audition 3.0", "Adobe Audition CC"};
         
         public Visibility Dir1Visibility { get { return _UsesDir1Checked ? Visibility.Visible : Visibility.Collapsed; } }
 
+        public Visibility MetaVisibility { get { return _AddMetaDataChecked ? Visibility.Visible : Visibility.Collapsed; } }
 
         private string _ExampleChar;
         private string _ExampleScene;
         private string _ExampleFilename;
         private string _ExampleText;
         private string _ExamplePath;
+        private string _ExampleMeta;
 
 
         #endregion
@@ -74,6 +79,21 @@ namespace CDTUserControl.Viewmodels
 
         #region properties
 
+        public String ExampleMeta
+        {
+            get
+            {
+                return _ExampleMeta;
+            }
+            set
+            {
+                if (_ExampleMeta != value)
+                {
+                    _ExampleMeta = value;
+                    RaisePropertyChanged("ExampleMeta");
+                }
+            }
+        }
         public String ExampleChar
         {
             get
@@ -340,7 +360,22 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-                
+
+        public String MetaHeader
+        {
+            get
+            {
+                return _MetaHeader;
+            }
+            set
+            {
+                if (_MetaHeader != value)
+                {
+                    _MetaHeader = value;
+                    RaisePropertyChanged("MetaHeader");
+                }
+            }
+        }
         public String CharHeaderC
         {
             get
@@ -372,7 +407,23 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        
+
+        public String MetaHeaderC
+        {
+            get
+            {
+                return _MetaHeaderC;
+            }
+            set
+            {
+                if (_MetaHeaderC != value)
+                {
+                    _MetaHeaderC = value;
+                    RaisePropertyChanged("MetaHeaderC");
+                }
+            }
+        }
+
         public bool UsesDir1Checked
         {
             get
@@ -389,7 +440,23 @@ namespace CDTUserControl.Viewmodels
                 }
             }
         }
-        
+
+        public bool AddMetaDataChecked
+        {
+            get
+            {
+                return _AddMetaDataChecked;
+            }
+            set
+            {
+                if (_AddMetaDataChecked != value)
+                {
+                    _AddMetaDataChecked = value;
+                    RaisePropertyChanged("AddMetaDataChecked");
+                    RaisePropertyChanged("MetaVisibility");
+                }
+            }
+        }
         public int EditorIndex
         {
             get
@@ -498,7 +565,12 @@ namespace CDTUserControl.Viewmodels
             _SceneHeader = p_Value;
             RaisePropertyChanged("SceneHeader");
         }
-        
+
+        public void SetMetaHeader(string p_Value)
+        {
+            _MetaHeader = p_Value;
+            RaisePropertyChanged("MetaHeader");
+        }
         public void SetCharHeaderC(string p_Value)
         {
             _CharHeaderC = p_Value;
@@ -510,7 +582,13 @@ namespace CDTUserControl.Viewmodels
             _SceneHeaderC = p_Value;
             RaisePropertyChanged("SceneHeaderC");
         }
-                
+
+        public void SetMetaHeaderC(string p_Value)
+        {
+            _MetaHeaderC = p_Value;
+            RaisePropertyChanged("MetaHeaderC");
+        }
+
         public void SetEditorIndex(int p_Value)
         {
             _EditorIndex = p_Value;
@@ -554,6 +632,18 @@ namespace CDTUserControl.Viewmodels
             _ExampleText = p_value;
             RaisePropertyChanged("ExampleText");
         }
+
+        public void SetExampleMeta(string p_value)
+        {
+            _ExampleMeta = p_value;
+            RaisePropertyChanged("ExampleMeta");
+        }
+        public void SetAddMetaDataChecked(bool p_Value)
+        {
+            _AddMetaDataChecked = p_Value;
+            RaisePropertyChanged("AddMetaDataChecked");
+        }
+
         #endregion
 
         #region commands
@@ -632,7 +722,11 @@ namespace CDTUserControl.Viewmodels
         {
             return SceneHeader;
         }
-        
+
+        public string SendMetaHeader()
+        {
+            return MetaHeader;
+        }
         public int SendEditorIndex()
         {
             return EditorIndex;
@@ -642,7 +736,11 @@ namespace CDTUserControl.Viewmodels
         {
             return UsesDir1Checked;
         }
-        
+
+        public bool SendAddMetaDataChecked()
+        {
+            return AddMetaDataChecked;
+        }
         #endregion
 
 

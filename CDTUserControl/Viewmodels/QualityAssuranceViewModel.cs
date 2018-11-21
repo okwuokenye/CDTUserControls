@@ -179,6 +179,7 @@ namespace CDTUserControl.Viewmodels
 
         #region Compare Cols
         ObservableCollection<string> _CompareCols_CompareColumns = new ObservableCollection<string>();
+
                 int _CompareCols_CompareIndex = 0;
         int _CompareCols_WithIndex = 0;
 

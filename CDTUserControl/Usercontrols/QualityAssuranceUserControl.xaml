@@ -10,7 +10,10 @@
              d:DesignWidth="350"
     Style="{StaticResource ControlStyle}">
 
-    <Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
@@ -487,4 +490,9 @@
         </StackPanel>
 
     </Grid>
+
+
+
+    </ScrollViewer>
+
 </UserControl>

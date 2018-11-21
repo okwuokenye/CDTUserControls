@@ -9,7 +9,10 @@
                           
     Style="{StaticResource ControlStyle}">
 
-    <Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="24" />
@@ -70,7 +73,7 @@
                             <TextBlock Text="Ignore column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="2" Grid.Row="2"/>
                             <ComboBox Grid.Column="3" Grid.Row="2" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding DBR_ColIndex6}"/>
 
-                            <Button Click="DeleteRows_Click" Content="Delete Blank Rows" Margin="2,2,2,2" Width="120" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                            <Button Click="F_DeleteRows_Click" Content="Delete Blank Rows" Margin="2,2,2,2" Width="120" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
                             <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
                             
 
@@ -93,7 +96,7 @@
                         <RadioButton GroupName="JT" Content="Selected columns" Margin="2,2,2,2" Grid.Column="0" />
                         <RadioButton GroupName="JT" IsChecked="{Binding JT_TextCol}" Content="Text column" Margin="2,2,2,2" Grid.Column="1"/>
 
-                        <Button Click="Jumble_Click" Content="Jumble Text" Margin="2,2,2,2" Width="120" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                        <Button Click="F_Jumble_Click" Content="Jumble Text" Margin="2,2,2,2" Width="120" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
                         <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
                             
                         </Grid>
@@ -113,7 +116,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Button Click="Jumble_Click" Content="Jumble Text" Margin="2,6,2,4" Width="120" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                            <Button Click="F_Fill_Click" Content="Fill from Above" Margin="2,6,2,4" Width="120" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
                             <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
 
                         </Grid>
@@ -134,8 +137,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Button Click="ResetLast_Click" Content="Reset Last Cell" Margin="2,6,2,4" Width="120" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
-                            <Button Click="AddRowNo_Click" Content="Add Row Numbers" Margin="2,6,2,4" Width="120" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <Button Click="F_ResetLast_Click" Content="Reset Last Cell" Margin="2,6,2,4" Width="120" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                            <Button Click="F_AddRowNo_Click" Content="Add Row Numbers" Margin="2,6,2,4" Width="120" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"/>
 
                         </Grid>
 
@@ -315,7 +318,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                        <Button Click="Jumble_Click" Content="Extract Brackets" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <Button Click="C_Run_Click" Content="Run Cleaning" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"/>
                         <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalContentAlignment="Center"/>
 
                     </Grid>
@@ -409,7 +412,7 @@
 
                     </GroupBox>
 
-                    <Button Click="Jumble_Click" Content="Extract Brackets" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"/>
+                    <Button Click="B_Extract_Click" Content="Extract Brackets" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"/>
                     <CheckBox IsChecked="{Binding DBR_Selection}" Content="Run on selection only"  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalContentAlignment="Center"/>
                     
                 </Grid>
@@ -507,7 +510,7 @@
 
                             </Grid>
 
-                            <Button Content="Add Element" Grid.Row="4" Grid.Column="0" Margin="2 4 4 4" Click="CS_Reload_Click" Width="120" HorizontalAlignment="Left"/>
+                            <Button Content="Add Element" Grid.Row="4" Grid.Column="0" Margin="2 4 4 4" Click="FN_Add_Click" Width="120" HorizontalAlignment="Left"/>
                         </Grid>
 
 
@@ -537,10 +540,10 @@
                             <TextBox  Grid.Row="0" Grid.Column="4" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="0" Grid.Column="5" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center"/>
 
-                            <Button Content="Move Left" Grid.Row="1" Grid.Column="0" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
-                            <Button Content="Move Right" Grid.Row="1" Grid.Column="1" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
-                            <Button Content="Remove" Grid.Row="1" Grid.Column="2" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
-                            <Button Content="Reset" Grid.Row="1" Grid.Column="3" Margin="4 4 4 4" Click="CS_Reload_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Move Left" Grid.Row="1" Grid.Column="0" Margin="4 4 4 4" Click="FN_Left_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Move Right" Grid.Row="1" Grid.Column="1" Margin="4 4 4 4" Click="FN_Right_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Remove" Grid.Row="1" Grid.Column="2" Margin="4 4 4 4" Click="FN_Remove_Click" HorizontalAlignment="Stretch"/>
+                            <Button Content="Reset" Grid.Row="1" Grid.Column="3" Margin="4 4 4 4" Click="FN_Reset_Click" HorizontalAlignment="Stretch"/>
                         </Grid>
 
 
@@ -580,7 +583,7 @@
 
                             <TextBlock Text="Target Column:" VerticalAlignment="Center" Margin="2,2,2,2" Grid.Column="1" Grid.Row="0"/>
                             <ComboBox Grid.Column="2" Grid.Row="0" Width="60" Margin="10,4,2,4" ItemsSource="{Binding ColumnItems}" SelectedIndex="{Binding Bracket_ColIndex1}" HorizontalAlignment="Left"/>
-                            <Button Content="Insert Names" Grid.Row="0" Grid.Column="0" Margin="2 4 4 4" Click="CS_Reload_Click" Width="120" HorizontalAlignment="Left"/>
+                            <Button Content="Insert Names" Grid.Row="0" Grid.Column="0" Margin="2 4 4 4" Click="FN_Insert_Click" Width="120" HorizontalAlignment="Left"/>
 
                         </Grid>
 
@@ -634,7 +637,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button Click="Character_Click" Content="Apply Changes" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
+                    <Button Click="CS_Apply_Click" Content="Apply Changes" Margin="4,6,2,4" Width="120" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"/>
 
 
                 </Grid>
@@ -652,4 +655,6 @@
 
     </Grid>
 
+    </ScrollViewer>
+    
 </UserControl>

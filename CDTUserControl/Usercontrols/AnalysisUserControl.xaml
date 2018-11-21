@@ -9,7 +9,10 @@
              
     Style="{StaticResource ControlStyle}">
 
-    <Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="24" />
@@ -174,4 +177,6 @@
         
     </Grid>
 
+    </ScrollViewer>
+    
 </UserControl>
