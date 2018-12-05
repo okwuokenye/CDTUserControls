@@ -113,7 +113,7 @@ namespace CDTUserControl.Viewmodels
         {
             RowEnterHitEvent();
         }
-        public ICommand Navigate { get { return new RelayCommand(RowEnterHitExecute); } }
+        public ICommand RowEnterHit { get { return new RelayCommand(RowEnterHitExecute); } }
 
         #endregion
 
@@ -124,9 +124,19 @@ namespace CDTUserControl.Viewmodels
             return this;
         }
 
-        public void SetStatusPane(String p_Value)
+        public void SetStatusPane(string p_Value)
         {
             _StatusPane = p_Value;
+        }
+
+        public void SetFileName(string p_Value)
+        {
+            _FileName = p_Value;
+        }
+
+        public void SetRowNo(string p_Value)
+        {
+            _RowNo = p_Value;
         }
 
         public void RefreshVM()

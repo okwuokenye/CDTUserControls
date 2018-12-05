@@ -30,6 +30,7 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
         #region Properties
+
         string _StatusPane;
         public string StatusPane { get { return _StatusPane; } }
 
@@ -118,7 +119,7 @@ namespace CDTUserControl.Viewmodels
 
         #endregion
 
-        #region Export Files
+        #region Project Overview
         
         string _PO_Root;
         
@@ -126,7 +127,7 @@ namespace CDTUserControl.Viewmodels
 
         #endregion
 
-        #region Export Files
+        #region Compare Folders
 
         string _CF_Master_Root;
         string _CF_Second_Root;
@@ -147,6 +148,7 @@ namespace CDTUserControl.Viewmodels
         public Visibility CF_Text_Visible { get { return _CF_ExcText ? Visibility.Visible : Visibility.Collapsed; } }
 
         #endregion
+
         #endregion
 
         #region public methods

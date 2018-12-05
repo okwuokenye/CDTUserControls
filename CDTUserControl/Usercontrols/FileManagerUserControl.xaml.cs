@@ -27,7 +27,7 @@ namespace CDTUserControl.Usercontrols
 
         public delegate void ExpanderChangeEventHandler(int WhichExpanded);
         public event ExpanderChangeEventHandler ExpanderChangeEvent;
-                
+
         #endregion
 
         #region Constructor
@@ -56,37 +56,44 @@ namespace CDTUserControl.Usercontrols
 
         void Expander_Expanded(object sender, RoutedEventArgs e)
         {
-            if (e.Source is Expander)
+            try
             {
-                var exp1 = (Expander)sender;
-                foreach (Expander exp in ExpanderGrid.Children)
+                if (e.Source is Expander)
                 {
-                    string h = exp.Header.ToString();
-                    if (exp != exp1)
+                    var exp1 = (Expander)sender;
+                    foreach (Expander exp in ExpanderGrid.Children)
                     {
-                        exp.IsExpanded = false;
+                        string h = exp.Header.ToString();
+                        if (exp != exp1)
+                        {
+                            exp.IsExpanded = false;
+                        }
+                    }
+                    if (ControlIsLoaded)
+                    {
+                        string head = exp1.Header.ToString();
+                        if (head == "File List")
+                        {
+                            ExpanderChangeEvent(0);
+                        }
+                        else if (head == "Export Files")
+                        {
+                            ExpanderChangeEvent(1);
+                        }
+                        else if (head == "Project Overview")
+                        {
+                            ExpanderChangeEvent(2);
+                        }
+                        else if (head == "Compare Folders")
+                        {
+                            ExpanderChangeEvent(3);
+                        }
                     }
                 }
-                //if (ControlIsLoaded)
-                //{
-                //    string head = exp1.Header.ToString();
-                //    if (head == "File List")
-                //    {
-                //        ExpanderChangeEvent(0);
-                //    }
-                //    else if (head == "Export Files")
-                //    {
-                //        ExpanderChangeEvent(1);
-                //    }
-                //    else if (head == "Project Overview")
-                //    {
-                //        ExpanderChangeEvent(2);
-                //    }
-                //    else if (head == "Compare Folders")
-                //    {
-                //        ExpanderChangeEvent(3);
-                //    }
-                //}
+            }
+            catch (Exception ex)
+            {            
+            
             }
         }
 

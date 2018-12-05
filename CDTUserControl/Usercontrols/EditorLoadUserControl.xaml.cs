@@ -317,6 +317,11 @@ namespace CDTUserControl.Usercontrols
             return vm.SendAddMetaDataChecked();
         }
 
+        public void LoadVisible()
+        {
+            vm.LoadVisible();
+        }
+        
         #endregion
     }
 }

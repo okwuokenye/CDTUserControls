@@ -27,7 +27,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Expander Header="File List"  Grid.Row="0" IsExpanded="False" Expanded="Expander_Expanded">
+            <Expander Header="File List"  Grid.Row="0" IsExpanded="True" Expanded="Expander_Expanded">
 
                 <Grid>
 
@@ -50,11 +50,11 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="130" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="30" />
-                                <ColumnDefinition Width="60" />
-                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="55" />
+                                <ColumnDefinition Width="55" />
                             </Grid.ColumnDefinitions>
 
                             <TextBox Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" Text="{Binding FL_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
@@ -64,13 +64,13 @@
 
                             <ListBox MinHeight="100" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding FL_FileList}"/>
 
-                            <CheckBox Content="Include only extension:" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding FL_IncExt}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Inc. only extension:" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding FL_IncExt}" VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_IncExtStr}"  VerticalContentAlignment="Center" Visibility="{Binding FL_Ext_Visible}"/>
 
-                            <CheckBox Content="Exclude files including:" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding FL_ExcText}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Exc. files including:" Margin="2,4,2,2" Grid.Row="3" IsChecked="{Binding FL_ExcText}" VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="3" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_ExcTextStr}"  VerticalContentAlignment="Center" Visibility="{Binding FL_Text_Visible}"/>
 
-                            <CheckBox Content="Include all sub folders" Margin="8,4,2,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Sub}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Include sub folders" Margin="8,4,2,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Sub}" VerticalContentAlignment="Center"/>
                             <CheckBox Content="Add to existing" Margin="8,4,2,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" IsChecked="{Binding FL_Add}" VerticalContentAlignment="Center"/>
 
                         </Grid>

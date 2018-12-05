@@ -741,6 +741,13 @@ namespace CDTUserControl.Viewmodels
         {
             return AddMetaDataChecked;
         }
+
+        public void LoadVisible()
+        {
+            RaisePropertyChanged("Dir1Visibility");
+            RaisePropertyChanged("MetaVisibility");
+        }
+
         #endregion
 
 

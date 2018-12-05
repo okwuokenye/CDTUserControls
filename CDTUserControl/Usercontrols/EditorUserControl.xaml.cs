@@ -120,7 +120,17 @@ namespace CDTUserControl.Usercontrols
         {
             vm.SetStatusPane(p_Value);
         }
-        
+
+        public void SetFileName(string p_Value)
+        {
+            vm.SetFileName(p_Value);
+        }
+
+        public void SetRowNo(string p_Value)
+        {
+            vm.SetRowNo(p_Value);
+        }
+
         public EditorUserControlViewModel getVM()
         {
             return vm.getVM();
