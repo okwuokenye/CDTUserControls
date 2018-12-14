@@ -44,7 +44,7 @@
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="28" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="150" />
                                 <RowDefinition Height="28" />
                                 <RowDefinition Height="28" />
                             </Grid.RowDefinitions>
@@ -62,7 +62,7 @@
                             <Button Content="Load" Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="FL_Load_Click"/>
                             <Button Content="Clear" Grid.Row="0" Grid.Column="4" Margin="2 4 4 4" Click="FL_Clear_Click"/>
 
-                            <ListBox MinHeight="100" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding FL_FileList}"/>
+                                <ListBox Name="FileListDrop" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding FL_FileList}" Drop="DropList_Drop" DragEnter="DropList_DragEnter" AllowDrop="True"/>
 
                             <CheckBox Content="Inc. only extension:" Margin="2,4,2,2" Grid.Row="2" IsChecked="{Binding FL_IncExt}" VerticalContentAlignment="Center"/>
                             <TextBox  Grid.Row="2" Grid.Column="1" Margin="2 4 2 4" Text="{Binding FL_IncExtStr}"  VerticalContentAlignment="Center" Visibility="{Binding FL_Ext_Visible}"/>
@@ -92,7 +92,7 @@
 
                             <CheckBox Content="Audio metadata" Margin="8,4,2,2" Grid.Column="0" IsChecked="{Binding FL_Audio}" VerticalContentAlignment="Center"/>
                             <CheckBox Content="File details" Margin="8,4,2,2" Grid.Column="1" IsChecked="{Binding FL_File}" VerticalContentAlignment="Center"/>
-                            <CheckBox Content="Corruption Indicators" Margin="8,4,2,2" Grid.Column="2" IsChecked="{Binding FL_Corrupt}" VerticalContentAlignment="Center"/>
+                            <CheckBox Content="Corrupt markers" Margin="8,4,2,2" Grid.Column="2" IsChecked="{Binding FL_Corrupt}" VerticalContentAlignment="Center"/>
 
 
                         </Grid>
@@ -127,8 +127,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <RadioButton GroupName="EF" IsChecked="{Binding EF_MakePath}" Content="Path, Directory and FileName" Margin="2,2,2,2" Grid.Column="0" />
-                            <RadioButton GroupName="EF" Content="Full Path in Column" Margin="2,2,2,2" Grid.Column="1"/>
+                            <RadioButton GroupName="EF" IsChecked="{Binding EF_MakePath}" Content="Path, Directory and FileName" Margin="2,4,2,2" Grid.Column="0" />
+                            <RadioButton GroupName="EF" Content="Full Path in Column" Margin="2,4,2,2" Grid.Column="1"/>
 
                         </Grid>
                     </GroupBox>
@@ -151,7 +151,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Label Content="Asset Path:" Grid.Row="0" Grid.Column="0" Visibility="{Binding EF_MakePath_Visible}"/>
-                            <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" Visibility="{Binding EF_MakePath_Visible}"/>
+                                <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Origin_Root}"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" Visibility="{Binding EF_MakePath_Visible}"/>
                             <Button Content="..." Grid.Row="0" Grid.Column="3" Margin="2 4 4 4" Click="EF_Root1_Click" Visibility="{Binding EF_MakePath_Visible}"/>
 
                             <GroupBox  Grid.Row="1" Header="Column Headers"  BorderThickness="1" Height="Auto" Grid.ColumnSpan="4" Visibility="{Binding EF_MakePath_Visible}">
@@ -168,12 +168,12 @@
                                     </Grid.ColumnDefinitions>
 
                                     <CheckBox Content="Directory" Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" IsChecked="{Binding EF_IsDir1}" VerticalContentAlignment="Center"/>
-                                    <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Directory1}" Visibility="{Binding EF_Directory1_Visible}" />
-                                    <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_Directory_Col1}" Visibility="{Binding EF_Directory1_Visible}"/>
+                                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Directory1}" Visibility="{Binding EF_Directory1_Visible}" VerticalContentAlignment="Center"/>
+                                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_Directory_Col1}" Visibility="{Binding EF_Directory1_Visible}" VerticalContentAlignment="Center"/>
 
                                     <Label Content="Filename" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                                    <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_FileName1}"/>
-                                    <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_FileName_Col1}"/>
+                                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_FileName1}" VerticalContentAlignment="Center"/>
+                                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_FileName_Col1}" VerticalContentAlignment="Center"/>
 
                                 </Grid>
 
@@ -225,12 +225,12 @@
                                     </Grid.ColumnDefinitions>
 
                                     <CheckBox Content="Directory" Grid.Row="0" Grid.Column="0" Margin="2 4 2 4" IsChecked="{Binding EF_IsDir2}" VerticalContentAlignment="Center"/>
-                                    <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Directory2}" Visibility="{Binding EF_Directory2_Visible}" />
-                                    <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_Directory_Col2}" Visibility="{Binding EF_Directory2_Visible}"/>
+                                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_Directory2}" Visibility="{Binding EF_Directory2_Visible}" VerticalContentAlignment="Center"/>
+                                        <TextBox  Grid.Row="0" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_Directory_Col2}" Visibility="{Binding EF_Directory2_Visible}" VerticalContentAlignment="Center"/>
 
                                     <Label Content="Filename" Grid.Row="1" Grid.Column="0" Margin="2 2 2 2" VerticalContentAlignment="Center" />
-                                    <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_FileName2}"/>
-                                    <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_FileName_Col2}"/>
+                                        <TextBox  Grid.Row="1" Grid.Column="1" Margin="2 4 2 4" Text="{Binding EF_FileName2}" VerticalContentAlignment="Center"/>
+                                        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2 4 2 4" Text="{Binding EF_FileName_Col2}" VerticalContentAlignment="Center"/>
 
                                 </Grid>
 
@@ -318,18 +318,26 @@
                             <Button Content="Collapse All" Grid.Row="0" Grid.Column="2" Margin="2 4 4 4" Click="PO_Collapse_Click" Width="80"/>
 
                             <!-- Add a Xceed DataGridControl. -->
-                            <xcdg:DataGridControl x:Name="grid" ReadOnly="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                                <xcdg:DataGridControl x:Name="grid" ReadOnly="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding PO_Table}" >
 
                                 <xcdg:DataGridControl.Columns>
-                                    <xcdg:Column FieldName="Name" IsMainColumn="True" Width="200" />
-                                    <xcdg:Column FieldName="Sub-folders" />
-                                    <xcdg:Column FieldName="Files" />
-                                    <xcdg:Column FieldName="wav Files" />
-                                    <xcdg:Column FieldName="Primary wav Files" />
-                                    <xcdg:Column FieldName="Alt wav Files" />
+                                    <xcdg:Column FieldName="Id" IsMainColumn="True" Width="200" />
+                                    <xcdg:Column FieldName="Name" />
+                                    <xcdg:Column FieldName="ParentId" />
+                                    <xcdg:Column FieldName="Parent" />
                                 </xcdg:DataGridControl.Columns>
 
-                            </xcdg:DataGridControl>
+
+                                    <!--<xcdg:DataGridControl.Columns>
+                                        <xcdg:Column FieldName="Name" IsMainColumn="True" Width="200" />
+                                        <xcdg:Column FieldName="Sub-folders" />
+                                        <xcdg:Column FieldName="Files" />
+                                        <xcdg:Column FieldName="wav Files" />
+                                        <xcdg:Column FieldName="Primary wav Files" />
+                                        <xcdg:Column FieldName="Alt wav Files" />
+                                    </xcdg:DataGridControl.Columns>-->
+
+                                </xcdg:DataGridControl>
                         </Grid>
                     </GroupBox>
 

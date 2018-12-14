@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Windows.Forms.DataFormats;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -258,6 +259,35 @@ namespace CDTUserControl.Usercontrols
 
         #endregion
         #endregion
+        #region DragDrop
+
+        public delegate void FL_DropEventHandler(string[] files);
+        public event FL_DropEventHandler FL_DropEvent;
+
+        private void DropList_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop) ||
+                sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.Copy;
+            }
+        }
+
+        private void DropList_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {  
+            string[] files = (string[])(e.Data.GetData(DataFormats.FileDrop, false));
+            FL_DropEvent(files);
+            }
+        }
+
+        #endregion
+
 
     }
 }

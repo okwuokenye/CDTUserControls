@@ -73,8 +73,8 @@ namespace CDTUserControl.Viewmodels
         string _EF_Directory_Col1;
         string _EF_FileName1;
         string _EF_FileName_Col1;
-        string _EF_ExtStr;
-        bool _EF_Alts;
+        string _EF_ExtStr = ".wav";
+        bool _EF_Alts = true;
         string _EF_Dest_Root;
         bool _EF_IsDir2 = true;
         string _EF_Directory2;
@@ -114,7 +114,7 @@ namespace CDTUserControl.Viewmodels
         public Visibility EF_MakePath_Visible { get { return _EF_MakePath ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility EF_FullPath_Visible { get { return _EF_MakePath ? Visibility.Collapsed : Visibility.Visible; } }
         public Visibility EF_Export_Visible { get { return _EF_IsExport_Visible ? Visibility.Visible : Visibility.Collapsed; } }
-        public Visibility EF_Preview_Visible { get { return _EF_IsExport_Visible ? Visibility.Collapsed : Visibility.Visible; } }
+        public Visibility EF_Preview_Visible { get { return _EF_IsExport_Visible ? Visibility.Visible : Visibility.Collapsed; } }
         public DataTable EF_PreviewDataTable { get { return _EF_PreviewDataTable; } }
 
         #endregion
@@ -125,6 +125,9 @@ namespace CDTUserControl.Viewmodels
         
         public string PO_Root { get { return _PO_Root; } set { if (_PO_Root != value) { _PO_Root = value; } } }
 
+        DataTable _PO_Table;
+        public DataTable PO_Table { get { return _PO_Table; } set { _PO_Table = value; RaisePropertyChanged("PO_Table"); } }
+               
         #endregion
 
         #region Compare Folders
@@ -190,7 +193,22 @@ namespace CDTUserControl.Viewmodels
             _FL_FileList.Clear();
             RaisePropertyChanged("FL_FileList");
         }
-        
+
+
+        #endregion
+
+        #region Export Files
+
+        public void AddTo_EF_Columns(List<string> p_List)
+        {
+            _EF_ColumnItems.Clear();
+            foreach (var l in p_List)
+            {
+                _EF_ColumnItems.Add(l);
+            }
+            RaisePropertyChanged("EF_ColumnItems");
+        }
+
         #endregion
 
         #endregion
