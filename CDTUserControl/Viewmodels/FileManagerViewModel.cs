@@ -142,9 +142,9 @@ namespace CDTUserControl.Viewmodels
 
         public string CF_Master_Root { get { return _CF_Master_Root; } set { if (_CF_Master_Root != value) { _CF_Master_Root = value; } } }
         public string CF_Second_Root { get { return _CF_Second_Root; } set { if (_CF_Second_Root != value) { _CF_Second_Root = value; } } }
-        public bool CF_IncExt { get { return _CF_IncExt; } set { if (_CF_IncExt != value) { _CF_IncExt = value; } } }
+        public bool CF_IncExt { get { return _CF_IncExt; } set { if (_CF_IncExt != value) { _CF_IncExt = value; RaisePropertyChanged("CF_Ext_Visible"); } } }
         public string CF_IncExtStr { get { return _CF_IncExtStr; } set { if (_CF_IncExtStr != value) { _CF_IncExtStr = value; } } }
-        public bool CF_ExcText { get { return _CF_ExcText; } set { if (_CF_ExcText != value) { _CF_ExcText = value; } } }
+        public bool CF_ExcText { get { return _CF_ExcText; } set { if (_CF_ExcText != value) { _CF_ExcText = value; RaisePropertyChanged("CF_Text_Visible"); } } }
         public string CF_ExcTextStr { get { return _CF_ExcTextStr; } set { if (_CF_ExcTextStr != value) { _CF_ExcTextStr = value; } } }
         public bool CF_Sub { get { return _CF_Sub; } set { if (_CF_Sub != value) { _CF_Sub = value; } } }
         public Visibility CF_Ext_Visible { get { return _CF_IncExt ? Visibility.Visible : Visibility.Collapsed; } }

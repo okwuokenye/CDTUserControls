@@ -56,7 +56,7 @@ namespace CDTUserControl.Viewmodels
         public delegate void ReadingFontButtonEventHandler();
         public event ReadingFontButtonEventHandler ReadingFontButtonEvent;
 
-        public delegate void HighlightButtonEventHandler(Boolean p_Value);
+        public delegate void HighlightButtonEventHandler(Boolean p_Value, Color? p_Color);
         public event HighlightButtonEventHandler HighlightButtonEvent;
 
         public delegate void DeleteFontButtonEventHandler();
@@ -488,7 +488,7 @@ namespace CDTUserControl.Viewmodels
 
         private void HighlightExecute()
         {
-            HighlightButtonEvent(IsGoToFirst);
+            HighlightButtonEvent(IsGoToFirst,HighlightColor);
         }
         public ICommand Highlight { get { return new RelayCommand(HighlightExecute); } }
         
