@@ -227,7 +227,6 @@ E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorLoad
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorSaveButtonsUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\EditorUserControl.baml
 E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\SplashScreenUserControl.baml
-E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\EVRPresenter32.dll
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojAssemblyReference.cache
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\Usercontrols\ColorPickerWindow.baml
 C:\Users\pc\source\repos\CDTUserControls\CDTUserControl\obj\Debug\App.g.cs
@@ -317,3 +316,14 @@ D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csproj.Gen
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.dll
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.pdb
 D:\_Git Repos\CDTUserControls\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\CDTUserControl.csprojResolveAssemblyReference.cache
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\DataPrepUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.DataGrid.v6.6.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\FileManagerUserControl.g.cs
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\DataPrepUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\obj\Debug\Usercontrols\FileManagerUserControl.baml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Controls.v6.6.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Controls.v6.6.xml
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\Xceed.Wpf.Controls.v6.6.XmlSerializers.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\System.Windows.Forms.TreeListView.dll
+E:\CDT GIT Repos\CDTUserControl\CDTUserControl\bin\Debug\System.Runtime.InteropServices.APIs.dll

@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Windows.Forms.DataFormats;
+using System.IO;
+using System.Data;
+using System.Drawing;
 
 namespace CDTUserControl.Usercontrols
 {
@@ -23,6 +25,8 @@ namespace CDTUserControl.Usercontrols
     public partial class FileManagerUserControl : UserControl
     {
         bool ControlIsLoaded = false;
+        private readonly object _dummyNode = null;
+        System.Windows.Forms.TreeListView tvOverview;
 
         #region events
 
@@ -187,9 +191,34 @@ namespace CDTUserControl.Usercontrols
             EF_Export_ClickEvent();
         }
 
+        public void SetPreviewDataGrid(DataTable p_Tbl)
+        {
+            PreviewDataGrid.ItemsSource = p_Tbl.AsDataView();
+            PreviewDataGrid.Columns[0].Width = 50;
+            PreviewDataGrid.Columns[1].Width = 300;
+            PreviewDataGrid.Columns[2].Width = 300;
+        }
+
         #endregion
 
         #region Project Overview
+
+        public void ProjectOverviewLoad()
+        {
+            System.Windows.Forms.Integration.WindowsFormsHost host = new System.Windows.Forms.Integration.WindowsFormsHost();
+            
+            tvOverview = new System.Windows.Forms.TreeListView();
+            
+            System.Windows.Forms.ImageList myImageList = new System.Windows.Forms.ImageList();
+            BitmapImage bmp = new BitmapImage(new Uri("../Resources/mute.png", UriKind.Relative));
+
+            myImageList.Images.Add("0",bmp);
+
+            //tvOverview.SmallImageList = myImageList;
+            host.Child = tvOverview;
+            this.gridTree.Children.Add(host);
+        }
+        
         public delegate void PO_Root_ClickEventHandler();
         public event PO_Root_ClickEventHandler PO_Root_ClickEvent;
 
@@ -198,22 +227,23 @@ namespace CDTUserControl.Usercontrols
             PO_Root_ClickEvent();
         }
 
-        public delegate void PO_Load_ClickEventHandler();
+        public delegate void PO_Load_ClickEventHandler(System.Windows.Forms.TreeListView tv);
         public event PO_Load_ClickEventHandler PO_Load_ClickEvent;
 
         private void PO_Load_Click(object sender, RoutedEventArgs args)
         {
-            PO_Load_ClickEvent();
+            ProjectOverviewLoad();
+            PO_Load_ClickEvent(tvOverview);
         }
 
-        public delegate void PO_Clear_ClickEventHandler();
-        public event PO_Clear_ClickEventHandler PO_Clear_ClickEvent;
+        public delegate void PO_Reset_ClickEventHandler();
+        public event PO_Reset_ClickEventHandler PO_Reset_ClickEvent;
 
-        private void PO_Clear_Click(object sender, RoutedEventArgs args)
+        private void PO_Reset_Click(object sender, RoutedEventArgs args)
         {
-            PO_Clear_ClickEvent();
+            PO_Reset_ClickEvent();
         }
-
+        
         public delegate void PO_Expand_ClickEventHandler();
         public event PO_Expand_ClickEventHandler PO_Expand_ClickEvent;
 
@@ -290,4 +320,5 @@ namespace CDTUserControl.Usercontrols
 
 
     }
+    
 }

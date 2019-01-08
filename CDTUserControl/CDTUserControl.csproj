@@ -60,6 +60,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.TreeListView">
+      <HintPath>..\..\CDT\External DLLs\System.Windows.Forms.TreeListView.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -75,7 +78,9 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
-    <Reference Include="Xceed.Wpf.DataGrid.v6.6, Version=6.6.18312.21150, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.DataGrid.v6.6">
+      <HintPath>..\External DLLs\Xceed.Wpf.DataGrid.v6.6.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External DLLs\Xceed.Wpf.Toolkit.dll</HintPath>
@@ -288,6 +293,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\CDTcontroller.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\diskdrive.png" />
+    <Resource Include="Resources\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

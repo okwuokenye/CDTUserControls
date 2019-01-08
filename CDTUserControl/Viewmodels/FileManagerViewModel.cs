@@ -115,19 +115,28 @@ namespace CDTUserControl.Viewmodels
         public Visibility EF_FullPath_Visible { get { return _EF_MakePath ? Visibility.Collapsed : Visibility.Visible; } }
         public Visibility EF_Export_Visible { get { return _EF_IsExport_Visible ? Visibility.Visible : Visibility.Collapsed; } }
         public Visibility EF_Preview_Visible { get { return _EF_IsExport_Visible ? Visibility.Visible : Visibility.Collapsed; } }
-        public DataTable EF_PreviewDataTable { get { return _EF_PreviewDataTable; } }
+        public DataTable EF_PreviewDataTable { get { return _EF_PreviewDataTable; } set { if (_EF_PreviewDataTable != value) { _EF_PreviewDataTable = value; } } }
 
         #endregion
 
         #region Project Overview
-        
+
         string _PO_Root;
         
         public string PO_Root { get { return _PO_Root; } set { if (_PO_Root != value) { _PO_Root = value; } } }
 
         DataTable _PO_Table;
         public DataTable PO_Table { get { return _PO_Table; } set { _PO_Table = value; RaisePropertyChanged("PO_Table"); } }
-               
+
+        bool _PO_IsGrid_Visible = false;
+        public Visibility PO_Grid_Visible { get { return _PO_IsGrid_Visible ? Visibility.Visible : Visibility.Collapsed; } }
+        public bool PO_IsGrid_Visible { get { return _PO_IsGrid_Visible; } set { if (_PO_IsGrid_Visible != value) { _PO_IsGrid_Visible = value; RaisePropertyChanged("PO_Grid_Visible");} } }
+        
+        public void LoadOverview()
+        {
+
+        }
+
         #endregion
 
         #region Compare Folders
@@ -142,9 +151,9 @@ namespace CDTUserControl.Viewmodels
 
         public string CF_Master_Root { get { return _CF_Master_Root; } set { if (_CF_Master_Root != value) { _CF_Master_Root = value; } } }
         public string CF_Second_Root { get { return _CF_Second_Root; } set { if (_CF_Second_Root != value) { _CF_Second_Root = value; } } }
-        public bool CF_IncExt { get { return _CF_IncExt; } set { if (_CF_IncExt != value) { _CF_IncExt = value; } } }
+        public bool CF_IncExt { get { return _CF_IncExt; } set { if (_CF_IncExt != value) { _CF_IncExt = value; RaisePropertyChanged("CF_Ext_Visible"); } } }
         public string CF_IncExtStr { get { return _CF_IncExtStr; } set { if (_CF_IncExtStr != value) { _CF_IncExtStr = value; } } }
-        public bool CF_ExcText { get { return _CF_ExcText; } set { if (_CF_ExcText != value) { _CF_ExcText = value; } } }
+        public bool CF_ExcText { get { return _CF_ExcText; } set { if (_CF_ExcText != value) { _CF_ExcText = value; RaisePropertyChanged("CF_Text_Visible"); } } }
         public string CF_ExcTextStr { get { return _CF_ExcTextStr; } set { if (_CF_ExcTextStr != value) { _CF_ExcTextStr = value; } } }
         public bool CF_Sub { get { return _CF_Sub; } set { if (_CF_Sub != value) { _CF_Sub = value; } } }
         public Visibility CF_Ext_Visible { get { return _CF_IncExt ? Visibility.Visible : Visibility.Collapsed; } }
@@ -214,8 +223,6 @@ namespace CDTUserControl.Viewmodels
         #endregion
 
     }
-
-
-
+    
 }
 
