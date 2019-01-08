@@ -43,7 +43,7 @@ namespace CDTUserControl.Usercontrols
         public delegate void ReadingFontButtonEventHandler();
         public event ReadingFontButtonEventHandler ReadingFontButtonEvent;
 
-        public delegate void HighlightButtonEventHandler(Boolean p_Value);
+        public delegate void HighlightButtonEventHandler(Boolean p_Value, Color? p_Color);
         public event HighlightButtonEventHandler HighlightButtonEvent;
 
         public delegate void DeleteFontButtonEventHandler();
@@ -285,9 +285,9 @@ namespace CDTUserControl.Usercontrols
             DeleteFontButtonEvent();
         }
 
-        private void Vm_HighlightButtonEvent(Boolean p_Value)
+        private void Vm_HighlightButtonEvent(Boolean p_Value, Color? p_Color)
         {
-            HighlightButtonEvent(p_Value);
+            HighlightButtonEvent(p_Value, p_Color);
         }
 
         private void Vm_ReadingFontButtonEvent()
